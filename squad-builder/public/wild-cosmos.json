@@ -1,0 +1,23 @@
+{
+    "Space Marines": {},
+    "Chaos Space Marines": {},
+    "Astra Militarum": {},
+    "Tyranids": {},
+    "Orks": {},
+    "Necrons": {
+        "units": [
+            { 
+                "name": "Necron Warrior",
+                "cost": 14
+            },
+            {
+                "name": "Flayed One",
+                "cost": 18
+            },
+            {
+                "name": "Immortal",
+                "cost": 14
+            }
+        ]
+    }
+}
