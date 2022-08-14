@@ -10,6 +10,12 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/:faction',
+      name: 'faction',
+      component: () => import('../views/FactionView.vue'),
+      props: true
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
