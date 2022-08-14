@@ -28,3 +28,4 @@ import SupportIcon from './icons/IconSupport.vue'
   </WelcomeItem>
 
 </template>
+ 
