@@ -1,17 +1,23 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router';
+import SelectFaction from './components/SelectFaction.vue'; 
 import { useDataStore } from './stores/data';
+import { Collapse  } from 'bootstrap';
+import { onMounted } from 'vue';
 
 const dataStore = useDataStore();
 dataStore.initialise('/wild-cosmos.json');
 
+onMounted(() => {
+  const el = document.getElementById('navbarCollapse')
+  if (el) new Collapse(el, { toggle: false })
+});
 </script>
 
 <template>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Wild Cosmos - Warband Builder</a>
+      <a class="navbar-brand" href="#">Wild Cosmos<span class="d-none d-sm-inline"> - Warband Builder</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
       >
@@ -44,18 +50,18 @@ dataStore.initialise('/wild-cosmos.json');
   </nav>
 
   <main class="container">
-    <div class="bg-light p-5 rounded">
-      <HelloWorld msg="You did it!" />
+    <div class="bg-light">
+      <SelectFaction msg="You did it!" />
     </div>
 
     <RouterView />
   </main>
 </template>
 
-<style scoped>
+<style>
 /* Show it is fixed to the top */
-body {
+#app {
   min-height: 75rem;
-  padding-top: 4.5rem;
+  margin-top: 4.5rem;
 }
 </style>
