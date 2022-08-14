@@ -5,15 +5,15 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
       path: '/:faction',
       name: 'faction',
       component: () => import('../views/FactionView.vue'),
       props: true
+    },
+    {
+      path: '/',
+      name: 'home',
+      component: HomeView
     },
     {
       path: '/about',

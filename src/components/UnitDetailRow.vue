@@ -16,10 +16,11 @@ const movement = computed(() => {
 
 const rolesAndTypes = computed(() => {
     const { roles, type } = props.unit;
-    return [roles.join(' or '), type].join(', ');
+    return [roles.join(' or '), type].filter((s) => s > '').join(', ');
 })
 
 function formatStat(stat : [number, Array<number>], suffix = '') {
+  if (!stat) return '-';
   if (isArray(stat)) return stat.map((n) => `${n}${suffix}`).join('/');
   return stat;
 }
@@ -28,11 +29,11 @@ function formatStat(stat : [number, Array<number>], suffix = '') {
   <tr>
     <td>{{ unit.name }}</td>
     <td>{{ movement }}</td>
-    <td>{{ unit.bs }}+</td>
-    <td>{{ unit.cs }}+</td>
+    <td>{{ formatStat(unit.bs, '+') }}</td>
+    <td>{{ formatStat(unit.cs, '+') }}</td>
     <td>{{ formatStat(unit.df, '+') }}</td>
     <td>{{ unit.lf }} <sub>{{ unit.si }}</sub></td>
-    <td>{{ unit.ld }}+</td>
+    <td>{{ formatStat(unit.ld, '+') }}</td>
     <td>{{ rolesAndTypes }}</td>
     <td>{{ unit.cost }}</td>
   </tr>

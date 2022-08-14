@@ -49,7 +49,7 @@ onMounted(() => {
     </div>
   </nav>
 
-  <main class="container">
+  <main class="container-fluid">
     <div class="bg-light">
       <SelectFaction msg="You did it!" />
     </div>
