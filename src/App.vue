@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 import { useDataStore } from './stores/data';
-import { Collapse  } from 'bootstrap';
+import { Collapse } from 'bootstrap';
 import { onMounted } from 'vue';
 
 const dataStore = useDataStore();
@@ -18,8 +18,7 @@ onMounted(() => {
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Wild Cosmos<span class="d-none d-sm-inline"> - Warband Builder</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
-      >
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" />
       </button>
       <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -53,7 +52,6 @@ onMounted(() => {
 <style>
 /* Show it is fixed to the top */
 #app {
-  min-height: 75rem;
   margin-top: 4.5rem;
 }
 </style>
