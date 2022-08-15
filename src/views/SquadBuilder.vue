@@ -4,17 +4,16 @@
       <SelectFaction v-model:faction="selectedFaction" />
     </div>
 
-    <SquadMember v-for="(unit) in squadStore.units" :key="unit.id"
-                 :unit="unit"
-    >
-      <button class="btn btn-success" @click="squadStore.addSquadMember">Add</button>
+    <SquadMember v-for="(unit) in squadStore.units" :key="unit.id" :unit="unit">
+      <button class="btn btn-success" @click="squadStore.addSquadMember">
+        Add</button>
       <button class="btn btn-success" @click="squadStore.duplicateSquadMember(unit)">Duplicate</button>
       <button class="btn btn-success" @click="squadStore.removeSquadMember(unit)">Remove</button>
     </SquadMember>
 
-    <div class="row  py-2">
-      <div class="col-4"></div>
-      <div class="col"></div>
+    <div class="row py-2">
+      <div class="col-4">&nbsp;</div>
+      <div class="col">&nbsp;</div>
       <div class="col-1">
         <strong class="text-nowrap">{{ squadStore.totalPoints }} Pts</strong>
       </div>
@@ -50,5 +49,4 @@ const selectedFaction = computed({
 </script>
 
 <style scoped>
-
 </style>

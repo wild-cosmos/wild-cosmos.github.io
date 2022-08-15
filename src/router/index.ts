@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    { path: '/', redirect: '/faction' },
     {
       path: '/faction/:faction',
       name: 'selected faction',
@@ -26,8 +27,8 @@ const router = createRouter({
       props: true
     },
     {
-      path: '/.*/',
-      redirect: '/faction'
+      path: '/*',
+      redirect: '/'
     }
   ]
 })
