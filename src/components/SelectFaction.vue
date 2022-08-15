@@ -1,24 +1,20 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { computed } from 'vue'
 import { useDataStore } from '@/stores/data';
 import orderBy from 'lodash/orderBy';
 
-const router = useRouter();
+const emit = defineEmits(['update:faction'])
+
 const dataStore = useDataStore();
 
-defineProps<{
-  msg: string
+const props = defineProps<{
+  faction: string
 }>()
 
-const selectedFaction = ref(null);
-
-watch(selectedFaction, async (faction) => {
-  if (faction) {
-    router.push({ name: 'faction', params: { faction } });
-  }
-});
-
+const selectedFaction = computed({
+  get() { return props.faction; },
+  set(faction) { emit('update:faction', faction); }
+})
 
 const factions = computed(() => orderBy(dataStore.factions));
 

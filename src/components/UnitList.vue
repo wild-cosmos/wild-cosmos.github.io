@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import UnitDetailRow from '@/components/UnitDetailRow.vue';
+import UnitRow from '@/components/UnitRow.vue';
 import { useDataStore } from '@/stores/data';
 import { computed } from 'vue';
 import orderBy from 'lodash/orderBy';
@@ -31,7 +31,7 @@ const factionUnits = computed(() => {
       </tr>
     </thead>
     <tbody>
-      <UnitDetailRow v-for="(unit) in factionUnits" :key="unit.name" :unit="unit" />
+      <UnitRow v-for="(unit) in factionUnits" :key="unit.name" :unit="unit" />
     </tbody>
   </table>
 </template>

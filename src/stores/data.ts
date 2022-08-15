@@ -65,7 +65,6 @@ export const useDataStore = defineStore({
 
     actions: {
         initialise(dataUrl: string) {
-            console.log(dataUrl)
             api.get<any>(dataUrl)
                 .then((data) => {
                     this.$patch((state) => {
