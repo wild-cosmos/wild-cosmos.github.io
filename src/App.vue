@@ -5,7 +5,7 @@ import { Collapse } from 'bootstrap';
 import { onMounted } from 'vue';
 
 const dataStore = useDataStore();
-dataStore.initialise('/wild-cosmos.json');
+dataStore.initialise('/factions.json');
 
 onMounted(() => {
   const el = document.getElementById('navbarCollapse')

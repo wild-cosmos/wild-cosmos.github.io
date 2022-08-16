@@ -65,26 +65,28 @@ export const useDataStore = defineStore({
 
     actions: {
         initialise(dataUrl: string) {
-            api.get<any>(dataUrl)
-                .then((data) => {
-                    this.$patch((state) => {
-                        Object.keys(data).forEach((faction: string) => {
-                            state.factions.push(faction);
-                            if (data[faction]) {
-                                const { units, weapons, abilities, wargear } = data[faction]
+            return api.get<Array<string>>(dataUrl)
+                .then((factions) => {
+                    factions.forEach((faction) => {
+                        this.factions.push(faction);
+                        api.get(`${faction}.json`)
+                            .then((data) => {
+                                this.$patch((state) => {
+                                    // state.factions.push(faction);
+                                    const { units, weapons, abilities, wargear } = data;
 
-                                if (abilities)
-                                    state.abilities.push(...abilities.map((ability: Ability) => ({ ...ability, faction })));
-                                if (units)
-                                    state.units.push(...units.map((unit: Unit) => ({ ...unit, faction })));
-                                if (weapons)
-                                    state.weapons.push(...weapons.map((weapon: Weapon) => ({ ...weapon, faction })));
-                                if (wargear)
-                                    state.wargear.push(...wargear.map((wargear: Wargear) => ({ ...wargear, faction })));
-                            }
-                        })
-                    })
-                })
+                                    if (abilities)
+                                        state.abilities.push(...abilities.map((ability: Ability) => ({ ...ability, faction })));
+                                    if (units)
+                                        state.units.push(...units.map((unit: Unit) => ({ ...unit, faction })));
+                                    if (weapons)
+                                        state.weapons.push(...weapons.map((weapon: Weapon) => ({ ...weapon, faction })));
+                                    if (wargear)
+                                        state.wargear.push(...wargear.map((wargear: Wargear) => ({ ...wargear, faction })));
+                                })
+                            });
+                    });
+                });
         }
     }
 })
