@@ -16,7 +16,7 @@
             "type": "Infantry",
             "abilities": [
                 "Living Metal",
-                "Reanimation Protocol",
+                "Reanimation Protocols",
                 "Mercurial Tyrant"
             ]
         },
@@ -36,7 +36,7 @@
             "type": "Infantry",
             "abilities": [
                 "Living Metal",
-                "Reanimation Protocol",
+                "Reanimation Protocols",
                 "Autonomous Servant"
             ]
         },
@@ -57,7 +57,7 @@
             "type": "Infantry",
             "abilities": [
                 "Living Metal",
-                "Reanimation Protocol",
+                "Reanimation Protocols",
                 "Autonomous Servant"
             ]
         },
@@ -77,7 +77,7 @@
             "type": "Infantry",
             "abilities": [
                 "Living Metal",
-                "Reanimation Protocol",
+                "Reanimation Protocols",
                 "Autonomous Servant",
                 "Marked for Death",
                 "Hyperspace Oubliette"
@@ -99,7 +99,7 @@
             "type": "Infantry",
             "abilities": [
                 "Living Metal",
-                "Reanimation Protocol",
+                "Reanimation Protocols",
                 "Autonomous Servant",
                 "Eternal Protector"
             ]
@@ -120,7 +120,7 @@
             "type": "Infantry",
             "abilities": [
                 "Living Metal",
-                "Reanimation Protocol",
+                "Reanimation Protocols",
                 "Autonomous Servant",
                 "Fearsome (1)",
                 "Ambush",
@@ -175,6 +175,62 @@
                 "Autonomous Servant",
                 "Hover",
                 "Large"
+            ]
+        },
+        {
+            "name": "Triarch Judicator",
+            "cost": 23,
+            "mv": [ 5, 12 ],
+            "bs": 3,
+            "cs": 3,
+            "df": 4,
+            "lf": 5,
+            "si": 1,
+            "ld": 2,
+            "roles": [
+                "Leader"
+            ],
+            "type": "Infantry",
+            "weapons": [
+                "Rod of Covenant",
+                [ "Voidblade", "Voidblade" ],
+                "Warscythe",
+                "Voidscyther",
+                "Hyperphase Glaive"
+            ],
+            "wargear": {
+            },
+            "abilities": [
+                "Living Metal",
+                "Reanimation Protocols",
+                "Gravity Displacer"
+            ]
+        },
+        {
+            "name": "Triarch Praetorian",
+            "cost": 20,
+            "mv": [ 5, 12 ],
+            "bs": 4,
+            "cs": 4,
+            "df": 4,
+            "lf": 4,
+            "si": 1,
+            "ld": 2,
+            "roles": [
+                "Specialist"
+            ],
+            "type": "Infantry",
+            "weapons": [
+                "Rod of Covenant",
+                [ "Voidblade", "Voidblade" ],
+                [ "Voidblade", "Particle Caster" ]
+            ],
+            "wargear": {
+            },
+            "abilities": [
+                "Living Metal",
+                "Reanimation Protocols",
+                "Gravity Displacer"
             ]
         }
     ],
