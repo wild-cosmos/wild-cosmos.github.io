@@ -25,9 +25,9 @@
       <span class="text-nowrap">{{ unit.totalCost() }} Pts</span>
     </div>
   </div>
-  <div>
-    <small>{{ unit }}</small>
-  </div>
+  <small>
+    <code>{{ unit }}</code>
+  </small>
 </template>
 
 <script setup lang="ts">

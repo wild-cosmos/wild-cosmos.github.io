@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import isArray from 'lodash/isArray';
 
 const props = defineProps<{
-  unit: any 
+  unit: any
 }>();
 
 const movement = computed(() => {
@@ -15,20 +15,20 @@ const movement = computed(() => {
 })
 
 const rolesAndTypes = computed(() => {
-    const { roles, type } = props.unit;
-    return [roles.join(' or '), type].filter((s) => s > '').join(', ');
+  const { roles, type } = props.unit;
+  return [roles.join(' or '), type].filter((s) => s > '').join(', ');
 })
 
-function formatStat(stat : [number, Array<number>], suffix = '') {
+function formatStat(stat: [number, Array<number>], suffix = '') {
   if (!stat) return '-';
   if (isArray(stat)) return stat.map((n) => `${n}${suffix}`).join('/');
-  return stat;
+  return `${stat}${suffix}`;
 }
 </script>
 <template>
   <tr>
     <td>{{ unit.name }}</td>
-    <td>{{ movement }}</td>
+    <td>{{ formatStat(unit.mv, '"') }}</td>
     <td>{{ formatStat(unit.bs, '+') }}</td>
     <td>{{ formatStat(unit.cs, '+') }}</td>
     <td>{{ formatStat(unit.df, '+') }}</td>
