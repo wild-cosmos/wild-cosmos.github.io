@@ -3,10 +3,7 @@
         {
             "name": "Space Marine Sergeant",
             "cost": 16,
-            "mv": [
-                "5\"",
-                "10\""
-            ],
+            "mv": [ 5, 10 ],
             "bs": 3,
             "cs": 3,
             "df": 4,
@@ -25,10 +22,7 @@
         {
             "name": "Tactical Marine",
             "cost": 14,
-            "mv": [
-                "5\"",
-                "10\""
-            ],
+            "mv": [ 5, 10 ],
             "bs": 4,
             "cs": 4,
             "df": 4,
@@ -48,10 +42,7 @@
         {
             "name": "Devastator",
             "cost": 14,
-            "mv": [
-                "5\"",
-                "10\""
-            ],
+            "mv": [ 5, 10 ],
             "bs": 4,
             "cs": 4,
             "df": 4,
@@ -70,10 +61,7 @@
         {
             "name": "Space Marine Biker",
             "cost": 20,
-            "mv": [
-                "8\"",
-                "16\""
-            ],
+            "mv": [ 8, 16 ],
             "bs": 4,
             "cs": 4,
             "df": 4,
@@ -92,9 +80,7 @@
         {
             "name": "Lexicanium",
             "cost": 25,
-            "mv": [
-                "5\"",
-                "10\""
+            "mv": [ 5, 10
             ],
             "bs": 4,
             "cs": 4,
@@ -116,5 +102,5 @@
             ]
         }
     ],
-    "abilities": []
+    "abilities": [ ]
 }
