@@ -61,6 +61,7 @@ export const useDataStore = defineStore({
     getters: {
         getUnitsForFaction: (state) => (faction: string) => state.units.filter((unit: Unit) => unit.faction === faction),
         getWeaponsForUnit: (state) => (unitName: string) => state.weapons.filter(({ usedBy }) => usedBy?.includes(unitName)),
+        getWeapon: ({ weapons }) => (weaponName: string) => weapons.find(({ name }) => name === weaponName),
     },
 
     actions: {

@@ -82,6 +82,12 @@ export const useSquadStore = defineStore({
             if (squadUnit) {
                 Object.assign(squadUnit, { weapon })
             }
+        },
+        setRole(squadId: number, role: string) {
+            const squadUnit = this.units.find(({ id }) => id === squadId);
+            if (squadUnit) {
+                Object.assign(squadUnit, { role })
+            }
         }
     }
 });
