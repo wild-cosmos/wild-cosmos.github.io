@@ -1,8 +1,13 @@
 <template>
   <div class="container-fluid">
-    <div class="bg-light mb-3 p-2">
-      <SelectFaction v-model:faction="selectedFaction" />
+    <div class="bg-light mb-3 p-3">
+      <SelectFaction v-model:faction="selectedFaction" class="mb-3" />
+      <div class="form-floating">
+        <input v-model="squadName" class="form-control">
+        <label for="selectWeapon">Squad Name</label>
+      </div>
     </div>
+
 
     <SquadMember v-for="(unit) in squadStore.units" :key="unit.id" :unit="unit">
       <button class="btn btn-success" @click="squadStore.addSquadMember">
@@ -29,7 +34,7 @@
 import SquadMember from '@/components/SquadMember.vue';
 import SelectFaction from '@/components/SelectFaction.vue';
 
-import { computed, reactive, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
 
@@ -42,6 +47,8 @@ const selectedFaction = computed({
   get() { return squadStore.faction; },
   set(faction) { squadStore.faction = faction; }
 });
+
+const squadName = ref("")
 
 // watch(state.selectedFaction, (faction) => {
 //   if (faction) squadStore.faction = faction;

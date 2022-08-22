@@ -27,6 +27,7 @@ interface Wargear {
     type: string;
     name: string;
     cost: number;
+    usedBy: Array<string>;
 }
 
 interface Weapon extends Wargear {
@@ -60,7 +61,8 @@ export const useDataStore = defineStore({
 
     getters: {
         getUnitsForFaction: (state) => (faction: string) => state.units.filter((unit: Unit) => unit.faction === faction),
-        getWeaponsForUnit: (state) => (unitName: string) => state.weapons.filter(({ usedBy }) => usedBy?.includes(unitName)),
+        getWargearForUnit: ({ wargear }) => (unitName: string) => wargear.filter(({ usedBy }) => usedBy?.includes(unitName)),
+        getWeaponsForUnit: ({ weapons }) => (unitName: string) => weapons.filter(({ usedBy }) => usedBy?.includes(unitName)),
         getWeapon: ({ weapons }) => (weaponName: string) => weapons.find(({ name }) => name === weaponName),
     },
 

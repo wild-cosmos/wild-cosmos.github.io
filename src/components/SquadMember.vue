@@ -30,15 +30,23 @@
         <label for="selectWeapon">Role</label>
       </div>
     </div>
-    <div class="col">
-      <span v-for="(ability) in unit.abilities" :key="ability" class="badge bg-primary me-1">
-        {{ ability }}
-      </span>
-    </div>
     <div class="col-1">
       <span class="text-nowrap">
         {{ unit.totalCost() }} Pts
       </span>
+    </div>
+    <div class="col-5">
+      <span v-for="(ability) in unit.abilities" :key="ability" class="badge bg-primary me-1">
+        {{ ability }}
+      </span>
+    </div>
+    <div class="col-5">
+      <div v-for="{ value, text } in wargearOptions" :key="value" class="form-check">
+        <input type="checkbox" :value="value" class="form-check-input">
+        <label class="form-check-label" for="flexCheckDefault">
+          {{ text }}
+        </label>
+      </div>
     </div>
   </div>
   <small>
@@ -61,6 +69,8 @@ const props = defineProps<{
 
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
+
+const toOption = ({ name, cost }) => ({ value: name, text: `${name} (${cost})` });
 
 // const state = reactive({ selectedUnit: null });
 
@@ -98,6 +108,14 @@ const weaponOptions = computed(() => {
   const options = weaponsForUnit.value
     .map(({ name, cost }: { name: string, cost: number }) => ({ value: name, text: `${name} (${cost})` }))
   return orderBy(options, ['text']);
+})
+
+const wargearForUnit = computed(() => {
+  return dataStore.getWargearForUnit(props.unit.name);
+})
+
+const wargearOptions = computed(() => {
+  return wargearForUnit.value.map(toOption);
 })
 
 const rolesForUnit = computed(() => {
