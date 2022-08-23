@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { mande } from 'mande'
+import isArray from 'lodash/isArray'
 
 interface Unit {
     faction: string;
@@ -63,7 +64,30 @@ export const useDataStore = defineStore({
         getUnitsForFaction: (state) => (faction: string) => state.units.filter((unit: Unit) => unit.faction === faction),
         getWargear: ({ wargear }) => (wargearName: string) => wargear.find(({ name }) => name === wargearName),
         getWargearForUnit: ({ wargear }) => (unitName: string) => wargear.filter(({ usedBy }) => usedBy?.includes(unitName)),
-        getWeaponsForUnit: ({ weapons }) => (unitName: string) => weapons.filter(({ usedBy }) => usedBy?.includes(unitName)),
+        getWeaponsForUnit: ({ weapons, getWeapon }) => (unit: Unit) => {
+            debugger;
+            if (unit.weapons) {
+                return unit.weapons.map((w: string) => {
+                  if (isArray(w)) {
+                    const { name, cost } = w.map((name) => getWeapon(name) || this.getWargear(name))
+                      .filter((w) => !!w)
+                      .reduce((m, { name, cost }) => {
+                        m.name.push(name)
+                        m.cost.push(cost);
+                        return m
+                      }, { name: [] as Array<string>, cost: [] as Array<number> })
+                    return {
+                      name: name.join('/'),
+                      cost: cost.reduce((sum: number, v: number) => sum + v, 0)
+                    };
+                  } else {
+                    return getWeapon(w);
+                  }
+                })
+              }
+                        
+            return weapons.filter(({ usedBy }) => usedBy?.includes(unit.name))
+        },
         getWeapon: ({ weapons }) => (weaponName: string) => weapons.find(({ name }) => name === weaponName),
         allWargearForUnit: ({ wargear, weapons }) => (unitName: string) => [
             ...weapons.filter(({ usedBy }) => usedBy?.includes(unitName)),

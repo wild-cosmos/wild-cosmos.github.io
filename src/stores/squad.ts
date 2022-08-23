@@ -50,7 +50,7 @@ export const useSquadStore = defineStore({
         id: 0,
         units: [] as Array<SquadMember>,
     }),
-
+    
     getters: {
         totalPoints: ({ units }) => units.reduce((total, unit) => total + unit.totalCost(), 0)
     },
@@ -62,8 +62,7 @@ export const useSquadStore = defineStore({
             const m = new SquadMember()
             Object.assign(m, { ...unit })
 
-            const availableWeapons = dataStore.getWeaponsForUnit(unit.name);
-
+            const availableWeapons = dataStore.getWeaponsForUnit(unit);
             if (availableWeapons.length > 0) {
                 const [defaultWeapon] = orderBy(availableWeapons, ['cost']);
                 Object.assign(m, { weapon: defaultWeapon })
