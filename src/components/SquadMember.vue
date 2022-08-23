@@ -49,7 +49,7 @@
   </div>
 
 
-  <small class="d-print-none">
+  <small v-if="devMode" class="d-print-none">
     <code>{{ unit }}</code>
   </small>
 </template>
@@ -63,6 +63,8 @@ import { computed, ref, reactive } from "vue";
 
 import orderBy from 'lodash/orderBy'
 import isArray from 'lodash/isArray'
+
+const devMode = import.meta.env.DEV;
 
 const emit = defineEmits(['update:unit']);
 
