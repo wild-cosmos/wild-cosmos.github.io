@@ -1,16 +1,6 @@
 <template>
   <UnitDetails :unit="unit" />
   <div class="d-print-none row py-2 border-top border-bottom">
-    <div v-if="false" class="col-4 col-md-3">
-      <div class="form-floating">
-        <select id="selectUnit" v-model="selectedUnit" class="form-control">
-          <option v-for="({ value, text }) in availableUnits" :key="value" :value="value">
-            {{ text }}
-          </option>
-        </select>
-        <label for="selectUnit">Unit</label>
-      </div>
-    </div>
     <div v-if="unit" class="col-3">
       <div class="form-floating">
         <select id="selectWeapon" v-model="selectedWeapon" class="form-control">
@@ -31,13 +21,6 @@
         <label for="selectWeapon">Role</label>
       </div>
     </div>
-    <div v-if="false" class="col-1">
-      <span class="text-nowrap">
-        {{ unit.totalCost() }} Pts
-      </span>
-    </div>
-    <div class="col-5">
-    </div>
     <div v-if="false" class="col-5">
       <div v-for="{ value, text } in wargearOptions" :key="value" class="form-check">
         <input type="checkbox" :value="value" class="form-check-input">
@@ -49,7 +32,7 @@
   </div>
 
 
-  <small v-if="devMode" class="d-print-none">
+  <small v-if="false" class="d-print-none">
     <code>{{ unit }}</code>
   </small>
 </template>

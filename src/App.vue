@@ -7,6 +7,8 @@ import { onMounted } from 'vue';
 const dataStore = useDataStore();
 dataStore.initialise('/factions.json');
 
+const appEnv = import.meta.env.MODE;
+
 onMounted(() => {
   const el = document.getElementById('navbarCollapse')
   if (el) new Collapse(el, { toggle: false })
@@ -44,7 +46,7 @@ onMounted(() => {
     </div>
   </nav>
 
-  <main class="container-fluid">
+  <main class="container-fluid" :class="appEnv">
     <RouterView />
   </main>
 </template>
