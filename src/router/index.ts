@@ -1,14 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', redirect: '/faction' },
     {
-      path: '/faction/:faction',
-      name: 'selected faction',
-      component: () => import('../views/FactionListView.vue'),
-      props: true
+      path: '/',
+      redirect: '/builder'
     },
     {
       path: '/faction',
@@ -21,14 +18,8 @@ const router = createRouter({
       component: () => import('../views/SquadBuilder.vue'),
     },
     {
-      path: '/builder/:faction',
-      name: 'builder',
-      component: () => import('../views/SquadBuilder.vue'),
-      props: true
-    },
-    {
-      path: '/*',
-      redirect: '/'
+      path: '/:pathMatch(.*)*',
+      redirect: '/builder'
     }
   ]
 })
