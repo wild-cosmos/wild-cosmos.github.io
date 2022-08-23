@@ -64,12 +64,11 @@ export const useDataStore = defineStore({
         getUnitsForFaction: (state) => (faction: string) => state.units.filter((unit: Unit) => unit.faction === faction),
         getWargear: ({ wargear }) => (wargearName: string) => wargear.find(({ name }) => name === wargearName),
         getWargearForUnit: ({ wargear }) => (unitName: string) => wargear.filter(({ usedBy }) => usedBy?.includes(unitName)),
-        getWeaponsForUnit: ({ weapons, getWeapon }) => (unit: Unit) => {
-            debugger;
+        getWeaponsForUnit: ({ weapons, getWeapon, getWargear }) => (unit: Unit) => {
             if (unit.weapons) {
                 return unit.weapons.map((w: string) => {
                   if (isArray(w)) {
-                    const { name, cost } = w.map((name) => getWeapon(name) || this.getWargear(name))
+                    const { name, cost } = w.map((name) => getWeapon(name) || getWargear(name))
                       .filter((w) => !!w)
                       .reduce((m, { name, cost }) => {
                         m.name.push(name)
