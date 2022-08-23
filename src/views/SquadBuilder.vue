@@ -1,39 +1,42 @@
 <template>
   <div class="container-fluid">
-    <div class="bg-light mb-3 p-3">
-      <SelectFaction v-model:faction="selectedFaction" class="mb-3" />
-      <div class="form-floating">
-        <input v-model="squadName" class="form-control">
-        <label for="selectWeapon">Squad Name</label>
-      </div>
+    <div class="form-floating">
+      <input v-model="squadName" class="form-control">
+      <label for="selectWeapon">Squad Name</label>
     </div>
-
 
     <SquadMember v-for="(unit) in squadStore.units" :key="unit.id" :unit="unit">
-      <button class="btn btn-success" @click="squadStore.duplicateSquadMember(unit)">Duplicate</button>
-      <button class="btn btn-danger" @click="squadStore.removeSquadMember(unit)">Remove</button>
+      <button class="btn btn-success" @click="squadStore.duplicateSquadMember(unit)">
+        Duplicate
+      </button>
+      <button class="btn btn-danger" @click="squadStore.removeSquadMember(unit)">
+        Remove
+      </button>
     </SquadMember>
 
-    <div class="row py-2">
-      <div class="col-4">&nbsp;</div>
-      <div class="col">&nbsp;</div>
-      <div class="col-1">
+    <div class="d-flex justify-content-end" v-if="squadStore.units.length">
         <strong class="text-nowrap">Total {{ squadStore.totalPoints }} Pts</strong>
-      </div>
     </div>
 
-    <div class="d-print-none bg-light my-3 p-2">
-      <div class="form-floating">
-        <select id="selectUnit" v-model="selectedUnit" class="form-control">
-          <option v-for="({ value, text }) in availableUnitOptions" :key="value" :value="value">
-            {{ text }}
-          </option>
-        </select>
-        <label for="selectUnit">Unit</label>
+    <div class="d-print-none bg-light my-3 p-2 row">
+      <div class="col-12 col-sm-6 col-md-4">
+        <SelectFaction v-model:faction="selectedFaction" class="mb-3 mb-sm-0" />
+      </div>      
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="form-floating">
+          <select id="selectUnit" v-model="selectedUnit" class="form-control">
+            <option v-for="({ value, text }) in availableUnitOptions" :key="value" :value="value">
+              {{ text }}
+            </option>
+          </select>
+          <label for="selectUnit">Unit</label>
+        </div>
+      </div>      
+      <div class="col">
+        <button class="mt-2 btn btn-success text-nowrap" :disabled="!selectedUnit" @click="onAddSquadMember">
+          Add Unit to Roster
+        </button>
       </div>
-      <button class="mt-2 btn btn-success" :disabled="!selectedUnit" @click="onAddSquadMember">
-        Add Unit to Roster
-      </button>
     </div>
   </div>
 </template>

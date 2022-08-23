@@ -60,7 +60,7 @@ export const useSquadStore = defineStore({
             const dataStore = useDataStore();
 
             const m = new SquadMember()
-            Object.assign(m, { id: this.units.length, ...unit })
+            Object.assign(m, { ...unit })
 
             const availableWeapons = dataStore.getWeaponsForUnit(unit.name);
 

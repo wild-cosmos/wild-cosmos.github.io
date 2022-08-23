@@ -1,5 +1,12 @@
 <template>
-  <UnitDetails :unit="unit" />
+  <UnitDetails :unit="unit">
+    <template #actions>
+      <button class="btn btn-sm btn-danger ml-auto"
+      @click="onClickRemove">
+        Remove
+      </button>
+    </template>
+  </UnitDetails>
   <div class="d-print-none row py-2 border-top border-bottom">
     <div v-if="unit" class="col-3">
       <div class="form-floating">
@@ -42,7 +49,7 @@ import UnitDetails from './UnitDetails.vue'
 
 import { useDataStore } from "@/stores/data";
 import { useSquadStore } from "@/stores/squad";
-import { computed, ref, reactive } from "vue";
+import { computed } from "vue";
 
 import orderBy from 'lodash/orderBy'
 import isArray from 'lodash/isArray'
@@ -149,6 +156,12 @@ const selectedRole = computed({
     squadStore.setRole(props.unit.id, role);
   }
 })
+
+function onClickRemove() {
+  if (props.unit) {
+    squadStore.removeSquadMember(props.unit)
+  }
+}
 </script>
 
 <style scoped>

@@ -1,78 +1,80 @@
 <template>
+  <div class="d-flex align-items-center justify-content-between">
     <h3 class="mt-3">
-        {{ unit.name }}
+      {{ unit.name }}
     </h3>
-    <table class="table table-sm">
-        <thead>
-            <tr>
-                <th>Mv</th>
-                <th>BS</th>
-                <th>CS</th>
-                <th>Df</th>
-                <th>Lf</th>
-                <th>Ld</th>
-                <th>Role</th>
-                <th>Type</th>
-                <th>Pts</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="stat">
-                    {{ formatStat(unit.mv, '"') }}
-                </td>
-                <td class="stat">
-                    {{ formatStat(unit.bs, "+") }}
-                </td>
-                <td class="stat">
-                    {{ formatStat(unit.cs, "+") }}
-                </td>
-                <td class="stat">
-                    {{ formatStat(unit.df, "+") }}
-                </td>
-                <td class="stat">
-                    {{ formatStat(unit.lf, "+") }}
-                </td>
-                <td class="stat">
-                    {{ formatStat(unit.ld, "+") }}
-                </td>
-                <td>{{ unit.role }}</td>
-                <td>{{ unit.type }}</td>
-                <td>{{ unit.totalCost() }} Pts</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm">
-        <tbody>
-            <tr>
-                <th>Wargear</th>
-                <td>
-                    <span v-for="(wargear) in allWargear" :key="wargear" class="d-print-none badge bg-primary me-1">
-                        {{ wargear }}
-                    </span>
-                    <span v-for="(wargear) in allWargear" :key="wargear" class="d-none d-print-inline me-1">
-                        {{ wargear }}
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <th>Abilities</th>
-                <td>
-                    <span v-for="(ability) in unit.abilities" :key="ability" class="d-print-none badge bg-primary me-1">
-                        {{ ability }}
-                    </span>
-                    <span v-for="(ability) in unit.abilities" :key="ability" class="d-none d-print-inline me-1">
-                        {{ ability }}
-                    </span>
-
-                </td>
-            </tr>
-            <tr>
-                <th>Faction</th>
-                <td>{{ unit.faction }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <slot name="actions" />
+  </div>
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th>Mv</th>
+        <th>BS</th>
+        <th>CS</th>
+        <th>Df</th>
+        <th>Lf</th>
+        <th>Ld</th>
+        <th>Role</th>
+        <th>Type</th>
+        <th>Pts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="stat">
+          {{ formatStat(unit.mv, '"') }}
+        </td>
+        <td class="stat">
+          {{ formatStat(unit.bs, "+") }}
+        </td>
+        <td class="stat">
+          {{ formatStat(unit.cs, "+") }}
+        </td>
+        <td class="stat">
+          {{ formatStat(unit.df, "+") }}
+        </td>
+        <td class="stat">
+          {{ formatStat(unit.lf, "+") }}
+        </td>
+        <td class="stat">
+          {{ formatStat(unit.ld, "+") }}
+        </td>
+        <td>{{ unit.role }}</td>
+        <td>{{ unit.type }}</td>
+        <td>{{ unit.totalCost() }} Pts</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-sm">
+    <tbody>
+      <tr>
+        <th>Wargear</th>
+        <td>
+          <span v-for="(wargear) in allWargear" :key="wargear" class="d-print-none badge bg-primary me-1">
+            {{ wargear }}
+          </span>
+          <span v-for="(wargear) in allWargear" :key="wargear" class="d-none d-print-inline me-1">
+            {{ wargear }}
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th>Abilities</th>
+        <td>
+          <span v-for="(ability) in unit.abilities" :key="ability" class="d-print-none badge bg-primary me-1">
+            {{ ability }}
+          </span>
+          <span v-for="(ability) in unit.abilities" :key="ability" class="d-none d-print-inline me-1">
+            {{ ability }}
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th>Faction</th>
+        <td>{{ unit.faction }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script setup lang="ts">
