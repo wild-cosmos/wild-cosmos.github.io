@@ -14,8 +14,11 @@
       </button>
     </SquadMember>
 
-    <div class="d-flex justify-content-end" v-if="squadStore.units.length">
-        <strong class="text-nowrap">Total {{ squadStore.totalPoints }} Pts</strong>
+    <div v-if="squadStore.totalPoints > maxPoints" class="alert alert-danger my-3">
+      Your squad value is greater than {{ maxPoints }}
+    </div>
+    <div v-if="squadStore.units.length" class="d-flex justify-content-end">
+      <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{ squadStore.totalPoints }} Pts</strong>
     </div>
 
     <div class="d-print-none bg-light my-3 p-2 row">
@@ -63,6 +66,7 @@ const selectedFaction = computed({
 
 const squadName = ref("")
 const selectedUnit = ref(null)
+const maxPoints = 100;
 
 const availableUnits = computed(() => {
   return dataStore.getUnitsForFaction(squadStore.faction);
