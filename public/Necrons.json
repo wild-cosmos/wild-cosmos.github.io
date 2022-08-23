@@ -163,9 +163,8 @@
             ],
             "type": null,
             "weapons": [
-                "Fabricator Claws",
-                [ "Particle Beamer", "Particle Beamer" ],
-                "Nebuloscope"
+                [ "Fabricator Claws", "Particle Beamer", "Particle Beamer" ],
+                [ "Fabricator Claws", "Nebuloscope" ]
             ],
             "wargear": {
                 "Ossified Necrodermis": 2
@@ -353,7 +352,7 @@
         },
         {
             "name": "Particle Beamer",
-            "cost": 0,
+            "cost": 4,
             "range": 12,
             "melee": false,
             "a": 2,
@@ -480,6 +479,16 @@
             "usedBy": [
                 "Necron Warrior",
                 "Necron Immortal"
+            ],
+            "Gauss": [
+                "Atomic Decoupler",
+                "Molecular Vaporiser",
+                "Nanoparticulate Disassembler"
+            ],
+            "Tesla": [
+                "Arcshock Projector",
+                "Electromagnetic Overcapacitor",
+                "Fulmination Node"
             ]
         },
         {
@@ -494,6 +503,13 @@
             "cost": 1,
             "usedBy": [
                 "Flayed One"
+            ]
+        },
+        {
+            "name": "Nebuloscope",
+            "cost": 3,
+            "usedBy": [
+                "Canoptek Spyder"
             ]
         }
     ]

@@ -1,6 +1,7 @@
 <template>
-  <div class="row py-2 border-top border-bottom">
-    <div class="col-4 col-md-3">
+  <UnitDetails :unit="unit" />
+  <div class="d-print-none row py-2 border-top border-bottom">
+    <div v-if="false" class="col-4 col-md-3">
       <div class="form-floating">
         <select id="selectUnit" v-model="selectedUnit" class="form-control">
           <option v-for="({ value, text }) in availableUnits" :key="value" :value="value">
@@ -30,17 +31,14 @@
         <label for="selectWeapon">Role</label>
       </div>
     </div>
-    <div class="col-1">
+    <div v-if="false" class="col-1">
       <span class="text-nowrap">
         {{ unit.totalCost() }} Pts
       </span>
     </div>
     <div class="col-5">
-      <span v-for="(ability) in unit.abilities" :key="ability" class="badge bg-primary me-1">
-        {{ ability }}
-      </span>
     </div>
-    <div class="col-5">
+    <div v-if="false" class="col-5">
       <div v-for="{ value, text } in wargearOptions" :key="value" class="form-check">
         <input type="checkbox" :value="value" class="form-check-input">
         <label class="form-check-label" for="flexCheckDefault">
@@ -49,16 +47,21 @@
       </div>
     </div>
   </div>
-  <small>
+
+
+  <small class="d-print-none">
     <code>{{ unit }}</code>
   </small>
 </template>
 
 <script setup lang="ts">
-import orderBy from 'lodash/orderBy'
+import UnitDetails from './UnitDetails.vue'
+
 import { useDataStore } from "@/stores/data";
 import { useSquadStore } from "@/stores/squad";
 import { computed, ref, reactive } from "vue";
+
+import orderBy from 'lodash/orderBy'
 import isArray from 'lodash/isArray'
 
 const emit = defineEmits(['update:unit']);
@@ -84,7 +87,7 @@ const weaponsForUnit = computed(() => {
   if (props.unit.weapons) {
     return props.unit.weapons.map((w: string) => {
       if (isArray(w)) {
-        const { name, cost } = w.map((name) => dataStore.getWeapon(name))
+        const { name, cost } = w.map((name) => dataStore.getWeapon(name) || dataStore.getWargear(name))
           .filter((w) => !!w)
           .reduce((m, { name, cost }) => {
             m.name.push(name)
@@ -111,7 +114,11 @@ const weaponOptions = computed(() => {
 })
 
 const wargearForUnit = computed(() => {
-  return dataStore.getWargearForUnit(props.unit.name);
+  const { wargear } = props.unit;
+  if (wargear) {
+    return Object.entries(wargear).map(([name, cost]) => ({ name, cost }))
+  }
+  return [];
 })
 
 const wargearOptions = computed(() => {

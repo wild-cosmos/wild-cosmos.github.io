@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { mande } from 'mande'
+import { useDataStore } from './data'
+import orderBy from 'lodash/orderBy'
 
 interface SquadMember {
     id: number;
@@ -55,8 +56,21 @@ export const useSquadStore = defineStore({
     },
 
     actions: {
-        addSquadMember() {
-            this.units.push(new SquadMember())
+        addSquadMember(unit: Unit) {
+            const dataStore = useDataStore();
+
+            const m = new SquadMember()
+            Object.assign(m, { id: this.units.length, ...unit })
+
+            const availableWeapons = dataStore.getWeaponsForUnit(unit.name);
+
+            if (availableWeapons.length > 0) {
+                const [defaultWeapon] = orderBy(availableWeapons, ['cost']);
+                Object.assign(m, { weapon: defaultWeapon })
+            }
+            this.units.push(m)
+
+            return m;
         },
         duplicateSquadMember(unit: SquadMember) {
             const newMember = new SquadMember();

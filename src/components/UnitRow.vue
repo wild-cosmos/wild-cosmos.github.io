@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import isArray from 'lodash/isArray';
+import formatStat from '@/utils/formatStat'
 
 const props = defineProps<{
   unit: any
@@ -19,12 +20,14 @@ const rolesAndTypes = computed(() => {
   return [roles.join(' or '), type].filter((s) => s > '').join(', ');
 })
 
-function formatStat(stat: [number, Array<number>], suffix = '') {
-  if (!stat) return '-';
-  if (isArray(stat)) return stat.map((n) => `${n}${suffix}`).join('/');
-  return `${stat}${suffix}`;
-}
+
+// function formatStat(stat: [number, Array<number>], suffix = '') {
+//   if (!stat) return '-';
+//   if (isArray(stat)) return stat.map((n) => `${n}${suffix}`).join('/');
+//   return `${stat}${suffix}`;
+// }
 </script>
+
 <template>
   <tr>
     <td>{{ unit.name }}</td>

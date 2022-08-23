@@ -10,22 +10,30 @@
 
 
     <SquadMember v-for="(unit) in squadStore.units" :key="unit.id" :unit="unit">
-      <button class="btn btn-success" @click="squadStore.addSquadMember">
-        Add</button>
       <button class="btn btn-success" @click="squadStore.duplicateSquadMember(unit)">Duplicate</button>
-      <button class="btn btn-success" @click="squadStore.removeSquadMember(unit)">Remove</button>
+      <button class="btn btn-danger" @click="squadStore.removeSquadMember(unit)">Remove</button>
     </SquadMember>
 
     <div class="row py-2">
       <div class="col-4">&nbsp;</div>
       <div class="col">&nbsp;</div>
       <div class="col-1">
-        <strong class="text-nowrap">{{ squadStore.totalPoints }} Pts</strong>
+        <strong class="text-nowrap">Total {{ squadStore.totalPoints }} Pts</strong>
       </div>
     </div>
 
-    <div class="bg-light my-3 p-2">
-      <button class="btn btn-success" @click="squadStore.addSquadMember">Add Unit</button>
+    <div class="d-print-none bg-light my-3 p-2">
+      <div class="form-floating">
+        <select id="selectUnit" v-model="selectedUnit" class="form-control">
+          <option v-for="({ value, text }) in availableUnitOptions" :key="value" :value="value">
+            {{ text }}
+          </option>
+        </select>
+        <label for="selectUnit">Unit</label>
+      </div>
+      <button class="mt-2 btn btn-success" :disabled="!selectedUnit" @click="onAddSquadMember">
+        Add Unit to Roster
+      </button>
     </div>
   </div>
 </template>
@@ -34,9 +42,11 @@
 import SquadMember from '@/components/SquadMember.vue';
 import SelectFaction from '@/components/SelectFaction.vue';
 
-import { computed, ref, watch } from 'vue';
+import { computed, ref } from 'vue';
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
+
+import orderBy from 'lodash/orderBy'
 
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
@@ -49,6 +59,21 @@ const selectedFaction = computed({
 });
 
 const squadName = ref("")
+const selectedUnit = ref(null)
+
+const availableUnits = computed(() => {
+  return dataStore.getUnitsForFaction(squadStore.faction);
+})
+
+const availableUnitOptions = computed(() => {
+  const options = availableUnits.value.map(({ name, cost }) => ({ value: name, text: `${name} (${cost})` }))
+  return orderBy(options, ['text']);
+})
+
+function onAddSquadMember() {
+  const unit = availableUnits.value.find(({ name }) => name === selectedUnit.value)
+  if (unit) squadStore.addSquadMember(unit);
+}
 
 // watch(state.selectedFaction, (faction) => {
 //   if (faction) squadStore.faction = faction;
