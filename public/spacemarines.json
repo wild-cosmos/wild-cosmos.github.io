@@ -10,14 +10,13 @@
             "lf": 7,
             "si": 2,
             "ld": 3,
-            "roles": [
-                "Leader"
-            ],
-            "type": "Infantry",
+            "roles": ["Leader"],
+            "type": ["Infantry"],
             "abilities": [
                 "And They Shall Know No Fear",
                 "Transhuman Physiology"
-            ]
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
         },
         {
             "name": "Tactical Marine",
@@ -29,15 +28,13 @@
             "lf": 6,
             "si": 2,
             "ld": 4,
-            "roles": [
-                "Core",
-                "Specialist"
-            ],
-            "type": "Infantry",
+            "roles": ["Core", "Specialist"],
+            "type": ["Infantry"],
             "abilities": [
                 "And They Shall Know No Fear",
                 "Transhuman Physiology"
-            ]
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
         },
         {
             "name": "Devastator",
@@ -49,14 +46,13 @@
             "lf": 6,
             "si": 2,
             "ld": 4,
-            "roles": [
-                "Specialist"
-            ],
-            "type": "Infantry",
+            "roles": ["Specialist"],
+            "type": ["Infantry"],
             "abilities": [
                 "And They Shall Know No Fear",
                 "Transhuman Physiology"
-            ]
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
         },
         {
             "name": "Space Marine Biker",
@@ -68,38 +64,148 @@
             "lf": 8,
             "si": 2,
             "ld": 4,
-            "roles": [
-                "Specialist"
-            ],
-            "type": "Biker",
+            "roles": ["Specialist"],
+            "type": ["Biker"],
             "abilities": [
                 "And They Shall Know No Fear",
                 "Transhuman Physiology"
-            ]
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
         },
         {
             "name": "Lexicanium",
             "cost": 25,
-            "mv": [ 5, 10
-            ],
+            "mv": [ 5, 10 ],
             "bs": 4,
             "cs": 4,
-            "df": [
-                4,
-                7
-            ],
+            "df": [4, 7 ],
             "lf": 6,
             "si": 2,
             "ld": 4,
-            "roles": [
-                "Specialist"
-            ],
-            "type": "Infantry",
+            "roles": ["Specialist"],
+            "type": ["Infantry"],
+            "limited": 1,
             "abilities": [
                 "And They Shall Know No Fear",
                 "Transhuman Physiology",
-                "Psyker"
-            ]
+                "Psyker (Librarius Discipline)"
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
+        },
+        {
+            "name": "Scout Sergeant",
+            "cost": 16,
+            "mv": [ 5, 10 ],
+            "bs": 3,
+            "cs": 3,
+            "df": 5,
+            "lf": 7,
+            "si": 2,
+            "ld": 3,
+            "roles": ["Leader"],
+            "type": ["Infantry", "Scout"],
+            "abilities": [
+                "And They Shall Know No Fear",
+                "Transhuman Physiology",
+                "Infiltrate"
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
+        },
+        {
+            "name": "Space Marine Scout",
+            "cost": 14,
+            "mv": [ 5, 10 ],
+            "bs": 4,
+            "cs": 4,
+            "df": 5,
+            "lf": 6,
+            "si": 2,
+            "ld": 4,
+            "roles": ["Core", "Specialist"],
+            "type": ["Infantry", "Scout"],
+            "abilities": [
+                "And They Shall Know No Fear",
+                "Transhuman Physiology",
+                "Infiltrate"
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
+        },
+        {
+            "name": "Scout Lexicanium",
+            "cost": 25,
+            "mv": [ 5, 10 ],
+            "bs": 4,
+            "cs": 4,
+            "df": [5, 7],
+            "lf": 6,
+            "si": 2,
+            "ld": 4,
+            "roles": ["Specialist"],
+            "type": ["Infantry", "Scout"],
+            "limited": 1,
+            "abilities": [
+                "And They Shall Know No Fear",
+                "Transhuman Physiology",
+                "Infiltrate",
+                "Psyker (Librarius Discipline)"
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
+        },
+        {
+            "name": "Terminator Sergeant",
+            "cost": 25,
+            "mv": [ 4, 8 ],
+            "bs": 3,
+            "cs": 3,
+            "df": [2, 7],
+            "lf": 8,
+            "si": 2,
+            "ld": 3,
+            "roles": ["Leader"],
+            "type": ["Infantry", "Terminator"],
+            "abilities": [
+                "And They Shall Know No Fear",
+                "Transhuman Physiology"
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
+        },
+        {
+            "name": "Terminator",
+            "cost": 25,
+            "mv": [ 4, 8 ],
+            "bs": 3,
+            "cs": 3,
+            "df": [2, 7],
+            "lf": 8,
+            "si": 2,
+            "ld": 3,
+            "roles": ["Specialist"],
+            "type": ["Infantry", "Terminator"],
+            "abilities": [
+                "And They Shall Know No Fear",
+                "Transhuman Physiology"
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
+        },
+        {
+            "name": "Terminator Lexicanium",
+            "cost": 35,
+            "mv": [ 4, 8 ],
+            "bs": 3,
+            "cs": 3,
+            "df": [2, 7],
+            "lf": 8,
+            "si": 2,
+            "ld": 3,
+            "roles": ["Specialist"],
+            "type": ["Infantry", "Terminator"],
+            "limited": 1,
+            "abilities": [
+                "And They Shall Know No Fear",
+                "Transhuman Physiology",
+                "Psyker (Librarius Discipline)"
+            ],
+            "faction": ["Imperium", "Adeptus Astartes"]
         }
     ],
     "abilities": [ ]
