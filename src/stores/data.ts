@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { mande } from 'mande'
 import isArray from 'lodash/isArray'
+import isObject from 'lodash/isObject';
 
 interface Unit {
     faction: string;
@@ -99,21 +100,23 @@ export const useDataStore = defineStore({
             return api.get<Array<string>>(dataUrl)
                 .then((factions) => {
                     factions.forEach((faction) => {
-                        this.factions.push(faction);
-                        api.get(`${faction}.json`)
+                        const { factionName, dataFile } = parseFaction(faction);
+
+                        this.factions.push(factionName);
+                        api.get(dataFile)
                             .then((data) => {
                                 this.$patch((state) => {
                                     // state.factions.push(faction);
                                     const { units, weapons, abilities, wargear } = data;
 
                                     if (abilities)
-                                        state.abilities.push(...abilities.map((ability: Ability) => ({ ...ability, faction })));
+                                        state.abilities.push(...abilities.map((ability: Ability) => ({ ...ability, faction: factionName })));
                                     if (units)
-                                        state.units.push(...units.map((unit: Unit) => ({ ...unit, faction })));
+                                        state.units.push(...units.map((unit: Unit) => ({ ...unit, faction: factionName })));
                                     if (weapons)
-                                        state.weapons.push(...weapons.map((weapon: Weapon) => ({ ...weapon, faction })));
+                                        state.weapons.push(...weapons.map((weapon: Weapon) => ({ ...weapon, faction: factionName })));
                                     if (wargear)
-                                        state.wargear.push(...wargear.map((wargear: Wargear) => ({ ...wargear, faction })));
+                                        state.wargear.push(...wargear.map((wargear: Wargear) => ({ ...wargear, faction: factionName })));
                                 })
                             });
                     });
@@ -121,4 +124,18 @@ export const useDataStore = defineStore({
         }
     }
 })
+
+function parseFaction(faction: any): { factionName: string; dataFile: string; } {
+    if (isObject(faction)) {
+        const [factionName] = Object.keys(faction);
+        const dataFile = faction[factionName];
+
+        return { factionName, dataFile }
+    }
+
+    return {
+        factionName: faction,
+        dataFile: `${faction}.json`
+    }
+}
 

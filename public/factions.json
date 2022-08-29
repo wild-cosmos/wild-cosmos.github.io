@@ -1,4 +1,5 @@
 [
-    "Imperium - Adeptus Astartes",
-    "Necrons"
+    { "Imperium - Adeptus Astartes": "spacemarines.json" },
+    "Necrons",
+    { "T'au Empire": "tau_empire.json" }
 ]
