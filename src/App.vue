@@ -46,7 +46,7 @@ onMounted(() => {
     </div>
   </nav>
 
-  <main class="container-fluid" :class="appEnv">
+  <main class="container-lg" :class="appEnv">
     <RouterView />
   </main>
 </template>
