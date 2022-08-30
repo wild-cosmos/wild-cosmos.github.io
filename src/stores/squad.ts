@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import { useDataStore } from './data'
 import orderBy from 'lodash/orderBy'
+import { useLocalStorage } from "@vueuse/core";
+import totalCost from "@/utils/totalCost";
 
 interface SquadMember {
     id: number;
@@ -36,23 +38,19 @@ class SquadMember implements SquadMember {
 
         return copy;
     }
-
-    totalCost(): number {
-        return this.cost + (this.weapon?.cost ?? 0)
-    }
 }
 
 export const useSquadStore = defineStore({
     id: 'squad',
 
-    state: (): State => ({
+    state: () => useLocalStorage("wild-cosmos", {
         faction: 'None',
         id: 0,
-        units: [] as Array<SquadMember>,
+        units: [],
     }),
     
     getters: {
-        totalPoints: ({ units }) => units.reduce((total, unit) => total + unit.totalCost(), 0)
+        totalPoints: ({ units }) => units.reduce((total, unit) => total + totalCost(unit), 0)
     },
 
     actions: {

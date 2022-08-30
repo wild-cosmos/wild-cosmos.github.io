@@ -40,8 +40,8 @@
           {{ formatStat(unit.ld, "+") }}
         </td>
         <td>{{ unit.role }}</td>
-        <td>{{ formatList(unit.type) }}</td>
-        <td>{{ unit.totalCost() }} Pts</td>
+        <td>{{ formatList(unitType) }}</td>
+        <td>{{ totalCost }} Pts</td>
       </tr>
     </tbody>
   </table>
@@ -78,15 +78,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import orderBy from 'lodash/orderBy'
-import isArray from 'lodash/isArray'
-import formatStat from '@/utils/formatStat'
-import formatList from '@/utils/formatList'
+import { computed } from 'vue';
+import orderBy from 'lodash/orderBy';
+import isArray from 'lodash/isArray';
+import formatStat from '@/utils/formatStat';
+import formatList from '@/utils/formatList';
+import calcTotalCost from '@/utils/totalCost';
 import { useDataStore } from "@/stores/data";
 
 const props = defineProps<{
-    unit: any
+    unit: Unit
 }>();
 
 const unit = computed(() => {
@@ -130,6 +131,15 @@ const allWargear = computed(() => {
     if (props.unit.weapon) wargear.push(props.unit.weapon.name)
     // if (props.unit.wargear) wargear.push(props.unit.wargear.name)
     return wargear
+})
+
+const totalCost = computed(() => {
+  return calcTotalCost(props.unit);
+})
+
+const unitType = computed(() => {
+  if (isArray(props.unit.type)) return props.unit.type;
+  return [props.unit.type];
 })
 </script>
 
