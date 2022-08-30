@@ -40,7 +40,7 @@
           {{ formatStat(unit.ld, "+") }}
         </td>
         <td>{{ unit.role }}</td>
-        <td>{{ unit.type }}</td>
+        <td>{{ formatList(unit.type) }}</td>
         <td>{{ unit.totalCost() }} Pts</td>
       </tr>
     </tbody>
@@ -82,6 +82,7 @@ import { computed } from 'vue'
 import orderBy from 'lodash/orderBy'
 import isArray from 'lodash/isArray'
 import formatStat from '@/utils/formatStat'
+import formatList from '@/utils/formatList'
 import { useDataStore } from "@/stores/data";
 
 const props = defineProps<{
