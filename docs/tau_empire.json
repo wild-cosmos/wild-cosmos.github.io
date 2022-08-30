@@ -151,7 +151,7 @@
       "faction": ["T'au Empire", "Fire Caste"]
     },
     {
-      "name": "Missle Drone",
+      "name": "Missile Drone",
       "cost": 12,
       "mv": [6, 12],
       "bs": 6,
