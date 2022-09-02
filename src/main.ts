@@ -11,6 +11,13 @@ import packageInfo from '../package.json';
 
 console.info(`Warband Builder v${packageInfo.version}`);
 
+import { registerSW } from "virtual:pwa-register";
+
+if ("serviceWorker" in navigator) {
+  // && !/localhost/.test(window.location)) {
+  registerSW();
+}
+
 const app = createApp(App)
 
 app.use(createPinia())
