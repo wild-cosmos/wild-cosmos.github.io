@@ -11,7 +11,7 @@ const props = defineProps<{
 const dataStore = useDataStore();
 
 const factionUnits = computed(() => {
-  return orderBy(dataStore.getUnitsForFaction(props.faction), ['cost', 'name']);
+  return orderBy(dataStore.getUnitsForFaction(props.faction), ['name']);
 })
 </script>
 
