@@ -30,6 +30,7 @@ interface Unit {
 }
 
 interface Wargear {
+    faction: string;
     type: string;
     name: string;
     cost: number;

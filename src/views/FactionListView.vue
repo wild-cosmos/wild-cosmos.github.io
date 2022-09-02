@@ -3,6 +3,7 @@ import SelectFaction from '@/components/SelectFaction.vue';
 import UnitList from '@/components/UnitList.vue';
 import { watch, reactive } from 'vue';
 import { useRouter } from 'vue-router'
+import WeaponsList from '../components/WeaponsList.vue'
 
 defineProps<{
   faction?: string
@@ -26,4 +27,5 @@ watch(state.selectedFaction, async (faction) => {
 
   <h1>{{ faction }}</h1>
   <UnitList :faction="state.selectedFaction" />
+  <WeaponsList :faction="state.selectedFaction" />
 </template>
