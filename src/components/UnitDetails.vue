@@ -33,8 +33,8 @@
         <td class="stat">
           {{ formatStat(unit.df, "+") }}
         </td>
-        <td class="stat">
-          {{ formatStat(unit.lf, "+") }}
+        <td class="stat text-nowrap">
+          {{ unit.lf }}<sub>{{ unit.si }}</sub>
         </td>
         <td class="stat">
           {{ formatStat(unit.ld, "+") }}
