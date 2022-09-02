@@ -2,9 +2,10 @@
 import UnitRow from '@/components/UnitRow.vue';
 import { computed } from 'vue';
 import orderBy from 'lodash/orderBy';
+import type { Unit } from '@/types/unit';
 
 const props = defineProps<{
-  units: Array<any>,
+  units: Array<Unit>,
   showFaction: boolean
 }>();
 

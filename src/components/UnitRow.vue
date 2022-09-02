@@ -2,9 +2,10 @@
 import { computed } from 'vue'
 import isArray from 'lodash/isArray';
 import formatStat from '@/utils/formatStat'
+import type { Unit } from '@/types/unit';
 
 const props = defineProps<{
-  unit: any,
+  unit: Unit,
   showFaction: boolean
 }>();
 

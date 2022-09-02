@@ -2,9 +2,10 @@
 import { computed } from 'vue'
 import formatStat from '@/utils/formatStat'
 import  isObject from 'lodash/isObject';
+import type { Weapon } from '@/types/unit';
   
   const props = defineProps<{
-    weapon: any,
+    weapon: Weapon,
     showFaction: boolean
   }>();
   

@@ -8,7 +8,7 @@ const emit = defineEmits(['update:faction'])
 const dataStore = useDataStore();
 
 const props = defineProps<{
-  faction?: string,
+  faction: string|null,
   allowNull: boolean,
 }>()
 

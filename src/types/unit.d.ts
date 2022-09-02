@@ -1,21 +1,21 @@
-interface Faction {
+export interface Faction {
     abilities: Array<Ability>,
     units: Array<Unit>,
     weapons: Array<Weapon>,
     wargear: Array<Wargear>
 }
 
-interface Ability {
+export interface Ability {
     faction: string;
     name: string;
     cost: number;
 }
 
-interface Unit {
+export interface Unit {
     faction: string;
     name: string;
     cost: number;
-    mv: Array<string>;
+    mv: Array<number>;
     bs: number;
     cs: number;
     df: number;
@@ -29,7 +29,7 @@ interface Unit {
     weapon: Weapon;
 }
 
-interface Wargear {
+export interface Wargear {
     faction: string;
     type: string;
     name: string;
@@ -38,9 +38,17 @@ interface Wargear {
     usedBy: Array<string>;
 }
 
-interface Weapon extends Wargear {
+export interface Weapon extends Wargear {
+    melee: WeaponStats;
     range: number;
     a: number;
     ap: Array<number>;
     dm: number;
+}
+
+export interface WeaponStats {
+  a: number;
+  ap: Array<number>;
+  dm: number;
+  notes?: string;
 }

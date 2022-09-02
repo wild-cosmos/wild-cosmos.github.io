@@ -24,9 +24,10 @@
 import WeaponRow from './WeaponRow.vue';
 import { computed } from 'vue';
 import orderBy from 'lodash/orderBy';
+import type { Weapon } from '@/types/unit';
 
 const props = defineProps<{
-  weapons: Array<any>,
+  weapons: Array<Weapon>,
   showFaction: boolean
 }>();
 
