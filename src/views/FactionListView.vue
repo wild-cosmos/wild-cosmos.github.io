@@ -1,3 +1,13 @@
+<template>
+  <div class="bg-light">
+    <SelectFaction v-model:faction="state.selectedFaction" />
+  </div>
+
+  <h1>{{ faction }}</h1>
+  <UnitList v-if="state.selectedFaction" :faction="state.selectedFaction" />
+  <WeaponsList v-if="state.selectedFaction" :faction="state.selectedFaction" />
+</template>
+
 <script setup lang="ts">
 import SelectFaction from '@/components/SelectFaction.vue';
 import UnitList from '@/components/UnitList.vue';
@@ -19,13 +29,3 @@ watch(state.selectedFaction, async (faction) => {
   }
 });
 </script>
-
-<template>
-  <div class="bg-light">
-    <SelectFaction v-model:faction="state.selectedFaction" />
-  </div>
-
-  <h1>{{ faction }}</h1>
-  <UnitList :faction="state.selectedFaction" />
-  <WeaponsList :faction="state.selectedFaction" />
-</template>
