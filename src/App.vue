@@ -26,13 +26,13 @@ onMounted(() => {
       <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <RouterLink class="nav-link" active-class="active" to="/faction">
-              Faction Units
+            <RouterLink class="nav-link" active-class="active" to="/builder">
+              Squad Builder
             </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" active-class="active" to="/builder">
-              Squad Builder
+            <RouterLink class="nav-link" active-class="active" to="/reference">
+              Reference
             </RouterLink>
           </li>
         </ul>

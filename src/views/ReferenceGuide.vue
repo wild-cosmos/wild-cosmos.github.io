@@ -1,7 +1,7 @@
 <template>
   <form class="mb-3">
     <div class="row">
-      <div class="col">
+      <div class="col-12 col-sm-6 mb-3 mb-sm-0">
         <div class="form-floating">
           <input id="search" v-model="search" type="text" class="form-control" aria-label="Search">
           <label for="search">Search</label>
@@ -47,7 +47,7 @@ const searchFilter = (query: string) => {
 
 watch(selectedFaction, async (faction) => {
   if (faction) {
-    router.push({ name: 'faction', query: { faction } });
+    router.push({ name: 'reference', query: { faction } });
   }
 });
 

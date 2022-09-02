@@ -8,9 +8,9 @@ const router = createRouter({
       redirect: '/builder'
     },
     {
-      path: '/faction',
-      name: 'faction',
-      component: () => import('../views/FactionListView.vue'),
+      path: '/reference',
+      name: 'reference',
+      component: () => import('../views/ReferenceGuide.vue'),
     },
     {
       path: '/builder',
