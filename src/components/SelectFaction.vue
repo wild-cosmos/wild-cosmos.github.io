@@ -8,7 +8,8 @@ const emit = defineEmits(['update:faction'])
 const dataStore = useDataStore();
 
 const props = defineProps<{
-  faction: string
+  faction?: string,
+  allowNull: boolean,
 }>()
 
 const selectedFaction = computed({
@@ -23,7 +24,7 @@ const factions = computed(() => orderBy(dataStore.factions));
 <template>
   <div class="form-floating">
     <select id="floatingSelect" v-model="selectedFaction" class="form-select" aria-label="Selected faction">
-      <option v-if="!selectedFaction" selected>
+      <option v-if="allowNull || !selectedFaction" :value="null">
         - Select faction -
       </option>
       <option v-for="(name) in factions" :key="name" :value="name">
