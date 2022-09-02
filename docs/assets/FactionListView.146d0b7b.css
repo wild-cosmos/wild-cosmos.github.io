@@ -1,0 +1,1 @@
+tr.weapon-stats td{border-top-width:1px;border-bottom-width:0}tr.weapon-stats+tr.melee-stats td{border-top-width:0}tr.weapon-stats:last-of-type td{border-bottom-width:1px}
