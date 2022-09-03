@@ -7,8 +7,8 @@
       </button>
     </template>
   </UnitDetails>
-  <div class="d-print-none row py-2 border-top border-bottom">
     <div v-if="unit" class="col">
+  <div class="d-print-none row py-2">
       <div class="form-floating">
         <select id="selectWeapon" v-model="selectedWeapon" class="form-control">
           <option v-for="({ value, text }) in weaponOptions" :key="value" :value="value">
@@ -42,6 +42,8 @@
   <small v-if="false" class="d-print-none">
     <code>{{ unit }}</code>
   </small>
+
+  <div class="border-bottom" />
 </template>
 
 <script setup lang="ts">

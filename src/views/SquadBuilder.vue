@@ -31,12 +31,12 @@
             {{ text }}
           </option>
         </select>
-        <label for="selectUnit">Unit</label>
+        <label for="selectUnit">Model</label>
       </div>
     </div>      
     <div class="col">
       <button class="mt-2 btn btn-success text-nowrap" :disabled="!selectedUnit" @click="onAddSquadMember">
-        Add Unit to Roster
+        Add Model to Roster
       </button>
     </div>
   </div>
