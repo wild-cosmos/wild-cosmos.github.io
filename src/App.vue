@@ -1,7 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Wild Cosmos<span class="d-none d-sm-inline"> - Warband Builder</span></a>
+      <a class="navbar-brand py-0" href="#">
+        <img src="./assets/wild_cosmos_logo.png" alt="" height="64" class="d-inline-block">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" />
@@ -10,7 +12,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
             <RouterLink class="nav-link" active-class="active" to="/builder">
-              Squad Builder
+              Warband Builder
             </RouterLink>
           </li>
           <li class="nav-item">
@@ -57,6 +59,7 @@
 <style>
 /* Show it is fixed to the top */
 #app {
-  margin-top: 4.5rem;
+  margin-top: calc(64px + 2rem);
+  min-height: calc(100vh - 4.5rem);
 }
 </style>
