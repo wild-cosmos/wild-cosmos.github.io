@@ -57,9 +57,8 @@
 </script>
     
 <style>
-/* Show it is fixed to the top */
 #app {
   margin-top: calc(64px + 2rem);
-  min-height: calc(100vh - 4.5rem);
+  margin-bottom: 5rem;
 }
 </style>
