@@ -1,20 +1,3 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import { useDataStore } from './stores/data';
-import { Collapse } from 'bootstrap';
-import { onMounted } from 'vue';
-
-const dataStore = useDataStore();
-dataStore.initialise('/factions.json');
-
-const appEnv = import.meta.env.MODE;
-
-onMounted(() => {
-  const el = document.getElementById('navbarCollapse')
-  if (el) new Collapse(el, { toggle: false })
-});
-</script>
-
 <template>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
@@ -49,8 +32,28 @@ onMounted(() => {
   <main class="container-lg px-lg-0" :class="appEnv">
     <RouterView />
   </main>
+
+  <OrbitzBanner />
 </template>
 
+<script setup lang="ts">
+  import { RouterLink, RouterView } from 'vue-router';
+  import { useDataStore } from './stores/data';
+  import { Collapse } from 'bootstrap';
+  import { onMounted } from 'vue';
+  import OrbitzBanner from './components/OrbitzBanner.vue';
+  
+  const dataStore = useDataStore();
+  dataStore.initialise('/factions.json');
+  
+  const appEnv = import.meta.env.MODE;
+  
+  onMounted(() => {
+    const el = document.getElementById('navbarCollapse')
+    if (el) new Collapse(el, { toggle: false })
+  });
+</script>
+    
 <style>
 /* Show it is fixed to the top */
 #app {
