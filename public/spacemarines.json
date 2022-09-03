@@ -1,497 +1,682 @@
 {
-    "units": [
+  "units": [
+    {
+      "name": "Space Marine Sergeant",
+      "cost": 16,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 4,
+      "lf": 7,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "options": [
         {
-            "name": "Space Marine Sergeant",
-            "cost": 16,
-            "mv": [ 5, 10 ],
-            "bs": 3,
-            "cs": 3,
-            "df": 4,
-            "lf": 7,
-            "si": 2,
-            "ld": 3,
-            "roles": ["Leader"],
-            "type": ["Infantry"],
-            "options": [
-              {
-                "cost": 0,
-                "weapons": ["Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades"],
-                "wargear": []
-              },
-              {
-                "cost":  2,
-                "weapons": ["Storm Bolter", "Bolt Pistol", "Frag Grenades", "Krak Grenades"]
-              }
-            ],
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
+          "cost": 0,
+          "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
         },
         {
-            "name": "Tactical Marine",
-            "cost": 14,
-            "mv": [ 5, 10 ],
-            "bs": 4,
-            "cs": 4,
-            "df": 4,
-            "lf": 6,
-            "si": 2,
-            "ld": 4,
-            "roles": ["Core", "Specialist"],
-            "type": ["Infantry"],
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
-        },
-        {
-            "name": "Devastator",
-            "cost": 14,
-            "mv": [ 5, 10 ],
-            "bs": 4,
-            "cs": 4,
-            "df": 4,
-            "lf": 6,
-            "si": 2,
-            "ld": 4,
-            "roles": ["Specialist"],
-            "type": ["Infantry"],
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
-        },
-        {
-            "name": "Space Marine Biker",
-            "cost": 20,
-            "mv": [ 8, 16 ],
-            "bs": 4,
-            "cs": 4,
-            "df": 4,
-            "lf": 8,
-            "si": 2,
-            "ld": 4,
-            "roles": ["Specialist"],
-            "type": ["Biker"],
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
-        },
-        {
-            "name": "Lexicanium",
-            "cost": 25,
-            "mv": [ 5, 10 ],
-            "bs": 4,
-            "cs": 4,
-            "df": [4, 7 ],
-            "lf": 6,
-            "si": 2,
-            "ld": 4,
-            "roles": ["Specialist"],
-            "type": ["Infantry"],
-            "limited": 1,
-            "options": [
-              {
-                "cost": 0,
-                "weapons": ["Force Sword", "Bolt Pistol", "Frag Grenades", "Krak Grenades"],
-                "wargear": []
-              },
-              {
-                "cost": 0,
-                "weapons": ["Force Stave", "Bolt Pistol", "Frag Grenades", "Krak Grenades"],
-                "wargear": []
-              }
-            ],
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology",
-                "Psyker (Librarius Discipline)"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
-        },
-        {
-            "name": "Scout Sergeant",
-            "cost": 16,
-            "mv": [ 5, 10 ],
-            "bs": 3,
-            "cs": 3,
-            "df": 5,
-            "lf": 7,
-            "si": 2,
-            "ld": 3,
-            "roles": ["Leader"],
-            "type": ["Infantry", "Scout"],
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology",
-                "Infiltrate"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
-        },
-        {
-            "name": "Space Marine Scout",
-            "cost": 14,
-            "mv": [ 5, 10 ],
-            "bs": 4,
-            "cs": 4,
-            "df": 5,
-            "lf": 6,
-            "si": 2,
-            "ld": 4,
-            "roles": ["Core", "Specialist"],
-            "type": ["Infantry", "Scout"],
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology",
-                "Infiltrate"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
-        },
-        {
-            "name": "Scout Lexicanium",
-            "cost": 25,
-            "mv": [ 5, 10 ],
-            "bs": 4,
-            "cs": 4,
-            "df": [5, 7],
-            "lf": 6,
-            "si": 2,
-            "ld": 4,
-            "roles": ["Specialist"],
-            "type": ["Infantry", "Scout"],
-            "limited": 1,
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology",
-                "Infiltrate",
-                "Psyker (Librarius Discipline)"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
-        },
-        {
-            "name": "Terminator Sergeant",
-            "cost": 25,
-            "mv": [ 4, 8 ],
-            "bs": 3,
-            "cs": 3,
-            "df": [2, 7],
-            "lf": 8,
-            "si": 2,
-            "ld": 3,
-            "roles": ["Leader"],
-            "type": ["Infantry", "Terminator"],
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
-        },
-        {
-            "name": "Terminator",
-            "cost": 25,
-            "mv": [ 4, 8 ],
-            "bs": 3,
-            "cs": 3,
-            "df": [2, 7],
-            "lf": 8,
-            "si": 2,
-            "ld": 3,
-            "roles": ["Specialist"],
-            "type": ["Infantry", "Terminator"],
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
-        },
-        {
-            "name": "Terminator Lexicanium",
-            "cost": 35,
-            "mv": [ 4, 8 ],
-            "bs": 3,
-            "cs": 3,
-            "df": [2, 7],
-            "lf": 8,
-            "si": 2,
-            "ld": 3,
-            "roles": ["Specialist"],
-            "type": ["Infantry", "Terminator"],
-            "limited": 1,
-            "abilities": [
-                "And They Shall Know No Fear",
-                "Transhuman Physiology",
-                "Psyker (Librarius Discipline)"
-            ],
-            "faction": ["Imperium", "Adeptus Astartes"]
+          "cost": 2,
+          "weapons": [ "Storm Bolter", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ]
         }
-    ],
-    "abilities": [ ],
-    "wargear": [],
-    "weapons": [
-      {
-        "name": "Assault Cannon",
-        "cost": 0,
-        "range": 18,
-        "melee": false,
-        "a": 6,
-        "ap": [ 1, 4 ],
-        "dm": [ 1 ],
-        "notes": "Heavy (1), Critical (7+)",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Bolt Carbine",
-        "cost": 0,
-        "range": 12,
-        "melee": false,
-        "a": 2,
-        "ap": [ 1, 4 ],
-        "dm": [ 1, 2 ],
-        "notes": "Assault, Bolter",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Boltgun",
-        "cost": 0,
-        "range": 18,
-        "melee": false,
-        "a": [ 1, 2 ],
-        "ap": [ 1, 4 ],
-        "dm": [ 1, 2 ],
-        "notes": "Rapid Fire, Bolter",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Bolt Pistol",
-        "cost": 0,
-        "range": [ 9, null ],
-        "melee": false,
-        "a": 1,
-        "ap": [ 1, 4 ],
-        "dm": [ 1, 2 ],
-        "notes": "Pistol, Bolter",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Bolt Rifle",
-        "cost": 0,
-        "range": 30,
-        "melee": false,
-        "a": 1,
-        "ap": [ 3, 5 ],
-        "dm": [ 1, 4 ],
-        "notes": "Heavy (1), Sniper, Bolter",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Chainfist",
-        "cost": 0,
-        "range": null,
-        "melee": true,
-        "a": 2,
-        "ap": [ 3, 5 ],
-        "dm": [ "D4", 4 ],
-        "notes": "Critical (6+). Attacks with this weapon incur a hit roll penalty of 1.",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Chainsword",
-        "cost": 0,
-        "range": null,
-        "melee": true,
-        "a": 2,
-        "ap": [ 0, 4 ],
-        "dm": [ 1 ],
-        "notes": "",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Combat Knife",
-        "cost": 0,
-        "range": null,
-        "melee": true,
-        "a": 2,
-        "ap": [ 0, 4 ],
-        "dm": [ 1 ],
-        "notes": "This weapon can attack with an A value of 3, but these hits cannot be critical.",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Combi-flamer",
-        "cost": 0,
-        "range": 18,
-        "melee": false,
-        "combi": ["Boltgun", "Flamer"],
-        "notes": "This weapon has a Boltgun profile and a One Use Flamer profile.",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Combi-grav",
-        "cost": 0,
-        "range": 18,
-        "melee": false,
-        "combi": ["Boltgun", "Grav-gun"],
-        "notes": "This weapon has a Boltgun profile and a One Use Grav-gun profile.",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Combi-melta",
-        "cost": 0,
-        "range": 18,
-        "melee": false,
-        "combi": ["Boltgun", "Meltagun"],
-        "notes": "This weapon has a Boltgun profile and a One Use Meltagun profile.",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Combi-plasma",
-        "cost": 0,
-        "range": 18,
-        "melee": false,
-        "combi": ["Boltgun", "Plasma Gun"],
-        "notes": "This weapon has a Boltgun profile and a One Use Plasma Gun profile.",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Crushing Teeth and Claws",
-        "cost": 0,
-        "range": null,
-        "melee": true,
-        "a": 3,
-        "ap": [ 1, 4 ],
-        "dm": [ 1 ],
-        "notes": "",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Cyclone Missile Launcher (Frag)",
-        "cost": 0,
-        "range": 24,
-        "melee": false,
-        "a": "2D2",
-        "ap": [ 0, 4 ],
-        "dm": [ 1 ],
-        "notes": "Heavy (1), Blast (4), Critical (7+)",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Cyclone Missile Launcher (Krak)",
-        "cost": 0,
-        "range": 24,
-        "melee": false,
-        "a": 2,
-        "ap": [ 4 ],
-        "dm": [ "D4", 4 ],
-        "notes": "Heavy (1), Critical (6+)",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Digital Laser",
-        "cost": 0,
-        "range": null,
-        "melee": true,
-        "a": 1,
-        "ap": [ 3, 5 ],
-        "dm": [ "D4", 4 ],
-        "notes": "One Use, Critical (6+). The bearer can attack with this weapon as an additional secondary weapon.",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Digital Flamer",
-        "cost": 0,
-        "range": null,
-        "melee": true,
-        "a": 1,
-        "ap": [ 1 ],
-        "dm": [ 1, 2 ],
-        "notes": "One Use, Engulf (2), Critical (7+), Flame (2+). The bearer can attack with this weapon as an additional secondary weapon.",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Flamer",
-        "cost": 0,
-        "range": 8,
-        "melee": false,
-        "a": 1,
-        "ap": [ 0 ],
-        "dm": [ 1, 2 ],
-        "notes": "Assault, Engulf (2), Flame (2+)",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Force Stave",
-        "cost": 0,
-        "range": null,
-        "melee": {
-          "name": "Force Stave Psy-charged",
-          "range": null,
-          "a": 2,
-          "ap": [3],
-          "dm": [2, 3],
-          "notes": "Critical (7+). The bearer must spend 1✷ each time they use this profile."
+      ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Tactical Marine",
+      "cost": 14,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 4,
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Core", "Specialist" ],
+      "type": [ "Infantry" ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Devastator",
+      "cost": 14,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 4,
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Space Marine Biker",
+      "cost": 20,
+      "mv": [ 8, 16 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 4,
+      "lf": 8,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Biker" ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Lexicanium",
+      "cost": 25,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": [ 4, 7 ],
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "limited": 1,
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Force Sword", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
         },
-        "a": 2,
-        "ap": [ 0 ],
-        "dm": [ 1, 2 ],
-        "notes": "",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Force Sword",
-        "cost": 0,
+        {
+          "cost": 0,
+          "weapons": [ "Force Stave", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
+        }
+      ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Psyker (Librarius Discipline)"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Scout Sergeant",
+      "cost": 16,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 5,
+      "lf": 7,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry", "Scout" ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Infiltrate"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Space Marine Scout",
+      "cost": 14,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 5,
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Core", "Specialist" ],
+      "type": [ "Infantry", "Scout" ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Infiltrate"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Scout Lexicanium",
+      "cost": 25,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": [ 5, 7 ],
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry", "Scout" ],
+      "limited": 1,
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Infiltrate",
+        "Psyker (Librarius Discipline)"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Terminator Sergeant",
+      "cost": 25,
+      "mv": [ 4, 8 ],
+      "bs": 3,
+      "cs": 3,
+      "df": [ 2, 7 ],
+      "lf": 8,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry", "Terminator" ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Terminator",
+      "cost": 25,
+      "mv": [ 4, 8 ],
+      "bs": 3,
+      "cs": 3,
+      "df": [ 2, 7 ],
+      "lf": 8,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry", "Terminator" ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    {
+      "name": "Terminator Lexicanium",
+      "cost": 35,
+      "mv": [ 4, 8 ],
+      "bs": 3,
+      "cs": 3,
+      "df": [ 2, 7 ],
+      "lf": 8,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry", "Terminator" ],
+      "limited": 1,
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Psyker (Librarius Discipline)"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    }
+  ],
+  "abilities": [ ],
+  "wargear": [ ],
+  "weapons": [
+    {
+      "name": "Assault Cannon",
+      "cost": 0,
+      "range": 18,
+      "melee": false,
+      "a": 6,
+      "ap": [ 1, 4 ],
+      "dm": [ 1 ],
+      "notes": "Heavy (1), Critical (7+)",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Bolt Carbine",
+      "cost": 0,
+      "range": 12,
+      "melee": false,
+      "a": 2,
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Assault, Bolter",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Boltgun",
+      "cost": 0,
+      "range": 18,
+      "melee": false,
+      "a": [ 1, 2 ],
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Rapid Fire, Bolter",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Bolt Pistol",
+      "cost": 0,
+      "range": [ 9, null ],
+      "melee": false,
+      "a": 1,
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Pistol, Bolter",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Bolt Rifle",
+      "cost": 0,
+      "range": 30,
+      "melee": false,
+      "a": 1,
+      "ap": [ 3, 5 ],
+      "dm": [ 1, 4 ],
+      "notes": "Heavy (1), Sniper, Bolter",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Chainfist",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": [ "D4", 4 ],
+      "notes": "Critical (6+). Attacks with this weapon incur a hit roll penalty of 1.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Chainsword",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": [ 1 ],
+      "notes": "",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Combat Knife",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": [ 1 ],
+      "notes": "This weapon can attack with an A value of 3, but these hits cannot be critical.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Combi-flamer",
+      "cost": 0,
+      "range": 18,
+      "melee": false,
+      "combi": [ "Boltgun", "Flamer" ],
+      "notes": "This weapon has a Boltgun profile and a One Use Flamer profile.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Combi-grav",
+      "cost": 0,
+      "range": 18,
+      "melee": false,
+      "combi": [ "Boltgun", "Grav-gun" ],
+      "notes": "This weapon has a Boltgun profile and a One Use Grav-gun profile.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Combi-melta",
+      "cost": 0,
+      "range": 18,
+      "melee": false,
+      "combi": [ "Boltgun", "Meltagun" ],
+      "notes": "This weapon has a Boltgun profile and a One Use Meltagun profile.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Combi-plasma",
+      "cost": 0,
+      "range": 18,
+      "melee": false,
+      "combi": [ "Boltgun", "Plasma Gun" ],
+      "notes": "This weapon has a Boltgun profile and a One Use Plasma Gun profile.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Crushing Teeth and Claws",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 3,
+      "ap": [ 1, 4 ],
+      "dm": [ 1 ],
+      "notes": "",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Cyclone Missile Launcher (Frag)",
+      "cost": 0,
+      "range": 24,
+      "melee": false,
+      "a": "2D2",
+      "ap": [ 0, 4 ],
+      "dm": [ 1 ],
+      "notes": "Heavy (1), Blast (4), Critical (7+)",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Cyclone Missile Launcher (Krak)",
+      "cost": 0,
+      "range": 24,
+      "melee": false,
+      "a": 2,
+      "ap": [ 4 ],
+      "dm": [ "D4", 4 ],
+      "notes": "Heavy (1), Critical (6+)",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Digital Laser",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 1,
+      "ap": [ 3, 5 ],
+      "dm": [ "D4", 4 ],
+      "notes": "One Use, Critical (6+). The bearer can attack with this weapon as an additional secondary weapon.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Digital Flamer",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 1,
+      "ap": [ 1 ],
+      "dm": [ 1, 2 ],
+      "notes": "One Use, Engulf (2), Critical (7+), Flame (2+). The bearer can attack with this weapon as an additional secondary weapon.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Flamer",
+      "cost": 0,
+      "range": 8,
+      "melee": false,
+      "a": 1,
+      "ap": [ 0 ],
+      "dm": [ 1, 2 ],
+      "notes": "Assault, Engulf (2), Flame (2+)",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Force Stave",
+      "cost": 0,
+      "range": null,
+      "melee": {
+        "name": "Force Stave Psy-charged",
         "range": null,
-        "melee": {
-          "name": "Force Sword Psy-charged",
-          "range": null,
-          "a": 2,
-          "ap": [3,5],
-          "dm": [2],
-          "notes": "Critical (7+). The bearer must spend 1✷ each time they use this profile."
-        },
         "a": 2,
-        "ap": [ 0, 4 ],
-        "dm": [ 1 ],
-        "notes": "",
-        "usedBy": [ ]
+        "ap": [ 3 ],
+        "dm": [ 2, 3 ],
+        "notes": "Critical (7+). The bearer must spend 1✷ each time they use this profile."
       },
-      {
-        "name": "Frag Grenades",
-        "cost": 0,
-        "range": 6,
-        "melee": false,
-        "a": "D2",
-        "ap": [ 0, 4 ],
-        "dm": [ 1 ],
-        "notes": "Grenade, Blast (4), Indirect",
-        "usedBy": [ ]
-      },
-      {
-        "name": "Frost Axe",
-        "cost": 0,
+      "a": 2,
+      "ap": [ 0 ],
+      "dm": [ 1, 2 ],
+      "notes": "",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Force Sword",
+      "cost": 0,
+      "range": null,
+      "melee": {
+        "name": "Force Sword Psy-charged",
         "range": null,
-        "melee": true,
         "a": 2,
         "ap": [ 3, 5 ],
-        "dm": [ 1 ],
-        "notes": "Critical (7+)",
-        "usedBy": [ ]
+        "dm": [ 2 ],
+        "notes": "Critical (7+). The bearer must spend 1✷ each time they use this profile."
       },
-      {
-        "name": "Krak Grenades",
-        "cost": 0,
-        "range": [3,null],
-        "melee": false,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": [ 1 ],
+      "notes": "",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Frag Grenades",
+      "cost": 0,
+      "range": 6,
+      "melee": false,
+      "a": "D2",
+      "ap": [ 0, 4 ],
+      "dm": [ 1 ],
+      "notes": "Grenade, Blast (4), Indirect",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Frost Axe",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": [ 1 ],
+      "notes": "Critical (7+)",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Grav-cannon",
+      "range": 24,
+      "a": 3,
+      "ap": 4,
+      "dm": 1,
+      "notes": "Heavy (1). Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target’s armour save, or Dm 3 if the hit roll was double the target’s armour save or more."
+    },
+    {
+      "name": "Grav-gun",
+      "range": [ 18 ],
+      "a": [ 1, 2 ],
+      "ap": [ 4 ],
+      "dm": [ 1 ],
+      "notes": "Rapid Fire. Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target’s armour save, or Dm 3 if the hit roll was double the target’s armour save or more.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Grav-pistol",
+      "range": [ 9, null ],
+      "a": 1,
+      "ap": 4,
+      "dm": 1,
+      "notes": "Pistol. Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target’s armour save, or Dm 3 if the hit roll was double the target’s armour save or more."
+    },
+    {
+      "name": "Guardian Skull",
+      "range": [ 6, null ],
+      "a": 2,
+      "ap": 0,
+      "dm": 1,
+      "notes": "Familiar (6+). When the bearer makes a ranged attack, they can only attack with this weapon if they are firing defensively."
+    },
+    {
+      "name": "Gyrinx",
+      "range": null,
+      "a": 2,
+      "ap": 1,
+      "dm": 1,
+      "notes": "Familiar (4+). When the bearer generates their warp charges, they roll one additional dice. This dice is ignored for the purpose of determining if the bearer suffers Perils of the Warp."
+    },
+    {
+      "name": "Heavy Bolter",
+      "range": 30,
+      "a": 3,
+      "ap": [ 1, 4 ],
+      "dm": 2,
+      "notes": "Heavy (1), Critical (7+), Bolter"
+    },
+    {
+      "name": "Heavy Flamer",
+      "range": 8,
+      "a": 1,
+      "ap": 1,
+      "dm": [ 1, 2 ],
+      "notes": "Heavy (1), Engulf (2), Flame (2+), Critical (7+)"
+    },
+    {
+      "name": "Krak Grenades",
+      "cost": 0,
+      "range": [ 3, null ],
+      "melee": false,
+      "a": 1,
+      "ap": [ 4 ],
+      "dm": [ "D4", 4 ],
+      "notes": "Grenade, Critical (7+). The bearer can only take a melee attack with this weapon if the target is Large (2 or greater).",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Lascannon",
+      "range": 30,
+      "a": 1,
+      "ap": [ 3, 5 ],
+      "dm": [ "D4", 4 ],
+      "notes": "Heavy (1), Beam, Critical (6+)"
+    },
+    {
+      "name": "Lightning Claw",
+      "range": null,
+      "a": 2,
+      "ap": [ 2, 5 ],
+      "dm": 1,
+      "notes": "Paired"
+    },
+    {
+      "name": "Melta Bomb",
+      "range": null,
+      "a": 1,
+      "ap": [ 4 ],
+      "dm": 6,
+      "notes": "Grenade. This weapon can only target models that are Large (2 or greater). If the target is a Machine that did not move in the previous Manoeuvring Phase, the hit is always successful."
+    },
+    {
+      "name": "Meltagun",
+      "range": [ 8 ],
+      "a": 1,
+      "ap": [ 4 ],
+      "dm": [ "2+D4" ],
+      "notes": "Assault, Beam. If the target is within 4\", this weapon has Dm 6. If the target is at long range, this weapon has Dm D4.",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Missile Launcher (frag missile)",
+      "range": [ 30 ],
+      "a": "D2",
+      "ap": [ 0, 4 ],
+      "dm": [ 1 ],
+      "melee": {
+        "name": "Missile Launcher (krak missile)",
+        "range": [ 30 ],
         "a": 1,
-        "ap": [ 4 ],
+        "ap": 4,
         "dm": [ "D4", 4 ],
-        "notes": "Grenade, Critical (7+). The bearer can only take a melee attack with this weapon if the target is Large (2 or greater).",
-        "usedBy": [ ]
-      }
-    ]
+        "notes": "Heavy (1), Critical (6+)"
+      },
+      "notes": "Heavy (1), Blast (4), Critical (7+)"
+    },
+    {
+      "name": "Multi-melta",
+      "range": [ 12 ],
+      "a": 1,
+      "ap": 4,
+      "dm": [ "2+D4" ],
+      "notes": "Heavy (1), Beam. If the target is within 8\", this weapon has Dm 6. If the target is at long range, this weapon has Dm D4."
+    },
+    {
+      "name": "Plasma Cannon",
+      "range": [ 30 ],
+      "a": 1,
+      "ap": [ 3, 5 ],
+      "dm": [ 2, 3 ],
+      "notes": "Heavy (1), Blast (4), Critical (7+), Overheat (2D3)"
+    },
+    {
+      "name": "Plasma Gun",
+      "range": [ 18 ],
+      "a": [ 1, 2 ],
+      "ap": [ 3, 5 ],
+      "dm": [ 2, 3 ],
+      "notes": "Rapid Fire, Critical (7+), Overheat (2D3).",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Plasma Pistol",
+      "range": [ 9, null ],
+      "a": 1,
+      "ap": [ 3, 5 ],
+      "dm": [ 2, 3 ],
+      "notes": "Pistol, Critical (7+), Overheat (2D3)"
+    },
+    {
+      "name": "Power Fist",
+      "range": null,
+      "a": 2,
+      "ap": 3,
+      "dm": [ "D4", 4 ],
+      "notes": "Critical (6+). Attacks with this weapon incur a hit roll penalty of 1."
+    },
+    {
+      "name": "Power Maul",
+      "range": null,
+      "a": 2,
+      "ap": 3,
+      "dm": [ 1, 2 ]
+    },
+    {
+      "name": "Power Sword",
+      "range": null,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": 1
+    },
+    {
+      "name": "Relic Blade",
+      "range": null,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": [ 1, 2 ],
+      "notes": "Critical (7+)"
+    },
+    {
+      "name": "Storm Bolter",
+      "range": 18,
+      "a": [ 2, 4 ],
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Rapid Fire, Bolter"
+    },
+    {
+      "name": "Thunder Hammer",
+      "range": null,
+      "a": 2,
+      "ap": 3,
+      "dm": [ "D4", 4 ],
+      "notes": "Critical (6+), Stun (6+). Attacks with this weapon incur a hit roll penalty of 1."
+    }
+  ]
 }
