@@ -1,495 +1,556 @@
 {
-    "units": [
+  "units": [
+    {
+      "name": "Oligarkh",
+      "cost": 17,
+      "mv": [ 5, 8 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 4,
+      "lf": 5,
+      "si": 1,
+      "ld": 2,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "abilities": [
+        "Living Metal",
+        "Reanimation Protocols",
+        "Mercurial Tyrant"
+      ]
+    },
+    {
+      "name": "Necron Warrior",
+      "cost": 12,
+      "mv": [ 5, 8 ],
+      "bs": 5,
+      "cs": 5,
+      "df": 5,
+      "lf": 3,
+      "si": 1,
+      "ld": 2,
+      "roles": [ "Core" ],
+      "type": [ "Infantry" ],
+      "abilities": [
+        "Living Metal",
+        "Reanimation Protocols",
+        "Autonomous Servant"
+      ]
+    },
+    {
+      "name": "Necron Immortal",
+      "cost": 14,
+      "mv": [ 5, 8 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 5,
+      "lf": 4,
+      "si": 1,
+      "ld": 2,
+      "roles": [ "Core", "Specialist" ],
+      "type": [ "Infantry" ],
+      "abilities": [
+        "Living Metal",
+        "Reanimation Protocols",
+        "Autonomous Servant"
+      ]
+    },
+    {
+      "name": "Deathmark",
+      "cost": 18,
+      "mv": [ 5, 8 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 5,
+      "lf": 3,
+      "si": 1,
+      "ld": 2,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "abilities": [
+        "Living Metal",
+        "Reanimation Protocols",
+        "Autonomous Servant",
+        "Marked for Death",
+        "Hyperspace Oubliette"
+      ]
+    },
+    {
+      "name": "Lychguard",
+      "cost": 20,
+      "mv": [ 5, 8 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 4,
+      "lf": 4,
+      "si": 1,
+      "ld": 2,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "options": [
         {
-            "name": "Oligarkh",
-            "cost": 17,
-            "mv": [ 5, 8 ],
-            "bs": 3,
-            "cs": 3,
-            "df": 4,
-            "lf": 5,
-            "si": 1,
-            "ld": 2,
-            "roles": [ "Leader" ],
-            "type": [ "Infantry" ],
-            "abilities": [
-                "Living Metal",
-                "Reanimation Protocols",
-                "Mercurial Tyrant"
-            ]
+          "cost": 0,
+          "weapons": [ "Warscythe" ],
+          "wargear": [ ]
         },
         {
-            "name": "Necron Warrior",
-            "cost": 12,
-            "mv": [ 5, 8 ],
-            "bs": 5,
-            "cs": 5,
-            "df": 5,
-            "lf": 3,
-            "si": 1,
-            "ld": 2,
-            "roles": [ "Core" ],
-            "type": [ "Infantry" ],
-            "abilities": [
-                "Living Metal",
-                "Reanimation Protocols",
-                "Autonomous Servant"
-            ]
-        },
-        {
-            "name": "Necron Immortal",
-            "cost": 14,
-            "mv": [ 5, 8 ],
-            "bs": 4,
-            "cs": 4,
-            "df": 5,
-            "lf": 4,
-            "si": 1,
-            "ld": 2,
-            "roles": [ "Core", "Specialist" ],
-            "type": [ "Infantry" ],
-            "abilities": [
-                "Living Metal",
-                "Reanimation Protocols",
-                "Autonomous Servant"
-            ]
-        },
-        {
-            "name": "Deathmark",
-            "cost": 18,
-            "mv": [ 5, 8 ],
-            "bs": 4,
-            "cs": 4,
-            "df": 5,
-            "lf": 3,
-            "si": 1,
-            "ld": 2,
-            "roles": [ "Specialist" ],
-            "type": [ "Infantry" ],
-            "abilities": [
-                "Living Metal",
-                "Reanimation Protocols",
-                "Autonomous Servant",
-                "Marked for Death",
-                "Hyperspace Oubliette"
-            ]
-        },
-        {
-            "name": "Lychguard",
-            "cost": 20,
-            "mv": [ 5, 8 ],
-            "bs": 4,
-            "cs": 4,
-            "df": 4,
-            "lf": 4,
-            "si": 1,
-            "ld": 2,
-            "roles": [ "Specialist" ],
-            "type": [ "Infantry" ],
-            "abilities": [
-                "Living Metal",
-                "Reanimation Protocols",
-                "Autonomous Servant",
-                "Eternal Protector"
-            ]
-        },
-        {
-            "name": "Flayed One",
-            "cost": 18,
-            "mv": [ 5, 12 ],
-            "bs": 7,
-            "cs": 4,
-            "df": 5,
-            "lf": 3,
-            "si": 1,
-            "ld": 2,
-            "roles": [ "Specialist" ],
-            "type": [ "Infantry" ],
-            "abilities": [
-                "Living Metal",
-                "Reanimation Protocols",
-                "Autonomous Servant",
-                "Fearsome (1)",
-                "Ambush",
-                "Flesh Hunger"
-            ]
-        },
-        {
-            "name": "Canoptek Scarabs",
-            "cost": 14,
-            "mv": [ 5, 12 ],
-            "bs": null,
-            "cs": 5,
-            "df": 8,
-            "lf": 8,
-            "si": 2,
-            "ld": 2,
-            "roles": [ "Support" ],
-            "type": [ ],
-            "abilities": [
-                "Living Metal",
-                "Autonomous Servant",
-                "Hover",
-                "Swarm"
-            ]
-        },
-        {
-            "name": "Canoptek Spyder",
-            "cost": 28,
-            "mv": [ 5, 10 ],
-            "bs": 5,
-            "cs": 6,
-            "df": 5,
-            "lf": 10,
-            "si": 3,
-            "ld": 2,
-            "roles": [ "Specialist" ],
-            "type": [ ],
-            "weapons": [
-                [ "Fabricator Claws", "Particle Beamer", "Particle Beamer" ],
-                [ "Fabricator Claws", "Nebuloscope" ]
-            ],
-            "wargear": {
-                "Ossified Necrodermis": 2
-            },
-            "abilities": [
-                "Living Metal",
-                "Autonomous Servant",
-                "Hover",
-                "Large"
-            ]
-        },
-        {
-            "name": "Triarch Judicator",
-            "cost": 23,
-            "mv": [ 5, 12 ],
-            "bs": 3,
-            "cs": 3,
-            "df": 4,
-            "lf": 5,
-            "si": 1,
-            "ld": 2,
-            "roles": [
-                "Leader"
-            ],
-            "type": [ "Infantry" ],
-            "weapons": [
-                "Rod of Covenant",
-                [ "Voidblade", "Voidblade" ],
-                "Warscythe",
-                "Voidscythe",
-                "Hyperphase Glaive"
-            ],
-            "wargear": {
-            },
-            "abilities": [
-                "Living Metal",
-                "Reanimation Protocols",
-                "Gravity Displacer"
-            ]
-        },
-        {
-            "name": "Triarch Praetorian",
-            "cost": 20,
-            "mv": [ 5, 12 ],
-            "bs": 4,
-            "cs": 4,
-            "df": 4,
-            "lf": 4,
-            "si": 1,
-            "ld": 2,
-            "roles": [
-                "Specialist"
-            ],
-            "type": [ "Infantry" ],
-            "weapons": [
-                "Rod of Covenant",
-                [ "Voidblade", "Voidblade" ],
-                [ "Voidblade", "Particle Caster" ]
-            ],
-            "wargear": {
-            },
-            "abilities": [
-                "Living Metal",
-                "Reanimation Protocols",
-                "Gravity Displacer"
-            ]
+          "cost": 2,
+          "weapons": [ "Hyperphase Sword" ],
+          "wargear": [ "Dispersion Shield" ]
         }
-    ],
-    "weapons": [
+      ],
+      "abilities": [
+        "Living Metal",
+        "Reanimation Protocols",
+        "Autonomous Servant",
+        "Eternal Protector"
+      ]
+    },
+    {
+      "name": "Flayed One",
+      "cost": 18,
+      "mv": [ 5, 12 ],
+      "bs": 7,
+      "cs": 4,
+      "df": 5,
+      "lf": 3,
+      "si": 1,
+      "ld": 2,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "abilities": [
+        "Living Metal",
+        "Reanimation Protocols",
+        "Autonomous Servant",
+        "Fearsome (1)",
+        "Ambush",
+        "Flesh Hunger"
+      ]
+    },
+    {
+      "name": "Canoptek Scarabs",
+      "cost": 14,
+      "mv": [ 5, 12 ],
+      "bs": null,
+      "cs": 5,
+      "df": 8,
+      "lf": 8,
+      "si": 2,
+      "ld": 2,
+      "roles": [ "Support" ],
+      "type": [ ],
+      "abilities": [
+        "Living Metal",
+        "Autonomous Servant",
+        "Hover",
+        "Swarm"
+      ]
+    },
+    {
+      "name": "Canoptek Spyder",
+      "cost": 28,
+      "mv": [ 5, 10 ],
+      "bs": 5,
+      "cs": 6,
+      "df": 5,
+      "lf": 10,
+      "si": 3,
+      "ld": 2,
+      "roles": [ "Specialist" ],
+      "type": [ ],
+      "options": [
         {
-            "name": "Fabricator Claws",
-            "cost": 0,
-            "range": null,
-            "melee": true,
-            "a": 4,
-            "ap": 1,
-            "dm": [ 1, 2 ],
-            "notes": "If they do not make any melee attacks in the same round, this model may use the Repair (2+, Necrons) ability. If the roll for this ability is successful, the nominated model regains D2 life instead of 1",
-            "usedBy": [ "Canoptek Spyder" ]
+          "cost": 0,
+          "weapons": [ "Fabricator Claws" ],
+          "wargear": [ ]
         },
         {
-            "name": "Feeder Mandibles",
-            "cost": 0,
-            "range": null,
-            "melee": true,
-            "a": 4,
-            "ap": [ 1, 4 ],
-            "dm": 1,
-            "notes": "Critical (7+). For every full 2 life the bearer has lost, reduce this weapon’s A value by 1.",
-            "usedBy": [ "Canoptek Scarabs" ]
+          "cost": 8,
+          "weapons": [ "Fabricator Claws", "Particle Beamer", "Particle Beamer" ],
+          "wargear": [ ]
         },
         {
-            "name": "Flensing Claws",
-            "cost": 0,
-            "range": null,
-            "melee": true,
-            "a": 4,
-            "ap": [ 1, 4 ],
-            "dm": 1,
-            "notes": null,
-            "usedBy": [
-                "Flayed One"
-            ]
+          "cost": 3,
+          "weapons": [ "Fabricator Claws" ],
+          "wargear": [ "Nebuloscope" ]
+        }
+      ],
+      "optionalWargear": [
+        {
+          "name": "Ossified Necrodermis",
+          "cost": 2
+        }
+      ],
+      "abilities": [
+        "Living Metal",
+        "Autonomous Servant",
+        "Hover",
+        "Large (2)",
+        "Scarab Hive"
+      ]
+    },
+    {
+      "name": "Triarch Judicator",
+      "cost": 23,
+      "mv": [ 5, 12 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 4,
+      "lf": 5,
+      "si": 1,
+      "ld": 2,
+      "roles": [
+        "Leader"
+      ],
+      "type": [ "Infantry" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Rod of Covenant" ]
         },
         {
-            "name": "Gauntlet of Fire",
-            "cost": 0,
-            "range": [ 8, null ],
-            "melee": true,
-            "a": [ 1 ],
-            "ap": [ 1 ],
-            "dm": [ 1, 2 ],
-            "notes": "Pistol, Engulf (2), Flame (2+). When this model makes a melee attack, if they do not attack with this weapon in the same round, they may instead add the Flame (3+) type to their primary weapon.",
-            "usedBy": [
+          "cost": 2,
+          "weapons": [ "Voidblade", "Voidblade" ]
+        },
+        {
+          "cost": 2,
+          "weapons": [ "Voidblade", "Particle Caster" ]
+        },
+        {
+          "cost": 2,
+          "weapons": [ "Hyperphase Sword", "Particle Caster" ]
+        },
+        {
+          "cost": 3,
+          "weapons": [ "Warscythe" ]
+        },
+        {
+          "cost": 3,
+          "weapons": [ "Voidscythe" ]
+        },
+        {
+          "cost": 3,
+          "weapons": [ "Hyperphase Glaive" ]
+        }
+      ],
+      "abilities": [
+        "Living Metal",
+        "Reanimation Protocols",
+        "Gravity Displacer"
+      ]
+    },
+    {
+      "name": "Triarch Praetorian",
+      "cost": 20,
+      "mv": [ 5, 12 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 4,
+      "lf": 4,
+      "si": 1,
+      "ld": 2,
+      "roles": [
+        "Specialist"
+      ],
+      "type": [ "Infantry" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Rod of Covenant" ]
+        },
+        {
+          "cost": 2,
+          "weapons": [ "Voidblade", "Voidblade" ]
+        },
+        {
+          "cost": 2,
+          "weapons": [ "Voidblade", "Particle Caster" ]
+        }
+      ],
+      "abilities": [
+        "Living Metal",
+        "Reanimation Protocols",
+        "Gravity Displacer"
+      ]
+    }
+  ],
+  "weapons": [
+    {
+      "name": "Fabricator Claws",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 4,
+      "ap": 1,
+      "dm": [ 1, 2 ],
+      "notes": "If they do not make any melee attacks in the same round, this model may use the Repair (2+, Necrons) ability. If the roll for this ability is successful, the nominated model regains D2 life instead of 1",
+      "usedBy": [ "Canoptek Spyder" ]
+    },
+    {
+      "name": "Feeder Mandibles",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 4,
+      "ap": [ 1, 4 ],
+      "dm": 1,
+      "notes": "Critical (7+). For every full 2 life the bearer has lost, reduce this weapon’s A value by 1.",
+      "usedBy": [ "Canoptek Scarabs" ]
+    },
+    {
+      "name": "Flensing Claws",
+      "cost": 0,
+      "range": null,
+      "melee": true,
+      "a": 4,
+      "ap": [ 1, 4 ],
+      "dm": 1,
+      "notes": null,
+      "usedBy": [
+        "Flayed One"
+      ]
+    },
+    {
+      "name": "Gauntlet of Fire",
+      "cost": 0,
+      "range": [ 8, null ],
+      "melee": true,
+      "a": [ 1 ],
+      "ap": [ 1 ],
+      "dm": [ 1, 2 ],
+      "notes": "Pistol, Engulf (2), Flame (2+). When this model makes a melee attack, if they do not attack with this weapon in the same round, they may instead add the Flame (3+) type to their primary weapon.",
+      "usedBy": [
 
-            ]
-        },
-        {
-            "name": "Gauss Blaster",
-            "cost": 1,
-            "range": 18,
-            "melee": false,
-            "a": [ 2, 3 ],
-            "ap": [ 1, 4 ],
-            "dm": [ 1, 2 ],
-            "notes": "Rapid Fire",
-            "usedBy": [
-                "Oligarkh",
-                "Necron Immortal"
-            ]
-        },
-        {
-            "name": "Gauss Flayer",
-            "cost": 0,
-            "range": 18,
-            "melee": false,
-            "a": [ 1, 2 ],
-            "ap": [ 1, 4 ],
-            "dm": [ 1, 2 ],
-            "notes": "Rapid Fire",
-            "usedBy": [
-                "Necron Warrior"
-            ]
-        },
-        {
-            "name": "Gauss Reaper",
-            "cost": 1,
-            "range": 18,
-            "melee": false,
-            "a": [ 1, 2 ],
-            "ap": [ 1, 4 ],
-            "dm": [ 1, 2 ],
-            "notes": "Assault",
-            "usedBy": [
-                "Necron Warrior"
-            ]
-        },
-        {
-            "name": "Hyperphase Glaive",
-            "cost": 4,
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 3, 5 ],
-            "dm": 2,
-            "notes": "Critical (7+). Attacks with this weapon incur a hit roll penalty of 1. If the bearer attacks more than one target or a unit with this weapon, add 1 to its A value. The target’s invulnerable save is worsened by this weapon’s AP value, in addition to their armour save.",
-            "usedBy": [
-                "Oligarkh"
-            ]
-        },
-        {
-            "name": "Hyperphase Sword",
-            "cost": 1,
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 3, 5 ],
-            "dm": 1,
-            "notes": "Paired. The target’s invulnerable save is worsened by this weapon’s AP value, in addition to their armour save.",
-            "usedBy": [
-                "Oligarkh", "Lychguard"
-            ]
-        },
-        {
-            "name": "Particle Beamer",
-            "cost": 4,
-            "range": 12,
-            "melee": false,
-            "a": 2,
-            "ap": [ 0, 4 ],
-            "dm": [ "D2", 2 ],
-            "notes": null,
-            "usedBy": [ ]
-        },
-        {
-            "name": "Particle Caster",
-            "cost": 0,
-            "range": [ 9, null ],
-            "melee": true,
-            "a": 2,
-            "ap": [ 0, 4 ],
-            "dm": [ "D2", 2 ],
-            "notes": "Pistol",
-            "usedBy": [ ]
-        },
-        {
-            "name": "Rod of Covenant",
-            "cost": 0,
-            "range": 9,
-            "melee": { "a": 2, "ap": [ 3, 5 ], "dm": 2, "notes": null },
-            "a": 1,
-            "ap": [ 1, 4 ],
-            "dm": 2,
-            "notes": "Assault",
-            "usedBy": [ ]
-        },
-        {
-            "name": "Staff of Light",
-            "cost": 0,
-            "range": 12,
-            "melee": {
-                "a": 2,
-                "ap": [ 1, 4 ],
-                "dm": [ 1, 2 ],
-                "notes": null
-            },
-            "a": [ 3 ],
-            "ap": [ 1, 4 ],
-            "dm": [ 1, 2 ],
-            "notes": "Assault",
-            "usedBy": [
-                "Oligarkh"
-            ]
-        },
-        {
-            "name": "Synaptic Disintegrator",
-            "cost": 0,
-            "range": 30,
-            "melee": false,
-            "a": 1,
-            "ap": [ 2, 5 ],
-            "dm": [ 1, 3 ],
-            "notes": "Heavy (1), Sniper. For each injury a model suffers as a result of an attack made with this weapon, they worsen their Ld value by 1 for the rest of the game.",
-            "usedBy": [ "Deathmark" ]
-        },
-        {
-            "name": "Tachyon Arrow",
-            "cost": 0,
-            "range": 100,
-            "melee": false,
-            "a": 1,
-            "ap": 5,
-            "dm": "4+D2",
-            "notes": "Beam, One Use",
-            "usedBy": [ ]
-        },
-        {
-            "name": "Tesla Carbine",
-            "cost": 0,
-            "range": 18,
-            "melee": false,
-            "a": 2,
-            "ap": [ 1, 4 ],
-            "dm": 1,
-            "notes": "For each successful hit roll of 7+, this weapon inflicts one additional AP 1 hit on the same target, or two additional AP 1 hits if the target is a unit.",
-            "usedBy": [ "Oligarkh", "Necron Immortal" ]
-        },
-        {
-            "name": "Voidblade",
-            "cost": 2,
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 3, 5 ],
-            "dm": [ 1, 2 ],
-            "notes": "Paired, Critical (7+)",
-            "usedBy": [ "Oligarkh" ]
-        },
-        {
-            "name": "Voidscythe",
-            "cost": 7,
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 3, 5 ],
-            "dm": [ 2, 3 ],
-            "notes": "Critical (6+). Attacks with this weapon incur a hit roll penalty of 1. If the bearer attacks more than one target or a unit with this weapon, add 1 to its A value.",
-            "usedBy": [ "Oligarkh" ]
-        },
-        {
-            "name": "Warscythe",
-            "cost": 3,
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 3, 5 ],
-            "dm": 2,
-            "notes": "Critical (7+). Attacks with this weapon incur a hit roll penalty of 1. If the bearer attacks more than one target or a unit with this weapon, add 1 to its A value.",
-            "usedBy": [ "Oligarkh", "Lychguard" ]
-        }
-    ],
-    "abilities": [ ],
-    "wargear": [
-        {
-            "name": "Weapon Optimisaton",
-            "cost": 2,
-            "usedBy": [
-                "Necron Warrior",
-                "Necron Immortal",
-                "Oligarkh"
-            ],
-            "Gauss": [
-                "Atomic Decoupler",
-                "Molecular Vaporiser",
-                "Nanoparticulate Disassembler"
-            ],
-            "Tesla": [
-                "Arcshock Projector",
-                "Electromagnetic Overcapacitor",
-                "Fulmination Node"
-            ]
-        },
-        {
-            "name": "Disruption Field",
-            "cost": 1,
-            "usedBy": [
-                "Flayed One"
-            ]
-        },
-        {
-            "name": "Ossified Necrodermis",
-            "cost": 1,
-            "usedBy": [
-                "Flayed One"
-            ]
-        },
-        {
-            "name": "Nebuloscope",
-            "cost": 3,
-            "usedBy": [
-                "Canoptek Spyder"
-            ]
-        }
-    ]
+      ]
+    },
+    {
+      "name": "Gauss Blaster",
+      "cost": 1,
+      "range": 18,
+      "melee": false,
+      "a": [ 2, 3 ],
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Rapid Fire",
+      "usedBy": [
+        "Oligarkh",
+        "Necron Immortal"
+      ]
+    },
+    {
+      "name": "Gauss Flayer",
+      "cost": 0,
+      "range": 18,
+      "melee": false,
+      "a": [ 1, 2 ],
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Rapid Fire",
+      "usedBy": [
+        "Necron Warrior"
+      ]
+    },
+    {
+      "name": "Gauss Reaper",
+      "cost": 1,
+      "range": 18,
+      "melee": false,
+      "a": [ 1, 2 ],
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Assault",
+      "usedBy": [
+        "Necron Warrior"
+      ]
+    },
+    {
+      "name": "Hyperphase Glaive",
+      "cost": 4,
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": 2,
+      "notes": "Critical (7+). Attacks with this weapon incur a hit roll penalty of 1. If the bearer attacks more than one target or a unit with this weapon, add 1 to its A value. The target’s invulnerable save is worsened by this weapon’s AP value, in addition to their armour save.",
+      "usedBy": [
+        "Oligarkh"
+      ]
+    },
+    {
+      "name": "Hyperphase Sword",
+      "cost": 1,
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": 1,
+      "notes": "Paired. The target’s invulnerable save is worsened by this weapon’s AP value, in addition to their armour save.",
+      "usedBy": [
+        "Oligarkh", "Lychguard"
+      ]
+    },
+    {
+      "name": "Particle Beamer",
+      "cost": 4,
+      "range": 12,
+      "melee": false,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": [ "D2", 2 ],
+      "notes": null,
+      "usedBy": [ ]
+    },
+    {
+      "name": "Particle Caster",
+      "cost": 0,
+      "range": [ 9, null ],
+      "melee": true,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": [ "D2", 2 ],
+      "notes": "Pistol",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Rod of Covenant",
+      "cost": 0,
+      "range": 9,
+      "melee": { "a": 2, "ap": [ 3, 5 ], "dm": 2, "notes": null },
+      "a": 1,
+      "ap": [ 1, 4 ],
+      "dm": 2,
+      "notes": "Assault",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Staff of Light",
+      "cost": 0,
+      "range": 12,
+      "melee": {
+        "a": 2,
+        "ap": [ 1, 4 ],
+        "dm": [ 1, 2 ],
+        "notes": null
+      },
+      "a": [ 3 ],
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Assault",
+      "usedBy": [
+        "Oligarkh"
+      ]
+    },
+    {
+      "name": "Synaptic Disintegrator",
+      "cost": 0,
+      "range": 30,
+      "melee": false,
+      "a": 1,
+      "ap": [ 2, 5 ],
+      "dm": [ 1, 3 ],
+      "notes": "Heavy (1), Sniper. For each injury a model suffers as a result of an attack made with this weapon, they worsen their Ld value by 1 for the rest of the game.",
+      "usedBy": [ "Deathmark" ]
+    },
+    {
+      "name": "Tachyon Arrow",
+      "cost": 0,
+      "range": 100,
+      "melee": false,
+      "a": 1,
+      "ap": 5,
+      "dm": "4+D2",
+      "notes": "Beam, One Use",
+      "usedBy": [ ]
+    },
+    {
+      "name": "Tesla Carbine",
+      "cost": 0,
+      "range": 18,
+      "melee": false,
+      "a": 2,
+      "ap": [ 1, 4 ],
+      "dm": 1,
+      "notes": "For each successful hit roll of 7+, this weapon inflicts one additional AP 1 hit on the same target, or two additional AP 1 hits if the target is a unit.",
+      "usedBy": [ "Oligarkh", "Necron Immortal" ]
+    },
+    {
+      "name": "Voidblade",
+      "cost": 2,
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": [ 1, 2 ],
+      "notes": "Paired, Critical (7+)",
+      "usedBy": [ "Oligarkh" ]
+    },
+    {
+      "name": "Voidscythe",
+      "cost": 7,
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": [ 2, 3 ],
+      "notes": "Critical (6+). Attacks with this weapon incur a hit roll penalty of 1. If the bearer attacks more than one target or a unit with this weapon, add 1 to its A value.",
+      "usedBy": [ "Oligarkh" ]
+    },
+    {
+      "name": "Warscythe",
+      "cost": 3,
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": 2,
+      "notes": "Critical (7+). Attacks with this weapon incur a hit roll penalty of 1. If the bearer attacks more than one target or a unit with this weapon, add 1 to its A value.",
+      "usedBy": [ "Oligarkh", "Lychguard" ]
+    }
+  ],
+  "abilities": [ ],
+  "wargear": [
+    {
+      "name": "Weapon Optimisaton",
+      "cost": 2,
+      "usedBy": [
+        "Necron Warrior",
+        "Necron Immortal",
+        "Oligarkh"
+      ],
+      "Gauss": [
+        "Atomic Decoupler",
+        "Molecular Vaporiser",
+        "Nanoparticulate Disassembler"
+      ],
+      "Tesla": [
+        "Arcshock Projector",
+        "Electromagnetic Overcapacitor",
+        "Fulmination Node"
+      ]
+    },
+    {
+      "name": "Dispersion Shield",
+      "usedBy": ["Lychguard"]
+    },
+    {
+      "name": "Disruption Field",
+      "cost": 1,
+      "usedBy": [
+        "Flayed One"
+      ]
+    },
+    {
+      "name": "Ossified Necrodermis",
+      "cost": 1,
+      "usedBy": [
+        "Flayed One"
+      ]
+    },
+    {
+      "name": "Nebuloscope",
+      "cost": 3,
+      "usedBy": [
+        "Canoptek Spyder"
+      ]
+    }
+  ]
 }
