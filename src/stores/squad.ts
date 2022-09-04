@@ -5,39 +5,33 @@ import { useLocalStorage } from "@vueuse/core";
 import totalCost from "@/utils/totalCost";
 import type { SquadUnit, Unit, Wargear, Weapon } from '@/types/unit';
 
-interface SquadMember {
-    id: number;
-    name: string | null;
-    cost: number;
-}
+const generateId = ((id) => {
+  let nextId = id;
+  return () => nextId++;
+})(Date.now());
 
-let _id = 0;
+const createSquadUnit = () : SquadUnit => ({
+  id: generateId(),
+  faction: '',
+  name: '',
+  cost: 0,
+  mv: [],
+  bs: 0,
+  cs: 0,
+  df: 0,
+  lf: 0,
+  si: 0,
+  ld: 0,
+  abilities: [], 
+  type: [],
+  role: '',
+  wargear: [],
+  weapons: [],
+});
 
 interface State {
     faction: string;
     id: number;
-}
-
-class SquadMember implements SquadMember {
-    id: number;
-    name: string | null;
-    cost: number;
-    unit?: Unit;
-    weapon?: any;
-
-    constructor() {
-        this.id = _id++;
-        this.name = null;
-        this.cost = 0;
-    }
-
-    duplicate(): SquadMember {
-        const copy = new SquadMember();
-        copy.name = this.name;
-        copy.cost = this.cost;
-
-        return copy;
-    }
     units: SquadUnit[];
 }
 
@@ -55,26 +49,47 @@ export const useSquadStore = defineStore({
     },
 
     actions: {
+      clear() {
+        this.$patch((state) => {
+          state.units.splice(0);
+        })
+      },
         addSquadMember(unit: Unit) {
             const dataStore = useDataStore();
 
-            const m = new SquadMember()
-            Object.assign(m, { ...unit })
+            const m = Object.entries(unit)
+              .reduce((target, [property, value]) => {
+                if (property in target) target[property] = value;
+                return target;
+              }, createSquadUnit());
 
-            const availableWeapons = dataStore.getWeaponsForUnit(unit);
-            if (availableWeapons.length > 0) {
-                const [defaultWeapon] = orderBy(availableWeapons, ['cost']);
-                Object.assign(m, { weapon: defaultWeapon })
+            if (unit.roles.length > 0) {
+              const [role] = unit.roles;
+              Object.assign(m, { role });
             }
-            this.units.push(m)
+
+            const loadout = unit.options?.find(({ cost }) => cost === 0);
+            if (loadout) {
+              const { weapons, wargear } = loadout;
+            
+              if (weapons) m.weapons.push(...weapons.map(dataStore.getWeapon));
+              if (wargear) m.wargear.push(...wargear.map(dataStore.getWargear));
+            }
+
+            if (!unit.options?.length) { 
+              const availableWeapons = dataStore.getWeaponsForUnit(m);
+              if (availableWeapons.length > 0) {
+                const [defaultWeapon] = orderBy(availableWeapons, ['cost']);
+                Object.assign(m, { weapons: [defaultWeapon] })
+              }
+            }
+
+            this.units.push(m as SquadUnit)
 
             return m;
         },
-            const newMember = new SquadMember();
-            newMember.name = unit.name;
-            newMember.cost = unit.cost;
-
         duplicateSquadMember(unit: SquadUnit) {
+            const newMember = { ...unit, id: generateId() };
             this.units.push(newMember);
         },
         removeSquadMember(unit: SquadUnit) {
@@ -89,11 +104,34 @@ export const useSquadStore = defineStore({
                 Object.assign(squadUnit, unit)
             }
         },
-        setWeapon(squadId: number, weapon: any) {
+        setWargear(squadId: number, wargear: Wargear[]) {
+          this.$patch((state) => {
+            const squadUnit = state.units.find(({ id }) => id === squadId);
+            if (squadUnit) {
+              Object.assign(squadUnit, { wargear });
+            }              
+          });
+        },
+        setWeapon(squadId: number, weapon: Weapon) {
             const squadUnit = this.units.find(({ id }) => id === squadId);
             if (squadUnit) {
                 Object.assign(squadUnit, { weapon })
             }
+        },
+        setWeapons(squadId: number, weapons: Weapon[], overrideCost = 0) : void {
+          if (overrideCost) {
+            this.setWeapons(squadId, weapons.map((w, idx) => ({
+              ...w,
+              cost: idx === 0 ? overrideCost : 0,
+            })));
+            return;
+          }
+          this.$patch((state) => {
+            const squadUnit = state.units.find(({ id }) => id === squadId);
+            if (squadUnit) {
+              Object.assign(squadUnit, { weapons: [...weapons] });
+            }              
+          });
         },
         setRole(squadId: number, role: string) {
             const squadUnit = this.units.find(({ id }) => id === squadId);
