@@ -3,7 +3,10 @@ import { computed } from 'vue'
 import formatStat from '@/utils/formatStat'
 import  isObject from 'lodash/isObject';
 import type { Weapon } from '@/types/unit';
+import { useDataStore } from '@/stores/data';
   
+const dataStore = useDataStore()
+
   const props = defineProps<{
     weapon: Weapon,
     showFaction: boolean
@@ -13,26 +16,49 @@ import type { Weapon } from '@/types/unit';
     const { melee } = props.weapon;
     return isObject(melee);
   })
+
+  const weaponStats = computed(() => {
+    const { name, combi, melee } = props.weapon;
+
+    if (isObject(melee)) {
+      return [
+        props.weapon,
+        melee,
+      ]
+    }
+
+    if (combi) {
+      const combiWeapon = combi.map(dataStore.getWeapon)
+        .filter((w) => !!w)
+        .map((w, idx)=> ({
+          ...w,
+          name: idx > 0 ? null :name
+        }));
+      return combiWeapon;
+    }
+
+    return [props.weapon];
+  })
+
+  const faction = computed(() => {
+    return props.showFaction ? props.weapon.faction : null;
+  })
 </script>
 
 <template>
-  <tr class="weapon-stats">
+  <tr v-for="({ name, range, a, ap, dm, notes }, idx) in weaponStats" :key="`${name}_${idx}`" 
+      :class="{ 'weapon-stats': true, 'melee-stats': idx > 0 }"
+  >
     <td>
-      {{ weapon.name }}
-      <span v-if="showFaction">({{ weapon.faction }})</span>
+      <div v-if="name">
+        {{ name }}
+        <small v-if="showFaction">({{ faction }})</small>
+      </div>
     </td>
-    <td>{{ formatStat(weapon.range, '"') }}</td>
-    <td>{{ formatStat(weapon.a) }}</td>
-    <td>{{ formatStat(weapon.ap) }}</td>
-    <td>{{ formatStat(weapon.dm) }}</td>
-    <td><small>{{ weapon.notes }}</small></td>
-  </tr>
-  <tr v-if="isRangeAndMelee" class="weapon-stats melee-stats">
-    <td>{{ weapon.name }}</td>
-    <td>-</td>
-    <td>{{ formatStat(weapon.melee.a) }}</td>
-    <td>{{ formatStat(weapon.melee.ap) }}</td>
-    <td>{{ formatStat(weapon.melee.dm) }}</td>
-    <td><small>{{ weapon.melee.notes }}</small></td>
+    <td>{{ formatStat(range, '"') }}</td>
+    <td>{{ formatStat(a) }}</td>
+    <td>{{ formatStat(ap) }}</td>
+    <td>{{ formatStat(dm) }}</td>
+    <td><small>{{ notes || '-' }}</small></td>
   </tr>
 </template>
