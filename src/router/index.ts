@@ -1,4 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import ReferenceGuide from '../views/ReferenceGuide.vue'
+import SquadBuilder from '../views/SquadBuilder.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -10,12 +12,12 @@ const router = createRouter({
     {
       path: '/reference',
       name: 'reference',
-      component: () => import('../views/ReferenceGuide.vue'),
+      component: ReferenceGuide,
     },
     {
       path: '/builder',
       name: 'home',
-      component: () => import('../views/SquadBuilder.vue'),
+      component: SquadBuilder,
     },
     {
       path: '/:pathMatch(.*)*',
