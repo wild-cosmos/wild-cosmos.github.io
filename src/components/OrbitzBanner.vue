@@ -18,7 +18,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
 .sponsor-banner {
-  font-family: 'Staatliches', cursive;
+  font-family: 'Staatliches', sans-serif;
   background-image: url("../assets/starfield.jpg");
   background-position: center;
   background-repeat: no-repeat;
