@@ -1,29 +1,46 @@
 <template>
-  <div class="form-floating">
-    <input v-model="squadName" class="form-control">
-    <label for="selectWeapon">Squad Name</label>
+  <h3 class="d-none d-print-block">
+    {{ squadName }}
+  </h3>
+  <div class="row d-print-none ">
+    <div class="col">
+      <div class="form-floating">
+        <input v-model="squadName" class="form-control">
+        <label for="selectWeapon">Warband Name</label>
+      </div>
+    </div>
+    <div class="col-auto">
+      <button class="mt-2 btn btn-danger text-nowrap" @click="onReset">
+        Reset
+      </button>
+    </div>
   </div>
 
-  <SquadMember v-for="(unit) in squadStore.units" :key="unit.id" :unit="unit">
-    <button class="btn btn-success" @click="squadStore.duplicateSquadMember(unit)">
-      Duplicate
-    </button>
-    <button class="btn btn-danger" @click="squadStore.removeSquadMember(unit)">
-      Remove
-    </button>
-  </SquadMember>
+  <SquadMember v-for="(unit) in squadStore.units" :key="unit.id" :unit="unit" />
 
-  <div v-if="squadStore.totalPoints > maxPoints" class="alert alert-danger my-3">
-    Your squad value is greater than {{ maxPoints }}
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div v-for="error in validationErrors" :key="error" 
+         class="toast fade show text-bg-warning mb-2" role="alert" aria-live="assertive" aria-atomic="true"
+    >
+      <div class="toast-body">
+        <div class="d-flex align-items-center">
+          <h3 class="mb-0 me-2 bi bi-exclamation-diamond" />
+          <div>{{ error }}</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div v-if="squadStore.units.length" class="d-flex justify-content-end">
-    <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{ squadStore.totalPoints }} Pts</strong>
+
+
+  <div v-if="squadStore.units.length" class="d-flex justify-content-end my-3">
+    <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{
+      squadStore.totalPoints }} Pts</strong>
   </div>
 
   <div class="d-print-none bg-light my-3 p-2 row">
     <div class="col-12 col-sm-6 col-md-4">
       <SelectFaction v-model:faction="selectedFaction" class="mb-3 mb-sm-0" />
-    </div>      
+    </div>
     <div class="col-12 col-sm-6 col-md-4">
       <div class="form-floating">
         <select id="selectUnit" v-model="selectedUnit" class="form-control">
@@ -33,7 +50,7 @@
         </select>
         <label for="selectUnit">Model</label>
       </div>
-    </div>      
+    </div>
     <div class="col">
       <button class="mt-2 btn btn-success text-nowrap" :disabled="!selectedUnit" @click="onAddSquadMember">
         Add Model to Roster
@@ -46,10 +63,12 @@
 import SquadMember from '@/components/SquadMember.vue';
 import SelectFaction from '@/components/SelectFaction.vue';
 
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
 
+import { nextTick } from 'vue'
+import { Toast } from 'bootstrap';
 import orderBy from 'lodash/orderBy'
 
 const dataStore = useDataStore();
@@ -75,14 +94,52 @@ const availableUnitOptions = computed(() => {
   return orderBy(options, ['text']);
 })
 
+const validationErrors = computed(() => {
+  const errorList = [];
+
+  if (squadStore.units.length){
+    if (squadStore.totalPoints > maxPoints) {
+      errorList.push(`Your Warband value is greater than ${maxPoints}`);
+    }
+
+    const roles = squadStore.units.reduce(( o, { role }) => {
+      if (!role) return o;
+      if (role in o) {
+        o[role] += 1;
+      } else {
+        o[role] = 1;
+      }
+      return o;
+    }, {});
+
+    if (!roles.Leader) {
+      errorList.push("Your Warband must have a Leader")
+    } else if (roles.Leader !== 1) {
+      errorList.push("Your Warband cannot have more than one Leader")
+    }
+  }
+  
+  return errorList;
+})
+
+watch(validationErrors, async (errorList) => {
+  if (errorList.length) {
+    nextTick(() => {
+      const option: Partial<Toast.Options> = {autohide: false};
+      const toastElList = document.querySelectorAll('.toast')
+      toastElList.forEach(toastEl => new Toast(toastEl, option))
+    })
+  }
+})
+
 function onAddSquadMember() {
   const unit = availableUnits.value.find(({ name }) => name === selectedUnit.value)
   if (unit) squadStore.addSquadMember(unit);
 }
 
-// watch(state.selectedFaction, (faction) => {
-//   if (faction) squadStore.faction = faction;
-// })
+function onReset() {
+  squadStore.clear();
+}
 </script>
 
 <style scoped>
