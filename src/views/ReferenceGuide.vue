@@ -13,8 +13,11 @@
     </div>
   </form>
   
-  <UnitList v-if="unitsMatchingFilter.length" :units="unitsMatchingFilter" :show-faction="!selectedFaction" />
-  <WeaponsList v-if="weaponsMatchingFilter.length" :weapons="weaponsMatchingFilter" :show-faction="!selectedFaction" />
+  <div>
+    <UnitList v-if="unitsMatchingFilter.length" :units="unitsMatchingFilter" :show-faction="!selectedFaction" />
+    <WeaponsList v-if="weaponsMatchingFilter.length" :weapons="weaponsMatchingFilter" :show-faction="!selectedFaction" />
+    <WargearList v-if="wargearMatchingFilter.length" :wargear="wargearMatchingFilter" :show-faction="!selectedFaction" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -24,6 +27,7 @@ import { useDataStore } from '@/stores/data';
 import { computed, watch, ref } from 'vue';
 import { useRouter } from 'vue-router'
 import WeaponsList from '../components/WeaponsList.vue'
+import WargearList from '../components/WargearList.vue'
 
 defineProps<{
   faction?: string
@@ -69,4 +73,12 @@ const weaponsMatchingFilter = computed(()=> {
   return weapons.filter(searchFilter(search.value))
 });
 
+const wargearMatchingFilter = computed(()=> {
+  if (!search.value && !selectedFaction.value) return [];
+  const wargear = selectedFaction.value 
+    ? dataStore.getWargearForFaction(selectedFaction.value)
+    : dataStore.wargear
+
+  return wargear.filter(searchFilter(search.value))
+});
 </script>
