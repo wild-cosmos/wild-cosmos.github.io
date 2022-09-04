@@ -17,10 +17,6 @@
           "cost": 0,
           "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
           "wargear": [ ]
-        },
-        {
-          "cost": 2,
-          "weapons": [ "Storm Bolter", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ]
         }
       ],
       "abilities": [
@@ -41,6 +37,13 @@
       "ld": 4,
       "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology"
@@ -59,6 +62,13 @@
       "ld": 4,
       "roles": [ "Specialist" ],
       "type": [ "Infantry" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology"
@@ -77,6 +87,13 @@
       "ld": 4,
       "roles": [ "Specialist" ],
       "type": [ "Biker" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Twin Boltgun", "Bolt Pistol", "Chainsword", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology"
@@ -232,7 +249,80 @@
     }
   ],
   "abilities": [ ],
-  "wargear": [ ],
+  "wargear": [
+    { "name": "Armorium cherub",
+      "notes": "Once per game, at the end of the Manoeuvring Phase, this model may attack with one of their ranged weapons, even if they have already made an attack earlier in the same phase. For the purpose of this attack, this model is treated as having moved their full ordinary Mv value during that phase, regardless of the actual distance they moved (this means, for example, that they cannot aim, but they can shoot even if they advanced in that phase)."
+    }, {
+      "name": "Artificer armour",
+      "notes": "This model improves their armour save by 1."
+    }, {
+      "name": "Auspex",
+      "notes": "When this model, or any visible friendly Adeptus Astartes model within 3″ of them, makes a ranged attack, they ignore the effects of enemy Stealth abilities. Additionally, if any of these models trigger a trap, roll a D8: on a 6+ the trap is disarmed, and its effects are ignored."
+    }, {
+      "name": "Auxiliary grenade launcher",
+      "notes": "This model changes the Rng value of their frag grenades to 18\" and the Rng value of their krak grenades to 18\"/-."
+    }, {
+      "name": "Bionics",
+      "notes": "This model has the Ignore Damage (7+) ability."
+    }, {
+      "name": "Camo cloak",
+      "notes": "This model has the Camouflage (1) ability."
+    }, {
+      "name": "Chain bayonet",
+      "notes": "This model is treated as being armed with a chainsword. They cannot attack with this chainsword in the same round that they attack with their boltgun or combi-weapon."
+    }, {
+      "name": "Chapter vexillum",
+      "notes": "This model has the Battle Standard ability."
+    }, {
+      "name": "Dark Age weapon",
+      "notes": "When you create your warband, choose one weapon this model is armed with that has ‘plasma’ in its name: that weapon does not have the Overheat type."
+    }, {
+      "name": "Devotional cherub",
+      "notes": "Once per game, this model may discard one successful hit that has been allocated to them. This must be declared after all successful hits for an attack have been allocated, but before any saving throws are made."
+    }, {
+      "name": "Grapnel launcher",
+      "notes": "When this model advances, they have the Flying ability."
+    }, {
+      "name": "Gravis armour",
+      "notes": "This model has a 3+ armour save. They add 1 to their Lf value, but change their Mv value to 5\"/8\"."
+    }, {
+      "name": "Iron halo",
+      "notes": "This model has a 5+ invulnerable save."
+    }, {
+      "name": "Master-crafted weapon",
+      "notes": "When you create your warband, choose one weapon this model is armed with (excluding Grenades, Familiars and Steeds). This model re-rolls hit rolls of 1 with the chosen weapon."
+    }, {
+      "name": "Purity seals",
+      "notes": "When you create your warband, choose one of the following abilities. For the duration of the game, every model in your warband with purity seals has this ability.\nRecitation of Focus: If this model takes an aimed shot, they incur a critical hit bonus of 1 for the attack.\nExhortation of Rage: If this model charges, they incur a critical hit bonus of 1 for their attacks in the following Close Quarters Phase.\nLitany of Faith: Enemy attacks that target this model incur a critical hit penalty of 1 if the value required for a critical hit with that attack is better than 8+."
+    }, {
+      "name": "Refractor field",
+      "notes": "This model has a 7+ invulnerable save."
+    }, {
+      "name": "Relic shield",
+      "notes": "This model has the Shield ability and a 7+ invulnerable save. Each time this model makes a block roll, they roll two dice and discard the lowest value."
+    }, {
+      "name": "Signum",
+      "notes": "At the beginning of each Manoeuvring Phase, nominate an enemy model that is visible to this model. Until the end of the phase, friendly Adeptus Astartes models within 6\" of this model re-roll hit rolls of 1 and reduce any hit roll penalty they incur for firing at long range by 2 (to a minimum of 0)."
+    }, {
+      "name": "Skull probe",
+      "notes": "When this model is set up on the battlefield, place a Skull-probe marker at a point on the battlefield wholly within 12\" horizontally of this model. For the remainder of the game, enemy models arriving from reserve or using the Infiltrate ability cannot be set up within 9\" horizontally of the Skull-probe marker. When making measurements involving a Skull-probe marker, always measure from the centre of the marker."
+    }, {
+      "name": "Smoke grenades",
+      "notes": "Once per game, this model may use their smoke grenades. If they do, then until the end of the phase this model ignores the penalties for retreating, and enemy models that target this model with a ranged attack incur a hit roll penalty of 1." 
+    }, { 
+      "name": "Special-issue ammunition",
+      "notes": "When you create your warband, choose up to two of the following abilities. When a model in your warband with special-issue ammunition attacks with a Bolter weapon, they may choose for it to have one of the chosen abilities while resolving that attack (declare which ability you will use before making any hit rolls for that attack).\nKraken Bolts: Add 6\" to this weapon’s Rng value (or 3\" if it is a Pistol) and add 1 to this weapon’s AP value, to a maximum of AP 2/5.\nVengeance Rounds: Subtract 6\" from this weapon’s Rng value (or 3\" if it is a Pistol) and add 2 to this weapon’s AP value, to a maximum of AP 3/6.\nDragonfire Bolts: This weapon has the Flame (6+) type. The target’s cover save is worsened by this weapon’s AP value, in addition to their armour save.\nHellfire Rounds: This weapon has the Poison (6+) type.\nMetal Storm Frag Shells: This weapon has the Blast (2) type, but cannot benefit from the Critical or Sniper type, if it has either of these types."
+    } ,{ 
+      "name": "Storm shield",
+      "notes": "This model has the Shield ability and a 7+ invulnerable save."
+    } ,{ 
+      "name": "Teleportation transponder",
+      "notes": "This model has the Teleport Strike (4+) ability."
+      } ,{ 
+      "name": "Watcher in the Dark",
+      "notes": "This model cannot be a target of any psychic power (enemy or friendly)."
+    }
+  ],
   "weapons": [
     {
       "name": "Assault Cannon",
@@ -244,8 +334,7 @@
       "dm": [ 1 ],
       "notes": "Heavy (1), Critical (7+)",
       "usedBy": [ ]
-    },
-    {
+    }, {
       "name": "Bolt Carbine",
       "cost": 0,
       "range": 12,
@@ -266,8 +355,23 @@
       "dm": [ 1, 2 ],
       "notes": "Rapid Fire, Bolter",
       "usedBy": [ ]
-    },
-    {
+    }, {
+      "name": "Twin Boltgun",
+      "cost": 0,
+      "combi": [ "Boltgun", "Boltgun" ]
+    }, {
+      "name": "Twin Bolt Carbine",
+      "cost": 2,
+      "combi": [ "Bolt Carbine", "Bolt Carbine" ]
+    }, {
+      "name": "Twin Flamer",
+      "cost": 4,
+      "combi": [ "Flamer", "Flamer" ]
+    }, {
+      "name": "Twin Plasma Gun",
+      "cost": 10,
+      "combi": [ "Plasma Gun", "Plasma Gun" ]
+    }, {
       "name": "Bolt Pistol",
       "cost": 0,
       "range": [ 9, null ],
@@ -324,7 +428,7 @@
     },
     {
       "name": "Combi-flamer",
-      "cost": 0,
+      "cost": 1,
       "range": 18,
       "melee": false,
       "combi": [ "Boltgun", "Flamer" ],
@@ -333,7 +437,7 @@
     },
     {
       "name": "Combi-grav",
-      "cost": 0,
+      "cost": 1,
       "range": 18,
       "melee": false,
       "combi": [ "Boltgun", "Grav-gun" ],
@@ -342,7 +446,7 @@
     },
     {
       "name": "Combi-melta",
-      "cost": 0,
+      "cost": 3,
       "range": 18,
       "melee": false,
       "combi": [ "Boltgun", "Meltagun" ],
@@ -351,7 +455,7 @@
     },
     {
       "name": "Combi-plasma",
-      "cost": 0,
+      "cost": 2,
       "range": 18,
       "melee": false,
       "combi": [ "Boltgun", "Plasma Gun" ],
@@ -483,6 +587,7 @@
     },
     {
       "name": "Grav-cannon",
+      "cost": 10,
       "range": 24,
       "a": 3,
       "ap": 4,
@@ -500,6 +605,7 @@
     },
     {
       "name": "Grav-pistol",
+      "cost": 1,
       "range": [ 9, null ],
       "a": 1,
       "ap": 4,
@@ -524,6 +630,7 @@
     },
     {
       "name": "Heavy Bolter",
+      "cost": 10,
       "range": 30,
       "a": 3,
       "ap": [ 1, 4 ],
@@ -551,6 +658,7 @@
     },
     {
       "name": "Lascannon",
+      "cost": 12,
       "range": 30,
       "a": 1,
       "ap": [ 3, 5 ],
@@ -558,7 +666,7 @@
       "notes": "Heavy (1), Beam, Critical (6+)"
     },
     {
-      "name": "Lightning Claw",
+      "name": "Lightning Claws",
       "range": null,
       "a": 2,
       "ap": [ 2, 5 ],
@@ -584,6 +692,7 @@
     },
     {
       "name": "Missile Launcher (Frag missile)",
+      "cost": 9,
       "range": [ 30 ],
       "a": "D2",
       "ap": [ 0, 4 ],
@@ -600,6 +709,7 @@
     },
     {
       "name": "Multi-melta",
+      "cost": 12,
       "range": [ 12 ],
       "a": 1,
       "ap": 4,
@@ -608,6 +718,7 @@
     },
     {
       "name": "Plasma Cannon",
+      "cost": 10,
       "range": [ 30 ],
       "a": 1,
       "ap": [ 3, 5 ],
@@ -624,7 +735,8 @@
       "usedBy": [ ]
     },
     {
-      "name": "Plasma Pistol",
+      "name": "Plasma-pistol",
+      "cost": 2,
       "range": [ 9, null ],
       "a": 1,
       "ap": [ 3, 5 ],
@@ -633,6 +745,7 @@
     },
     {
       "name": "Power Fist",
+      "cost": 7,
       "range": null,
       "a": 2,
       "ap": 3,
@@ -641,6 +754,7 @@
     },
     {
       "name": "Power Maul",
+      "cost": 3,
       "range": null,
       "a": 2,
       "ap": 3,
@@ -648,6 +762,7 @@
     },
     {
       "name": "Power Sword",
+      "cost": 3,
       "range": null,
       "a": 2,
       "ap": [ 3, 5 ],
@@ -663,6 +778,7 @@
     },
     {
       "name": "Storm Bolter",
+      "cost": 2,
       "range": 18,
       "a": [ 2, 4 ],
       "ap": [ 1, 4 ],
@@ -676,6 +792,198 @@
       "ap": 3,
       "dm": [ "D4", 4 ],
       "notes": "Critical (6+), Stun (6+). Attacks with this weapon incur a hit roll penalty of 1."
+    }
+  ],
+  "configuration": [
+    {
+      "weapon": "Storm Bolter",
+      "replaces": [ "Boltgun" ],
+      "cost": 2,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": "Combi-flamer",
+      "replaces": [ "Boltgun" ],
+      "cost": 1,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": "Combi-grav",
+      "replaces": [ "Boltgun" ],
+      "cost": 1,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": "Combi-melta",
+      "replaces": [ "Boltgun" ],
+      "cost": 3,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": "Combi-plasma",
+      "replaces": [ "Boltgun" ],
+      "cost": 2,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": "Bolt Pistol",
+      "replaces": [ "Boltgun" ],
+      "cost": 0,
+      "usedBy": [ "Space Marine Sergeant", "Tactical Marine" ]
+    },
+    {
+      "weapon": "Chainsword",
+      "replaces": [ "Boltgun" ],
+      "cost": 0,
+      "usedBy": [ "Space Marine Sergeant", "Tactical Marine" ]
+    },
+    {
+      "weapon": "Power Sword",
+      "replaces": [ "Boltgun" ],
+      "cost": 3,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": "Power Maul",
+      "replaces": [ "Boltgun" ],
+      "cost": 3,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": "Power Fist",
+      "replaces": [ "Boltgun" ],
+      "cost": 7,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": "Grav-pistol",
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 1,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": "Plasma-pistol",
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 2,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": [ "Lightning Claws", "Lightning Claws" ],
+      "replaces": [ "Boltgun", "Bolt Pistol" ],
+      "cost": 3,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": [ "Storm shield" ],
+      "replaces": [ "Bolt Pistol" ],
+      "condition": {
+        "hasMeleeWeapon": true,
+        "not": [ "Power Fist" ]
+      },
+      "cost": 4,
+      "usedBy": [ "Space Marine Sergeant" ]
+    },
+    {
+      "weapon": [ "Flamer" ],
+      "replaces": [ "Boltgun" ],
+      "condition": { "role": "Specialist" },
+      "cost": 2,
+      "usedBy": [ "Tactical Marine" ]
+    },
+    {
+      "weapon": [ "Grav-gun" ],
+      "replaces": [ "Boltgun" ],
+      "condition": { "role": "Specialist" },
+      "cost": 3,
+      "usedBy": [ "Tactical Marine" ]
+    },
+    {
+      "weapon": [ "Meltagun" ],
+      "replaces": [ "Boltgun" ],
+      "condition": { "role": "Specialist" },
+      "cost": 10,
+      "usedBy": [ "Tactical Marine" ]
+    },
+    {
+      "weapon": [ "Plasma Gun" ],
+      "replaces": [ "Boltgun" ],
+      "condition": { "role": "Specialist" },
+      "cost": 5,
+      "usedBy": [ "Tactical Marine" ]
+    },
+
+    {
+      "weapon": [ "Grav-pistol" ],
+      "replaces": [ "Bolt Pistol" ],
+      "condition": {
+        "role": "Specialist",
+        "requires": [ "Bolt Pistol", "Bolt Pistol" ]
+      },
+      "cost": 1,
+      "usedBy": [ "Tactical Marine" ]
+    }, {
+      "weapon": [ "Plasma-pistol" ],
+      "replaces": [ "Bolt Pistol" ],
+      "condition": {
+        "role": "Specialist",
+        "requires": [ "Bolt Pistol", "Bolt Pistol" ]
+      },
+      "cost": 2,
+      "usedBy": [ "Tactical Marine" ]
+    },
+
+    {
+      "weapon": [ "Heavy Bolter" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 10,
+      "usedBy": [ "Devastator" ]
+    }, {
+      "weapon": [ "Grav-cannon" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 10,
+      "usedBy": [ "Devastator" ]
+    }, {
+      "weapon": [ "Lascannon" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 12,
+      "usedBy": [ "Devastator" ]
+    }, {
+      "weapon": [ "Missile Launcher" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 9,
+      "usedBy": [ "Devastator" ]
+    }, {
+      "weapon": [ "Multi-melta" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 12,
+      "usedBy": [ "Devastator" ]
+    }, {
+      "weapon": [ "Plasma Cannon" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 10,
+      "usedBy": [ "Devastator" ]
+    },
+
+    {
+      "weapon": [ "Twin Bolt Carbine" ],
+      "replaces": [ "Twin Boltgun" ],
+      "cost": 2,
+      "usedBy": [ "Space Marine Biker" ]
+    }, {
+      "weapon": [ "Twin Flamer" ],
+      "replaces": [ "Twin Boltgun" ],
+      "cost": 4,
+      "usedBy": [ "Space Marine Biker" ]
+    }, {
+      "weapon": [ "Twin Plasma Gun" ],
+      "replaces": [ "Twin Boltgun" ],
+      "cost": 10,
+      "usedBy": [ "Space Marine Biker" ]
+    }, {
+      "weapon": [ "Melta Bombs" ],
+      "replaces": [ "Krak Grenades" ],
+      "cost": 5,
+      "usedBy": [ "Space Marine Biker" ]
     }
   ]
 }
