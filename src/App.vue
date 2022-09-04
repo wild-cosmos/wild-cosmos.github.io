@@ -5,7 +5,8 @@
         <img src="./assets/wild_cosmos_logo.png" alt="" height="64" class="d-inline-block">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon" />
       </button>
       <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -19,6 +20,23 @@
             <RouterLink class="nav-link" active-class="active" to="/reference">
               Reference
             </RouterLink>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Useful Links
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="https://drive.google.com/file/d/1eQ5XuCMya0glnFFAUHfl825W-RcZ43jV/view?usp=sharing" target="_blank">
+                  Core Rules
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="https://drive.google.com/drive/u/2/folders/1_AT9l8767WZn3r46qmTbWjCsnY9IZ75_" target="_blank">
+                  Faction Books
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
         <form v-if="false" class="d-flex">
