@@ -14,7 +14,10 @@
   
 <template>
   <tr>
-    <td>{{ item.name }}</td>
+    <td>
+      {{ item.name }}
+      <small v-if="showFaction">({{ faction }})</small>
+    </td>
     <td><small style="white-space: pre-line">{{ item.notes || '-' }}</small></td>
   </tr>
 </template>

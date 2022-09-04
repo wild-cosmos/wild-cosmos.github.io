@@ -12,11 +12,6 @@ const dataStore = useDataStore()
     showFaction: boolean
   }>();
   
-  const isRangeAndMelee = computed(() => {
-    const { melee } = props.weapon;
-    return isObject(melee);
-  })
-
   const weaponStats = computed(() => {
     const { name, combi, melee } = props.weapon;
 
@@ -30,7 +25,7 @@ const dataStore = useDataStore()
     if (combi) {
       const combiWeapon = combi.map(dataStore.getWeapon)
         .filter((w) => !!w)
-        .map((w, idx)=> ({
+        .map((w, idx: number)=> ({
           ...w,
           name: idx > 0 ? null :name
         }));
@@ -47,8 +42,7 @@ const dataStore = useDataStore()
 
 <template>
   <tr v-for="({ name, range, a, ap, dm, notes }, idx) in weaponStats" :key="`${name}_${idx}`" 
-      :class="{ 'weapon-stats': true, 'melee-stats': idx > 0 }"
-  >
+    :class="{ 'weapon-stats': true, 'melee-stats': idx > 0 }">
     <td>
       <div v-if="name">
         {{ name }}

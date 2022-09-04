@@ -46,7 +46,7 @@ const selectedFaction = ref(null);
 
 const searchFilter = (query: string) => {
   const test = query ? new RegExp(query, 'i') : { test: () => true };
-  return ({ name }) => test.test(name);
+  return ({ name } : { name: string; }) => test.test(name);
 } 
 
 watch(selectedFaction, async (faction) => {

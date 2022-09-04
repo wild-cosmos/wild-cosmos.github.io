@@ -64,6 +64,7 @@ export interface Wargear extends Item {
 
 export interface Weapon extends Wargear {
     melee: WeaponStats;
+    combi?: string[];
     range: number;
     a: number;
     ap: number[];
@@ -71,8 +72,9 @@ export interface Weapon extends Wargear {
 }
 
 export interface WeaponStats {
+  range: number|number[];
   a: number;
   ap: number[];
-  dm: number;
+  dm: number|number[];
   notes?: string;
 }
