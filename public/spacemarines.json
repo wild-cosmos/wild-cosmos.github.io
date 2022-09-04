@@ -370,25 +370,24 @@
       "usedBy": [ ]
     },
     {
-      "name": "Cyclone Missile Launcher (Frag)",
+      "name": "Cyclone Missile Launcher (Frag missile)",
       "cost": 0,
       "range": 24,
-      "melee": false,
+      "melee": {
+        "name": "Cyclone Missile Launcher (Krak missile)",
+        "cost": 0,
+        "range": 24,
+        "melee": false,
+        "a": 2,
+        "ap": [ 4 ],
+        "dm": [ "D4", 4 ],
+        "notes": "Heavy (1), Critical (6+)",
+        "usedBy": [ ]
+      },
       "a": "2D2",
       "ap": [ 0, 4 ],
       "dm": [ 1 ],
       "notes": "Heavy (1), Blast (4), Critical (7+)",
-      "usedBy": [ ]
-    },
-    {
-      "name": "Cyclone Missile Launcher (Krak)",
-      "cost": 0,
-      "range": 24,
-      "melee": false,
-      "a": 2,
-      "ap": [ 4 ],
-      "dm": [ "D4", 4 ],
-      "notes": "Heavy (1), Critical (6+)",
       "usedBy": [ ]
     },
     {
@@ -584,13 +583,13 @@
       "usedBy": [ ]
     },
     {
-      "name": "Missile Launcher (frag missile)",
+      "name": "Missile Launcher (Frag missile)",
       "range": [ 30 ],
       "a": "D2",
       "ap": [ 0, 4 ],
       "dm": [ 1 ],
       "melee": {
-        "name": "Missile Launcher (krak missile)",
+        "name": "Missile Launcher (Krak missile)",
         "range": [ 30 ],
         "a": 1,
         "ap": 4,
