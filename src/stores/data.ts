@@ -31,25 +31,6 @@ export const useDataStore = defineStore({
         getWargearForUnit: ({ wargear }) => (unitName: string) => wargear.filter(({ usedBy }) => usedBy?.includes(unitName)),
         getWeapon: ({ weapons })  => (weaponName: string) : Weapon|undefined => weapons.find(({ name }) => name === weaponName),
         getWeaponsForFaction: (state) => (faction: string) => state.weapons.filter((weapon) => weapon.faction === faction),
-            if (unit.weapons) {
-                return unit.weapons.map((w: string) => {
-                  if (isArray(w)) {
-                    const { name, cost } = w.map((name) => getWeapon(name) || getWargear(name))
-                      .filter((w) => !!w)
-                      .reduce((m, { name, cost }) => {
-                        m.name.push(name)
-                        m.cost.push(cost);
-                        return m
-                      }, { name: [] as Array<string>, cost: [] as Array<number> })
-                    return {
-                      name: name.join('/'),
-                      cost: cost.reduce((sum: number, v: number) => sum + v, 0)
-                    };
-                  } else {
-                    return getWeapon(w);
-                  }
-                })
-              }
         getWeaponsForUnit: ({ weapons, getWeapon, getWargear }) => (unit: SquadUnit) => {
                         
             return weapons.filter(({ usedBy }) => usedBy?.includes(unit.name))
@@ -57,7 +38,14 @@ export const useDataStore = defineStore({
         allWargearForUnit: ({ wargear, weapons }) => (unitName: string) => [
             ...weapons.filter(({ usedBy }) => usedBy?.includes(unitName)),
             ...wargear.filter(({ usedBy }) => usedBy?.includes(unitName))
-        ]
+        ],
+
+        getBuildOptionsForUnit: ({ units }) => ({ name } : SquadUnit) => {
+          const unit = units.find((u) => u.name === name);
+          return unit?.options ?? [];
+        },
+
+        getUnitByName: ({units}) => (unitName: string) => units.find(({name}) => name === unitName)
     },
 
     actions: {

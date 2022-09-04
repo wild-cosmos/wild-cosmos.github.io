@@ -1,14 +1,23 @@
 <template>
   <UnitDetails :unit="unit">
     <template #actions>
-      <button class="btn btn-sm btn-danger ml-auto"
-      @click="onClickRemove">
+      <button class="d-print-none btn btn-sm btn-danger ml-auto" @click="onClickRemove">
         Remove
       </button>
     </template>
   </UnitDetails>
-    <div v-if="unit" class="col">
   <div class="d-print-none row py-2">
+    <div v-if="buildOptions.length" class="col">
+      <div class="form-floating">
+        <select id="selectBuildOption" v-model="selectBuildOption" class="form-control">
+          <option v-for="({ value, text }) in buildOptions" :key="value" :value="value">
+            {{ text }}
+          </option>
+        </select>
+        <label for="selectBuildOption">Build Option</label>
+      </div>
+    </div>
+    <div v-else-if="weaponOptions.length > 1" class="col">
       <div class="form-floating">
         <select id="selectWeapon" v-model="selectedWeapon" class="form-control">
           <option v-for="({ value, text }) in weaponOptions" :key="value" :value="value">
@@ -18,14 +27,14 @@
         <label for="selectWeapon">Weapon</label>
       </div>
     </div>
-    <div v-if="unit" class="col">
+    <div v-if="rolesForUnit.length > 1" class="col">
       <div class="form-floating">
         <select v-model="selectedRole" class="form-control">
           <option v-for="(r) in rolesForUnit" :key="r" :value="r">
             {{ r }}
           </option>
         </select>
-        <label for="selectWeapon">Role</label>
+        <label for="selectRole">Role</label>
       </div>
     </div>
     <div v-if="false" class="col-5">
@@ -51,29 +60,46 @@ import UnitDetails from './UnitDetails.vue'
 
 import { useDataStore } from "@/stores/data";
 import { useSquadStore } from "@/stores/squad";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 import orderBy from 'lodash/orderBy'
 import isArray from 'lodash/isArray'
+import type { Item, SquadUnit, Weapon } from '@/types/unit';
 
 const devMode = import.meta.env.DEV;
 
 const emit = defineEmits(['update:unit']);
 
 const props = defineProps<{
-  unit: any
+  unit: SquadUnit
 }>();
 
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
 
-const toOption = ({ name, cost }) => ({ value: name, text: `${name} (${cost})` });
+const unitType = computed(() => dataStore.getUnitByName(props.unit.name));
+
+const toOption = ({ name, cost }: Item) => {
+  console.log(name, cost)
+  return { value: name, text: `${name} (${cost})` };
+}
+
+const buildOptions = computed(() => {
+  const options = dataStore.getBuildOptionsForUnit(props.unit);
+  return options.map(({ cost, weapons = [], wargear = [] }, idx) => ({
+    weapons,
+    wargear,
+    cost,
+    text: `${[...weapons, ...wargear].join('/')} (${cost})`,
+    value: idx,
+  }));
+});
 
 const weaponsForUnit = computed(() => dataStore.getWeaponsForUnit(props.unit))
 
 const weaponOptions = computed(() => {
   const options = dataStore.getWeaponsForUnit(props.unit)
-    .map(({ name, cost }: { name: string, cost: number }) => ({ value: name, text: `${name} (${cost})` }))
+    .map(toOption);
   return orderBy(options, ['text']);
 })
 
@@ -90,11 +116,26 @@ const wargearOptions = computed(() => {
 })
 
 const rolesForUnit = computed(() => {
-  const { id, roles } = props.unit
+  if (!unitType.value) return [];
+  const { roles } = unitType.value;
   const options = isArray(roles) ? roles : [roles];
-  if (options.length) squadStore.setRole(id, options[0])
-  return options
+  return options;
 })
+
+const selectBuildOption = computed({
+  get() { return null; },
+  set(selectedBuildOption) {
+    const loadout = buildOptions.value.find(({ value }) => value === selectedBuildOption);
+
+    if (loadout) {
+      const weapons = loadout.weapons.map(dataStore.getWeapon);
+      const wargear = loadout.wargear.map(dataStore.getWargear);
+
+      squadStore.setWeapons(props.unit.id, weapons.filter(w => !!w), loadout.cost);
+      squadStore.setWargear(props.unit.id, wargear.filter(w => !!w));
+    }
+  }
+});
 
 const selectedWeapon = computed({
   get() { return props.unit.weapon?.name },
@@ -102,7 +143,7 @@ const selectedWeapon = computed({
     if (weaponName) {
       const weapon = weaponsForUnit.value.find(({ name }) => name === weaponName);
 
-      squadStore.setWeapon(props.unit.id, weapon)
+      squadStore.setWeapons(props.unit.id, [weapon])
     }
   }
 })
