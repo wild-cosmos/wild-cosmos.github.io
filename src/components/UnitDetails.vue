@@ -7,16 +7,19 @@
   </div>
   <table class="table table-sm">
     <thead>
-      <tr>
+      <tr class="table-secondary">
         <th>Mv</th>
         <th>BS</th>
         <th>CS</th>
         <th>Df</th>
         <th>Lf</th>
         <th>Ld</th>
-        <th>Role</th>
-        <th>Type</th>
-        <th>Pts</th>
+        <th>Role and Type</th>
+        <th>
+          <div class="text-end">
+            Pts
+          </div>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -39,33 +42,37 @@
         <td class="stat">
           {{ formatStat(unit.ld, "+") }}
         </td>
-        <td>{{ unit.role }}</td>
-        <td>{{ formatList(unitType) }}</td>
-        <td>{{ totalCost }} Pts</td>
+        <td>{{ formatList(unitRoleAndType) }}</td>
+        <td>
+          <div class="text-end">
+            {{ totalCost }}
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
+  <WeaponsList :weapons="unit.weapons" />
   <table class="table table-sm">
     <tbody>
       <tr>
         <th>Wargear</th>
         <td>
-          <span v-for="(wargear) in allWargear" :key="wargear" class="d-print-none badge bg-primary me-1">
+          <span v-for="(wargear, i) in allWargear" :key="`wargear_${i}`" class="d-print-none badge bg-primary me-1">
             {{ wargear }}
           </span>
-          <span v-for="(wargear) in allWargear" :key="wargear" class="d-none d-print-inline me-1">
-            {{ wargear }}
+          <span class="d-none d-print-inline">
+            {{ formatList(allWargear) }}
           </span>
         </td>
       </tr>
       <tr>
         <th>Abilities</th>
         <td>
-          <span v-for="(ability) in unit.abilities" :key="ability" class="d-print-none badge bg-primary me-1">
+          <span v-for="(ability) in unitAbilities" :key="ability" class="d-print-none badge bg-primary me-1">
             {{ ability }}
           </span>
-          <span v-for="(ability) in unit.abilities" :key="ability" class="d-none d-print-inline me-1">
-            {{ ability }}
+          <span class="d-none d-print-inline">
+            {{ formatList(unitAbilities) }}
           </span>
         </td>
       </tr>
@@ -79,74 +86,63 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import orderBy from 'lodash/orderBy';
+import sortBy from 'lodash/sortBy';
 import isArray from 'lodash/isArray';
 import formatStat from '@/utils/formatStat';
 import formatList from '@/utils/formatList';
 import calcTotalCost from '@/utils/totalCost';
 import { useDataStore } from "@/stores/data";
 import type { SquadUnit } from '@/types/unit';
+import WeaponsList from './WeaponsList.vue';
 
 const props = defineProps<{
   unit: SquadUnit
 }>();
 
 const unit = computed(() => {
-    return props.unit
+  return props.unit
 })
 
 const dataStore = useDataStore();
 
-const weaponsForUnit = computed(() => {
-    if (props.unit.weapons) {
-        return props.unit.weapons.map((w: string) => {
-            if (isArray(w)) {
-                const { name, cost } = w.map((name) => dataStore.getWeapon(name))
-                    .filter((w) => !!w)
-                    .reduce((m, { name, cost }) => {
-                        m.name.push(name)
-                        m.cost.push(cost);
-                        return m
-                    }, { name: [] as Array<string>, cost: [] as Array<number> })
-                return {
-                    name: name.join('/'),
-                    cost: cost.reduce((sum: number, v: number) => sum + v, 0)
-                };
-            } else {
-                return dataStore.getWeapon(w);
-            }
-        })
-    }
-
-    return dataStore.getWeaponsForUnit(props.unit.name);
-})
-
-const weaponOptions = computed(() => {
-    const options = weaponsForUnit.value
-        .map(({ name, cost }: { name: string, cost: number }) => ({ value: name, text: `${name} (${cost})` }))
-    return orderBy(options, ['text']);
-})
-
 const allWargear = computed(() => {
-    const wargear = [];
-    if (props.unit.weapon) wargear.push(props.unit.weapon.name)
-    // if (props.unit.wargear) wargear.push(props.unit.wargear.name)
-    return wargear
+  const loadout = [];
+  const { weapons, wargear } = props.unit;
+  const checkMissing = (item) => {
+    if (!item) {
+      return { "name": "Missing Item" }
+    }
+    return item;
+  }
+
+  if (weapons?.length) loadout.push(...weapons.map(checkMissing).map(({ name }) => name))
+  if (wargear?.length) loadout.push(...wargear.map(checkMissing).map(({ name }) => name))
+  return loadout
 })
 
-const totalCost = computed(() => {
-  return calcTotalCost(props.unit);
+const totalCost = computed(() => calcTotalCost(props.unit))
+
+const unitRoleAndType = computed(() => {
+  const { role, type } = props.unit;
+  const roleAndType: string[] = [];
+  if (role) roleAndType.push(role);
+  if (isArray(type)) {
+    roleAndType.push(...type);
+  } else {
+    roleAndType.push(type);
+  }
+  return roleAndType;
 })
 
-const unitType = computed(() => {
-  if (isArray(props.unit.type)) return props.unit.type;
-  return [props.unit.type];
+const unitAbilities = computed(() => {
+  return sortBy(props.unit.abilities);
 })
+
 </script>
 
 
 <style>
 td.stat {
-    width: 4rem;
+  width: 4rem;
 }
 </style>
