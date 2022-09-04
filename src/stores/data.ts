@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
 import { mande } from 'mande'
 import isArray from 'lodash/isArray'
-import isObject from 'lodash/isObject';
-import type { Ability, Faction, SquadUnit, Unit, Wargear, Weapon } from '@/types/unit';
+import type { 
+  Ability, Faction, SquadUnit, Unit, Wargear, Weapon, Configuration 
+} from '@/types/unit';
 
 interface State {
      factions: string[];
@@ -10,6 +11,7 @@ interface State {
      units: Unit[];
      wargear: Wargear[];
      weapons: Weapon[];
+     configuration: Configuration[];
  }
 
 const api = mande('/');
@@ -23,6 +25,7 @@ export const useDataStore = defineStore({
         units: [],
         wargear: [],
         weapons: [],
+        configuration: [],
     }),
 
     getters: {
@@ -61,7 +64,7 @@ export const useDataStore = defineStore({
                             .then((data) => {
                                 this.$patch((state) => {
                                     // state.factions.push(faction);
-                                    const { units, weapons, abilities, wargear } = data;
+                                    const { units, weapons, abilities, wargear, configuration } = data;
 
                                     if (abilities)
                                         state.abilities.push(...abilities.map((ability: Ability) => ({ ...ability, faction: factionName })));
@@ -71,6 +74,8 @@ export const useDataStore = defineStore({
                                         state.weapons.push(...weapons.map((weapon: Weapon) => ({ ...weapon, faction: factionName })));
                                     if (wargear)
                                         state.wargear.push(...wargear.map((wargear: Wargear) => ({ ...wargear, faction: factionName })));
+                                    if (configuration)
+                                      state.configuration.push(...configuration);
                                 })
                             });
                     });

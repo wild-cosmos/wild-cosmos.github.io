@@ -677,5 +677,120 @@
       "dm": [ "D4", 4 ],
       "notes": "Critical (6+), Stun (6+). Attacks with this weapon incur a hit roll penalty of 1."
     }
+  ],
+  "configuration": [
+    {
+      "weapon": "Storm Bolter",
+      "replaces": ["Boltgun"],
+      "cost": 2,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": "Combi-flamer",
+      "replaces": ["Boltgun"],
+      "cost": 1,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": "Combi-grav",
+      "replaces": ["Boltgun"],
+      "cost": 1,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": "Combi-melta",
+      "replaces": ["Boltgun"],
+      "cost": 3,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": "Combi-plasma",
+      "replaces": ["Boltgun"],
+      "cost": 2,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": "Bolt Pistol",
+      "replaces": ["Boltgun"],
+      "cost": 0,
+      "usedBy": ["Space Marine Sergeant", "Tactical Marine"]
+    },
+    {
+      "weapon": "Chainsword",
+      "replaces": ["Boltgun"],
+      "cost": 0,
+      "usedBy": ["Space Marine Sergeant", "Tactical Marine"]
+    },
+    {
+      "weapon": "Power Sword",
+      "replaces": ["Boltgun"],
+      "cost": 3,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": "Power Maul",
+      "replaces": ["Boltgun"],
+      "cost": 3,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": "Power Fist",
+      "replaces": ["Boltgun"],
+      "cost": 7,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": "Grav-pistol",
+      "replaces": ["Bolt Pistol"],
+      "cost": 1,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": "Plasma-pistol",
+      "replaces": ["Bolt Pistol"],
+      "cost": 2,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": ["Lightning Claws", "Lightning Claws"],
+      "replaces": ["Boltgun", "Bolt Pistol"],
+      "cost": 3,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": ["Storm Shield"],
+      "replaces": ["Bolt Pistol"],
+      "condition": { "hasMeleeWeapon": true },
+      "cost": 4,
+      "usedBy": ["Space Marine Sergeant"]
+    },
+    {
+      "weapon": ["Flamer"],
+      "replaces": ["Boltgun"],
+      "condition": { "role": "Specialist"},
+      "cost": 2,
+      "usedBy": ["Tactical Marine"]
+    },
+    {
+      "weapon": ["Grav-gun"],
+      "replaces": ["Boltgun"],
+      "condition": { "role": "Specialist"},
+      "cost": 3,
+      "usedBy": ["Tactical Marine"]
+    },
+    {
+      "weapon": ["Meltagun"],
+      "replaces": ["Boltgun"],
+      "condition": { "role": "Specialist"},
+      "cost": 10,
+      "usedBy": ["Tactical Marine"]
+    },
+    {
+      "weapon": ["Plasma Gun"],
+      "replaces": ["Boltgun"],
+      "condition": { "role": "Specialist"},
+      "cost": 5,
+      "usedBy": ["Tactical Marine"]
+    }
   ]
 }

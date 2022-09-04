@@ -1,8 +1,9 @@
 export interface Faction {
-    abilities: Ability[],
-    units: Unit[],
-    weapons: Weapon[],
-    wargear: Wargear[]
+    abilities?: Ability[];
+    configuration?: Configuration[]; 
+    units?: Unit[];
+    wargear?: Wargear[];
+    weapons?: Weapon[];
 }
 
 export interface Ability {
@@ -77,4 +78,17 @@ export interface WeaponStats {
   ap: number[];
   dm: number|number[];
   notes?: string;
+}
+
+export interface Configuration {
+  weapon: string|string[];
+  replaces: string|string[];
+  condition?: Condition;
+  cost: number;
+  usedBy: string|string[];
+}
+
+interface Condition {
+  role?: string|string[];
+  hasMeleeWeapon?: boolean;
 }
