@@ -6,6 +6,7 @@ import router from './router'
 
 // import './assets/main.css'
 import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import packageInfo from '../package.json';
 
