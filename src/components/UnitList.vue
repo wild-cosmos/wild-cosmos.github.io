@@ -19,7 +19,7 @@ const factionUnits = computed(() => {
     <table class="table table-hover table-sm">
       <thead class="table-secondary">
         <tr>
-          <th>&nbsp;</th>
+          <th>Model</th>
           <th>Mv</th>
           <th>BS</th>
           <th>CS</th>

@@ -3,7 +3,7 @@
     <table class="table table-hover table-sm">
       <thead class="table-secondary">
         <tr>
-          <th>&nbsp;</th>
+          <th>Weapon</th>
           <th>Rng</th>
           <th>A</th>
           <th>AP</th>
@@ -23,6 +23,7 @@
 <script setup lang="ts">
 import WeaponRow from './WeaponRow.vue';
 import { computed } from 'vue';
+import groupBy from 'lodash/groupBy';
 import orderBy from 'lodash/orderBy';
 import type { Weapon } from '@/types/unit';
 
@@ -34,6 +35,8 @@ const props = defineProps<{
 const factionWeapons = computed(() => {
   return orderBy(props.weapons, ['name']);
 })
+
+const weaponsByFaction = computed(() => groupBy(props.weapons, 'faction'))
 </script>
 
 
