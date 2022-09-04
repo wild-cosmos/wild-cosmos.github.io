@@ -2,13 +2,14 @@ import { defineStore } from 'pinia'
 import { mande } from 'mande'
 import isArray from 'lodash/isArray'
 import isObject from 'lodash/isObject';
+import type { Ability, Faction, SquadUnit, Unit, Wargear, Weapon } from '@/types/unit';
 
 interface State {
-     factions: Array<string>;
-     abilities: Array<Ability>;
-     units: Array<Unit>;
-     wargear: Array<Wargear>;
-     weapons: Array<Weapon>;
+     factions: string[];
+     abilities: Ability[];
+     units: Unit[];
+     wargear: Wargear[];
+     weapons: Weapon[];
  }
 
 const api = mande('/');
@@ -26,11 +27,10 @@ export const useDataStore = defineStore({
 
     getters: {
         getUnitsForFaction: (state) => (faction: string) => state.units.filter((unit: Unit) => unit.faction === faction),
-        getWargear: ({ wargear }) => (wargearName: string) => wargear.find(({ name }) => name === wargearName),
+        getWargear: ({ wargear })  => (wargearName: string) : Wargear|undefined => wargear.find(({ name }) => name === wargearName),
         getWargearForUnit: ({ wargear }) => (unitName: string) => wargear.filter(({ usedBy }) => usedBy?.includes(unitName)),
-        getWeapon: ({ weapons }) => (weaponName: string) => weapons.find(({ name }) => name === weaponName),
+        getWeapon: ({ weapons })  => (weaponName: string) : Weapon|undefined => weapons.find(({ name }) => name === weaponName),
         getWeaponsForFaction: (state) => (faction: string) => state.weapons.filter((weapon) => weapon.faction === faction),
-        getWeaponsForUnit: ({ weapons, getWeapon, getWargear }) => (unit: Unit) => {
             if (unit.weapons) {
                 return unit.weapons.map((w: string) => {
                   if (isArray(w)) {
@@ -50,6 +50,7 @@ export const useDataStore = defineStore({
                   }
                 })
               }
+        getWeaponsForUnit: ({ weapons, getWeapon, getWargear }) => (unit: SquadUnit) => {
                         
             return weapons.filter(({ usedBy }) => usedBy?.includes(unit.name))
         },
@@ -61,7 +62,7 @@ export const useDataStore = defineStore({
 
     actions: {
         initialise(dataUrl: string) {
-            return api.get<Array<string>>(dataUrl)
+            return api.get<string[]>(dataUrl)
                 .then((factions) => {
                     factions.forEach((faction) => {
                         const { factionName, dataFile } = parseFaction(faction);

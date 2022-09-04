@@ -5,7 +5,7 @@ import orderBy from 'lodash/orderBy';
 import type { Unit } from '@/types/unit';
 
 const props = defineProps<{
-  units: Array<Unit>,
+  units: Unit[],
   showFaction: boolean
 }>();
 

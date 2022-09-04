@@ -3,6 +3,7 @@ import { useDataStore } from './data'
 import orderBy from 'lodash/orderBy'
 import { useLocalStorage } from "@vueuse/core";
 import totalCost from "@/utils/totalCost";
+import type { SquadUnit, Unit, Wargear, Weapon } from '@/types/unit';
 
 interface SquadMember {
     id: number;
@@ -15,7 +16,6 @@ let _id = 0;
 interface State {
     faction: string;
     id: number;
-    units: Array<SquadMember>;
 }
 
 class SquadMember implements SquadMember {
@@ -38,12 +38,13 @@ class SquadMember implements SquadMember {
 
         return copy;
     }
+    units: SquadUnit[];
 }
 
 export const useSquadStore = defineStore({
     id: 'squad',
 
-    state: () => useLocalStorage("wild-cosmos", {
+    state: () => useLocalStorage<State>("wild-cosmos", {
         faction: 'None',
         id: 0,
         units: [],
@@ -69,14 +70,14 @@ export const useSquadStore = defineStore({
 
             return m;
         },
-        duplicateSquadMember(unit: SquadMember) {
             const newMember = new SquadMember();
             newMember.name = unit.name;
             newMember.cost = unit.cost;
 
+        duplicateSquadMember(unit: SquadUnit) {
             this.units.push(newMember);
         },
-        removeSquadMember(unit: SquadMember) {
+        removeSquadMember(unit: SquadUnit) {
             const idx = this.units.findIndex(({ id }) => id === unit.id);
             if (idx > -1) {
                 this.units.splice(idx, 1);

@@ -1,8 +1,8 @@
 export interface Faction {
-    abilities: Array<Ability>,
-    units: Array<Unit>,
-    weapons: Array<Weapon>,
-    wargear: Array<Wargear>
+    abilities: Ability[],
+    units: Unit[],
+    weapons: Weapon[],
+    wargear: Wargear[]
 }
 
 export interface Ability {
@@ -11,44 +11,68 @@ export interface Ability {
     cost: number;
 }
 
-export interface Unit {
-    faction: string;
-    name: string;
-    cost: number;
-    mv: Array<number>;
-    bs: number;
-    cs: number;
-    df: number;
-    lf: number;
-    si: number;
-    ld: number;
-    roles: Array<string>;
-    type: string | Array<string>;
-    abilities: Array<string>;
-    weapons: Array<string>;
-    weapon: Weapon;
+interface BaseUnit {
+  faction: string;
+  name: string;
+  cost: number;
+  mv: number[];
+  bs: number;
+  cs: number;
+  df: number;
+  lf: number;
+  si: number;
+  ld: number;
+  abilities: string[];
+}
+export interface Unit extends BaseUnit {
+    roles: string[];
+    type: string | string[];
+    // wargear?: Wargear[];
+    // weapons: Weapon[];
+    options?: BuildOptions[];
+    optionalWargear?: string[];
 }
 
-export interface Wargear {
+export interface SquadUnit extends BaseUnit
+{
+  id: number;
+  role: string;
+  type: string | string[];
+  weapons: Weapon[];
+  wargear: Wargear[];
+}
+
+export interface BuildOptions {
+  cost: number;
+  weapons?: string[];
+  wargear?: string[];
+}
+
+export interface Item {
+  name: string;
+  cost: number;
+}
+
+export interface Wargear extends Item {
     faction: string;
     type: string;
     name: string;
     cost: number;
     notes: string;
-    usedBy: Array<string>;
+    usedBy: string[];
 }
 
 export interface Weapon extends Wargear {
     melee: WeaponStats;
     range: number;
     a: number;
-    ap: Array<number>;
+    ap: number[];
     dm: number;
 }
 
 export interface WeaponStats {
   a: number;
-  ap: Array<number>;
+  ap: number[];
   dm: number;
   notes?: string;
 }

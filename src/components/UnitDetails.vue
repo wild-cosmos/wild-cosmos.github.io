@@ -85,9 +85,10 @@ import formatStat from '@/utils/formatStat';
 import formatList from '@/utils/formatList';
 import calcTotalCost from '@/utils/totalCost';
 import { useDataStore } from "@/stores/data";
+import type { SquadUnit } from '@/types/unit';
 
 const props = defineProps<{
-    unit: Unit
+  unit: SquadUnit
 }>();
 
 const unit = computed(() => {

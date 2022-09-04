@@ -1,1 +1,1 @@
-export default (list: Array<string>, delimiter = ', ') : string => list.join(delimiter);
+export default (list: string[], delimiter = ', ') : string => list.join(delimiter);

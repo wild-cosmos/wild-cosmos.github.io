@@ -27,8 +27,8 @@ import orderBy from 'lodash/orderBy';
 import type { Weapon } from '@/types/unit';
 
 const props = defineProps<{
-  weapons: Array<Weapon>,
-  showFaction: boolean
+  weapons: Weapon[],
+  showFaction?: boolean
 }>();
 
 const factionWeapons = computed(() => {

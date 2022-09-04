@@ -1,5 +1,6 @@
-import type { Unit } from "@/types/unit"
+import type { SquadUnit } from "@/types/unit"
 
-export default (unit: Unit): number => {
-  return unit.cost + (unit.weapon?.cost ?? 0)
+export default (unit: SquadUnit): number => {
+  return unit.cost 
+    + (unit.weapons?.reduce((total: number, { cost = 0 }) => total + cost, 0) ?? 0)
 }

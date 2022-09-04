@@ -9,7 +9,7 @@ const dataStore = useDataStore();
 
 const props = defineProps<{
   faction: string|null,
-  allowNull: boolean,
+  allowNull?: boolean,
 }>()
 
 const selectedFaction = computed({
