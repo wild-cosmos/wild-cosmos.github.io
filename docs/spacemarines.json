@@ -118,11 +118,6 @@
           "cost": 0,
           "weapons": [ "Force Sword", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
           "wargear": [ ]
-        },
-        {
-          "cost": 0,
-          "weapons": [ "Force Stave", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
-          "wargear": [ ]
         }
       ],
       "abilities": [
@@ -144,6 +139,13 @@
       "ld": 3,
       "roles": [ "Leader" ],
       "type": [ "Infantry", "Scout" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology",
@@ -163,6 +165,13 @@
       "ld": 4,
       "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry", "Scout" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology",
@@ -183,6 +192,13 @@
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Scout" ],
       "limited": 1,
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Force Sword", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology",
@@ -203,6 +219,13 @@
       "ld": 3,
       "roles": [ "Leader" ],
       "type": [ "Infantry", "Terminator" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Power Sword", "Storm Bolter" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology"
@@ -221,6 +244,13 @@
       "ld": 3,
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Terminator" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Power Sword", "Storm Bolter" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology"
@@ -240,6 +270,13 @@
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Terminator" ],
       "limited": 1,
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Force Sword", "Storm Bolter" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology",
@@ -336,7 +373,7 @@
       "usedBy": [ ]
     }, {
       "name": "Bolt Carbine",
-      "cost": 0,
+      "cost": 1,
       "range": 12,
       "melee": false,
       "a": 2,
@@ -735,7 +772,7 @@
       "usedBy": [ ]
     },
     {
-      "name": "Plasma-pistol",
+      "name": "Plasma Pistol",
       "cost": 2,
       "range": [ 9, null ],
       "a": 1,
@@ -829,7 +866,7 @@
       "weapon": "Bolt Pistol",
       "replaces": [ "Boltgun" ],
       "cost": 0,
-      "usedBy": [ "Space Marine Sergeant", "Tactical Marine" ]
+      "usedBy": [ "Space Marine Sergeant", "Tactical Marine", "Scout Sergeant", "Space Marine Scout" ]
     },
     {
       "weapon": "Chainsword",
@@ -841,37 +878,37 @@
       "weapon": "Power Sword",
       "replaces": [ "Boltgun" ],
       "cost": 3,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": "Power Maul",
       "replaces": [ "Boltgun" ],
       "cost": 3,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": "Power Fist",
       "replaces": [ "Boltgun" ],
       "cost": 7,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": "Grav-pistol",
       "replaces": [ "Bolt Pistol" ],
       "cost": 1,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
-      "weapon": "Plasma-pistol",
+      "weapon": "Plasma Pistol",
       "replaces": [ "Bolt Pistol" ],
       "cost": 2,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": [ "Lightning Claws", "Lightning Claws" ],
       "replaces": [ "Boltgun", "Bolt Pistol" ],
       "cost": 3,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": [ "Storm shield" ],
@@ -922,7 +959,7 @@
       "cost": 1,
       "usedBy": [ "Tactical Marine" ]
     }, {
-      "weapon": [ "Plasma-pistol" ],
+      "weapon": [ "Plasma Pistol" ],
       "replaces": [ "Bolt Pistol" ],
       "condition": {
         "role": "Specialist",
@@ -968,22 +1005,141 @@
       "weapon": [ "Twin Bolt Carbine" ],
       "replaces": [ "Twin Boltgun" ],
       "cost": 2,
+      "condition": {
+        "not": [ "Melta Bombs" ]
+      },
       "usedBy": [ "Space Marine Biker" ]
-    }, {
+    },
+    {
       "weapon": [ "Twin Flamer" ],
       "replaces": [ "Twin Boltgun" ],
       "cost": 4,
+      "condition": {
+        "not": [ "Melta Bombs" ]
+      },
       "usedBy": [ "Space Marine Biker" ]
-    }, {
+    }, 
+    {
       "weapon": [ "Twin Plasma Gun" ],
       "replaces": [ "Twin Boltgun" ],
       "cost": 10,
+      "condition": {
+        "not": [ "Melta Bombs" ]
+      },
       "usedBy": [ "Space Marine Biker" ]
-    }, {
+    }, 
+    {
       "weapon": [ "Melta Bombs" ],
       "replaces": [ "Krak Grenades" ],
       "cost": 5,
+      "condition": {
+        "not": [ "Twin Bolt Carbine", "Twin Flamer", "Twin Plasma Gun" ]
+      },
       "usedBy": [ "Space Marine Biker" ]
+    },
+
+    {
+      "weapon": [ "Force Stave" ],
+      "replaces": [ "Force Sword" ],
+      "cost": 0,
+      "usedBy": [ "Lexicanium" ]
+    },
+
+    {
+      "weapon": [ "Bolt Carbine" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 1,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Bolt Rifle" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 8,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Combat Knife" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 0,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Smoke grenades" ],
+      "replaces": [ "Krak Grenades" ],
+      "cost": 0,
+      "usedBy": [ "Scout Sergeant", "Space Marine Scout", "Scout Lexicanium" ]
+    },
+
+    {
+      "weapon": [ "Bolt Carbine" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 1,
+      "usedBy": ["Space Marine Scout"]
+    },
+    {
+      "weapon": [ "Combat Knife" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 0,
+      "usedBy": ["Space Marine Scout"]
+    },
+    {
+      "weapon": [ "Grav-pistol" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 1,
+      "condition": {
+          "role": "Specialist",
+          "not": ["Bolt Rifle", "Heavy Bolter", "Missile Launcher", "Grav-pistol", "Plasma Pistol"]
+      },
+      "usedBy": [ "Space Marine Scout" ]
+    },
+    {
+      "weapon": [ "Plasma Pistol" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 1,
+      "condition": {
+          "role": "Specialist",
+          "not": ["Bolt Rifle", "Heavy Bolter", "Missile Launcher", "Grav-pistol", "Plasma Pistol"]
+      },
+      "usedBy": [ "Space Marine Scout" ]
+    },
+    {
+      "weapon": [ "Camo cloak" ],
+      "cost": 2,
+      "condition": {
+        "not": [ "Camo cloak", "Grapnel launcher" ]
+      },
+      "usedBy": [ "Scout Sergeant", "Space Marine Scout", "Scout Lexicanium" ]
+    },
+    {
+      "weapon": [ "Grapnel launcher" ],
+      "cost": 2,
+      "condition": {
+        "not": [ "Camo cloak", "Grapnel launcher", "Heavy Bolter", "Missile Launcher" ]
+      },
+      "usedBy": [ "Scout Sergeant", "Space Marine Scout", "Scout Lexicanium" ]
+    },
+    {
+      "weapon": [ "Purity seals" ],
+      "cost": 2,
+      "condition": {
+        "not": [ "Purity seals" ]
+      },
+      "usedBy": [ "Space Marine Sergeant", "Tactical Marine", "Space Marine Biker", "Devastator", "Lexicanium", "Scout Sergeant", "Scout Lexicanium", "Terminator Sergeant", "Terminator", "Terminator Lexicanium" ]
+    },
+    {
+      "weapon": [ "Purity seals" ],
+      "cost": 2,
+      "condition": {
+        "role": "Specialist",
+        "not": [ "Purity seals" ]
+      },
+      "usedBy": [ "Space Marine Scout" ]
+    },
+    {
+      "weapon": [ "Force Stave" ],
+      "replaces": [ "Force Sword" ],
+      "cost": 0,
+      "usedBy": [ "Scout Lexicanium" ]
     }
   ]
 }
