@@ -241,7 +241,8 @@ const availableConfigurationOptions = computed(() => {
     isNil(condition?.not)
     || !(hasAny(condition?.not, weapons.map(({ name }) => name))
       || hasAny(condition?.not, wargear.map(({ name }) => name)));
-
+  const hasAnyOf = ({condition}: Configuration) => 
+    isNil(condition?.any) || hasAny(condition?.any, weapons.map(({ name }) => name));
 
   const formatRequirements = (list: string | string[]) => {
     if (!isArray(list)) return list;
@@ -265,7 +266,8 @@ const availableConfigurationOptions = computed(() => {
         && hasRequired(option)
         && hasRole(option)
         && hasMeleeWeapon(option)
-        && hasNoneOf(option);
+        && hasNoneOf(option)
+        && hasAnyOf(option);
 
       const label = [
         option.replaces ? `Replace ${formatList(option.replaces)}` : null,
