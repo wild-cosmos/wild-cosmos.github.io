@@ -878,37 +878,37 @@
       "weapon": "Power Sword",
       "replaces": [ "Boltgun" ],
       "cost": 3,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": "Power Maul",
       "replaces": [ "Boltgun" ],
       "cost": 3,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": "Power Fist",
       "replaces": [ "Boltgun" ],
       "cost": 7,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": "Grav-pistol",
       "replaces": [ "Bolt Pistol" ],
       "cost": 1,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": "Plasma Pistol",
       "replaces": [ "Bolt Pistol" ],
       "cost": 2,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": [ "Lightning Claws", "Lightning Claws" ],
       "replaces": [ "Boltgun", "Bolt Pistol" ],
       "cost": 3,
-      "usedBy": [ "Space Marine Sergeant" ]
+      "usedBy": [ "Space Marine Sergeant", "Scout Sergeant" ]
     },
     {
       "weapon": [ "Storm shield" ],
@@ -1005,24 +1005,36 @@
       "weapon": [ "Twin Bolt Carbine" ],
       "replaces": [ "Twin Boltgun" ],
       "cost": 2,
+      "condition": {
+        "not": [ "Melta Bombs" ]
+      },
       "usedBy": [ "Space Marine Biker" ]
     },
     {
       "weapon": [ "Twin Flamer" ],
       "replaces": [ "Twin Boltgun" ],
       "cost": 4,
+      "condition": {
+        "not": [ "Melta Bombs" ]
+      },
       "usedBy": [ "Space Marine Biker" ]
     }, 
     {
       "weapon": [ "Twin Plasma Gun" ],
       "replaces": [ "Twin Boltgun" ],
       "cost": 10,
+      "condition": {
+        "not": [ "Melta Bombs" ]
+      },
       "usedBy": [ "Space Marine Biker" ]
     }, 
     {
       "weapon": [ "Melta Bombs" ],
       "replaces": [ "Krak Grenades" ],
       "cost": 5,
+      "condition": {
+        "not": [ "Twin Bolt Carbine", "Twin Flamer", "Twin Plasma Gun" ]
+      },
       "usedBy": [ "Space Marine Biker" ]
     },
 
@@ -1049,42 +1061,6 @@
       "weapon": [ "Combat Knife" ],
       "replaces": [ "Boltgun" ],
       "cost": 0,
-      "usedBy": [ "Scout Sergeant" ]
-    },
-    {
-      "weapon": [ "Power Sword" ],
-      "replaces": [ "Boltgun" ],
-      "cost": 3,
-      "usedBy": [ "Scout Sergeant" ]
-    },
-    {
-      "weapon": [ "Power Maul" ],
-      "replaces": [ "Boltgun" ],
-      "cost": 3,
-      "usedBy": [ "Scout Sergeant" ]
-    },
-    {
-      "weapon": [ "Power Fist" ],
-      "replaces": [ "Boltgun" ],
-      "cost": 7,
-      "usedBy": [ "Scout Sergeant" ]
-    },
-    {
-      "weapon": [ "Grav-pistol" ],
-      "replaces": [ "Bolt Pistol" ],
-      "cost": 1,
-      "usedBy": [ "Scout Sergeant" ]
-    },
-    {
-      "weapon": [ "Plasma Pistol" ],
-      "replaces": [ "Bolt Pistol" ],
-      "cost": 2,
-      "usedBy": [ "Scout Sergeant" ]
-    },
-    {
-      "weapon": [ "Lightning Claws", "Lightning Claws" ],
-      "replaces": [ "Boltgun", "Bolt Pistol" ],
-      "cost": 3,
       "usedBy": [ "Scout Sergeant" ]
     },
     {
