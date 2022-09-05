@@ -25,10 +25,13 @@ const weaponStats = computed(() => {
   if (combi) {
     const combiWeapon = combi.map(dataStore.getWeapon)
       .filter((w) => !!w)
-      .map((w, idx: number) => ({
-        ...w,
-        name: idx > 0 ? null : name,
-      }));
+      .map((w, idx: number) => {
+        const label = (idx > 0 ? null : name);
+        return {
+          ...w,
+          name: w?.ammo ? w.name : label,
+        };
+      });
     return combiWeapon;
   }
 

@@ -69,6 +69,7 @@ export interface Weapon extends Wargear {
   a: number;
   ap: number[];
   dm: number;
+  ammo?: boolean;
 }
 
 export interface WeaponStats {
