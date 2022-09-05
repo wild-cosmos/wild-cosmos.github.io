@@ -118,11 +118,6 @@
           "cost": 0,
           "weapons": [ "Force Sword", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
           "wargear": [ ]
-        },
-        {
-          "cost": 0,
-          "weapons": [ "Force Stave", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
-          "wargear": [ ]
         }
       ],
       "abilities": [
@@ -144,6 +139,13 @@
       "ld": 3,
       "roles": [ "Leader" ],
       "type": [ "Infantry", "Scout" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+          "wargear": [ ]
+        }
+      ],
       "abilities": [
         "And They Shall Know No Fear",
         "Transhuman Physiology",
@@ -969,21 +971,98 @@
       "replaces": [ "Twin Boltgun" ],
       "cost": 2,
       "usedBy": [ "Space Marine Biker" ]
-    }, {
+    },
+    {
       "weapon": [ "Twin Flamer" ],
       "replaces": [ "Twin Boltgun" ],
       "cost": 4,
       "usedBy": [ "Space Marine Biker" ]
-    }, {
+    }, 
+    {
       "weapon": [ "Twin Plasma Gun" ],
       "replaces": [ "Twin Boltgun" ],
       "cost": 10,
       "usedBy": [ "Space Marine Biker" ]
-    }, {
+    }, 
+    {
       "weapon": [ "Melta Bombs" ],
       "replaces": [ "Krak Grenades" ],
       "cost": 5,
       "usedBy": [ "Space Marine Biker" ]
+    },
+
+    {
+      "weapon": [ "Force Stave" ],
+      "replaces": [ "Force Sword" ],
+      "cost": 0,
+      "usedBy": [ "Lexicanium" ]
+    },
+
+    {
+      "weapon": [ "Bolt Pistol" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 0,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Bolt Carbine" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 1,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Bolt Rifle" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 8,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Combat Knife" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 0,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Power Sword" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 3,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Power Maul" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 3,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Power Fist" ],
+      "replaces": [ "Boltgun" ],
+      "cost": 7,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Grav-pistol" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 1,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Plasma-pistol" ],
+      "replaces": [ "Bolt Pistol" ],
+      "cost": 2,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Lightning Claws", "Lightning Claws" ],
+      "replaces": [ "Boltgun", "Bolt Pistol" ],
+      "cost": 3,
+      "usedBy": [ "Scout Sergeant" ]
+    },
+    {
+      "weapon": [ "Smoke grenades" ],
+      "replaces": [ "Krak Grenades" ],
+      "cost": 0,
+      "usedBy": [ "Scout Sergeant" ]
     }
   ]
 }
