@@ -241,7 +241,7 @@ const availableConfigurationOptions = computed(() => {
     isNil(condition?.not)
     || !(hasAny(condition?.not, weapons.map(({ name }) => name))
       || hasAny(condition?.not, wargear.map(({ name }) => name)));
-  const hasAnyOf = ({condition}: Configuration) => 
+  const hasAnyOf = ({ condition }: Configuration) =>
     isNil(condition?.any) || hasAny(condition?.any, weapons.map(({ name }) => name));
 
   const formatRequirements = (list: string | string[]) => {
@@ -259,6 +259,12 @@ const availableConfigurationOptions = computed(() => {
       .map(([s, n]): string => n > 1 ? `${n}x${s}` : s));
   }
 
+  const isNullOrEmpty = (list?: any | any[] | undefined) => {
+    if (!list) return true;
+    if (isArray(list) && !list.length) return true;
+    return false;
+
+  }
   return configurationOptions.value
     .filter(hasRole)
     .map((option) => {
@@ -270,9 +276,9 @@ const availableConfigurationOptions = computed(() => {
         && hasAnyOf(option);
 
       const label = [
-        option.replaces ? `Replace ${formatList(option.replaces)}` : null,
-        option.replaces ? `with ${formatRequirements(option.weapon)}` : `Add ${formatRequirements(option.weapon)}`,
-        option.condition?.requires ? `requires ${formatRequirements(option.condition.requires)}` : null,
+        !isNullOrEmpty(option.replaces) ? `Replace ${formatList(option.replaces)}` : null,
+        !isNullOrEmpty(option.replaces) ? `with ${formatRequirements(option.weapon)}` : `Add ${formatRequirements(option.weapon)}`,
+        !isNullOrEmpty(option.condition?.requires) ? `requires ${formatRequirements(option.condition.requires)}` : null,
         `(${option.cost})`,
       ];
 
