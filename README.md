@@ -1,6 +1,4 @@
-# squad-builder
-
-This template should help get you started developing with Vue 3 in Vite.
+# Wild Cosmos Warband Buidler
 
 ## Recommended IDE Setup
 
