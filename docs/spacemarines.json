@@ -345,17 +345,17 @@
       "notes": "When this model is set up on the battlefield, place a Skull-probe marker at a point on the battlefield wholly within 12\" horizontally of this model. For the remainder of the game, enemy models arriving from reserve or using the Infiltrate ability cannot be set up within 9\" horizontally of the Skull-probe marker. When making measurements involving a Skull-probe marker, always measure from the centre of the marker."
     }, {
       "name": "Smoke grenades",
-      "notes": "Once per game, this model may use their smoke grenades. If they do, then until the end of the phase this model ignores the penalties for retreating, and enemy models that target this model with a ranged attack incur a hit roll penalty of 1." 
-    }, { 
+      "notes": "Once per game, this model may use their smoke grenades. If they do, then until the end of the phase this model ignores the penalties for retreating, and enemy models that target this model with a ranged attack incur a hit roll penalty of 1."
+    }, {
       "name": "Special-issue ammunition",
       "notes": "When you create your warband, choose up to two of the following abilities. When a model in your warband with special-issue ammunition attacks with a Bolter weapon, they may choose for it to have one of the chosen abilities while resolving that attack (declare which ability you will use before making any hit rolls for that attack).\nKraken Bolts: Add 6\" to this weapon’s Rng value (or 3\" if it is a Pistol) and add 1 to this weapon’s AP value, to a maximum of AP 2/5.\nVengeance Rounds: Subtract 6\" from this weapon’s Rng value (or 3\" if it is a Pistol) and add 2 to this weapon’s AP value, to a maximum of AP 3/6.\nDragonfire Bolts: This weapon has the Flame (6+) type. The target’s cover save is worsened by this weapon’s AP value, in addition to their armour save.\nHellfire Rounds: This weapon has the Poison (6+) type.\nMetal Storm Frag Shells: This weapon has the Blast (2) type, but cannot benefit from the Critical or Sniper type, if it has either of these types."
-    } ,{ 
+    }, {
       "name": "Storm shield",
       "notes": "This model has the Shield ability and a 7+ invulnerable save."
-    } ,{ 
+    }, {
       "name": "Teleportation transponder",
       "notes": "This model has the Teleport Strike (4+) ability."
-      } ,{ 
+    }, {
       "name": "Watcher in the Dark",
       "notes": "This model cannot be a target of any psychic power (enemy or friendly)."
     }
@@ -511,26 +511,33 @@
       "usedBy": [ ]
     },
     {
+      "name": "Cyclone Missile Launcher",
+      "cost": 0,
+      "combi": [ "Cyclone Missile Launcher (Frag missile)", "Cyclone Missile Launcher (Krak missile)" ],
+      "usedBy": [ ]
+    }, {
       "name": "Cyclone Missile Launcher (Frag missile)",
+      "ammo": true,
       "cost": 0,
       "range": 24,
-      "melee": {
-        "name": "Cyclone Missile Launcher (Krak missile)",
-        "cost": 0,
-        "range": 24,
-        "melee": false,
-        "a": 2,
-        "ap": [ 4 ],
-        "dm": [ "D4", 4 ],
-        "notes": "Heavy (1), Critical (6+)",
-        "usedBy": [ ]
-      },
       "a": "2D2",
       "ap": [ 0, 4 ],
       "dm": [ 1 ],
       "notes": "Heavy (1), Blast (4), Critical (7+)",
       "usedBy": [ ]
+    }, {
+      "name": "Cyclone Missile Launcher (Krak missile)",
+      "ammo": true,
+      "cost": 0,
+      "range": 24,
+      "melee": false,
+      "a": 2,
+      "ap": [ 4 ],
+      "dm": [ "D4", 4 ],
+      "notes": "Heavy (1), Critical (6+)",
+      "usedBy": [ ]
     },
+
     {
       "name": "Digital Laser",
       "cost": 0,
@@ -728,21 +735,25 @@
       "usedBy": [ ]
     },
     {
-      "name": "Missile Launcher (Frag missile)",
+      "name": "Missile Launcher",
       "cost": 9,
+      "combi": [ "Missile Launcher (Frag missile)", "Missile Launcher (Krak missile)" ]
+    }, {
+      "name": "Missile Launcher (Frag missile)",
+      "ammo": true,
       "range": [ 30 ],
       "a": "D2",
       "ap": [ 0, 4 ],
       "dm": [ 1 ],
-      "melee": {
-        "name": "Missile Launcher (Krak missile)",
-        "range": [ 30 ],
-        "a": 1,
-        "ap": 4,
-        "dm": [ "D4", 4 ],
-        "notes": "Heavy (1), Critical (6+)"
-      },
       "notes": "Heavy (1), Blast (4), Critical (7+)"
+    }, {
+      "name": "Missile Launcher (Krak missile)",
+      "ammo": true,
+      "range": [ 30 ],
+      "a": 1,
+      "ap": 4,
+      "dm": [ "D4", 4 ],
+      "notes": "Heavy (1), Critical (6+)"
     },
     {
       "name": "Multi-melta",
@@ -971,33 +982,45 @@
 
     {
       "weapon": [ "Heavy Bolter" ],
-      "replaces": [ "Bolt Pistol" ],
       "cost": 10,
+      "condition": {
+        "not": [ "Heavy Bolter", "Grav-cannon", "Lascannon", "Missile Launcher", "Multi-melta", "Plasma Cannon" ]
+      },
       "usedBy": [ "Devastator" ]
     }, {
       "weapon": [ "Grav-cannon" ],
-      "replaces": [ "Bolt Pistol" ],
       "cost": 10,
+      "condition": {
+        "not": [ "Heavy Bolter", "Grav-cannon", "Lascannon", "Missile Launcher", "Multi-melta", "Plasma Cannon" ]
+      },
       "usedBy": [ "Devastator" ]
     }, {
       "weapon": [ "Lascannon" ],
-      "replaces": [ "Bolt Pistol" ],
       "cost": 12,
+      "condition": {
+        "not": [ "Heavy Bolter", "Grav-cannon", "Lascannon", "Missile Launcher", "Multi-melta", "Plasma Cannon" ]
+      },
       "usedBy": [ "Devastator" ]
     }, {
       "weapon": [ "Missile Launcher" ],
-      "replaces": [ "Bolt Pistol" ],
       "cost": 9,
+      "condition": {
+        "not": [ "Heavy Bolter", "Grav-cannon", "Lascannon", "Missile Launcher", "Multi-melta", "Plasma Cannon" ]
+      },
       "usedBy": [ "Devastator" ]
     }, {
       "weapon": [ "Multi-melta" ],
-      "replaces": [ "Bolt Pistol" ],
       "cost": 12,
+      "condition": {
+        "not": [ "Heavy Bolter", "Grav-cannon", "Lascannon", "Missile Launcher", "Multi-melta", "Plasma Cannon" ]
+      },
       "usedBy": [ "Devastator" ]
     }, {
       "weapon": [ "Plasma Cannon" ],
-      "replaces": [ "Bolt Pistol" ],
       "cost": 10,
+      "condition": {
+        "not": [ "Heavy Bolter", "Grav-cannon", "Lascannon", "Missile Launcher", "Multi-melta", "Plasma Cannon" ]
+      },
       "usedBy": [ "Devastator" ]
     },
 
@@ -1018,7 +1041,7 @@
         "not": [ "Melta Bombs" ]
       },
       "usedBy": [ "Space Marine Biker" ]
-    }, 
+    },
     {
       "weapon": [ "Twin Plasma Gun" ],
       "replaces": [ "Twin Boltgun" ],
@@ -1027,7 +1050,7 @@
         "not": [ "Melta Bombs" ]
       },
       "usedBy": [ "Space Marine Biker" ]
-    }, 
+    },
     {
       "weapon": [ "Melta Bombs" ],
       "replaces": [ "Krak Grenades" ],
@@ -1074,21 +1097,21 @@
       "weapon": [ "Bolt Carbine" ],
       "replaces": [ "Boltgun" ],
       "cost": 1,
-      "usedBy": ["Space Marine Scout"]
+      "usedBy": [ "Space Marine Scout" ]
     },
     {
       "weapon": [ "Combat Knife" ],
       "replaces": [ "Boltgun" ],
       "cost": 0,
-      "usedBy": ["Space Marine Scout"]
+      "usedBy": [ "Space Marine Scout" ]
     },
     {
       "weapon": [ "Grav-pistol" ],
       "replaces": [ "Bolt Pistol" ],
       "cost": 1,
       "condition": {
-          "role": "Specialist",
-          "not": ["Bolt Rifle", "Heavy Bolter", "Missile Launcher", "Grav-pistol", "Plasma Pistol"]
+        "role": "Specialist",
+        "not": [ "Bolt Rifle", "Heavy Bolter", "Missile Launcher", "Grav-pistol", "Plasma Pistol" ]
       },
       "usedBy": [ "Space Marine Scout" ]
     },
@@ -1097,8 +1120,8 @@
       "replaces": [ "Bolt Pistol" ],
       "cost": 1,
       "condition": {
-          "role": "Specialist",
-          "not": ["Bolt Rifle", "Heavy Bolter", "Missile Launcher", "Grav-pistol", "Plasma Pistol"]
+        "role": "Specialist",
+        "not": [ "Bolt Rifle", "Heavy Bolter", "Missile Launcher", "Grav-pistol", "Plasma Pistol" ]
       },
       "usedBy": [ "Space Marine Scout" ]
     },
@@ -1136,7 +1159,7 @@
       "usedBy": [ "Space Marine Scout" ]
     },
     {
-      "weapon": [ "Chapter vexillum"],
+      "weapon": [ "Chapter vexillum" ],
       "replaces": [ ],
       "cost": 5,
       "condition": {
@@ -1189,25 +1212,25 @@
     },
     {
       "weapon": [ "Combi-flamer" ],
-      "replaces": [ "Storm Bolter"],
+      "replaces": [ "Storm Bolter" ],
       "cost": 0,
       "usedBy": [ "Terminator Sergeant" ]
     },
     {
       "weapon": [ "Combi-grav" ],
-      "replaces": [ "Storm Bolter"],
+      "replaces": [ "Storm Bolter" ],
       "cost": 0,
       "usedBy": [ "Terminator Sergeant", "Terminator Lexicanium" ]
     },
     {
       "weapon": [ "Combi-melta" ],
-      "replaces": [ "Storm Bolter"],
+      "replaces": [ "Storm Bolter" ],
       "cost": 1,
       "usedBy": [ "Terminator Sergeant", "Terminator Lexicanium" ]
     },
     {
       "weapon": [ "Combi-plasma" ],
-      "replaces": [ "Storm Bolter"],
+      "replaces": [ "Storm Bolter" ],
       "cost": 0,
       "usedBy": [ "Terminator Sergeant", "Terminator Lexicanium" ]
     },
@@ -1216,12 +1239,12 @@
       "replaces": [ "Storm Bolter" ],
       "cost": 1,
       "condition": {
-        "any": ["Power Sword", "Power Maul", "Thunder Hammer"]
+        "any": [ "Power Sword", "Power Maul", "Thunder Hammer" ]
       },
-      "usedBy": ["Terminator Sergeant", "Terminator"]
+      "usedBy": [ "Terminator Sergeant", "Terminator" ]
     },
     {
-      "weapon": [ "Lightning Claws", "Lightning Claws"],
+      "weapon": [ "Lightning Claws", "Lightning Claws" ],
       "replaces": [ "Power Sword", "Storm Bolter" ],
       "cost": 0,
       "usedBy": [ "Terminator Sergeant", "Terminator" ]
@@ -1237,7 +1260,7 @@
     },
     {
       "weapon": [ "Combi-flamer" ],
-      "replaces": [ "Storm Bolter"],
+      "replaces": [ "Storm Bolter" ],
       "cost": 0,
       "condition": {
         "role": "Specialist"
@@ -1246,7 +1269,7 @@
     },
     {
       "weapon": [ "Combi-grav" ],
-      "replaces": [ "Storm Bolter"],
+      "replaces": [ "Storm Bolter" ],
       "cost": 0,
       "condition": {
         "role": "Specialist"
@@ -1255,7 +1278,7 @@
     },
     {
       "weapon": [ "Combi-melta" ],
-      "replaces": [ "Storm Bolter"],
+      "replaces": [ "Storm Bolter" ],
       "cost": 1,
       "condition": {
         "role": "Specialist"
@@ -1264,7 +1287,7 @@
     },
     {
       "weapon": [ "Combi-plasma" ],
-      "replaces": [ "Storm Bolter"],
+      "replaces": [ "Storm Bolter" ],
       "cost": 0,
       "condition": {
         "role": "Specialist"
