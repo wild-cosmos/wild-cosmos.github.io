@@ -8,7 +8,9 @@
     },
     "typeRoots": [
       "./src/types"
-    ]
+    ],
+    "target": "ES6",
+    "lib": ["ES2017", "DOM"]
   },
 
   "references": [

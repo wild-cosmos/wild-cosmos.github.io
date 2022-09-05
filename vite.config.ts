@@ -2,7 +2,26 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { VitePWA } from 'vite-plugin-pwa'
+import { VitePWA, type VitePWAOptions } from 'vite-plugin-pwa'
+
+const pwaOptions : Partial<VitePWAOptions> = {
+  manifest: {
+    name: 'Wild Cosmos Warband Builder',
+    short_name: 'Wild Cosmos',
+    theme_color: "#F8F9FA",
+    icons: [
+      {
+        src: 'images/touch/homescreen144.png',
+        sizes: '144x144',
+        type: 'image/png',
+      },
+    ]
+  },
+  registerType: 'autoUpdate', 
+  devOptions: {
+    enabled: true
+  },
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,12 +30,7 @@ export default defineConfig({
   },
   plugins: [
     vue(), 
-    VitePWA({ 
-      registerType: 'autoUpdate', 
-      devOptions: {
-        enabled: true
-      }
-    })
+    VitePWA(pwaOptions)
   ],
   resolve: {
     alias: {
