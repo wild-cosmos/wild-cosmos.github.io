@@ -19,8 +19,8 @@
   <SquadMember v-for="(unit) in squadStore.units" :key="unit.id" :unit="unit" />
 
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div v-for="error in validationErrors" :key="error" 
-      class="toast fade show text-bg-warning mb-2" role="alert" aria-live="assertive" aria-atomic="true">
+    <div v-for="error in validationErrors" :key="error" class="toast fade show text-bg-warning mb-2" role="alert"
+      aria-live="assertive" aria-atomic="true">
       <div class="toast-body">
         <div class="d-flex align-items-center">
           <h3 class="mb-0 me-2 bi bi-exclamation-diamond" />
@@ -33,7 +33,8 @@
 
   <div v-if="squadStore.units.length" class="d-flex justify-content-end my-3">
     <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{
-      squadStore.totalPoints }} Pts</strong>
+        squadStore.totalPoints
+    }} Pts</strong>
   </div>
 
   <div class="d-print-none bg-light my-3 py-2 row">
@@ -56,11 +57,19 @@
       </button>
     </div>
   </div>
+
+  <div v-if="squadStore.units.length">
+    <h3>Reference</h3>
+    <WeaponsList v-if="uniqueWeapons.length" :weapons="uniqueWeapons" />
+    <WargearList :wargear="uniqueWargear" />
+  </div>
 </template>
 
 <script setup lang="ts">
 import SquadMember from '@/components/SquadMember.vue';
 import SelectFaction from '@/components/SelectFaction.vue';
+import WeaponsList from '../components/WeaponsList.vue'
+import WargearList from '../components/WargearList.vue'
 
 import { computed, ref, watch } from 'vue';
 import { useDataStore } from '@/stores/data';
@@ -68,7 +77,8 @@ import { useSquadStore } from '@/stores/squad';
 
 import { nextTick } from 'vue'
 import { Toast } from 'bootstrap';
-import orderBy from 'lodash/orderBy'
+import orderBy from 'lodash/orderBy';
+import uniqueBy from 'lodash/uniqBy';
 
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
@@ -80,7 +90,11 @@ const selectedFaction = computed({
   set(faction) { squadStore.faction = faction; }
 });
 
-const squadName = ref("")
+const squadName = computed({
+  get() { return squadStore.name; },
+  set(name) { squadStore.name = name; }
+});
+
 const selectedUnit = ref(null)
 const maxPoints = 100;
 
@@ -96,12 +110,12 @@ const availableUnitOptions = computed(() => {
 const validationErrors = computed(() => {
   const errorList = [];
 
-  if (squadStore.units.length){
+  if (squadStore.units.length) {
     if (squadStore.totalPoints > maxPoints) {
       errorList.push(`Your Warband value is greater than ${maxPoints}`);
     }
 
-    const roles = squadStore.units.reduce(( o, { role }) => {
+    const roles = squadStore.units.reduce((o, { role }) => {
       if (!role) return o;
       if (role in o) {
         o[role] += 1;
@@ -117,18 +131,34 @@ const validationErrors = computed(() => {
       errorList.push("Your Warband cannot have more than one Leader")
     }
   }
-  
+
   return errorList;
 })
 
 watch(validationErrors, async (errorList) => {
   if (errorList.length) {
     nextTick(() => {
-      const option: Partial<Toast.Options> = {autohide: false};
+      const option: Partial<Toast.Options> = { autohide: false };
       const toastElList = document.querySelectorAll('.toast')
       toastElList.forEach(toastEl => new Toast(toastEl, option))
     })
   }
+})
+
+const uniqueWeapons = computed(() => {
+  const weaponsReference = squadStore.units.reduce((list, { weapons }) => {
+    list.push(...weapons);
+    return list;
+  }, [])
+  return orderBy(uniqueBy(weaponsReference, 'name'), ['name']);
+})
+
+const uniqueWargear = computed(() => {
+  const wargearReference = squadStore.units.reduce((list, { wargear }) => {
+    list.push(...wargear);
+    return list;
+  }, [])
+  return orderBy(uniqueBy(wargearReference, 'name'), ['name']);
 })
 
 function onAddSquadMember() {
@@ -140,6 +170,3 @@ function onReset() {
   squadStore.clear();
 }
 </script>
-
-<style scoped>
-</style>

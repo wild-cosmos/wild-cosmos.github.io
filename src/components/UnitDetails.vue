@@ -51,7 +51,7 @@
       </tr>
     </tbody>
   </table>
-  <WeaponsList :weapons="unit.weapons" />
+  <WeaponsList class="d-print-none" :weapons="unit.weapons" />
   <table class="table table-sm">
     <tbody>
       <tr>

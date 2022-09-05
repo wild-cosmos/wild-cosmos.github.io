@@ -1,12 +1,11 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light shadow-sm">
+  <nav class="d-print-none navbar navbar-expand-md navbar-light fixed-top bg-light shadow-sm">
     <div class="container-fluid">
       <a class="navbar-brand py-0" href="#">
         <img src="./assets/wild_cosmos_logo.png" alt="" height="64" class="d-inline-block">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
-      >
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" />
       </button>
       <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -27,12 +26,15 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="https://drive.google.com/file/d/1eQ5XuCMya0glnFFAUHfl825W-RcZ43jV/view?usp=sharing" target="_blank">
+                <a class="dropdown-item"
+                  href="https://drive.google.com/file/d/1eQ5XuCMya0glnFFAUHfl825W-RcZ43jV/view?usp=sharing"
+                  target="_blank">
                   Core Rules
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="https://drive.google.com/drive/u/2/folders/1_AT9l8767WZn3r46qmTbWjCsnY9IZ75_" target="_blank">
+                <a class="dropdown-item"
+                  href="https://drive.google.com/drive/u/2/folders/1_AT9l8767WZn3r46qmTbWjCsnY9IZ75_" target="_blank">
                   Faction Books
                 </a>
               </li>
@@ -53,30 +55,37 @@
     <RouterView />
   </main>
 
-  <OrbitzBanner />
+  <OrbitzBanner class="d-print-none" />
 </template>
 
 <script setup lang="ts">
-  import { RouterLink, RouterView } from 'vue-router';
-  import { useDataStore } from './stores/data';
-  import { Collapse } from 'bootstrap';
-  import { onMounted } from 'vue';
-  import OrbitzBanner from './components/OrbitzBanner.vue';
-  
-  const dataStore = useDataStore();
-  dataStore.initialise('/factions.json');
-  
-  const appEnv = import.meta.env.MODE;
-  
-  onMounted(() => {
-    const el = document.getElementById('navbarCollapse')
-    if (el) new Collapse(el, { toggle: false })
-  });
+import { RouterLink, RouterView } from 'vue-router';
+import { useDataStore } from './stores/data';
+import { Collapse } from 'bootstrap';
+import { onMounted } from 'vue';
+import OrbitzBanner from './components/OrbitzBanner.vue';
+
+const dataStore = useDataStore();
+dataStore.initialise('/factions.json');
+
+const appEnv = import.meta.env.MODE;
+
+onMounted(() => {
+  const el = document.getElementById('navbarCollapse')
+  if (el) new Collapse(el, { toggle: false })
+});
 </script>
     
 <style>
 #app {
   margin-top: calc(64px + 2rem);
   margin-bottom: 5rem;
+}
+
+@media print {
+  #app {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 </style>

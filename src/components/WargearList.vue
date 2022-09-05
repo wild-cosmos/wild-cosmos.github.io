@@ -23,7 +23,7 @@ import type { Wargear } from '@/types/unit';
 
 const props = defineProps<{
   wargear: Wargear[],
-  showFaction: boolean
+  showFaction?: boolean
 }>();
 
 const factionWargear = computed(() => {
@@ -35,14 +35,16 @@ const wargearByFaction = computed(() => groupBy(props.wargear, 'faction'))
 
 
 <style lang="css">
-  tr.weapon-stats td {
-    border-top-width: 1px;
-    border-bottom-width: 0;
-  }
-  tr.weapon-stats + tr.melee-stats td {
-    border-top-width: 0;
-  }
-  tr.weapon-stats:last-of-type td {
-    border-bottom-width: 1px;
-  }
+tr.weapon-stats td {
+  border-top-width: 1px;
+  border-bottom-width: 0;
+}
+
+tr.weapon-stats+tr.melee-stats td {
+  border-top-width: 0;
+}
+
+tr.weapon-stats:last-of-type td {
+  border-bottom-width: 1px;
+}
 </style>

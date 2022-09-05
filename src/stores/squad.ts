@@ -32,6 +32,7 @@ const createSquadUnit = () : SquadUnit => ({
 
 interface State {
     faction: string;
+    name: string;
     id: number;
     units: SquadUnit[];
 }
@@ -41,6 +42,7 @@ export const useSquadStore = defineStore({
 
     state: () => useLocalStorage<State>("wild-cosmos", {
         faction: 'None',
+        name: '',
         id: 0,
         units: [],
     }),

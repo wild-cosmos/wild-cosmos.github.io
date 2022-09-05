@@ -9,15 +9,15 @@
   <div class="d-print-none row py-2">
     <div v-if="buildOptions.length > 1" class="col-12 col-sm-6 col-md-4 mb-3 mb-sm-0">
       <div class="d-flex">
-      <div class="form-floating flex-grow-1">
-        <select id="selectBuildOption" v-model="selectBuildOption" class="form-control">
-          <option v-for="({ value, text }) in buildOptions" :key="value" :value="value">
-            {{ text }}
-          </option>
-        </select>
-        <label for="selectBuildOption">Build Option</label>
-      </div>
-      <button class="btn btn-outline-primary ms-2" @click="onClickReset">Reset</button>
+        <div class="form-floating flex-grow-1">
+          <select id="selectBuildOption" v-model="selectBuildOption" class="form-control">
+            <option v-for="({ value, text }) in buildOptions" :key="value" :value="value">
+              {{ text }}
+            </option>
+          </select>
+          <label for="selectBuildOption">Build Option</label>
+        </div>
+        <button class="btn btn-outline-primary ms-2" @click="onClickReset">Reset</button>
       </div>
     </div>
 
@@ -32,29 +32,29 @@
       </div>
     </div>
 
-    <div v-if="buildOptions.length || availableConfigurationOptions.length" class="col-12 col-md-8 col-xl-4 mb-3 mb-sm-0">
+    <div v-if="buildOptions.length || availableConfigurationOptions.length"
+      class="col-12 col-md-8 col-xl-4 mb-3 mb-sm-0">
       <div class="d-flex align-items-center">
-      <div class="form-floating flex-grow-1">
-        <select id="selectConfig" v-model="selectedOption" 
-          :disabled="!availableConfigurationOptions.length"
-          class="form-control">
-          <option :value="null" disabled>
-            {{ numAvailableOptions }} 
-            options available
-          </option>
-          <option v-for="(option, idx) in availableConfigurationOptions" :key="idx" :value="option"
-            :disabled="!option.available">
+        <div class="form-floating flex-grow-1">
+          <select id="selectConfig" v-model="selectedOption" :disabled="!availableConfigurationOptions.length"
+            class="form-control">
+            <option :value="null" disabled>
+              {{ numAvailableOptions }}
+              options available
+            </option>
+            <option v-for="(option, idx) in availableConfigurationOptions" :key="idx" :value="option"
+              :disabled="!option.available">
               {{ option.label }}
               <!-- Replace {{ formatList(option.replaces) }} 
               with {{ formatList(option.weapon) }}
               for {{ option.cost }} points -->
-          </option>
-        </select>
-        <label for="selectConfig">Configuration Options</label>
-      </div>
-      <button :disabled="!availableConfigurationOptions.length || !selectedOption" class="btn btn-outline-primary ms-2"
-       @click="onSelect(selectedOption)">Apply</button>
-       <button v-if="buildOptions.length" class="btn btn-outline-primary ms-2" @click="onClickReset">Reset</button>
+            </option>
+          </select>
+          <label for="selectConfig">Configuration Options</label>
+        </div>
+        <button :disabled="!availableConfigurationOptions.length || !selectedOption"
+          class="btn btn-outline-primary ms-2" @click="onSelect(selectedOption)">Apply</button>
+        <button v-if="buildOptions.length" class="btn btn-outline-primary ms-2" @click="onClickReset">Reset</button>
       </div>
     </div>
 
@@ -82,11 +82,11 @@
   <small v-if="devMode" class="d-print-none">
     <code>{{ unit }}</code>
   </small>
-  <div v-if="devMode"  class="d-print-none">
+  <div v-if="devMode" class="d-print-none">
     Configuration Options
     <small><code>{{ configurationOptions }}</code></small>
   </div>
-  <div v-if="devMode"  class="d-print-none">
+  <div v-if="devMode" class="d-print-none">
     Available Configuration Options
     <small><code>{{ availableConfigurationOptions }}</code></small>
   </div>
@@ -184,7 +184,7 @@ const selectBuildOption = computed({
 watch(selectedWeapon, async (weaponName) => {
   if (weaponName) {
     const weapon = weaponsForUnit.value.find(({ name }) => name === weaponName);
-    if (weapon) squadStore.setWeapons(props.unit.id, [ weapon ])
+    if (weapon) squadStore.setWeapons(props.unit.id, [weapon])
   }
 })
 
@@ -198,11 +198,12 @@ const selectedRole = computed({
 })
 
 const configurationOptions = computed(() => dataStore.getConfigurationOptionsForUnit(props.unit));
+
 const availableConfigurationOptions = computed(() => {
   const currentWeapons = props.unit.weapons.map(({ name }) => name);
 
   // does the required list match the current weapon selection?
-  const hasRequiredWeapons = ({ replaces } : Configuration) => {
+  const hasRequiredWeapons = ({ replaces }: Configuration) => {
     if (!replaces) return true;
     if (isArray(replaces)) {
       return replaces.reduce((all, s) => all && currentWeapons.includes(s), true);
@@ -210,7 +211,7 @@ const availableConfigurationOptions = computed(() => {
     return currentWeapons.includes(replaces);
   }
 
-  const hasAll = (source: string[]|undefined, target: string[]): boolean => {
+  const hasAll = (source: string[] | undefined, target: string[]): boolean => {
     if (!source) return true;
 
     const result = target.reduce((required, name) => {
@@ -221,31 +222,30 @@ const availableConfigurationOptions = computed(() => {
     return !result.length;
   }
 
-  const hasAny = (source: string[]|undefined, target: string[]): boolean => {
+  const hasAny = (source: string[] | undefined, target: string[]): boolean => {
     if (!source) return false;
     return target.reduce((found, name) => found || source.includes(name), false);
   }
 
-  const isMelee = ({ melee, range }: Weapon): boolean => melee || isNull(range);
-  
-  const { role, weapons} = props.unit;
+  const isMelee = ({ melee, range }: Weapon): boolean => !!melee || isNull(range);
+
   const { role, weapons, wargear } = props.unit;
 
-  const hasRole = ({ condition }: Configuration): boolean => 
+  const hasRole = ({ condition }: Configuration): boolean =>
     isNil(condition?.role) || condition?.role === role;
-  const hasMeleeWeapon = ({ condition }: Configuration): boolean => 
+  const hasMeleeWeapon = ({ condition }: Configuration): boolean =>
     isNil(condition?.hasMeleeWeapon) || weapons.some(isMelee) === condition?.hasMeleeWeapon;
-  const hasRequired = ({ condition }: Configuration): boolean => 
+  const hasRequired = ({ condition }: Configuration): boolean =>
     isNil(condition?.requires) || hasAll(condition?.requires, weapons.map(({ name }) => name));
   const hasNoneOf = ({ condition }: Configuration): boolean =>
-    isNil(condition?.not) 
+    isNil(condition?.not)
     || !(hasAny(condition?.not, weapons.map(({ name }) => name))
-        || hasAny(condition?.not, wargear.map(({ name }) => name)));
-  
-  
-  const formatRequirements = (list: string|string[]) => {
+      || hasAny(condition?.not, wargear.map(({ name }) => name)));
+
+
+  const formatRequirements = (list: string | string[]) => {
     if (!isArray(list)) return list;
-    const countItems = list.reduce((acc, s) => {
+    const countItems = list.reduce((acc: object, s) => {
       if (s in acc) {
         acc[s] += 1;
       } else {
@@ -255,14 +255,14 @@ const availableConfigurationOptions = computed(() => {
     }, {});
 
     return formatList(Object.entries(countItems)
-      .map(([s, n]) => n > 1 ? `${n}x${s}` : s));
+      .map(([s, n]): string => n > 1 ? `${n}x${s}` : s));
   }
 
   return configurationOptions.value
     .filter(hasRole)
     .map((option) => {
       const available = hasRequiredWeapons(option)
-        && hasRequired(option) 
+        && hasRequired(option)
         && hasRole(option)
         && hasMeleeWeapon(option)
         && hasNoneOf(option);
@@ -279,7 +279,8 @@ const availableConfigurationOptions = computed(() => {
         label: label.filter((s) => s > '').join(' '),
         available,
       };
-    })
+    });
+});
 
 const numAvailableOptions = computed(() => availableConfigurationOptions.value.filter(({ available }) => available).length);
 

@@ -1,15 +1,17 @@
 <template>
   <nav class="navbar fixed-bottom navbar-dark bg-dark sponsor-banner">
     <img src="../assets/rocket.png" class="rocket">
-    <a class="container-fluid text-decoration-none" href="https://apps.apple.com/gb/app/orbitz/id1630650820" target="_blank">
+    <a class="container-fluid text-decoration-none" href="https://apps.apple.com/gb/app/orbitz/id1630650820"
+      target="_blank">
       <div class="navbar-brand py-0">
         Sponsored by Orbitz</div>
       <div class="ms-auto me-0 py-0 navbar-brand" href="https://apps.apple.com/gb/app/orbitz/id1630650820">
-        Download 
+        Download
         <span class="d-none d-sm-inline">
           from the App Store
         </span>
-        for free!</div>
+        for free!
+      </div>
     </a>
   </nav>
 </template>
