@@ -1,18 +1,26 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "typeRoots": [
       "./src/types"
     ],
     "target": "ES6",
-    "lib": ["ES2017", "DOM"]
+    "lib": [
+      "ES2017",
+      "DOM"
+    ]
   },
-
   "references": [
     {
       "path": "./tsconfig.config.json"
