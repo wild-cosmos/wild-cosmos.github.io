@@ -203,6 +203,7 @@ const availableConfigurationOptions = computed(() => {
 
   // does the required list match the current weapon selection?
   const hasRequiredWeapons = ({ replaces } : Configuration) => {
+    if (!replaces) return true;
     if (isArray(replaces)) {
       return replaces.reduce((all, s) => all && currentWeapons.includes(s), true);
     }
@@ -228,6 +229,7 @@ const availableConfigurationOptions = computed(() => {
   const isMelee = ({ melee, range }: Weapon): boolean => melee || isNull(range);
   
   const { role, weapons} = props.unit;
+  const { role, weapons, wargear } = props.unit;
 
   const hasRole = ({ condition }: Configuration): boolean => 
     isNil(condition?.role) || condition?.role === role;
@@ -236,7 +238,9 @@ const availableConfigurationOptions = computed(() => {
   const hasRequired = ({ condition }: Configuration): boolean => 
     isNil(condition?.requires) || hasAll(condition?.requires, weapons.map(({ name }) => name));
   const hasNoneOf = ({ condition }: Configuration): boolean =>
-    isNil(condition?.not) || !hasAny(condition?.not, weapons.map(({ name }) => name));
+    isNil(condition?.not) 
+    || !(hasAny(condition?.not, weapons.map(({ name }) => name))
+        || hasAny(condition?.not, wargear.map(({ name }) => name)));
   
   
   const formatRequirements = (list: string|string[]) => {
@@ -255,6 +259,7 @@ const availableConfigurationOptions = computed(() => {
   }
 
   return configurationOptions.value
+    .filter(hasRole)
     .map((option) => {
       const available = hasRequiredWeapons(option)
         && hasRequired(option) 
@@ -263,8 +268,8 @@ const availableConfigurationOptions = computed(() => {
         && hasNoneOf(option);
 
       const label = [
-        `Replace ${formatList(option.replaces)}`,
-        `with ${formatRequirements(option.weapon)}`,
+        option.replaces ? `Replace ${formatList(option.replaces)}` : null,
+        option.replaces ? `with ${formatRequirements(option.weapon)}` : `Add ${formatRequirements(option.weapon)}`,
         option.condition?.requires ? `requires ${formatRequirements(option.condition.requires)}` : null,
         `(${option.cost})`,
       ];
