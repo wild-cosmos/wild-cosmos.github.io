@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from 'vue';
 import type { Wargear } from '@/types/unit';
 
 const props = defineProps<{
@@ -7,11 +7,9 @@ const props = defineProps<{
   showFaction: boolean
 }>();
 
-const faction = computed(() => {
-  return props.showFaction ? props.item.faction : null;
-})
+const faction = computed(() => (props.showFaction ? props.item.faction : null));
 </script>
-  
+
 <template>
   <tr>
     <td>
@@ -21,4 +19,3 @@ const faction = computed(() => {
     <td><small style="white-space: pre-line">{{ item.notes || '-' }}</small></td>
   </tr>
 </template>
-  

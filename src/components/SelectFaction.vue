@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useDataStore } from '@/stores/data';
+import { computed } from 'vue';
 import orderBy from 'lodash/orderBy';
+import { useDataStore } from '@/stores/data';
 
-const emit = defineEmits(['update:faction'])
+const emit = defineEmits(['update:faction']);
 
 const dataStore = useDataStore();
 
 const props = defineProps<{
   faction: string | null,
   allowNull?: boolean,
-}>()
+}>();
 
 const selectedFaction = computed({
   get() { return props.faction; },
-  set(faction) { emit('update:faction', faction); }
-})
+  set(faction) { emit('update:faction', faction); },
+});
 
 const factions = computed(() => orderBy(dataStore.factions));
 

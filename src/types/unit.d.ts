@@ -1,15 +1,15 @@
 export interface Faction {
-    abilities?: Ability[];
-    configuration?: Configuration[]; 
-    units?: Unit[];
-    wargear?: Wargear[];
-    weapons?: Weapon[];
+  abilities?: Ability[];
+  configuration?: Configuration[];
+  units?: Unit[];
+  wargear?: Wargear[];
+  weapons?: Weapon[];
 }
 
 export interface Ability {
-    faction: string;
-    name: string;
-    cost: number;
+  faction: string;
+  name: string;
+  cost: number;
 }
 
 interface BaseUnit {
@@ -26,16 +26,15 @@ interface BaseUnit {
   abilities: string[];
 }
 export interface Unit extends BaseUnit {
-    roles: string[];
-    type: string | string[];
-    // wargear?: Wargear[];
-    // weapons: Weapon[];
-    options?: BuildOptions[];
-    optionalWargear?: string[];
+  roles: string[];
+  type: string | string[];
+  // wargear?: Wargear[];
+  // weapons: Weapon[];
+  options?: BuildOptions[];
+  optionalWargear?: string[];
 }
 
-export interface SquadUnit extends BaseUnit
-{
+export interface SquadUnit extends BaseUnit {
   id: number;
   role: string;
   type: string | string[];
@@ -55,40 +54,43 @@ export interface Item {
 }
 
 export interface Wargear extends Item {
-    faction: string;
-    type: string;
-    name: string;
-    cost: number;
-    notes: string;
-    usedBy: string[];
+  faction: string;
+  type: string;
+  name: string;
+  cost: number;
+  notes: string;
+  usedBy: string[];
 }
 
 export interface Weapon extends Wargear {
-    melee: WeaponStats;
-    combi?: string[];
-    range: number|number[];
-    a: number;
-    ap: number[];
-    dm: number;
+  melee: WeaponStats;
+  combi?: string[];
+  range: number | number[];
+  a: number;
+  ap: number[];
+  dm: number;
 }
 
 export interface WeaponStats {
-  range: number|number[];
+  range: number | number[];
   a: number;
   ap: number[];
-  dm: number|number[];
+  dm: number | number[];
   notes?: string;
 }
 
 export interface Configuration {
-  weapon: string|string[];
-  replaces: string|string[];
+  weapon: string | string[];
+  replaces: string | string[];
   condition?: Condition;
   cost: number;
-  usedBy: string|string[];
+  usedBy: string | string[];
 }
 
 interface Condition {
-  role?: string|string[];
+  role?: string | string[];
   hasMeleeWeapon?: boolean;
+  requires?: string | string[];
+  not?: string | string[];
+  any?: string | string[];
 }

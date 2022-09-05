@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import UnitRow from '@/components/UnitRow.vue';
 import { computed } from 'vue';
 import orderBy from 'lodash/orderBy';
+import UnitRow from './UnitRow.vue';
 import type { Unit } from '@/types/unit';
 
 const props = defineProps<{
@@ -9,9 +9,7 @@ const props = defineProps<{
   showFaction: boolean
 }>();
 
-const factionUnits = computed(() => {
-  return orderBy(props.units, ['name']);
-})
+const factionUnits = computed(() => orderBy(props.units, ['name']));
 </script>
 
 <template>

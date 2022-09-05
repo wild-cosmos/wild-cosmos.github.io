@@ -30,7 +30,6 @@
     </div>
   </div>
 
-
   <div v-if="squadStore.units.length" class="d-flex justify-content-end my-3">
     <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{
         squadStore.totalPoints
@@ -66,19 +65,19 @@
 </template>
 
 <script setup lang="ts">
-import SquadMember from '@/components/SquadMember.vue';
-import SelectFaction from '@/components/SelectFaction.vue';
-import WeaponsList from '../components/WeaponsList.vue'
-import WargearList from '../components/WargearList.vue'
-
-import { computed, ref, watch } from 'vue';
-import { useDataStore } from '@/stores/data';
-import { useSquadStore } from '@/stores/squad';
-
-import { nextTick } from 'vue'
+import {
+  computed, ref, watch, nextTick,
+} from 'vue';
 import { Toast } from 'bootstrap';
 import orderBy from 'lodash/orderBy';
 import uniqueBy from 'lodash/uniqBy';
+import SquadMember from '@/components/SquadMember.vue';
+import SelectFaction from '@/components/SelectFaction.vue';
+import WeaponsList from '../components/WeaponsList.vue';
+import WargearList from '../components/WargearList.vue';
+
+import { useDataStore } from '@/stores/data';
+import { useSquadStore } from '@/stores/squad';
 
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
@@ -87,25 +86,23 @@ const squadStore = useSquadStore();
 
 const selectedFaction = computed({
   get() { return squadStore.faction; },
-  set(faction) { squadStore.faction = faction; }
+  set(faction) { squadStore.faction = faction; },
 });
 
 const squadName = computed({
   get() { return squadStore.name; },
-  set(name) { squadStore.name = name; }
+  set(name) { squadStore.name = name; },
 });
 
-const selectedUnit = ref(null)
+const selectedUnit = ref(null);
 const maxPoints = 100;
 
-const availableUnits = computed(() => {
-  return dataStore.getUnitsForFaction(squadStore.faction);
-})
+const availableUnits = computed(() => dataStore.getUnitsForFaction(squadStore.faction));
 
 const availableUnitOptions = computed(() => {
-  const options = availableUnits.value.map(({ name, cost }) => ({ value: name, text: `${name} (${cost})` }))
+  const options = availableUnits.value.map(({ name, cost }) => ({ value: name, text: `${name} (${cost})` }));
   return orderBy(options, ['text']);
-})
+});
 
 const validationErrors = computed(() => {
   const errorList = [];
@@ -126,43 +123,43 @@ const validationErrors = computed(() => {
     }, {});
 
     if (!roles.Leader) {
-      errorList.push("Your Warband must have a Leader")
+      errorList.push('Your Warband must have a Leader');
     } else if (roles.Leader !== 1) {
-      errorList.push("Your Warband cannot have more than one Leader")
+      errorList.push('Your Warband cannot have more than one Leader');
     }
   }
 
   return errorList;
-})
+});
 
 watch(validationErrors, async (errorList) => {
   if (errorList.length) {
     nextTick(() => {
       const option: Partial<Toast.Options> = { autohide: false };
-      const toastElList = document.querySelectorAll('.toast')
-      toastElList.forEach(toastEl => new Toast(toastEl, option))
-    })
+      const toastElList = document.querySelectorAll('.toast');
+      toastElList.forEach((toastEl) => new Toast(toastEl, option));
+    });
   }
-})
+});
 
 const uniqueWeapons = computed(() => {
   const weaponsReference = squadStore.units.reduce((list, { weapons }) => {
     list.push(...weapons);
     return list;
-  }, [])
+  }, []);
   return orderBy(uniqueBy(weaponsReference, 'name'), ['name']);
-})
+});
 
 const uniqueWargear = computed(() => {
   const wargearReference = squadStore.units.reduce((list, { wargear }) => {
     list.push(...wargear);
     return list;
-  }, [])
+  }, []);
   return orderBy(uniqueBy(wargearReference, 'name'), ['name']);
-})
+});
 
 function onAddSquadMember() {
-  const unit = availableUnits.value.find(({ name }) => name === selectedUnit.value)
+  const unit = availableUnits.value.find(({ name }) => name === selectedUnit.value);
   if (unit) squadStore.addSquadMember(unit);
 }
 

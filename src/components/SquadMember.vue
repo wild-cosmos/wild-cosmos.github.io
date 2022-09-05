@@ -45,7 +45,7 @@
             <option v-for="(option, idx) in availableConfigurationOptions" :key="idx" :value="option"
               :disabled="!option.available">
               {{ option.label }}
-              <!-- Replace {{ formatList(option.replaces) }} 
+              <!-- Replace {{ formatList(option.replaces) }}
               with {{ formatList(option.weapon) }}
               for {{ option.cost }} points -->
             </option>
@@ -78,7 +78,6 @@
     </div>
   </div>
 
-
   <small v-if="devMode" class="d-print-none">
     <code>{{ unit }}</code>
   </small>
@@ -95,18 +94,20 @@
 </template>
 
 <script setup lang="ts">
-import UnitDetails from './UnitDetails.vue'
-
-import { useDataStore } from "@/stores/data";
-import { useSquadStore } from "@/stores/squad";
-import { computed, ref, watch } from "vue";
-
-import orderBy from 'lodash/orderBy'
-import isArray from 'lodash/isArray'
-import formatList from '@/utils/formatList';
-import type { Configuration, Item, SquadUnit, Weapon } from '@/types/unit';
+import { computed, ref, watch } from 'vue';
+import orderBy from 'lodash/orderBy';
+import isArray from 'lodash/isArray';
 import isNil from 'lodash/isNil';
-import { isNull, join } from 'lodash';
+import isNull from 'lodash/isNull';
+import UnitDetails from './UnitDetails.vue';
+
+import { useDataStore } from '@/stores/data';
+import { useSquadStore } from '@/stores/squad';
+
+import formatList from '@/utils/formatList';
+import type {
+  Configuration, Item, SquadUnit, Weapon,
+} from '@/types/unit';
 
 const devMode = false; // import.meta.env.DEV;
 
@@ -124,9 +125,7 @@ const squadStore = useSquadStore();
 
 const unitType = computed(() => dataStore.getUnitByName(props.unit.name));
 
-const toOption = ({ name, cost }: Item) => {
-  return { value: name, text: `${name} (${cost})` };
-}
+const toOption = ({ name, cost }: Item) => ({ value: name, text: `${name} (${cost})` });
 
 const buildOptions = computed(() => {
   const options = dataStore.getBuildOptionsForUnit(props.unit);
@@ -139,32 +138,30 @@ const buildOptions = computed(() => {
   }));
 });
 
-const weaponsForUnit = computed(() => dataStore.getWeaponsForUnit(props.unit))
+const weaponsForUnit = computed(() => dataStore.getWeaponsForUnit(props.unit));
 
 const weaponOptions = computed(() => {
   const options = dataStore.getWeaponsForUnit(props.unit)
     .map(toOption);
   return orderBy(options, ['text']);
-})
+});
 
 const wargearForUnit = computed(() => {
   const { wargear } = props.unit;
   if (wargear) {
-    return Object.entries(wargear).map(([name, cost]) => ({ name, cost }))
+    return Object.entries(wargear).map(([name, { cost }]) => ({ name, cost }));
   }
   return [];
-})
+});
 
-const wargearOptions = computed(() => {
-  return wargearForUnit.value.map(toOption);
-})
+const wargearOptions = computed(() => wargearForUnit.value.map(toOption));
 
 const rolesForUnit = computed(() => {
   if (!unitType.value) return [];
   const { roles } = unitType.value;
   const options = isArray(roles) ? roles : [roles];
   return options;
-})
+});
 
 const selectBuildOption = computed({
   get() { return null; },
@@ -175,18 +172,18 @@ const selectBuildOption = computed({
       const weapons = loadout.weapons.map(dataStore.getWeapon);
       const wargear = loadout.wargear.map(dataStore.getWargear);
 
-      squadStore.setWeapons(props.unit.id, weapons.filter(w => !!w), loadout.cost);
-      squadStore.setWargear(props.unit.id, wargear.filter(w => !!w));
+      squadStore.setWeapons(props.unit.id, weapons.filter((w) => !!w), loadout.cost);
+      squadStore.setWargear(props.unit.id, wargear.filter((w) => !!w));
     }
-  }
+  },
 });
 
 watch(selectedWeapon, async (weaponName) => {
   if (weaponName) {
     const weapon = weaponsForUnit.value.find(({ name }) => name === weaponName);
-    if (weapon) squadStore.setWeapons(props.unit.id, [weapon])
+    if (weapon) squadStore.setWeapons(props.unit.id, [weapon]);
   }
-})
+});
 
 const selectedRole = computed({
   get() {
@@ -194,8 +191,8 @@ const selectedRole = computed({
   },
   set(role) {
     squadStore.setRole(props.unit.id, role);
-  }
-})
+  },
+});
 
 const configurationOptions = computed(() => dataStore.getConfigurationOptionsForUnit(props.unit));
 
@@ -209,7 +206,7 @@ const availableConfigurationOptions = computed(() => {
       return replaces.reduce((all, s) => all && currentWeapons.includes(s), true);
     }
     return currentWeapons.includes(replaces);
-  }
+  };
 
   const hasAll = (source: string[] | undefined, target: string[]): boolean => {
     if (!source) return true;
@@ -217,15 +214,15 @@ const availableConfigurationOptions = computed(() => {
     const result = target.reduce((required, name) => {
       const idx = required.indexOf(name);
       if (idx > -1) required.splice(idx, 1);
-      return required
+      return required;
     }, [...source]);
     return !result.length;
-  }
+  };
 
   const hasAny = (source: string[] | undefined, target: string[]): boolean => {
     if (!source) return false;
     return target.reduce((found, name) => found || source.includes(name), false);
-  }
+  };
 
   const isMelee = ({ melee, range }: Weapon): boolean => !!melee || isNull(range);
 
@@ -244,7 +241,7 @@ const availableConfigurationOptions = computed(() => {
   const hasAnyOf = ({ condition }: Configuration) =>
     isNil(condition?.any) || hasAny(condition?.any, weapons.map(({ name }) => name));
 
-  const formatRequirements = (list: string | string[]) => {
+  const formatRequirements = (list?: string | string[]) => {
     if (!isArray(list)) return list;
     const countItems = list.reduce((acc: object, s) => {
       if (s in acc) {
@@ -255,16 +252,15 @@ const availableConfigurationOptions = computed(() => {
       return acc;
     }, {});
 
-    return formatList(Object.entries(countItems)
-      .map(([s, n]): string => n > 1 ? `${n}x${s}` : s));
-  }
+    return formatList(Object.entries<number>(countItems)
+      .map(([s, n]): string => (n > 1 ? `${n}x${s}` : s)));
+  };
 
-  const isNullOrEmpty = (list?: any | any[] | undefined) => {
+  const isNullOrEmpty = (list?: string | string[] | undefined) => {
     if (!list) return true;
     if (isArray(list) && !list.length) return true;
     return false;
-
-  }
+  };
   return configurationOptions.value
     .filter(hasRole)
     .map((option) => {
@@ -278,13 +274,13 @@ const availableConfigurationOptions = computed(() => {
       const label = [
         !isNullOrEmpty(option.replaces) ? `Replace ${formatList(option.replaces)}` : null,
         !isNullOrEmpty(option.replaces) ? `with ${formatRequirements(option.weapon)}` : `Add ${formatRequirements(option.weapon)}`,
-        !isNullOrEmpty(option.condition?.requires) ? `requires ${formatRequirements(option.condition.requires)}` : null,
+        !isNullOrEmpty(option.condition?.requires) ? `requires ${formatRequirements(option.condition?.requires)}` : null,
         `(${option.cost})`,
       ];
 
       return {
         ...option,
-        label: label.filter((s) => s > '').join(' '),
+        label: label.filter((s) => !!s).join(' '),
         available,
       };
     });
@@ -299,14 +295,18 @@ function onClickReset() {
 
 function onClickRemove() {
   if (props.unit) {
-    squadStore.removeSquadMember(props.unit)
+    squadStore.removeSquadMember(props.unit);
   }
 }
 
-function onSelect({ weapon, replaces }: Configuration) {
-  squadStore.removeWeapons(props.unit, replaces);
-  squadStore.addWeapons(props.unit, weapon);
-  selectedOption.value = null;
+function onSelect(option: Configuration | null) {
+  if (option) {
+    const { weapon, replaces } = option;
+
+    squadStore.removeWeapons(props.unit, replaces);
+    squadStore.addWeapons(props.unit, weapon);
+    selectedOption.value = null;
+  }
 }
 </script>
 

@@ -91,36 +91,31 @@ import isArray from 'lodash/isArray';
 import formatStat from '@/utils/formatStat';
 import formatList from '@/utils/formatList';
 import calcTotalCost from '@/utils/totalCost';
-import { useDataStore } from "@/stores/data";
-import type { SquadUnit } from '@/types/unit';
+import type { SquadUnit, Wargear, Weapon } from '@/types/unit';
 import WeaponsList from './WeaponsList.vue';
 
 const props = defineProps<{
   unit: SquadUnit
 }>();
 
-const unit = computed(() => {
-  return props.unit
-})
-
-const dataStore = useDataStore();
+const unit = computed(() => props.unit);
 
 const allWargear = computed(() => {
   const loadout = [];
   const { weapons, wargear } = props.unit;
-  const checkMissing = (item) => {
+  const checkMissing = (item: Weapon | Wargear) => {
     if (!item) {
-      return { "name": "Missing Item" }
+      return { name: 'Missing Item' };
     }
     return item;
-  }
+  };
 
-  if (weapons?.length) loadout.push(...weapons.map(checkMissing).map(({ name }) => name))
-  if (wargear?.length) loadout.push(...wargear.map(checkMissing).map(({ name }) => name))
-  return loadout
-})
+  if (weapons?.length) loadout.push(...weapons.map(checkMissing).map(({ name }) => name));
+  if (wargear?.length) loadout.push(...wargear.map(checkMissing).map(({ name }) => name));
+  return loadout;
+});
 
-const totalCost = computed(() => calcTotalCost(props.unit))
+const totalCost = computed(() => calcTotalCost(props.unit));
 
 const unitRoleAndType = computed(() => {
   const { role, type } = props.unit;
@@ -132,14 +127,11 @@ const unitRoleAndType = computed(() => {
     roleAndType.push(type);
   }
   return roleAndType;
-})
+});
 
-const unitAbilities = computed(() => {
-  return sortBy(props.unit.abilities);
-})
+const unitAbilities = computed(() => sortBy(props.unit.abilities));
 
 </script>
-
 
 <style>
 td.stat {

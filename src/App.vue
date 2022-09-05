@@ -60,9 +60,9 @@
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import { useDataStore } from './stores/data';
 import { Collapse } from 'bootstrap';
 import { onMounted } from 'vue';
+import { useDataStore } from './stores/data';
 import OrbitzBanner from './components/OrbitzBanner.vue';
 
 const dataStore = useDataStore();
@@ -71,11 +71,12 @@ dataStore.initialise('/factions.json');
 const appEnv = import.meta.env.MODE;
 
 onMounted(() => {
-  const el = document.getElementById('navbarCollapse')
-  if (el) new Collapse(el, { toggle: false })
+  const el = document.getElementById('navbarCollapse');
+  // eslint-disable-next-line no-new
+  if (el) new Collapse(el, { toggle: false });
 });
 </script>
-    
+
 <style>
 #app {
   margin-top: calc(64px + 2rem);

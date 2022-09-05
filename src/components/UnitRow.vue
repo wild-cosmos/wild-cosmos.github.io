@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import isArray from 'lodash/isArray';
-import formatStat from '@/utils/formatStat'
+import { computed } from 'vue';
+import formatStat from '@/utils/formatStat';
 import type { Unit } from '@/types/unit';
 
 const props = defineProps<{
@@ -12,7 +11,7 @@ const props = defineProps<{
 const rolesAndTypes = computed(() => {
   const { roles, type } = props.unit;
   return [roles.join(' or '), ...type].filter((s) => s > '').join(', ');
-})
+});
 </script>
 
 <template>
