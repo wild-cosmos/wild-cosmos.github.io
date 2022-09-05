@@ -72,7 +72,7 @@
       "ld": 5,
       "roles": [ "Specialist" ],
       "type": [ "Infantry" ],
-      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual" ],
+      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Optical Data Uplink" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
     {
@@ -87,6 +87,13 @@
       "ld": 4,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": ["Pulse Carbine", "Photon Grenades"],
+          "wargear": []
+        }
+      ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
@@ -102,7 +109,24 @@
       "ld": 5,
       "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry" ],
-      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": ["Pulse Carbine", "Photon Grenades"],
+          "wargear": []
+        },
+        {
+          "cost": 6,
+          "weapons": ["Ion Rifle", "Photon Grenades"],
+          "wargear": []
+        },
+        {
+          "cost": 4,
+          "weapons": ["Rail Rifle", "Photon Grenades"],
+          "wargear": []
+        }
+      ],
+      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
     {
@@ -117,7 +141,29 @@
       "ld": 4,
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Battlesuit" ],
-      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": ["Burst Cannon"],
+          "wargear": ["Sealth Field"]
+        },
+        {
+          "cost": 0,
+          "weapons": ["Flamer"],
+          "wargear": ["Sealth Field"]
+        },
+        {
+          "cost": 7,
+          "weapons": ["Fusion Blaster"],
+          "wargear": ["Sealth Field"]
+        },
+        {
+          "cost": 3,
+          "weapons": ["Plasma Rifle"],
+          "wargear": ["Sealth Field"]
+        }
+      ],
+      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate", "Camouflage (1)", "Jetpack Thrust" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
     {
@@ -132,7 +178,29 @@
       "ld": 3,
       "roles": [ "Leader" ],
       "type": [ "Infantry", "Battlesuit" ],
-      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual" ],
+      "options": [
+        {
+          "cost": 0,
+          "weapons": ["Burst Cannon"],
+          "wargear": ["Sealth Field"]
+        },
+        {
+          "cost": 0,
+          "weapons": ["Flamer"],
+          "wargear": ["Sealth Field"]
+        },
+        {
+          "cost": 7,
+          "weapons": ["Fusion Blaster"],
+          "wargear": ["Sealth Field"]
+        },
+        {
+          "cost": 3,
+          "weapons": ["Plasma Rifle"],
+          "wargear": ["Sealth Field"]
+        }
+      ],
+      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate", "Camouflage (1)", "Jetpack Thrust" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
     {
@@ -364,7 +432,7 @@
       "notes": "Critical (7+)"
     },
     {
-      "name": "Photon Grenade",
+      "name": "Photon Grenades",
       "range": 6,
       "a": "D2",
       "ap": 0,
