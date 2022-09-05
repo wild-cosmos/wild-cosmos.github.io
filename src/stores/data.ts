@@ -2,7 +2,9 @@ import { defineStore } from 'pinia'
 import { mande } from 'mande'
 import isArray from 'lodash/isArray'
 import type { 
-  Ability, Faction, SquadUnit, Unit, Wargear, Weapon, Configuration 
+  Faction, 
+  BaseUnit, Unit, SquadUnit, 
+  Ability, Wargear, Weapon, Configuration 
 } from '@/types/unit';
 
 interface State {
@@ -49,7 +51,9 @@ export const useDataStore = defineStore({
           return unit?.options ?? [];
         },
 
-        getUnitByName: ({units}) => (unitName: string) => units.find(({name}) => name === unitName)
+        getUnitByName: ({units}) => (unitName: string) => units.find(({name}) => name === unitName),
+
+        getConfigurationOptionsForUnit: ({ configuration }) => ({ name }: BaseUnit) => configuration.filter(({ usedBy }) => usedBy.includes(name)),
     },
 
     actions: {

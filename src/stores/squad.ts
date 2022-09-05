@@ -4,6 +4,7 @@ import orderBy from 'lodash/orderBy'
 import { useLocalStorage } from "@vueuse/core";
 import totalCost from "@/utils/totalCost";
 import type { SquadUnit, Unit, Wargear, Weapon } from '@/types/unit';
+import { isArray } from 'lodash';
 
 const generateId = ((id) => {
   let nextId = id;
@@ -133,6 +134,43 @@ export const useSquadStore = defineStore({
             }              
           });
         },
+
+        addWeapons(unit: SquadUnit, items: string|string[]): void {
+          const dataStore = useDataStore();
+
+          this.$patch((state) => {
+            const squadUnit = state.units.find(({ id }) => id === unit.id);
+            if (squadUnit) {
+              (isArray(items) ? items : [items])
+                .map(dataStore.getWeapon)
+                .forEach((weapon) => {
+                  if (weapon) squadUnit.weapons.push({...weapon});
+                });
+              (isArray(items) ? items : [items])
+                .map(dataStore.getWargear)
+                .forEach((wargear) => {
+                  if (wargear) squadUnit.wargear.push({ ...wargear });
+                });
+            }
+          });
+        },
+        
+        removeWeapons(unit: SquadUnit, weapons: string|string[]): void {
+          this.$patch((state) => {
+            const squadUnit = state.units.find(({ id }) => id === unit.id);
+            if (squadUnit) {
+              (isArray(weapons) ? weapons : [weapons])
+              .forEach((weaponName) => {
+                const idx = squadUnit.weapons
+                  .findIndex(({ name }) => name === weaponName);
+                if (idx > -1) {
+                  squadUnit.weapons.splice(idx, 1);
+                }
+              });
+            }
+          });
+        },
+
         setRole(squadId: number, role: string) {
             const squadUnit = this.units.find(({ id }) => id === squadId);
             if (squadUnit) {

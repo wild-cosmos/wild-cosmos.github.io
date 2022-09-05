@@ -1,1 +1,3 @@
-export default (list: string[], delimiter = ', ') : string => list.join(delimiter);
+import isArray from 'lodash/isArray';
+
+export default (list: string|string[], delimiter = ', ') : string => (isArray(list) ? list : [list]).join(delimiter);

@@ -20,8 +20,7 @@
 
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div v-for="error in validationErrors" :key="error" 
-         class="toast fade show text-bg-warning mb-2" role="alert" aria-live="assertive" aria-atomic="true"
-    >
+      class="toast fade show text-bg-warning mb-2" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-body">
         <div class="d-flex align-items-center">
           <h3 class="mb-0 me-2 bi bi-exclamation-diamond" />
@@ -37,7 +36,7 @@
       squadStore.totalPoints }} Pts</strong>
   </div>
 
-  <div class="d-print-none bg-light my-3 p-2 row">
+  <div class="d-print-none bg-light my-3 py-2 row">
     <div class="col-12 col-sm-6 col-md-4">
       <SelectFaction v-model:faction="selectedFaction" class="mb-3 mb-sm-0" />
     </div>
