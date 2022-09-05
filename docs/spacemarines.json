@@ -1035,14 +1035,14 @@
       "condition": {
         "not": [ "Twin Bolt Carbine", "Twin Flamer", "Twin Plasma Gun" ]
       },
-      "usedBy": [ "Space Marine Biker" ]
+      "usedBy": [ "Tactical Marine", "Space Marine Biker" ]
     },
 
     {
       "weapon": [ "Force Stave" ],
       "replaces": [ "Force Sword" ],
       "cost": 0,
-      "usedBy": [ "Lexicanium" ]
+      "usedBy": [ "Lexicanium", "Scout Lexicanium", "Terminator Lexicanium" ]
     },
 
     {
@@ -1136,10 +1136,173 @@
       "usedBy": [ "Space Marine Scout" ]
     },
     {
-      "weapon": [ "Force Stave" ],
-      "replaces": [ "Force Sword" ],
+      "weapon": [ "Chapter vexillum"],
+      "replaces": [ ],
+      "cost": 5,
+      "condition": {
+        "not": [ "Chapter vexillum" ]
+      },
+      "usedBy": [ "Tactical Marine" ]
+    },
+
+    {
+      "weapon": [ "Power Maul" ],
+      "replaces": [ "Power Sword" ],
       "cost": 0,
-      "usedBy": [ "Scout Lexicanium" ]
+      "usedBy": [ "Terminator Sergeant", "Terminator" ]
+    },
+    {
+      "weapon": "Power Fist",
+      "replaces": "Power Sword",
+      "cost": 4,
+      "usedBy": [ "Terminator Sergeant", "Terminator" ]
+    },
+    {
+      "weapon": [ "Chainfist" ],
+      "replaces": [ "Power Sword" ],
+      "cost": 6,
+      "usedBy": [ "Terminator Sergeant" ]
+    },
+    {
+      "weapon": [ "Thunder Hammer" ],
+      "replaces": [ "Power Sword" ],
+      "cost": 5,
+      "usedBy": [ "Terminator Sergeant" ]
+    },
+    {
+      "weapon": [ "Chainfist" ],
+      "replaces": [ "Power Sword" ],
+      "cost": 6,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Terminator" ]
+    },
+    {
+      "weapon": [ "Thunder Hammer" ],
+      "replaces": [ "Power Sword" ],
+      "cost": 5,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Terminator" ]
+    },
+    {
+      "weapon": [ "Combi-flamer" ],
+      "replaces": [ "Storm Bolter"],
+      "cost": 0,
+      "usedBy": [ "Terminator Sergeant" ]
+    },
+    {
+      "weapon": [ "Combi-grav" ],
+      "replaces": [ "Storm Bolter"],
+      "cost": 0,
+      "usedBy": [ "Terminator Sergeant", "Terminator Lexicanium" ]
+    },
+    {
+      "weapon": [ "Combi-melta" ],
+      "replaces": [ "Storm Bolter"],
+      "cost": 1,
+      "usedBy": [ "Terminator Sergeant", "Terminator Lexicanium" ]
+    },
+    {
+      "weapon": [ "Combi-plasma" ],
+      "replaces": [ "Storm Bolter"],
+      "cost": 0,
+      "usedBy": [ "Terminator Sergeant", "Terminator Lexicanium" ]
+    },
+    {
+      "weapon": [ "Storm shield" ],
+      "replaces": [ "Storm Bolter" ],
+      "cost": 1,
+      "condition": {
+        "any": ["Power Sword", "Power Maul", "Thunder Hammer"]
+      },
+      "usedBy": ["Terminator Sergeant", "Terminator"]
+    },
+    {
+      "weapon": [ "Lightning Claws", "Lightning Claws"],
+      "replaces": [ "Power Sword", "Storm Bolter" ],
+      "cost": 0,
+      "usedBy": [ "Terminator Sergeant", "Terminator" ]
+    },
+    {
+      "weapon": [ "Teleportation transponder" ],
+      "replaces": [ ],
+      "cost": 3,
+      "condition": {
+        "not": [ "Teleportation transponder" ]
+      },
+      "usedBy": [ "Terminator Sergeant", "Terminator", "Terminator Lexicanium" ]
+    },
+    {
+      "weapon": [ "Combi-flamer" ],
+      "replaces": [ "Storm Bolter"],
+      "cost": 0,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Terminator" ]
+    },
+    {
+      "weapon": [ "Combi-grav" ],
+      "replaces": [ "Storm Bolter"],
+      "cost": 0,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Terminator" ]
+    },
+    {
+      "weapon": [ "Combi-melta" ],
+      "replaces": [ "Storm Bolter"],
+      "cost": 1,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Terminator" ]
+    },
+    {
+      "weapon": [ "Combi-plasma" ],
+      "replaces": [ "Storm Bolter"],
+      "cost": 0,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Terminator" ]
+    },
+    {
+      "weapon": [ "Assault Cannon" ],
+      "replaces": [ "Storm Bolter" ],
+      "cost": 6,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Terminator" ]
+    },
+    {
+      "weapon": [ "Heavy Flamer" ],
+      "replaces": [ "Storm Bolter" ],
+      "cost": 2,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Terminator" ]
+    },
+    {
+      "weapon": [ "Cyclone Missile Launcher" ],
+      "replaces": [ "Storm Bolter" ],
+      "cost": 18,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Terminator" ]
+    },
+    {
+      "weapon": "Storm shield",
+      "replaces": "Storm Bolter",
+      "cost": 1,
+      "usedBy": [ "Terminator Lexicanium" ]
     }
   ]
 }
