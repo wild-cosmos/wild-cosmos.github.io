@@ -12,6 +12,8 @@
       "ld": 2,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
+      "weapons": [ "Staff of Light" ],
+      "wargear": [ ],
       "abilities": [
         "Living Metal",
         "Reanimation Protocols",
@@ -30,6 +32,8 @@
       "ld": 2,
       "roles": [ "Core" ],
       "type": [ "Infantry" ],
+      "weapons": ["Gauss Flayer"],
+      "wargear": [],
       "abilities": [
         "Living Metal",
         "Reanimation Protocols",
@@ -86,18 +90,8 @@
       "ld": 2,
       "roles": [ "Specialist" ],
       "type": [ "Infantry" ],
-      "options": [
-        {
-          "cost": 0,
-          "weapons": [ "Warscythe" ],
-          "wargear": [ ]
-        },
-        {
-          "cost": 2,
-          "weapons": [ "Hyperphase Sword" ],
-          "wargear": [ "Dispersion Shield" ]
-        }
-      ],
+      "weapons": [ "Warscythe" ],
+      "wargear": [ ],
       "abilities": [
         "Living Metal",
         "Reanimation Protocols",
@@ -157,23 +151,8 @@
       "ld": 2,
       "roles": [ "Specialist" ],
       "type": [ ],
-      "options": [
-        {
-          "cost": 0,
-          "weapons": [ "Fabricator Claws" ],
-          "wargear": [ ]
-        },
-        {
-          "cost": 8,
-          "weapons": [ "Fabricator Claws", "Particle Beamer", "Particle Beamer" ],
-          "wargear": [ ]
-        },
-        {
-          "cost": 3,
-          "weapons": [ "Fabricator Claws" ],
-          "wargear": [ "Nebuloscope" ]
-        }
-      ],
+      "weapons": [ "Fabricator Claws" ],
+      "wargear": [ ],
       "optionalWargear": [
         {
           "name": "Ossified Necrodermis",
@@ -202,36 +181,8 @@
         "Leader"
       ],
       "type": [ "Infantry" ],
-      "options": [
-        {
-          "cost": 0,
-          "weapons": [ "Rod of Covenant" ]
-        },
-        {
-          "cost": 2,
-          "weapons": [ "Voidblade", "Voidblade" ]
-        },
-        {
-          "cost": 2,
-          "weapons": [ "Voidblade", "Particle Caster" ]
-        },
-        {
-          "cost": 2,
-          "weapons": [ "Hyperphase Sword", "Particle Caster" ]
-        },
-        {
-          "cost": 3,
-          "weapons": [ "Warscythe" ]
-        },
-        {
-          "cost": 3,
-          "weapons": [ "Voidscythe" ]
-        },
-        {
-          "cost": 3,
-          "weapons": [ "Hyperphase Glaive" ]
-        }
-      ],
+      "weapons": [ "Rod of Covenant" ],
+      "wargear": [],
       "abilities": [
         "Living Metal",
         "Reanimation Protocols",
@@ -252,20 +203,8 @@
         "Specialist"
       ],
       "type": [ "Infantry" ],
-      "options": [
-        {
-          "cost": 0,
-          "weapons": [ "Rod of Covenant" ]
-        },
-        {
-          "cost": 2,
-          "weapons": [ "Voidblade", "Voidblade" ]
-        },
-        {
-          "cost": 2,
-          "weapons": [ "Voidblade", "Particle Caster" ]
-        }
-      ],
+      "weapons": [ "Rod of Covenant" ],
+      "wargear": [],
       "abilities": [
         "Living Metal",
         "Reanimation Protocols",
@@ -541,7 +480,7 @@
       "name": "Nebuloscope",
       "usedBy": [
         "Canoptek Spyder"
-      ],  
+      ],
       "notes": "When this model, or any visible friendly Necron model within 3″ of them, makes a ranged attack, they ignore the effects of enemy Stealth abilities. Additionally, if any of these models trigger a trap, roll a D8: on a 6+ the trap is disarmed, and its effects are ignored."
     },
     {
@@ -592,7 +531,7 @@
       "notes": "This model has the Dimensional Strike (4+) ability."
     },
     {
-      "name": "Weapon Optimisaton",
+      "name": "Weapon Optimisation",
       "cost": 2,
       "usedBy": [
         "Necron Warrior",
@@ -611,5 +550,110 @@
       ],
       "notes": "When you create your warband, choose one of the following abilities. For the duration of the game, every model in your warband with a weapon optimisation has this ability.\nElectron Amplifier: Any gauss or tesla weapon this model is armed with adds 1 to its AP value.\nIonisation Node: Any gauss or tesla weapon this model is armed with has the Radiation (6+) type.\nDisassembler Coils: When this model attacks with a gauss weapon, if the target is within 9″, this model incurs a critical hit bonus of 1 for that attack.\nArcsplinter Array: When this model attacks with a tesla weapon, successful hit rolls of 6+ inflict additional hits, instead of successful hit rolls of 7+.\nFor the purpose of these abilities, a gauss weapon is any weapon that has ‘gauss’ in its name, and a tesla weapon is any weapon that has ‘tesla’ in its name."
     }
+  ],
+
+  "configuration": [
+    {
+      "weapon": [ "Nebuloscope" ],
+      "cost": 3,
+      "condition": {
+        "not": [ "Nebuloscope", "Particle Beamer" ]
+      },
+      "usedBy": [ "Canoptek Spyder" ]
+    }, {
+      "weapon": [ "Particle Beamer", "Particle Beamer" ],
+      "cost": 8,
+      "condition": {
+        "not": [ "Nebuloscope", "Particle Beamer" ]
+      },
+      "usedBy": [ "Canoptek Spyder" ]
+    },
+
+    {
+      "weapon": [ "Voidblade" ],
+      "replaces": [ "Staff of Light" ],
+      "cost": 2,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Hyperphase Sword", 
+      "replaces": [ "Staff of Light" ],
+      "cost": 1,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Warscythe",
+      "replaces": [ "Staff of Light" ],
+      "cost": 3,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Voidscythe",
+      "replaces": [ "Staff of Light" ],
+      "cost": 7,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Hyperphase Glaive",
+      "replaces": [ "Staff of Light" ],
+      "cost": 4,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Gauss Blaster",
+      "replaces": [ "Staff of Light" ],
+      "cost": 1,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Tesla Carbine",
+      "replaces": [ "Staff of Light" ],
+      "cost": 0,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Voidblade",
+      "replaces": [ ],
+      "condition": {
+        "requires": [ "Voidblade" ]
+      },
+      "cost": 6,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Hyperphase Sword",
+      "replaces": [ ],
+      "condition": {
+        "requires": [ "Hyperphase Sword" ],
+        "not": ["Dispersion Shield"]
+      },
+      "cost": 5,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Dispersion Shield",
+      "replaces": [ ],
+      "condition": {
+        "requires": [ "Hyperphase Sword" ],
+        "not": ["Dispersion Shield"]
+      },
+      "cost": 5,
+      "usedBy": [ "Oligarkh" ]
+    }, {
+      "weapon": "Weapon Optimisation",
+      "replaces": [ ],
+      "condition": {
+        "any": [ "Gauss Blaster", "Tesla Carbine" ],
+        "not": ["Weapon Optimisation"]
+      },
+      "cost": 2,
+      "usedBy": [ "Oligarkh" ]
+    },
+
+    {
+      "weapon": "Gauss Reaper",
+      "replaces": [ "Gauss Flayer" ],
+      "cost": 1,
+      "usedBy": [ "Necron Warrior" ]
+    }, {
+      "weapon": "Weapon Optimisation",
+      "condition": {
+        "not": [ "Weapon Optimisation" ]
+      },
+      "cost": 1,
+      "usedBy": [ "Necron Warrior" ]
+    }
+
   ]
 }

@@ -1,4 +1,221 @@
 {
+  "models": {
+    "Space Marine Sergeant": {
+      "cost": 16,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 4,
+      "lf": 7,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+      "wargear": [ ],
+      "abilities": [ "And They Shall Know No Fear", "Transhuman Physiology" ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Tactical Marine": {
+      "cost": 14,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 4,
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Core", "Specialist" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Devastator": {
+      "cost": 14,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 4,
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Space Marine Biker": {
+      "cost": 20,
+      "mv": [ 8, 16 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 4,
+      "lf": 8,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Biker" ],
+      "weapons": [ "Twin Boltgun", "Bolt Pistol", "Chainsword", "Frag Grenades", "Krak Grenades" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Lexicanium": {
+      "cost": 25,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": [ 4, 7 ],
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "limited": 1,
+      "weapons": [ "Force Sword", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Psyker (Librarius Discipline)"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Scout Sergeant": {
+      "cost": 16,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 5,
+      "lf": 7,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry", "Scout" ],
+      "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Infiltrate"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Space Marine Scout": {
+      "cost": 14,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 5,
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Core", "Specialist" ],
+      "type": [ "Infantry", "Scout" ],
+      "weapons": [ "Boltgun", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Infiltrate"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Scout Lexicanium": {
+      "cost": 25,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": [ 5, 7 ],
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry", "Scout" ],
+      "limited": 1,
+      "weapons": [ "Force Sword", "Bolt Pistol", "Frag Grenades", "Krak Grenades" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Infiltrate",
+        "Psyker (Librarius Discipline)"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Terminator Sergeant": {
+      "cost": 25,
+      "mv": [ 4, 8 ],
+      "bs": 3,
+      "cs": 3,
+      "df": [ 2, 7 ],
+      "lf": 8,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry", "Terminator" ],
+      "weapons": [ "Power Sword", "Storm Bolter" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Terminator": {
+      "cost": 25,
+      "mv": [ 4, 8 ],
+      "bs": 3,
+      "cs": 3,
+      "df": [ 2, 7 ],
+      "lf": 8,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry", "Terminator" ],
+      "weapons": [ "Power Sword", "Storm Bolter" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    },
+    "Terminator Lexicanium": {
+      "cost": 35,
+      "mv": [ 4, 8 ],
+      "bs": 3,
+      "cs": 3,
+      "df": [ 2, 7 ],
+      "lf": 8,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry", "Terminator" ],
+      "limited": 1,
+      "weapons": [ "Force Sword", "Storm Bolter" ],
+      "wargear": [ ],
+      "abilities": [
+        "And They Shall Know No Fear",
+        "Transhuman Physiology",
+        "Psyker (Librarius Discipline)"
+      ],
+      "faction": [ "Imperium", "Adeptus Astartes" ]
+    }
+  },
   "units": [
     {
       "name": "Space Marine Sergeant",
@@ -286,6 +503,7 @@
     }
   ],
   "abilities": [ ],
+
   "wargear": [
     { "name": "Armorium cherub",
       "notes": "Once per game, at the end of the Manoeuvring Phase, this model may attack with one of their ranged weapons, even if they have already made an attack earlier in the same phase. For the purpose of this attack, this model is treated as having moved their full ordinary Mv value during that phase, regardless of the actual distance they moved (this means, for example, that they cannot aim, but they can shoot even if they advanced in that phase)."
@@ -360,6 +578,42 @@
       "notes": "This model cannot be a target of any psychic power (enemy or friendly)."
     }
   ],
+
+  "wargearList": {
+    "Tactical Wargear": [
+      {
+        "name": "Auspex",
+        "usedBy": [ "Tactical Marine", "Space Marine Scout" ],
+        "cost": 3
+      }, {
+        "name": "Auxiliary grenade launcher",
+        "any": [ "Boltgun", "Combi" ],
+        "not": [ "Space Marine Biker" ],
+        "cost": 5
+      }, {
+        "name": "Bionics",
+        "cost": 2
+      }, {
+        "name": "Chain bayonet",
+        "any": [ "Boltgun", "Combi" ],
+        "not": [ "Space Marine Biker" ],
+        "cost": 1
+      }, {
+        "name": "Gravis armour",
+        "not": [ "Space Marine Biker", "Scout Sergeant", "Space Marine Scout", "Scout Lexicanium" ],
+        "cost": 3
+      }, {
+        "name": "Signum",
+        "usedBy": [ "Tactical Marine", "Devastator" ],
+        "cost": 3
+      }, {
+        "name": "Skull-probe",
+        "cost": 3
+      }
+    ],
+    "Special-issue Wargear": [ ]
+  },
+
   "weapons": [
     {
       "name": "Assault Cannon",
