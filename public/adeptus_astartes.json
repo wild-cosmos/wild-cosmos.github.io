@@ -332,7 +332,6 @@
   "weapons": [
     {
       "name": "Assault Cannon",
-      "cost": 0,
       "range": 18,
       "melee": false,
       "a": 6,
@@ -342,7 +341,6 @@
       "usedBy": [ ]
     }, {
       "name": "Bolt Carbine",
-      "cost": 1,
       "range": 12,
       "melee": false,
       "a": 2,
@@ -353,7 +351,6 @@
     },
     {
       "name": "Boltgun",
-      "cost": 0,
       "range": 18,
       "melee": false,
       "a": [ 1, 2 ],
@@ -363,15 +360,12 @@
       "usedBy": [ ]
     }, {
       "name": "Twin Boltgun",
-      "cost": 0,
       "combi": [ "Boltgun", "Boltgun" ]
     }, {
       "name": "Twin Bolt Carbine",
-      "cost": 2,
       "combi": [ "Bolt Carbine", "Bolt Carbine" ]
     }, {
       "name": "Twin Flamer",
-      "cost": 4,
       "combi": [ "Flamer", "Flamer" ]
     }, {
       "name": "Twin Plasma Gun",
@@ -379,7 +373,6 @@
       "combi": [ "Plasma Gun", "Plasma Gun" ]
     }, {
       "name": "Bolt Pistol",
-      "cost": 0,
       "range": [ 9, null ],
       "melee": false,
       "a": 1,
@@ -390,7 +383,6 @@
     },
     {
       "name": "Bolt Rifle",
-      "cost": 0,
       "range": 30,
       "melee": false,
       "a": 1,
@@ -401,7 +393,6 @@
     },
     {
       "name": "Chainfist",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 2,
@@ -412,7 +403,6 @@
     },
     {
       "name": "Chainsword",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 2,
@@ -423,7 +413,6 @@
     },
     {
       "name": "Combat Knife",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 2,
@@ -434,7 +423,6 @@
     },
     {
       "name": "Combi-flamer",
-      "cost": 1,
       "range": 18,
       "melee": false,
       "combi": [ "Boltgun", "Flamer" ],
@@ -443,7 +431,6 @@
     },
     {
       "name": "Combi-grav",
-      "cost": 1,
       "range": 18,
       "melee": false,
       "combi": [ "Boltgun", "Grav-gun" ],
@@ -452,7 +439,6 @@
     },
     {
       "name": "Combi-melta",
-      "cost": 3,
       "range": 18,
       "melee": false,
       "combi": [ "Boltgun", "Meltagun" ],
@@ -461,7 +447,6 @@
     },
     {
       "name": "Combi-plasma",
-      "cost": 2,
       "range": 18,
       "melee": false,
       "combi": [ "Boltgun", "Plasma Gun" ],
@@ -470,7 +455,6 @@
     },
     {
       "name": "Crushing Teeth and Claws",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 3,
@@ -481,13 +465,11 @@
     },
     {
       "name": "Cyclone Missile Launcher",
-      "cost": 0,
       "combi": [ "Cyclone Missile Launcher (Frag missile)", "Cyclone Missile Launcher (Krak missile)" ],
       "usedBy": [ ]
     }, {
       "name": "Cyclone Missile Launcher (Frag missile)",
       "ammo": true,
-      "cost": 0,
       "range": 24,
       "a": "2D2",
       "ap": [ 0, 4 ],
@@ -497,7 +479,6 @@
     }, {
       "name": "Cyclone Missile Launcher (Krak missile)",
       "ammo": true,
-      "cost": 0,
       "range": 24,
       "melee": false,
       "a": 2,
@@ -509,7 +490,6 @@
 
     {
       "name": "Digital Laser",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 1,
@@ -520,7 +500,6 @@
     },
     {
       "name": "Digital Flamer",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 1,
@@ -531,7 +510,6 @@
     },
     {
       "name": "Flamer",
-      "cost": 0,
       "range": 8,
       "melee": false,
       "a": 1,
@@ -542,7 +520,6 @@
     },
     {
       "name": "Force Stave",
-      "cost": 0,
       "range": null,
       "melee": {
         "name": "Force Stave Psy-charged",
@@ -560,7 +537,6 @@
     },
     {
       "name": "Force Sword",
-      "cost": 0,
       "range": null,
       "melee": {
         "name": "Force Sword Psy-charged",
@@ -578,7 +554,6 @@
     },
     {
       "name": "Frag Grenades",
-      "cost": 0,
       "range": 6,
       "melee": false,
       "a": "D2",
@@ -589,7 +564,6 @@
     },
     {
       "name": "Frost Axe",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 2,
@@ -618,7 +592,6 @@
     },
     {
       "name": "Grav-pistol",
-      "cost": 1,
       "range": [ 9, null ],
       "a": 1,
       "ap": 4,
@@ -660,7 +633,6 @@
     },
     {
       "name": "Krak Grenades",
-      "cost": 0,
       "range": [ 3, null ],
       "melee": false,
       "a": 1,
@@ -705,7 +677,6 @@
     },
     {
       "name": "Missile Launcher",
-      "cost": 9,
       "combi": [ "Missile Launcher (Frag missile)", "Missile Launcher (Krak missile)" ]
     }, {
       "name": "Missile Launcher (Frag missile)",
@@ -753,7 +724,6 @@
     },
     {
       "name": "Plasma Pistol",
-      "cost": 2,
       "range": [ 9, null ],
       "a": 1,
       "ap": [ 3, 5 ],
@@ -762,7 +732,6 @@
     },
     {
       "name": "Power Fist",
-      "cost": 7,
       "range": null,
       "a": 2,
       "ap": 3,
@@ -771,7 +740,6 @@
     },
     {
       "name": "Power Maul",
-      "cost": 3,
       "range": null,
       "a": 2,
       "ap": 3,
@@ -779,7 +747,6 @@
     },
     {
       "name": "Power Sword",
-      "cost": 3,
       "range": null,
       "a": 2,
       "ap": [ 3, 5 ],
@@ -795,7 +762,6 @@
     },
     {
       "name": "Storm Bolter",
-      "cost": 2,
       "range": 18,
       "a": [ 2, 4 ],
       "ap": [ 1, 4 ],
