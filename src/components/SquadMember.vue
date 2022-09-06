@@ -153,25 +153,32 @@ const availableConfigurationOptions = computed(() => {
 
   const hasAny = (source: string[] | undefined, target: string[]): boolean => {
     if (!source) return false;
-    return target.reduce((found, name) => found || source.includes(name), false);
+
+    return source.reduce((hasMatch, w) => {
+      if (hasMatch) return hasMatch;
+      if (isArray(w)) {
+        return target.reduce((r, n) => {
+          const idx = r.indexOf(n);
+          if (idx > -1) r.splice(idx, 1);
+          return r;
+        }, [...w]).length === 0;
+      }
+      return target.includes(w);
+    }, false);
   };
 
   const isMelee = ({ melee, range }: Weapon): boolean => !!melee || isNull(range);
 
   const { role, weapons, wargear } = props.unit;
 
-  const hasRole = ({ condition }: Configuration): boolean =>
-    isNil(condition?.role) || condition?.role === role;
-  const hasMeleeWeapon = ({ condition }: Configuration): boolean =>
-    isNil(condition?.hasMeleeWeapon) || weapons.some(isMelee) === condition?.hasMeleeWeapon;
-  const hasRequired = ({ condition }: Configuration): boolean =>
-    isNil(condition?.requires) || hasAll(condition?.requires, weapons.map(({ name }) => name));
-  const hasNoneOf = ({ condition }: Configuration): boolean =>
-    isNil(condition?.not)
+  const hasRole = ({ condition }: Configuration): boolean => isNil(condition?.role) || condition?.role === role;
+  const hasMeleeWeapon = ({ condition }: Configuration): boolean => isNil(condition?.hasMeleeWeapon) || weapons.some(isMelee) === condition?.hasMeleeWeapon;
+  const hasRequired = ({ condition }: Configuration): boolean => isNil(condition?.requires) || hasAll(condition?.requires, weapons.map(({ name }) => name));
+
+  const hasNoneOf = ({ condition }: Configuration): boolean => isNil(condition?.not)
     || !(hasAny(condition?.not, weapons.map(({ name }) => name))
       || hasAny(condition?.not, wargear.map(({ name }) => name)));
-  const hasAnyOf = ({ condition }: Configuration) =>
-    isNil(condition?.any) || hasAny(condition?.any, weapons.map(({ name }) => name));
+  const hasAnyOf = ({ condition }: Configuration) => isNil(condition?.any) || hasAny(condition?.any, weapons.map(({ name }) => name));
 
   const formatRequirements = (list?: string | string[]) => {
     if (!isArray(list)) return list;
@@ -185,7 +192,7 @@ const availableConfigurationOptions = computed(() => {
     }, {});
 
     return formatList(Object.entries<number>(countItems)
-      .map(([s, n]): string => (n > 1 ? `${n}x${s}` : s)));
+      .map(([s, n]): string => (n > 1 ? `${n} x ${s}` : s)));
   };
 
   const isNullOrEmpty = (list?: string | string[] | undefined) => {
@@ -198,14 +205,14 @@ const availableConfigurationOptions = computed(() => {
     .map((option) => {
       const available = hasRequiredWeapons(option)
         && hasRequired(option)
-        && hasRole(option)
         && hasMeleeWeapon(option)
         && hasNoneOf(option)
         && hasAnyOf(option);
 
       const label = [
-        !isNullOrEmpty(option.replaces) ? `Replace ${formatList(option.replaces)}` : null,
-        !isNullOrEmpty(option.replaces) ? `with ${formatRequirements(option.weapon)}` : `Add ${formatRequirements(option.weapon)}`,
+        isNullOrEmpty(option.replaces)
+          ? `Add ${formatRequirements(option.weapon)}`
+          : `Replace ${formatList(option.replaces)} with ${formatRequirements(option.weapon)}`,
         !isNullOrEmpty(option.condition?.requires) ? `requires ${formatRequirements(option.condition?.requires)}` : null,
         `(${option.cost})`,
       ];
@@ -232,10 +239,10 @@ function onClickRemove() {
 
 function onSelect(option: Configuration | null) {
   if (option) {
-    const { weapon, replaces } = option;
+    const { weapon, replaces, cost } = option;
 
     squadStore.removeWeapons(props.unit, replaces);
-    squadStore.addWeapons(props.unit, weapon);
+    squadStore.addWeapons(props.unit, weapon, cost);
     selectedOption.value = null;
   }
 }
