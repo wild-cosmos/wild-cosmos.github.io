@@ -241,8 +241,8 @@ function onSelect(option: Configuration | null) {
   if (option) {
     const { weapon, replaces, cost } = option;
 
-    squadStore.removeWeapons(props.unit, replaces);
-    squadStore.addWeapons(props.unit, weapon, cost);
+    squadStore.removeWargear(props.unit, replaces);
+    squadStore.addWargear(props.unit, weapon, cost);
     selectedOption.value = null;
   }
 }

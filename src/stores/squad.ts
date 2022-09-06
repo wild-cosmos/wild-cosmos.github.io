@@ -74,21 +74,10 @@ export const useSquadStore = defineStore({
         Object.assign(m, { role });
       }
 
-      const loadout = unit.options?.find(({ cost }) => cost === 0);
-      if (loadout) {
-        const { weapons, wargear } = loadout;
+      const { weapons, wargear } = unit;
 
-        if (weapons) m.weapons.push(...weapons.map(dataStore.getWeapon));
-        if (wargear) m.wargear.push(...wargear.map(dataStore.getWargear));
-      }
-
-      if (!unit.options?.length) {
-        const availableWeapons = dataStore.getWeaponsForUnit(m);
-        if (availableWeapons.length > 0) {
-          const [defaultWeapon] = orderBy(availableWeapons, ['cost']);
-          Object.assign(m, { weapons: [defaultWeapon] });
-        }
-      }
+      m.weapons.push(...weapons?.map(dataStore.getWeapon));
+      m.wargear.push(...wargear?.map(dataStore.getWargear));
 
       this.units.push(m as SquadUnit);
 
@@ -110,42 +99,32 @@ export const useSquadStore = defineStore({
         Object.assign(squadUnit, unit);
       }
     },
-    setWargear(squadId: number, wargear: Wargear[]) {
-      this.$patch((state) => {
-        const squadUnit = state.units.find(({ id }) => id === squadId);
-        if (squadUnit) {
-          Object.assign(squadUnit, { wargear });
-        }
-      });
-    },
-    setWeapon(squadId: number, weapon: Weapon) {
-      const squadUnit = this.units.find(({ id }) => id === squadId);
-      if (squadUnit) {
-        Object.assign(squadUnit, { weapon });
+
+    resetWargear(unit: SquadUnit): void {
+      const dataStore = useDataStore();
+      const model = dataStore.getUnitByName(unit.name);
+      if (model) {
+        this.$patch((state) => {
+          const updateModel = state.units.find(({ id }) => id === unit.id);
+          if (updateModel) {
+            const { cost, weapons, wargear } = model;
+            Object.assign(updateModel, {
+              cost,
+              weapons: weapons?.map(dataStore.getWeapon).map((w) => ({ ...w })),
+              wargear: wargear?.map(dataStore.getWargear).map((w) => ({ ...w })),
+            });
+          }
+        });
       }
-    },
-    setWeapons(squadId: number, weapons: Weapon[], overrideCost = 0) : void {
-      if (overrideCost) {
-        this.setWeapons(squadId, weapons.map((w, idx) => ({
-          ...w,
-          cost: idx === 0 ? overrideCost : 0,
-        })));
-        return;
-      }
-      this.$patch((state) => {
-        const squadUnit = state.units.find(({ id }) => id === squadId);
-        if (squadUnit) {
-          Object.assign(squadUnit, { weapons: [...weapons] });
-        }
-      });
     },
 
-    addWeapons(unit: SquadUnit, items: string|string[]): void {
+    addWargear(unit: SquadUnit, items: string | string[], cost = 0): void {
       const dataStore = useDataStore();
 
       this.$patch((state) => {
         const squadUnit = state.units.find(({ id }) => id === unit.id);
         if (squadUnit) {
+          squadUnit.cost += cost;
           (isArray(items) ? items : [items])
             .map(dataStore.getWeapon)
             .forEach((weapon) => {
@@ -160,16 +139,24 @@ export const useSquadStore = defineStore({
       });
     },
 
-    removeWeapons(unit: SquadUnit, weapons: string|string[]): void {
+    removeWargear(unit: SquadUnit, items: string | string[]): void {
       this.$patch((state) => {
         const squadUnit = state.units.find(({ id }) => id === unit.id);
         if (squadUnit) {
-          (isArray(weapons) ? weapons : [weapons])
+          (isArray(items) ? items : [items])
             .forEach((weaponName) => {
               const idx = squadUnit.weapons
                 .findIndex(({ name }) => name === weaponName);
               if (idx > -1) {
                 squadUnit.weapons.splice(idx, 1);
+              }
+            });
+          (isArray(items) ? items : [items])
+            .forEach((wargear) => {
+              const idx = squadUnit.wargear
+                .findIndex(({ name }) => name === wargear);
+              if (idx > -1) {
+                squadUnit.wargear.splice(idx, 1);
               }
             });
         }
