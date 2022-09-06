@@ -50,7 +50,7 @@ export const useDataStore = defineStore({
     getWargearForUnit: ({ wargear }) => (unitName: string) => wargear.filter(({ usedBy }) => usedBy?.includes(unitName)),
     getWeapon: ({ weapons }) => (weaponName: string) : Weapon | undefined => weapons.find(({ name }) => name === weaponName),
     getWeaponsForFaction: (state) => (faction: string) => state.weapons.filter((weapon) => weapon.faction === faction),
-    getWeaponsForUnit: ({ weapons, getWeapon, getWargear }) => (unit: SquadUnit) => weapons.filter(({ usedBy }) => usedBy?.includes(unit.name)),
+    getWeaponsForUnit: ({ weapons }) => (unit: SquadUnit) => weapons.filter(({ usedBy }) => usedBy?.includes(unit.name)),
     allWargearForUnit: ({ wargear, weapons }) => (unitName: string) => [
       ...weapons.filter(({ usedBy }) => usedBy?.includes(unitName)),
       ...wargear.filter(({ usedBy }) => usedBy?.includes(unitName)),
@@ -67,21 +67,31 @@ export const useDataStore = defineStore({
         .then((factions) => {
           factions.forEach((faction) => {
             const { factionName, dataFile } = parseFaction(faction);
-
             this.factions.push(factionName);
+
             api.get<Faction>(dataFile)
               .then((data) => {
                 this.$patch((state) => {
-                  // state.factions.push(faction);
                   const {
-                    units, weapons, abilities, wargear, configuration,
+                    models,
+                    weapons, abilities, wargear, configuration,
                   } = data;
 
-                  if (abilities) state.abilities.push(...abilities.map((ability: Ability) => ({ ...ability, faction: factionName })));
-                  if (units) state.units.push(...units.map((unit: Unit) => ({ ...unit, faction: factionName })));
-                  if (weapons) state.weapons.push(...weapons.map((weapon: Weapon) => ({ ...weapon, faction: factionName })));
-                  if (wargear) state.wargear.push(...wargear.map((wargear: Wargear) => ({ ...wargear, faction: factionName })));
-                  if (configuration) state.configuration.push(...configuration);
+                  if (abilities) {
+                    state.abilities.push(...abilities.map((ability: Ability) => ({ ...ability, faction: factionName })));
+                  }
+                  if (models) {
+                    const modelList = Object.entries(models)
+                      .map(([name, model]) => ({ ...model, name, faction: factionName }));
+                    state.units.push(...modelList);
+                  }
+                  if (weapons) {
+                    state.weapons.push(...weapons.map((weapon: Weapon) => ({ ...weapon, faction: factionName })));
+                  }
+                  if (wargear) {
+                    state.wargear.push(...wargear.map((wargear: Wargear) => ({ ...wargear, faction: factionName })));
+                  }
+                  if (configuration) { state.configuration.push(...configuration); }
                 });
               });
           });
