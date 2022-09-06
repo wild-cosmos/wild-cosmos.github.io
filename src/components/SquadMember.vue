@@ -7,33 +7,8 @@
     </template>
   </UnitDetails>
   <div class="d-print-none row py-2">
-    <div v-if="buildOptions.length > 1" class="col-12 col-sm-6 col-md-4 mb-3 mb-sm-0">
-      <div class="d-flex">
-        <div class="form-floating flex-grow-1">
-          <select id="selectBuildOption" v-model="selectBuildOption" class="form-control">
-            <option v-for="({ value, text }) in buildOptions" :key="value" :value="value">
-              {{ text }}
-            </option>
-          </select>
-          <label for="selectBuildOption">Build Option</label>
-        </div>
-        <button class="btn btn-outline-primary ms-2" @click="onClickReset">Reset</button>
-      </div>
-    </div>
-
-    <div v-else-if="weaponOptions.length > 1" class="col-12 col-sm-6 col-md-4 mb-3 mb-sm-0">
-      <div class="form-floating">
-        <select id="selectWeapon" v-model="selectedWeapon" class="form-control">
-          <option v-for="({ value, text }) in weaponOptions" :key="value" :value="value">
-            {{ text }}
-          </option>
-        </select>
-        <label for="selectWeapon">Weapon</label>
-      </div>
-    </div>
-
-    <div v-if="buildOptions.length || availableConfigurationOptions.length"
-      class="col-12 col-md-8 col-xl-4 mb-3 mb-sm-0">
+    <div v-if="availableConfigurationOptions.length"
+      class="col-12 col-md-8 col-xl-6 mb-3 mb-sm-0">
       <div class="d-flex align-items-center">
         <div class="form-floating flex-grow-1">
           <select id="selectConfig" v-model="selectedOption" :disabled="!availableConfigurationOptions.length"
@@ -45,16 +20,13 @@
             <option v-for="(option, idx) in availableConfigurationOptions" :key="idx" :value="option"
               :disabled="!option.available">
               {{ option.label }}
-              <!-- Replace {{ formatList(option.replaces) }}
-              with {{ formatList(option.weapon) }}
-              for {{ option.cost }} points -->
             </option>
           </select>
           <label for="selectConfig">Configuration Options</label>
         </div>
         <button :disabled="!availableConfigurationOptions.length || !selectedOption"
           class="btn btn-outline-primary ms-2" @click="onSelect(selectedOption)">Apply</button>
-        <button v-if="buildOptions.length" class="btn btn-outline-primary ms-2" @click="onClickReset">Reset</button>
+        <button class="btn btn-outline-primary ms-2" @click="onClickReset">Reset</button>
       </div>
     </div>
 
@@ -117,7 +89,6 @@ const props = defineProps<{
   unit: SquadUnit
 }>();
 
-const selectedWeapon = ref(null);
 const selectedOption = ref(null);
 
 const dataStore = useDataStore();
@@ -127,24 +98,7 @@ const unitType = computed(() => dataStore.getUnitByName(props.unit.name));
 
 const toOption = ({ name, cost }: Item) => ({ value: name, text: `${name} (${cost})` });
 
-const buildOptions = computed(() => {
-  const options = dataStore.getBuildOptionsForUnit(props.unit);
-  return options.map(({ cost, weapons = [], wargear = [] }, idx) => ({
-    weapons,
-    wargear,
-    cost,
-    text: `${[...weapons, ...wargear].join('/')} (${cost})`,
-    value: idx,
-  }));
-});
-
 const weaponsForUnit = computed(() => dataStore.getWeaponsForUnit(props.unit));
-
-const weaponOptions = computed(() => {
-  const options = dataStore.getWeaponsForUnit(props.unit)
-    .map(toOption);
-  return orderBy(options, ['text']);
-});
 
 const wargearForUnit = computed(() => {
   const { wargear } = props.unit;
@@ -163,28 +117,6 @@ const rolesForUnit = computed(() => {
   return options;
 });
 
-const selectBuildOption = computed({
-  get() { return null; },
-  set(selectedBuildOption) {
-    const loadout = buildOptions.value.find(({ value }) => value === selectedBuildOption);
-
-    if (loadout) {
-      const weapons = loadout.weapons.map(dataStore.getWeapon);
-      const wargear = loadout.wargear.map(dataStore.getWargear);
-
-      squadStore.setWeapons(props.unit.id, weapons.filter((w) => !!w), loadout.cost);
-      squadStore.setWargear(props.unit.id, wargear.filter((w) => !!w));
-    }
-  },
-});
-
-watch(selectedWeapon, async (weaponName) => {
-  if (weaponName) {
-    const weapon = weaponsForUnit.value.find(({ name }) => name === weaponName);
-    if (weapon) squadStore.setWeapons(props.unit.id, [weapon]);
-  }
-});
-
 const selectedRole = computed({
   get() {
     return props.unit.role;
@@ -197,7 +129,7 @@ const selectedRole = computed({
 const configurationOptions = computed(() => dataStore.getConfigurationOptionsForUnit(props.unit));
 
 const availableConfigurationOptions = computed(() => {
-  const currentWeapons = props.unit.weapons.map(({ name }) => name);
+  const currentWeapons = props.unit.weapons?.map(({ name }) => name) ?? [];
 
   // does the required list match the current weapon selection?
   const hasRequiredWeapons = ({ replaces }: Configuration) => {
@@ -289,8 +221,7 @@ const availableConfigurationOptions = computed(() => {
 const numAvailableOptions = computed(() => availableConfigurationOptions.value.filter(({ available }) => available).length);
 
 function onClickReset() {
-  const [defaultOption] = buildOptions.value;
-  selectBuildOption.value = defaultOption.value;
+  squadStore.resetWargear(props.unit);
 }
 
 function onClickRemove() {

@@ -56,11 +56,6 @@ export const useDataStore = defineStore({
       ...wargear.filter(({ usedBy }) => usedBy?.includes(unitName)),
     ],
 
-    getBuildOptionsForUnit: ({ units }) => ({ name } : SquadUnit) => {
-      const unit = units.find((u) => u.name === name);
-      return unit?.options ?? [];
-    },
-
     getUnitByName: ({ units }) => (unitName: string) => units.find(({ name }) => name === unitName),
 
     getConfigurationOptionsForUnit: ({ configuration }) => ({ name }: BaseUnit) => configuration.filter(({ usedBy }) => usedBy.includes(name)),
