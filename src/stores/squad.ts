@@ -76,8 +76,8 @@ export const useSquadStore = defineStore({
 
       const { weapons, wargear } = unit;
 
-      m.weapons.push(...weapons?.map(dataStore.getWeapon));
-      m.wargear.push(...wargear?.map(dataStore.getWargear));
+      m.weapons = weapons?.map(dataStore.getWeapon);
+      m.wargear = wargear?.map(dataStore.getWargear);
 
       this.units.push(m as SquadUnit);
 
