@@ -1,7 +1,6 @@
 {
-  "units": [
-    {
-      "name": "Crisis Battlesuit",
+  "models": {
+    "Crisis Battlesuit": {
       "cost": 20,
       "mv": [ 6, 12 ],
       "bs": 4,
@@ -12,11 +11,11 @@
       "ld": 4,
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Battlesuit" ],
+      "weapons": [ "Burst Cannon" ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Large (1)", "Jetpack Thrust" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Crisis Battlesuit (Leader)",
+    "Crisis Battlesuit (Leader)": {
       "cost": 22,
       "mv": [ 6, 12 ],
       "bs": 3,
@@ -27,11 +26,11 @@
       "ld": 3,
       "roles": [ "Leader" ],
       "type": [ "Infantry", "Battlesuit" ],
+      "weapons": [ "Burst Cannon" ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Large (1)", "Jetpack Thrust" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Fire Warrior Shas'ui",
+    "Fire Warrior Shas'ui": {
       "cost": 9,
       "mv": [ 5, 10 ],
       "bs": 4,
@@ -42,11 +41,11 @@
       "ld": 4,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
+      "weapons": [ "Pulse Carbine", "Photon Grenades" ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Fire Warrior",
+    "Fire Warrior": {
       "cost": 7,
       "mv": [ 5, 10 ],
       "bs": 5,
@@ -57,11 +56,11 @@
       "ld": 5,
       "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry" ],
+      "weapons": [ "Pulse Carbine", "Photon Grenades" ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Firesight Marksman",
+    "Firesight Marksman": {
       "cost": 9,
       "mv": [ 5, 10 ],
       "bs": 5,
@@ -72,11 +71,11 @@
       "ld": 5,
       "roles": [ "Specialist" ],
       "type": [ "Infantry" ],
+      "weapons": [ "Pulse Pistol", "Markerlight" ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Optical Data Uplink" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Pathfinder Shas'ui",
+    "Pathfinder Shas'ui": {
       "cost": 10,
       "mv": [ 5, 10 ],
       "bs": 4,
@@ -87,18 +86,12 @@
       "ld": 4,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
-      "options": [
-        {
-          "cost": 0,
-          "weapons": [ "Pulse Carbine", "Photon Grenades" ],
-          "wargear": [ ]
-        }
-      ],
+      "weapons": [ "Pulse Carbine", "Photon Grenades" ],
+      "wargear": [ ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Pathfinder",
+    "Pathfinder": {
       "cost": 8,
       "mv": [ 5, 10 ],
       "bs": 5,
@@ -109,28 +102,12 @@
       "ld": 5,
       "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry" ],
-      "options": [
-        {
-          "cost": 0,
-          "weapons": [ "Pulse Carbine", "Photon Grenades" ],
-          "wargear": [ ]
-        },
-        {
-          "cost": 6,
-          "weapons": [ "Ion Rifle", "Photon Grenades" ],
-          "wargear": [ ]
-        },
-        {
-          "cost": 4,
-          "weapons": [ "Rail Rifle", "Photon Grenades" ],
-          "wargear": [ ]
-        }
-      ],
+      "weapons": [ "Pulse Carbine", "Photon Grenades" ],
+      "wargear": [ ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Stealth Battlesuit",
+    "Stealth Battlesuit": {
       "cost": 20,
       "mv": [ 6, 12 ],
       "bs": 4,
@@ -141,33 +118,12 @@
       "ld": 4,
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Battlesuit" ],
-      "options": [
-        {
-          "cost": 0,
-          "weapons": [ "Burst Cannon" ],
-          "wargear": [ "Sealth Field" ]
-        },
-        {
-          "cost": 0,
-          "weapons": [ "Flamer" ],
-          "wargear": [ "Sealth Field" ]
-        },
-        {
-          "cost": 7,
-          "weapons": [ "Fusion Blaster" ],
-          "wargear": [ "Sealth Field" ]
-        },
-        {
-          "cost": 3,
-          "weapons": [ "Plasma Rifle" ],
-          "wargear": [ "Sealth Field" ]
-        }
-      ],
+      "weapons": [ "Burst Cannon" ],
+      "wargear": [ "Stealth Field" ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate", "Camouflage (1)", "Jetpack Thrust" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Stealth Battlesuit (Leader)",
+    "Stealth Battlesuit (Leader)": {
       "cost": 22,
       "mv": [ 6, 12 ],
       "bs": 3,
@@ -178,33 +134,12 @@
       "ld": 3,
       "roles": [ "Leader" ],
       "type": [ "Infantry", "Battlesuit" ],
-      "options": [
-        {
-          "cost": 0,
-          "weapons": [ "Burst Cannon" ],
-          "wargear": [ "Sealth Field" ]
-        },
-        {
-          "cost": 0,
-          "weapons": [ "Flamer" ],
-          "wargear": [ "Sealth Field" ]
-        },
-        {
-          "cost": 7,
-          "weapons": [ "Fusion Blaster" ],
-          "wargear": [ "Sealth Field" ]
-        },
-        {
-          "cost": 3,
-          "weapons": [ "Plasma Rifle" ],
-          "wargear": [ "Sealth Field" ]
-        }
-      ],
+      "weapons": [ "Burst Cannon" ],
+      "wargear": [ "Stealth Field" ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate", "Camouflage (1)", "Jetpack Thrust" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Gun Drone",
+    "Gun Drone": {
       "cost": 7,
       "mv": [ 6, 12 ],
       "bs": 6,
@@ -215,11 +150,11 @@
       "ld": 5,
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
+      "weapons": [ "Pulse Carbine", "Pulse Carbine" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Missile Drone",
+    "Missile Drone": {
       "cost": 12,
       "mv": [ 6, 12 ],
       "bs": 6,
@@ -230,11 +165,11 @@
       "ld": 5,
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
+      "weapons": [ "Smart Missile System" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Sniper Drone",
+    "Sniper Drone": {
       "cost": 16,
       "mv": [ 6, 12 ],
       "bs": 6,
@@ -245,11 +180,12 @@
       "ld": 5,
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
+      "weapons": [ "Longshot Pulse Rifle" ],
+      "wargear": [ "Stealth Field" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Tactical Support Turret",
+    "Tactical Support Turret": {
       "cost": 10,
       "mv": [ 0, 0 ],
       "bs": 6,
@@ -260,11 +196,11 @@
       "ld": 5,
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
+      "weapons": [ "Smart Missile System" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Marker Drone",
+    "Marker Drone": {
       "cost": 5,
       "mv": [ 6, 12 ],
       "bs": 6,
@@ -275,11 +211,12 @@
       "ld": 5,
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
+      "weapons": [ ],
+      "wargear": [ "Markerlight" ],
       "abilities": [ "AI Support", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Tactical Drone",
+    "Tactical Drone": {
       "cost": 4,
       "mv": [ 6, 12 ],
       "bs": 6,
@@ -293,8 +230,7 @@
       "abilities": [ "AI Support", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Guardian Drone",
+    "Guardian Drone": {
       "cost": 8,
       "mv": [ 6, 12 ],
       "bs": 6,
@@ -308,8 +244,7 @@
       "abilities": [ "AI Support", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
-    {
-      "name": "Recon Drone",
+    "Recon Drone": {
       "cost": 5,
       "mv": [ 6, 12 ],
       "bs": 6,
@@ -323,7 +258,7 @@
       "abilities": [ "Coordinated Fire Arcs", "AI Support", "Saviour Protocols", "Hover", "Infiltrate" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     }
-  ],
+  },
   "abilities": [ ],
 
   "wargear": [ {
@@ -411,7 +346,7 @@
       "name": "Stabilising anchors",
       "notes": "This model incurs a hit roll bonus of 1 for their ranged attacks if they do not move in the same phase."
     }, {
-      "name": "Stealth field",
+      "name": "Stealth Field",
       "notes": "This model has the Stealth (1) ability."
     }, {
       "name": "Stealth field projector",
@@ -617,5 +552,41 @@
       "dm": [ 1, "D2" ],
       "notes": "Indirect. Cover saves cannot be made against attacks from this weapon."
     }
+  ],
+
+  "configuration": [
+    {
+      "weapon": [ "Ion Rifle" ],
+      "replaces": [ "Pulse Carbine" ],
+      "cost": 6,
+      "usedBy": [ "Pathfinder Shas'ui" ]
+    },
+    {
+      "weapon": [ "Rail Rifle" ],
+      "replaces": [ "Pulse Carbine" ],
+      "cost": 4,
+      "usedBy": [ "Pathfinder Shas'ui" ]
+    },
+
+    {
+      "weapon": [ "Flamer" ],
+      "replaces": [ "Burst Cannon" ],
+      "cost": 0,
+      "usedBy": [ "Stealth Battlesuit" ]
+    },
+    {
+      "weapon": [ "Fusion Blaster" ],
+      "replaces": [ "Burst Cannon" ],
+      "cost": 7,
+      "usedBy": [ "Stealth Battlesuit" ]
+    },
+    {
+      "weapon": [ "Plasma Rifle" ],
+      "replaces": [ "Burst Cannon" ],
+      "cost": 3,
+      "usedBy": [ "Stealth Battlesuit" ]
+    }
+  
+
   ]
 }
