@@ -155,7 +155,6 @@
   "weapons": [
     {
       "name": "Fabricator Claws",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 4,
@@ -165,7 +164,6 @@
       "usedBy": [ "Canoptek Spyder" ]
     }, {
       "name": "Feeder Mandibles",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 4,
@@ -175,7 +173,6 @@
       "usedBy": [ "Canoptek Scarabs" ]
     }, {
       "name": "Flensing Claws",
-      "cost": 0,
       "range": null,
       "melee": true,
       "a": 4,
@@ -185,7 +182,6 @@
       "usedBy": [ "Flayed One" ]
     }, {
       "name": "Gauntlet of Fire",
-      "cost": 0,
       "range": [ 8, null ],
       "melee": true,
       "a": [ 1 ],
@@ -197,7 +193,6 @@
       ]
     }, {
       "name": "Gauss Blaster",
-      "cost": 1,
       "range": 18,
       "melee": false,
       "a": [ 2, 3 ],
@@ -208,7 +203,6 @@
         "Necron Immortal" ]
     }, {
       "name": "Gauss Flayer",
-      "cost": 0,
       "range": 18,
       "melee": false,
       "a": [ 1, 2 ],
@@ -218,7 +212,6 @@
       "usedBy": [ "Necron Warrior" ]
     }, {
       "name": "Gauss Reaper",
-      "cost": 1,
       "range": 18,
       "melee": false,
       "a": [ 1, 2 ],
@@ -228,7 +221,6 @@
       "usedBy": [ "Necron Warrior" ]
     }, {
       "name": "Hyperphase Glaive",
-      "cost": 4,
       "range": null,
       "melee": true,
       "a": 2,
@@ -238,7 +230,6 @@
       "usedBy": [ "Oligarkh" ]
     }, {
       "name": "Hyperphase Sword",
-      "cost": 1,
       "range": null,
       "melee": true,
       "a": 2,
@@ -248,7 +239,6 @@
       "usedBy": [ "Oligarkh", "Lychguard" ]
     }, {
       "name": "Particle Beamer",
-      "cost": 4,
       "range": 12,
       "melee": false,
       "a": 2,
@@ -258,7 +248,6 @@
       "usedBy": [ ]
     }, {
       "name": "Particle Caster",
-      "cost": 0,
       "range": [ 9, null ],
       "melee": true,
       "a": 2,
@@ -268,7 +257,6 @@
       "usedBy": [ ]
     }, {
       "name": "Rod of Covenant",
-      "cost": 0,
       "range": 9,
       "melee": { "a": 2, "ap": [ 3, 5 ], "dm": 2, "notes": null },
       "a": 1,
@@ -278,7 +266,6 @@
       "usedBy": [ ]
     }, {
       "name": "Staff of Light",
-      "cost": 0,
       "range": 12,
       "melee": {
         "a": 2,
@@ -293,7 +280,6 @@
       "usedBy": [ "Oligarkh" ]
     }, {
       "name": "Synaptic Disintegrator",
-      "cost": 0,
       "range": 30,
       "melee": false,
       "a": 1,
@@ -303,7 +289,6 @@
       "usedBy": [ "Deathmark" ]
     }, {
       "name": "Tachyon Arrow",
-      "cost": 0,
       "range": 100,
       "melee": false,
       "a": 1,
@@ -313,7 +298,6 @@
       "usedBy": [ ]
     }, {
       "name": "Tesla Carbine",
-      "cost": 0,
       "range": 18,
       "melee": false,
       "a": 2,
@@ -323,7 +307,6 @@
       "usedBy": [ "Oligarkh", "Necron Immortal" ]
     }, {
       "name": "Voidblade",
-      "cost": 2,
       "range": null,
       "melee": true,
       "a": 2,
@@ -333,7 +316,6 @@
       "usedBy": [ "Oligarkh" ]
     }, {
       "name": "Voidscythe",
-      "cost": 7,
       "range": null,
       "melee": true,
       "a": 2,
@@ -343,7 +325,6 @@
       "usedBy": [ "Oligarkh" ]
     }, {
       "name": "Warscythe",
-      "cost": 3,
       "range": null,
       "melee": true,
       "a": 2,
