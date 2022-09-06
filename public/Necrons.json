@@ -1,7 +1,6 @@
 {
-  "units": [
-    {
-      "name": "Oligarkh",
+  "models": {
+    "Oligarkh": {
       "cost": 17,
       "mv": [ 5, 8 ],
       "bs": 3,
@@ -15,8 +14,8 @@
       "weapons": [ "Staff of Light" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Mercurial Tyrant" ]
-    }, {
-      "name": "Necron Warrior",
+    }, 
+    "Necron Warrior": {
       "cost": 12,
       "mv": [ 5, 8 ],
       "bs": 5,
@@ -30,8 +29,8 @@
       "weapons": [ "Gauss Flayer" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant" ]
-    }, {
-      "name": "Necron Immortal",
+    }, 
+    "Necron Immortal": {
       "cost": 14,
       "mv": [ 5, 8 ],
       "bs": 4,
@@ -45,8 +44,8 @@
       "weapons": [ "Tesla Carbine" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant" ]
-    }, {
-      "name": "Deathmark",
+    }, 
+    "Deathmark": {
       "cost": 18,
       "mv": [ 5, 8 ],
       "bs": 4,
@@ -60,8 +59,8 @@
       "weapons": [ "Synaptic Disintegrator" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant", "Marked for Death", "Hyperspace Oubliette" ]
-    }, {
-      "name": "Lychguard",
+    }, 
+    "Lychguard": {
       "cost": 20,
       "mv": [ 5, 8 ],
       "bs": 4,
@@ -75,8 +74,8 @@
       "weapons": [ "Warscythe" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant", "Eternal Protector" ]
-    }, {
-      "name": "Flayed One",
+    }, 
+    "Flayed One": {
       "cost": 18,
       "mv": [ 5, 12 ],
       "bs": 7,
@@ -90,8 +89,8 @@
       "weapons": [ "Flensing Claws" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant", "Fearsome (1)", "Ambush", "Flesh Hunger" ]
-    }, {
-      "name": "Canoptek Scarabs",
+    }, 
+    "Canoptek Scarabs": {
       "cost": 14,
       "mv": [ 5, 12 ],
       "bs": null,
@@ -105,8 +104,8 @@
       "weapons": [ "Feeder Mandibles" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Autonomous Servant", "Hover", "Swarm" ]
-    }, {
-      "name": "Canoptek Spyder",
+    }, 
+    "Canoptek Spyder": {
       "cost": 28,
       "mv": [ 5, 10 ],
       "bs": 5,
@@ -120,8 +119,8 @@
       "weapons": [ "Fabricator Claws" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Autonomous Servant", "Hover", "Large (2)", "Scarab Hive" ]
-    }, {
-      "name": "Triarch Judicator",
+    },
+    "Triarch Judicator": {
       "cost": 23,
       "mv": [ 5, 12 ],
       "bs": 3,
@@ -135,8 +134,8 @@
       "weapons": [ "Rod of Covenant" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ]
-    }, {
-      "name": "Triarch Praetorian",
+    }, 
+    "Triarch Praetorian": {
       "cost": 20,
       "mv": [ 5, 12 ],
       "bs": 4,
@@ -151,7 +150,7 @@
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ]
     }
-  ],
+  },
   "weapons": [
     {
       "name": "Fabricator Claws",
