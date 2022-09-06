@@ -1,6 +1,7 @@
 export interface Faction {
   abilities?: Ability[];
   configuration?: Configuration[];
+  models: object;
   units?: Unit[];
   wargear?: Wargear[];
   weapons?: Weapon[];
@@ -28,8 +29,8 @@ interface BaseUnit {
 export interface Unit extends BaseUnit {
   roles: string[];
   type: string | string[];
-  // wargear?: Wargear[];
-  // weapons: Weapon[];
+  wargear?: string[];
+  weapons?: string[];
   options?: BuildOptions[];
   optionalWargear?: string[];
 }
