@@ -60,7 +60,7 @@
   <div v-if="squadStore.units.length">
     <h3>Reference</h3>
     <WeaponsList v-if="uniqueWeapons.length" :weapons="uniqueWeapons" />
-    <WargearList :wargear="uniqueWargear" />
+    <WargearList v-if="uniqueWargear.length" :wargear="uniqueWargear" />
   </div>
 </template>
 
@@ -144,7 +144,7 @@ watch(validationErrors, async (errorList) => {
 
 const uniqueWeapons = computed(() => {
   const weaponsReference = squadStore.units.reduce((list, { weapons }) => {
-    list.push(...weapons);
+    if (weapons) list.push(...weapons);
     return list;
   }, []);
   return orderBy(uniqueBy(weaponsReference, 'name'), ['name']);
@@ -152,7 +152,7 @@ const uniqueWeapons = computed(() => {
 
 const uniqueWargear = computed(() => {
   const wargearReference = squadStore.units.reduce((list, { wargear }) => {
-    list.push(...wargear);
+    if (wargear) list.push(...wargear);
     return list;
   }, []);
   return orderBy(uniqueBy(wargearReference, 'name'), ['name']);
