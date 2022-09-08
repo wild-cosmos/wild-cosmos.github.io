@@ -32,7 +32,10 @@ const props = defineProps<{
   showFaction?: boolean
 }>();
 
-const factionWeapons = computed(() => orderBy(props.weapons.filter(({ ammo }) => !ammo), ['name']));
+const factionWeapons = computed(() => {
+  const weapons = props.weapons.filter((weapon) => !!weapon).filter(({ ammo, hidden }) => !hidden && !ammo);
+  return orderBy(weapons, ['name']);
+});
 
 const weaponsByFaction = computed(() => groupBy(props.weapons, 'faction'));
 </script>

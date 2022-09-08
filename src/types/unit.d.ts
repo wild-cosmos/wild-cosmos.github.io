@@ -58,6 +58,7 @@ export interface Wargear extends Item {
   faction: string;
   type: string;
   name: string;
+  hidden?: boolean;
   cost: number;
   notes: string;
   usedBy: string[];
@@ -71,6 +72,7 @@ export interface Weapon extends Wargear {
   ap: number[];
   dm: number;
   ammo?: boolean;
+  hidden?: boolean;
 }
 
 export interface WeaponStats {

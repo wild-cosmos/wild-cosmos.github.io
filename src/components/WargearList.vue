@@ -26,8 +26,10 @@ const props = defineProps<{
   showFaction?: boolean
 }>();
 
-const factionWargear = computed(() => orderBy(props.wargear, ['name']));
-const wargearByFaction = computed(() => groupBy(props.wargear, 'faction'));
+const factionWargear = computed(() => {
+  const wargear = props.wargear.filter((item) => !!item).filter(({ hidden }) => !hidden);
+  return orderBy(wargear, ['name']);
+});
 </script>
 
 <style lang="css">

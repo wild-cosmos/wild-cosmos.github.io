@@ -38,8 +38,12 @@ export const useDataStore = defineStore({
     factions: [],
     abilities: [],
     units: [],
-    wargear: [],
-    weapons: [],
+    wargear: [
+      { name: 'Empty', hidden: true } as Wargear,
+    ],
+    weapons: [
+      { name: 'Empty', hidden: true } as Weapon,
+    ],
     configuration: [],
   }),
 
