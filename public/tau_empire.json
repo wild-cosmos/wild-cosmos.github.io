@@ -11,7 +11,8 @@
       "ld": 4,
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Battlesuit" ],
-      "weapons": [ "Burst Cannon" ],
+      "weapons": [ "Burst Cannon", "Empty" ],
+      "wargear": [ ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Large (1)", "Jetpack Thrust" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
@@ -26,7 +27,8 @@
       "ld": 3,
       "roles": [ "Leader" ],
       "type": [ "Infantry", "Battlesuit" ],
-      "weapons": [ "Burst Cannon" ],
+      "weapons": [ "Burst Cannon", "Empty" ],
+      "wargear": [ ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Large (1)", "Jetpack Thrust" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
@@ -41,7 +43,8 @@
       "ld": 4,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
-      "weapons": [ "Pulse Carbine", "Photon Grenades" ],
+      "weapons": [ "Pulse Carbine", "Empty", "Photon Grenades" ],
+      "wargear": [ ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
@@ -56,7 +59,8 @@
       "ld": 5,
       "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry" ],
-      "weapons": [ "Pulse Carbine", "Photon Grenades" ],
+      "weapons": [ "Pulse Carbine", "Empty", "Photon Grenades" ],
+      "wargear": [ ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
@@ -71,7 +75,8 @@
       "ld": 5,
       "roles": [ "Specialist" ],
       "type": [ "Infantry" ],
-      "weapons": [ "Pulse Pistol", "Markerlight" ],
+      "weapons": [ "Pulse Pistol" ],
+      "wargear": [ "Markerlight" ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Optical Data Uplink" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
@@ -227,6 +232,7 @@
       "ld": 5,
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
+      "weapons": [ "Empty" ],
       "abilities": [ "AI Support", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
@@ -255,6 +261,7 @@
       "ld": 5,
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
+      "wargear": [ "Empty" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support", "Saviour Protocols", "Hover", "Infiltrate" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     }
@@ -268,7 +275,7 @@
       "name": "Adaptive recoil compensator",
       "notes": "Any burst cannon this model is armed with has A 6/8 and the Rapid Fire type."
     }, {
-      "name": "Bio-fabrication array",
+      "name": "Bio-fabrication Array",
       "notes": "This model has the Heal (2+, Fire Caste excluding Battlesuits) ability."
     }, {
       "name": "Bionics",
@@ -280,7 +287,7 @@
       "name": "Coldstar thrusters",
       "notes": "This model changes their Mv value to 8\"/16\" and replaces their Jetpack Thrust ability with the Flying ability."
     }, {
-      "name": "Descent thrusters",
+      "name": "Descent Thrusters",
       "notes": "This model has the Manta Strike (4+) ability."
     }, {
       "name": "Destabilised electrokinetic core",
@@ -298,10 +305,10 @@
       "name": "Fusion blades",
       "notes": "Any fusion blaster this model is armed with has Rng 10\"/−, and have A 2 In the Close Quarters Phase."
     }, {
-      "name": "Grav-inhibitor field",
+      "name": "Grav-inhibitor Field",
       "notes": "When an enemy model or unit charges this model or their unit, after any defensive fire has been resolved, roll a D4: the charging models reduce their Mv value by this amount. If, because of this, the charging models cannot finish their move within 1\" of any of the models they declared that they were charging, they must instead move as far as possible towards at least one of those targets."
     }, {
-      "name": "High-intensity markerlight",
+      "name": "High-intensity Markerlight",
       "notes": "This model is treated as being armed with a markerlight; however, if they make a successful hit roll when using their markerlight, the target gets two Markerlight tokens instead of 1."
     }, {
       "name": "Iridium-enriched armour",
@@ -322,11 +329,11 @@
       "name": "Novasurge reactor",
       "notes": "Once per game, when this model makes a ranged attack, they may activate their novasurge reactor. If they do so, any pulse rifle or plasma rifle used as part of that attack has AP 5 and adds 2 to its Dm value."
     }, {
-      "name": "Positional relay",
+      "name": "Positional Relay",
       "notes": "When a friendly model arrives from reserve using the Deep Strike ability, they add 2 to the roll for this ability if they set up within 6\" of this model."
     }, {
-      "name": "Pulse accelerator",
-      "notes": "Models within 6\" of any friendly models with pulse accelerators increase the Rng value of their pulse rifles and pulse carbines by 4\" and increase the Rng value of their pulse blasters and pulse pistols by 2\"."
+      "name": "Pulse Accelerator",
+      "notes": "Models within 6\" of any friendly models with Pulse Accelerators increase the Rng value of their pulse rifles and pulse carbines by 4\" and increase the Rng value of their pulse blasters and pulse pistols by 2\"."
     }, {
       "name": "Repair microdrones",
       "notes": "This model has the Regeneration (2+) ability. If the value rolled for this ability is 7+, they regain 2 life instead of 1."
@@ -340,7 +347,7 @@
       "name": "Seismic destabiliser",
       "notes": "Once per round, when this model would make a ranged attack, they may instead nominate an area terrain feature within 12\". Roll a D8 for every model (enemy and friendly) within that area terrain: if the value rolled is equal to or greater than the cover save that terrain provides, that model suffers one AP 2 Dm 2 hit."
     }, {
-      "name": "Shield generator",
+      "name": "Shield Generator",
       "notes": "This model has a 6+ invulnerable save."
     }, {
       "name": "Stabilising anchors",
@@ -349,7 +356,7 @@
       "name": "Stealth Field",
       "notes": "This model has the Stealth (1) ability."
     }, {
-      "name": "Stealth field projector",
+      "name": "Stealth Field Projector",
       "notes": "Models in the same unit as one or more models with stealth field projectors are treated as being equipped with stealth fields."
     }, {
       "name": "Stimulant injector",
@@ -554,7 +561,101 @@
     }
   ],
 
+  "template": {
+    "weapon": [ ],
+    "replaces": [ ],
+    "cost": 0,
+    "usedBy": [ ]
+  },
+
   "configuration": [
+    {
+      "weapon": [ "Missile Pod" ],
+      "replaces": [ "Burst Cannon" ],
+      "cost": 3,
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+    },
+    {
+      "weapon": [ "Burst Cannon" ],
+      "replaces": [ "Empty" ],
+      "cost": 5,
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+    }, {
+      "weapon": [ "Flamer" ],
+      "replaces": [ "Empty" ],
+      "cost": 4,
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+    }, {
+      "weapon": [ "Fusion Blaster" ],
+      "replaces": [ "Empty" ],
+      "cost": 12,
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+    }, {
+      "weapon": [ "Missile Pod" ],
+      "replaces": [ "Empty" ],
+      "cost": 8,
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+    }, {
+      "weapon": [ "Plasma Rifle" ],
+      "replaces": [ "Empty" ],
+      "cost": 8,
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+    }, {
+      "weapon": [ "Shield Generator" ],
+      "replaces": [ "Empty" ],
+      "cost": 12,
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+    }, {
+      "weapon": [ "Descent Thrusters" ],
+      "replaces": [ ],
+      "cost": 12,
+      "condition": {
+        "not": [ "Descent Thrusters" ]
+      },
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+    },
+
+    {
+      "weapon": [ "Pulse Rifle" ],
+      "replaces": [ "Pulse Carbine" ],
+      "cost": 0,
+      "usedBy": [ "Fire Warrior", "Fire Warrior Shas'ui" ]
+    }, {
+      "weapon": [ "Pulse Blaster" ],
+      "replaces": [ "Pulse Carbine" ],
+      "cost": 0,
+      "usedBy": [ "Fire Warrior", "Fire Warrior Shas'ui" ]
+    }, {
+      "weapon": [ "Pulse Pistol" ],
+      "replaces": [ "Pulse Carbine" ],
+      "cost": 0,
+      "usedBy": [ "Fire Warrior", "Fire Warrior Shas'ui" ]
+    }, {
+      "weapon": [ "Pulse Pistol" ],
+      "replaces": [ "Empty" ],
+      "cost": 1,
+      "usedBy": [ "Fire Warrior", "Fire Warrior Shas'ui" ]
+    }, {
+      "weapon": [ "Fireblade" ],
+      "replaces": [ "Empty" ],
+      "cost": 3,
+      "usedBy": [ "Fire Warrior Shas'ui" ]
+    }, {
+      "weapon": [ "EMP Grenades" ],
+      "replaces": [ "Photon Grenades" ],
+      "cost": 3,
+      "usedBy": [ "Fire Warrior" ]
+    },
+
+    {
+      "weapon": [ "Stealth Field" ],
+      "cost": 2,
+      "condition": {
+        "not": [ "Stealth Field" ]
+      },
+      "usedBy": [ "Firesight Marksman" ]
+    },
+
     {
       "weapon": [ "Ion Rifle" ],
       "replaces": [ "Pulse Carbine" ],
@@ -572,21 +673,82 @@
       "weapon": [ "Flamer" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 0,
-      "usedBy": [ "Stealth Battlesuit" ]
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)" ]
     },
     {
       "weapon": [ "Fusion Blaster" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 7,
-      "usedBy": [ "Stealth Battlesuit" ]
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)" ]
     },
     {
       "weapon": [ "Plasma Rifle" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 3,
-      "usedBy": [ "Stealth Battlesuit" ]
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)" ]
+    },
+
+    {
+      "weapon": [ "Shield Generator" ],
+      "cost": 3,
+      "condition": {
+        "not": [ "Shield Generator" ]
+      },
+      "usedBy": [ "Gun Drone", "Missile Drone", "Tactical Support Turret" ]
+    }, {
+      "weapon": [ "Missile Pod" ],
+      "replaces": [ "Smart Missile System" ],
+      "cost": 0,
+      "usedBy": [ "Missile Drone", "Tactical Support Turret" ]
+    }, {
+      "weapon": [ "High-intensity Markerlight" ],
+      "replaces": [ "Markerlight" ],
+      "cost": 2,
+      "usedBy": [ "Marker Drone" ]
+    },
+
+    {
+      "weapon": "Bio-fabrication Array",
+      "replaces": [ "Empty" ],
+      "cost": 4,
+      "usedBy": [ "Tactical Drone" ]
+    }, {
+      "weapon": "Grav-inhibitor Field",
+      "replaces": [ "Empty" ],
+      "cost": 3,
+      "usedBy": [ "Tactical Drone" ]
+    }, {
+      "weapon": "Positional Relay",
+      "replaces": [ "Empty" ],
+      "cost": 3,
+      "usedBy": [ "Tactical Drone", "Recon Drone" ]
+    }, {
+      "weapon": "Pulse Accelerator",
+      "replaces": [ "Empty" ],
+      "cost": 2,
+      "usedBy": [ "Tactical Drone" ]
+    }, {
+      "weapon": "Stealth Field Projector",
+      "replaces": [ "Empty" ],
+      "cost": 3,
+      "usedBy": [ "Tactical Drone" ]
     }
-  
+
+    , {
+      "weapon": "Burst Cannon",
+      "cost": 5,
+      "condition": {
+        "not": [ "Burst Cannon", "Flamer" ]
+      },
+      "usedBy": [ "Recon Drone" ]
+    }, {
+      "weapon": "Flamer",
+      "cost": 4,
+      "condition": {
+        "not": [ "Flamer", "Burst Cannon" ]
+      },
+      "usedBy": [ "Recon Drone" ]
+    }
 
   ]
 }
