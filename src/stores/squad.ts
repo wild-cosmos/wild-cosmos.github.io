@@ -1,11 +1,8 @@
 import { defineStore } from 'pinia';
-import orderBy from 'lodash/orderBy';
 import { useLocalStorage } from '@vueuse/core';
 import { isArray } from 'lodash';
 import { useDataStore } from './data';
-import type {
-  SquadUnit, Unit, Wargear, Weapon,
-} from '@/types/unit';
+import type { SquadUnit, Unit } from '@/types/unit';
 
 const generateId = ((id) => {
   let nextId = id;
@@ -74,9 +71,8 @@ export const useSquadStore = defineStore({
       }
 
       const { weapons, wargear } = unit;
-
-      m.weapons = weapons?.map(dataStore.getWeapon);
-      m.wargear = wargear?.map(dataStore.getWargear);
+      m.weapons = (weapons ?? []).map(dataStore.getWeapon);
+      m.wargear = (wargear ?? []).map(dataStore.getWargear);
 
       this.units.push(m as SquadUnit);
 
@@ -109,8 +105,8 @@ export const useSquadStore = defineStore({
             const { cost, weapons, wargear } = model;
             Object.assign(updateModel, {
               cost,
-              weapons: weapons?.map(dataStore.getWeapon).map((w) => ({ ...w })),
-              wargear: wargear?.map(dataStore.getWargear).map((w) => ({ ...w })),
+              weapons: (weapons ?? []).map(dataStore.getWeapon).map((w) => ({ ...w })),
+              wargear: (wargear ?? []).map(dataStore.getWargear).map((w) => ({ ...w })),
             });
           }
         });
@@ -145,15 +141,17 @@ export const useSquadStore = defineStore({
           (isArray(items) ? items : [items])
             .forEach((weaponName) => {
               const idx = squadUnit.weapons
+                .filter((weapon) => !!weapon)
                 .findIndex(({ name }) => name === weaponName);
               if (idx > -1) {
                 squadUnit.weapons.splice(idx, 1);
               }
             });
           (isArray(items) ? items : [items])
-            .forEach((wargear) => {
+            .forEach((wargearName) => {
               const idx = squadUnit.wargear
-                .findIndex(({ name }) => name === wargear);
+                .filter((wargear) => !!wargear)
+                .findIndex(({ name }) => name === wargearName);
               if (idx > -1) {
                 squadUnit.wargear.splice(idx, 1);
               }

@@ -100,7 +100,6 @@ const props = defineProps<{
 const unit = computed(() => props.unit);
 
 const allWargear = computed(() => {
-  const loadout = [];
   const { weapons, wargear } = props.unit;
   const checkMissing = (item: Weapon | Wargear) => {
     if (!item) {
@@ -108,10 +107,12 @@ const allWargear = computed(() => {
     }
     return item;
   };
+  const excludeHidden = (item: Weapon|Wargear) => !item?.hidden;
 
-  if (weapons?.length) loadout.push(...weapons.map(checkMissing).map(({ name }) => name));
-  if (wargear?.length) loadout.push(...wargear.map(checkMissing).map(({ name }) => name));
-  return loadout;
+  return [
+    ...(weapons??[]).filter(excludeHidden).map(checkMissing).map(({ name }) => name),
+    ...(wargear??[]).filter(excludeHidden).map(checkMissing).map(({ name }) => name),
+  ]
 });
 
 const unitRoleAndType = computed(() => {
