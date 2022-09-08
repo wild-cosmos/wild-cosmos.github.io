@@ -45,7 +45,7 @@
         <td>{{ formatList(unitRoleAndType) }}</td>
         <td>
           <div class="text-end">
-            {{ totalCost }}
+            {{ unit.cost }}
           </div>
         </td>
       </tr>
@@ -90,7 +90,6 @@ import sortBy from 'lodash/sortBy';
 import isArray from 'lodash/isArray';
 import formatStat from '@/utils/formatStat';
 import formatList from '@/utils/formatList';
-import calcTotalCost from '@/utils/totalCost';
 import type { SquadUnit, Wargear, Weapon } from '@/types/unit';
 import WeaponsList from './WeaponsList.vue';
 
@@ -114,8 +113,6 @@ const allWargear = computed(() => {
   if (wargear?.length) loadout.push(...wargear.map(checkMissing).map(({ name }) => name));
   return loadout;
 });
-
-const totalCost = computed(() => calcTotalCost(props.unit));
 
 const unitRoleAndType = computed(() => {
   const { role, type } = props.unit;

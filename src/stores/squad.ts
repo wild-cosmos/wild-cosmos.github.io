@@ -3,7 +3,6 @@ import orderBy from 'lodash/orderBy';
 import { useLocalStorage } from '@vueuse/core';
 import { isArray } from 'lodash';
 import { useDataStore } from './data';
-import totalCost from '@/utils/totalCost';
 import type {
   SquadUnit, Unit, Wargear, Weapon,
 } from '@/types/unit';
@@ -51,7 +50,7 @@ export const useSquadStore = defineStore({
   }),
 
   getters: {
-    totalPoints: ({ units }) => units.reduce((total, unit) => total + totalCost(unit), 0),
+    totalPoints: ({ units }) => units.reduce((total, unit) => total + unit.cost, 0),
   },
 
   actions: {
