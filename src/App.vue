@@ -2,7 +2,7 @@
   <nav class="d-print-none navbar navbar-expand-md navbar-light fixed-top bg-light shadow-sm">
     <div class="container-fluid">
       <a class="navbar-brand py-0" href="#">
-        <img src="./assets/wild_cosmos_logo.png" alt="" height="64" class="d-inline-block">
+        <img src="./assets/wild_cosmos_logo.png" alt="" height="64" width="256" class="d-inline-block">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
