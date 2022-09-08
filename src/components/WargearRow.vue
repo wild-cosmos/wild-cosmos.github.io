@@ -14,7 +14,7 @@ const faction = computed(() => (props.showFaction ? props.item.faction : null));
   <tr>
     <td>
       <span class="text-nowrap">{{ item.name }}</span>
-      <small v-if="showFaction">({{ faction }})</small>
+      <small v-if="showFaction" class="ms-1">({{ faction }})</small>
     </td>
     <td><small style="white-space: pre-line">{{ item.notes || '-' }}</small></td>
   </tr>
