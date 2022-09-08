@@ -14,6 +14,10 @@ interface State {
   wargear: Wargear[];
   weapons: Weapon[];
   configuration: Configuration[];
+  filter: {
+    faction: string | null,
+    q: string | null
+  }
 }
 
 const api = mande('/');
@@ -45,6 +49,10 @@ export const useDataStore = defineStore({
       { name: 'Empty', hidden: true } as Weapon,
     ],
     configuration: [],
+    filter: {
+      faction: null,
+      q: null,
+    },
   }),
 
   getters: {
