@@ -18,7 +18,8 @@
 <script setup lang="ts">
 import { useReferenceStore } from '@/stores/reference';
 import { computed, ref, watch } from 'vue';
-import debounce from 'lodash/debounce'
+import debounce from 'lodash/debounce';
+import orderBy from 'lodash/orderBy';
 
 const queryString = ref('');
   
@@ -28,13 +29,13 @@ referenceStore.initialise();
 
 const setQueryString = debounce((s) => {
   referenceStore.setSearch(s); 
-}, 400);
+}, 250);
 
 watch(queryString, (q) => {
   setQueryString(q);
 });
 
-const matchingRules = computed(() => referenceStore.matchingRules);
+const matchingRules = computed(() => orderBy(referenceStore.matchingRules, ['title']));
 
 </script>
 
