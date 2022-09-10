@@ -88,8 +88,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import sortBy from 'lodash/sortBy';
-import isArray from 'lodash/isArray';
+import { sortBy, isArray } from 'lodash-es';
 import formatStat from '@/utils/formatStat';
 import formatList from '@/utils/formatList';
 import type { SquadUnit, Wargear, Weapon } from '@/types/unit';

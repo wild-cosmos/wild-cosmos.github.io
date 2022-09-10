@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import isObject from 'lodash/isObject';
+import { isObject } from 'lodash-es';
 import formatStat from '@/utils/formatStat';
 import type { Weapon } from '@/types/unit';
 import { useDataStore } from '@/stores/data';

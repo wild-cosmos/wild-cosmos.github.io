@@ -1,5 +1,4 @@
-import isArray from 'lodash/isArray';
-import isNil from 'lodash/isNil';
+import { isArray, isNil } from 'lodash-es';
 
 export default function formatStat(stat: number | number[] | undefined, suffix = '') : string {
   if (isNil(stat)) return '-';

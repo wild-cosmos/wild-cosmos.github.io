@@ -19,8 +19,7 @@
 <script setup lang="ts">
 import { useReferenceStore } from '@/stores/reference';
 import { computed, ref, watch } from 'vue';
-import debounce from 'lodash/debounce';
-import orderBy from 'lodash/orderBy';
+import { debounce, orderBy } from 'lodash-es';
 
 const queryString = ref('');
   

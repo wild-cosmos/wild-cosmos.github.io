@@ -24,14 +24,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, watch } from 'vue';
+import { computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import SelectFaction from '@/components/SelectFaction.vue';
 import UnitList from '@/components/UnitList.vue';
 import { useDataStore } from '@/stores/data';
 import WeaponsList from '../components/WeaponsList.vue';
 import WargearList from '../components/WargearList.vue';
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined } from 'lodash-es';
 
 const props = defineProps<{
   faction?: string,

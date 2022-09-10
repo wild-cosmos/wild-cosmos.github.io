@@ -72,8 +72,7 @@ import {
   computed, ref, watch, nextTick,
 } from 'vue';
 import { Toast } from 'bootstrap';
-import orderBy from 'lodash/orderBy';
-import uniqueBy from 'lodash/uniqBy';
+import { orderBy, uniqBy } from 'lodash-es';
 import SquadMember from '@/components/SquadMember.vue';
 import SelectFaction from '@/components/SelectFaction.vue';
 import WeaponsList from '../components/WeaponsList.vue';
@@ -150,7 +149,7 @@ const uniqueWeapons = computed(() => {
     if (weapons) list.push(...weapons);
     return list;
   }, []);
-  return orderBy(uniqueBy(weaponsReference, 'name'), ['name']);
+  return orderBy(uniqBy(weaponsReference, 'name'), ['name']);
 });
 
 const uniqueWargear = computed(() => {
@@ -158,7 +157,7 @@ const uniqueWargear = computed(() => {
     if (wargear) list.push(...wargear);
     return list;
   }, []);
-  return orderBy(uniqueBy(wargearReference, 'name'), ['name']);
+  return orderBy(uniqBy(wargearReference, 'name'), ['name']);
 });
 
 function onAddSquadMember() {

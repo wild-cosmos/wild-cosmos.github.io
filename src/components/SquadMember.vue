@@ -77,11 +77,9 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import orderBy from 'lodash/orderBy';
-import isArray from 'lodash/isArray';
-import isNil from 'lodash/isNil';
-import isNull from 'lodash/isNull';
-import countBy from 'lodash/countBy';
+import { 
+  orderBy, isArray, isNil, isNull, isString, countBy
+} from 'lodash-es';
 
 import UnitDetails from './UnitDetails.vue';
 
@@ -92,7 +90,6 @@ import formatList from '@/utils/formatList';
 import type {
   Configuration, Item, SquadUnit, Weapon,
 } from '@/types/unit';
-import { isString } from 'lodash';
 
 const devMode = false; // import.meta.env.DEV;
 

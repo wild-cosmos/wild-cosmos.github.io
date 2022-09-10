@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import orderBy from 'lodash/orderBy';
+import { orderBy } from 'lodash-es';
 import UnitRow from './UnitRow.vue';
 import type { Unit } from '@/types/unit';
 

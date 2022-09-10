@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { useLocalStorage } from '@vueuse/core';
-import { isArray } from 'lodash';
+import { isArray } from 'lodash-es';
 import { useDataStore } from './data';
 import type { SquadUnit, Unit } from '@/types/unit';
 
