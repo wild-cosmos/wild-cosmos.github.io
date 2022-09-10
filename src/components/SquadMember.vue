@@ -1,67 +1,77 @@
 <template>
-  <UnitDetails :unit="unit">
-    <template #actions>
-      <button class="d-print-none btn btn-sm btn-danger ml-auto" @click="onClickRemove">
-        Remove
-      </button>
-    </template>
-  </UnitDetails>
-  <div class="d-print-none row py-2">
-    <div v-if="availableConfigurationOptions.length"
-      class="col-12 col-md-8 col-xl-6 mb-3 mb-sm-0">
-      <div class="d-flex align-items-center">
-        <div class="form-floating flex-grow-1">
-          <select id="selectConfig" v-model="selectedOption" :disabled="!availableConfigurationOptions.length"
-            class="form-control">
-            <option :value="null" disabled>
-              {{ numAvailableOptions }}
-              options available
-            </option>
-            <option v-for="(option, idx) in availableConfigurationOptions" :key="idx" :value="option"
-              :disabled="!option.available">
-              {{ option.label }}
+  <div class="mt-3">
+    <UnitDetails :unit="unit">
+      <template #actions>
+        <button class="d-print-none btn btn-sm btn-secondary me-2" @click="onClickDuplicate">
+          <i class="bi-files" />
+          Duplicate
+        </button>
+        <button class="d-print-none btn btn-sm btn-danger" @click="onClickRemove">
+          <i class="bi-clipboard-x" />
+          Remove
+        </button>
+      </template>
+    </UnitDetails>
+    <div class="d-print-none row py-2">
+      <div v-if="availableConfigurationOptions.length" class="col-12 col-md-8 col-xl-6 mb-3 mb-sm-0">
+        <div class="d-flex align-items-center">
+          <div class="form-floating flex-grow-1">
+            <select id="selectConfig" v-model="selectedOption" :disabled="!availableConfigurationOptions.length"
+              class="form-select">
+              <option :value="null" disabled>
+                {{ numAvailableOptions }}
+                options available
+              </option>
+              <option v-for="(option, idx) in availableConfigurationOptions" :key="idx" :value="option"
+                :disabled="!option.available">
+                {{ option.label }}
+              </option>
+            </select>
+            <label for="selectConfig">Configuration Options</label>
+          </div>
+          <button :disabled="!availableConfigurationOptions.length || !selectedOption"
+            class="btn btn-outline-primary ms-2" @click="onSelect(selectedOption)">
+            <i class="bi-check-lg" />
+            Apply
+          </button>
+          <button class="btn btn-outline-primary ms-2" @click="onClickReset">
+            <i class="bi-x-lg" />
+            Reset</button>
+        </div>
+      </div>
+
+      <div v-if="rolesForUnit.length > 1" class="col-12 col-sm-6 col-md-4 mb-3 mb-sm-0">
+        <div class="form-floating">
+          <select v-model="selectedRole" class="form-select">
+            <option v-for="(r) in rolesForUnit" :key="r" :value="r">
+              {{ r }}
             </option>
           </select>
-          <label for="selectConfig">Configuration Options</label>
+          <label for="selectRole">Role</label>
         </div>
-        <button :disabled="!availableConfigurationOptions.length || !selectedOption"
-          class="btn btn-outline-primary ms-2" @click="onSelect(selectedOption)">Apply</button>
-        <button class="btn btn-outline-primary ms-2" @click="onClickReset">Reset</button>
+      </div>
+      <div v-if="false" class="col-5">
+        <div v-for="{ value, text } in wargearOptions" :key="value" class="form-check">
+          <input type="checkbox" :value="value" class="form-check-input">
+          <label class="form-check-label" for="flexCheckDefault">
+            {{ text }}
+          </label>
+        </div>
       </div>
     </div>
 
-    <div v-if="rolesForUnit.length > 1" class="col-12 col-sm-6 col-md-4 mb-3 mb-sm-0">
-      <div class="form-floating">
-        <select v-model="selectedRole" class="form-control">
-          <option v-for="(r) in rolesForUnit" :key="r" :value="r">
-            {{ r }}
-          </option>
-        </select>
-        <label for="selectRole">Role</label>
-      </div>
+    <small v-if="devMode" class="d-print-none">
+      <code>{{ unit }}</code>
+    </small>
+    <div v-if="devMode" class="d-print-none">
+      Configuration Options
+      <small><code>{{ configurationOptions }}</code></small>
     </div>
-    <div v-if="false" class="col-5">
-      <div v-for="{ value, text } in wargearOptions" :key="value" class="form-check">
-        <input type="checkbox" :value="value" class="form-check-input">
-        <label class="form-check-label" for="flexCheckDefault">
-          {{ text }}
-        </label>
-      </div>
+    <div v-if="devMode" class="d-print-none">
+      Available Configuration Options
+      <small><code>{{ availableConfigurationOptions }}</code></small>
     </div>
   </div>
-
-  <small v-if="devMode" class="d-print-none">
-    <code>{{ unit }}</code>
-  </small>
-  <div v-if="devMode" class="d-print-none">
-    Configuration Options
-    <small><code>{{ configurationOptions }}</code></small>
-  </div>
-  <div v-if="devMode" class="d-print-none">
-    Available Configuration Options
-    <small><code>{{ availableConfigurationOptions }}</code></small>
-  </div>
-
   <div class="border-bottom" />
 </template>
 
@@ -82,6 +92,7 @@ import formatList from '@/utils/formatList';
 import type {
   Configuration, Item, SquadUnit, Weapon,
 } from '@/types/unit';
+import { isString } from 'lodash';
 
 const devMode = false; // import.meta.env.DEV;
 
@@ -131,10 +142,10 @@ const selectedRole = computed({
 const configurationOptions = computed(() => dataStore.getConfigurationOptionsForUnit(props.unit));
 
 const availableConfigurationOptions = computed(() => {
-  const currentWeapons = (props.unit.weapons??[])
+  const currentWeapons = (props.unit.weapons ?? [])
     .filter((weapon) => !!weapon)
     .map(({ name }) => name);
-  const currentWargear = (props.unit.wargear??[])
+  const currentWargear = (props.unit.wargear ?? [])
     .filter((wargear) => !!wargear)
     .map(({ name }) => name);
 
@@ -155,8 +166,9 @@ const availableConfigurationOptions = computed(() => {
     return currentWeapons.includes(replaces);
   };
 
-  const hasAll = (source: string[] | undefined, target: string[]): boolean => {
+  const hasAll = (source: string | string[] | undefined, target: string[]): boolean => {
     if (!source) return true;
+    if (isString(source)) return hasAll([source], target);
 
     const result = target.reduce((required, name) => {
       const idx = required.indexOf(name);
@@ -166,8 +178,9 @@ const availableConfigurationOptions = computed(() => {
     return !result.length;
   };
 
-  const hasAny = (source: string[] | undefined, target: string[]): boolean => {
+  const hasAny = (source: string| string[] | undefined, target: string[]): boolean => {
     if (!source) return false;
+    if (isString(source)) return hasAny([source], target);
 
     return source.reduce((hasMatch, w) => {
       if (hasMatch) return hasMatch;
@@ -190,15 +203,15 @@ const availableConfigurationOptions = computed(() => {
 
   const hasRole = ({ condition }: Configuration): boolean => isNil(condition?.role) || condition?.role === role;
   const hasMeleeWeapon = ({ condition }: Configuration): boolean => isNil(condition?.hasMeleeWeapon) || weapons.some(isMelee) === condition?.hasMeleeWeapon;
-  const hasRequired = ({ condition }: Configuration): boolean => isNil(condition?.requires) 
+  const hasRequired = ({ condition }: Configuration): boolean => isNil(condition?.requires)
     || hasAll(condition?.requires, weapons.map(({ name }) => name))
     || hasAll(condition?.requires, wargear.map(({ name }) => name));
-  const hasItem = (item : Item) => !!item;
+  const hasItem = (item: Item) => !!item;
 
   const hasNoneOf = ({ condition }: Configuration): boolean => isNil(condition?.not)
-    || !(hasAny(condition?.not, (weapons??[]).filter(hasItem).map(({ name }) => name))
-    || hasAny(condition?.not, (wargear??[]).filter(hasItem).map(({ name }) => name)));
-  const hasAnyOf = ({ condition }: Configuration) => isNil(condition?.any) 
+    || !(hasAny(condition?.not, (weapons ?? []).filter(hasItem).map(({ name }) => name))
+      || hasAny(condition?.not, (wargear ?? []).filter(hasItem).map(({ name }) => name)));
+  const hasAnyOf = ({ condition }: Configuration) => isNil(condition?.any)
     || hasAny(condition?.any, weapons.map(({ name }) => name))
     || hasAny(condition?.any, wargear?.map(({ name }) => name))
     || hasEmptySlot(weapons);
@@ -227,7 +240,7 @@ const availableConfigurationOptions = computed(() => {
         && hasAnyOf(option);
 
       const label = [
-        isNullOrEmpty(option.replaces) 
+        isNullOrEmpty(option.replaces)
           ? `Add ${formatRequirements(option.weapon)}`
           : `Replace ${formatList(option.replaces)} with ${formatRequirements(option.weapon)}`,
         !isNullOrEmpty(option.condition?.requires) ? `requires ${formatRequirements(option.condition?.requires)}` : null,
@@ -241,7 +254,7 @@ const availableConfigurationOptions = computed(() => {
         available,
       };
     });
-  return orderBy(options, ['sortOrder','label']);
+  return orderBy(options, ['sortOrder', 'label']);
 });
 
 const numAvailableOptions = computed(() => availableConfigurationOptions.value.filter(({ available }) => available).length);
@@ -256,6 +269,10 @@ function onClickRemove() {
   }
 }
 
+function onClickDuplicate() {
+  squadStore.duplicateSquadMember(props.unit);
+}
+
 function onSelect(option: Configuration | null) {
   if (option) {
     const { weapon, replaces, cost } = option;
@@ -268,4 +285,5 @@ function onSelect(option: Configuration | null) {
 </script>
 
 <style scoped>
+
 </style>

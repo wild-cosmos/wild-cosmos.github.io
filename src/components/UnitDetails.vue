@@ -1,9 +1,11 @@
 <template>
   <div class="d-flex align-items-center justify-content-between">
-    <h3 class="mt-3">
+    <h3 class="">
       {{ unit.name }}
     </h3>
-    <slot name="actions" />
+    <div class="ml-auto mb-2">
+      <slot name="actions" />
+    </div>
   </div>
   <table class="table table-sm">
     <thead>

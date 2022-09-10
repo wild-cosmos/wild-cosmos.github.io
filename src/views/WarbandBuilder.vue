@@ -10,7 +10,9 @@
       </div>
     </div>
     <div class="col-auto">
-      <button class="mt-2 btn btn-danger text-nowrap" @click="onReset">
+      <button class="mt-2 btn btn-danger text-nowrap" 
+        :disabled="!squadStore.units.length" @click="onReset">
+        <i class="bi-trash3" />
         Reset
       </button>
     </div>
@@ -18,12 +20,12 @@
 
   <SquadMember v-for="(unit) in squadStore.units" :key="unit.id" :unit="unit" />
 
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div class="toast-container position-fixed bottom-0 end-0 p-3 pb-5">
     <div v-for="error in validationErrors" :key="error" class="toast fade show text-bg-warning mb-2" role="alert"
       aria-live="assertive" aria-atomic="true">
       <div class="toast-body">
         <div class="d-flex align-items-center">
-          <h3 class="mb-0 me-2 bi bi-exclamation-diamond" />
+          <h3 class="mb-0 me-2 bi-exclamation-diamond" />
           <div>{{ error }}</div>
         </div>
       </div>
@@ -42,7 +44,7 @@
     </div>
     <div class="col-12 col-sm-6 col-md-4">
       <div class="form-floating">
-        <select id="selectUnit" v-model="selectedUnit" class="form-control">
+        <select id="selectUnit" v-model="selectedUnit" class="form-select">
           <option v-for="({ value, text }) in availableUnitOptions" :key="value" :value="value">
             {{ text }}
           </option>
@@ -52,6 +54,7 @@
     </div>
     <div class="col">
       <button class="mt-2 btn btn-success text-nowrap" :disabled="!selectedUnit" @click="onAddSquadMember">
+        <i class="bi-clipboard-plus" />
         Add Model to Roster
       </button>
     </div>

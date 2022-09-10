@@ -2,6 +2,7 @@
   <div class="core-reference">
     <div class="form-floating">
       <input id="search" v-model="queryString" type="text" autocomplete="off"
+      placeholder="Search"
       class="form-control" aria-label="Search">
       <label for="search">Search</label>
     </div>

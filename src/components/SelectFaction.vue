@@ -23,15 +23,16 @@ const factions = computed(() => orderBy(dataStore.factions));
 
 <template>
   <div class="form-floating">
-    <select id="floatingSelect" v-model="selectedFaction" class="form-select" aria-label="Selected faction">
+    <select id="faction" v-model="selectedFaction"
+      class="form-select" aria-label="Selected faction" placeholder="Faction">
       <option v-if="allowNull || !selectedFaction" :value="null">
-        - Select faction -
+        Select Faction
       </option>
       <option v-for="(name) in factions" :key="name" :value="name">
         {{ name }}
       </option>
     </select>
-    <label for="floatingSelect">Faction</label>
+    <label for="faction">Faction</label>
   </div>
 </template>
 

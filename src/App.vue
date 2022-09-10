@@ -1,6 +1,6 @@
 <template>
-  <nav class="d-print-none navbar navbar-expand-md navbar-light fixed-top bg-light shadow-sm">
-    <div class="container-fluid">
+  <nav class="d-print-none navbar navbar-expand-md fixed-top bg-light shadow-sm">
+    <div class="container">
       <a class="navbar-brand py-0" href="#">
         <img src="./assets/wild_cosmos_logo.png" alt="" height="64" width="256" class="d-inline-block">
       </a>
