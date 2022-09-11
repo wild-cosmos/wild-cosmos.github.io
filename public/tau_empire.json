@@ -91,7 +91,7 @@
       "ld": 4,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
-      "weapons": [ "Pulse Carbine", "Photon Grenades" ],
+      "weapons": [ "Pulse Carbine", "Photon Grenades", "Empty" ],
       "wargear": [ ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
@@ -107,7 +107,7 @@
       "ld": 5,
       "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry" ],
-      "weapons": [ "Pulse Carbine", "Photon Grenades" ],
+      "weapons": [ "Pulse Carbine", "Photon Grenades", "Empty" ],
       "wargear": [ ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
@@ -424,7 +424,7 @@
       }
     },
     {
-      "name": "EMP Grenade",
+      "name": "EMP Grenades",
       "range": 6,
       "a": "D2",
       "ap": 0,
@@ -634,17 +634,17 @@
       "weapon": [ "Pulse Pistol" ],
       "replaces": [ "Empty" ],
       "cost": 1,
-      "usedBy": [ "Fire Warrior", "Fire Warrior Shas'ui" ]
+      "usedBy": [ "Fire Warrior", "Fire Warrior Shas'ui", "Pathfinder", "Pathfinder Shas'ui" ]
     }, {
       "weapon": [ "Fireblade" ],
       "replaces": [ "Empty" ],
       "cost": 3,
-      "usedBy": [ "Fire Warrior Shas'ui" ]
+      "usedBy": [ "Fire Warrior Shas'ui", "Pathfinder Shas'ui" ]
     }, {
       "weapon": [ "EMP Grenades" ],
       "replaces": [ "Photon Grenades" ],
-      "cost": 3,
-      "usedBy": [ "Fire Warrior" ]
+      "cost": 0,
+      "usedBy": [ "Fire Warrior", "Pathfinder" ]
     },
 
     {
@@ -660,9 +660,26 @@
       "weapon": [ "Ion Rifle" ],
       "replaces": [ "Pulse Carbine" ],
       "cost": 6,
-      "usedBy": [ "Pathfinder Shas'ui" ]
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Pathfinder" ]
+    },    {
+      "weapon": [ "Rail Rifle" ],
+      "replaces": [ "Pulse Carbine" ],
+      "cost": 4,
+      "condition": {
+        "role": "Specialist"
+      },
+      "usedBy": [ "Pathfinder" ]
     },
+
     {
+      "weapon": [ "Ion Rifle" ],
+      "replaces": [ "Pulse Carbine" ],
+      "cost": 6,
+      "usedBy": [ "Pathfinder Shas'ui" ]
+    },    {
       "weapon": [ "Rail Rifle" ],
       "replaces": [ "Pulse Carbine" ],
       "cost": 4,
