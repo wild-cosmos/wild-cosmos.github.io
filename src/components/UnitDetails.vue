@@ -53,10 +53,11 @@
       </tr>
     </tbody>
   </table>
-  <WeaponsList class="d-print-none" :weapons="unit.weapons" />
-  <table class="table table-sm">
+  <WeaponsList v-if="unit.weapons.length" class="d-print-none" :weapons="unit.weapons" />
+
+  <table class="table">
     <tbody>
-      <tr>
+      <tr class="align-middle">
         <th>Wargear</th>
         <td>
           <span v-for="(wargear, i) in allWargear" :key="`wargear_${i}`" class="d-print-none badge bg-primary me-1">
@@ -66,8 +67,11 @@
             {{ formatList(allWargear) }}
           </span>
         </td>
+        <td class="text-end">
+          <slot name="wargear-actions" />
+        </td>
       </tr>
-      <tr>
+      <tr class="align-middle">
         <th>Abilities</th>
         <td>
           <span v-for="(ability) in unitAbilities" :key="ability" class="d-print-none badge bg-primary me-1">
@@ -77,13 +81,18 @@
             {{ formatList(unitAbilities) }}
           </span>
         </td>
+        <td class="text-end"></td>
       </tr>
-      <tr>
+      <tr class="align-middle">
         <th>Faction</th>
         <td>{{ unit.faction }}</td>
+        <td class="text-end">
+        </td>
       </tr>
     </tbody>
   </table>
+
+  <slot name="options" />
 </template>
 
 <script setup lang="ts">
@@ -108,11 +117,11 @@ const allWargear = computed(() => {
     }
     return item;
   };
-  const excludeHidden = (item: Weapon|Wargear) => !item?.hidden;
+  const excludeHidden = (item: Weapon | Wargear) => !item?.hidden;
 
   return [
-    ...(weapons??[]).filter(excludeHidden).map(checkMissing).map(({ name }) => name),
-    ...(wargear??[]).filter(excludeHidden).map(checkMissing).map(({ name }) => name),
+    ...(weapons ?? []).filter(excludeHidden).map(checkMissing).map(({ name }) => name),
+    ...(wargear ?? []).filter(excludeHidden).map(checkMissing).map(({ name }) => name),
   ]
 });
 

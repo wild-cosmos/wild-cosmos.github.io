@@ -11,35 +11,32 @@
           Remove
         </button>
       </template>
+      <template v-if="availableConfigurationOptions.length" #wargear-actions>
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="collapse"
+          :data-bs-target="`#collapse_${unit.id}`" aria-expanded="false" aria-controls="collapseExample">
+          <span class="d-collapsed">Show</span>
+          <span class="d-expanded">Hide</span>
+          Options
+        </button>
+
+      </template>
+      <template v-if="availableConfigurationOptions.length" #options>
+        <div class="collapse" :id="`collapse_${unit.id}`">
+          <div class="btn-toolbar" role="toolbar">
+            <button v-for="(option, idx) in availableConfigurationOptions" :key="idx" @click="onSelect(option)"
+              :class="[ 'btn', 'btn-sm', option.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap', 'me-1 mb-1' ]"
+              :disabled="!option.available">
+              {{ option.label }}
+            </button>
+            <button class="btn btn-sm btn-outline-danger text-nowrap mb-1" @click="onClickReset">
+              <i class="bi-x-lg" />
+              Reset
+            </button>
+          </div>
+        </div>
+      </template>
     </UnitDetails>
     <div class="d-print-none row py-2">
-      <div v-if="availableConfigurationOptions.length" class="col-12 col-md-8 col-xl-6 mb-3 mb-sm-0">
-        <div class="d-flex align-items-center">
-          <div class="form-floating flex-grow-1">
-            <select id="selectConfig" v-model="selectedOption" :disabled="!availableConfigurationOptions.length"
-              class="form-select">
-              <option :value="null" disabled>
-                {{ numAvailableOptions }}
-                options available
-              </option>
-              <option v-for="(option, idx) in availableConfigurationOptions" :key="idx" :value="option"
-                :disabled="!option.available">
-                {{ option.label }}
-              </option>
-            </select>
-            <label for="selectConfig">Configuration Options</label>
-          </div>
-          <button :disabled="!availableConfigurationOptions.length || !selectedOption"
-            class="btn btn-outline-primary ms-2" @click="onSelect(selectedOption)">
-            <i class="bi-check-lg" />
-            Apply
-          </button>
-          <button class="btn btn-outline-primary ms-2" @click="onClickReset">
-            <i class="bi-x-lg" />
-            Reset</button>
-        </div>
-      </div>
-
       <div v-if="rolesForUnit.length > 1" class="col-12 col-sm-6 col-md-4 mb-3 mb-sm-0">
         <div class="form-floating">
           <select v-model="selectedRole" class="form-select">
@@ -77,7 +74,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { 
+import {
   orderBy, isArray, isNil, isNull, isString, countBy
 } from 'lodash-es';
 
@@ -175,7 +172,7 @@ const availableConfigurationOptions = computed(() => {
     return !result.length;
   };
 
-  const hasAny = (source: string| string[] | undefined, target: string[]): boolean => {
+  const hasAny = (source: string | string[] | undefined, target: string[]): boolean => {
     if (!source) return false;
     if (isString(source)) return hasAny([source], target);
 
@@ -279,8 +276,33 @@ function onSelect(option: Configuration | null) {
     selectedOption.value = null;
   }
 }
+
+import { Collapse } from 'bootstrap';
+
+const onMounted = () => {
+  const collapseElementList = document.querySelectorAll('.collapse')
+  const collapseList = [...collapseElementList].map(collapseEl => new Collapse(collapseEl))
+}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.dropdown-toggle {
+  .d-collapsed {
+    display: none;
+  }
 
+  .d-expanded {
+    display: inline;
+  }
+
+  &[aria-expanded="false"] {
+    .d-collapsed {
+      display: inline;
+    }
+
+    .d-expanded {
+      display: none;
+    }
+  }
+}
 </style>
