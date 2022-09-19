@@ -4,16 +4,15 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 import router from './router';
 
-// import './assets/main.css'
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import '@/scss/styles.scss';
+import 'bootstrap-icons/font/bootstrap-icons.scss';
 
 import packageInfo from '../package.json';
 
+import { registerSW } from 'virtual:pwa-register';
+
 // eslint-disable-next-line no-console
 console.info(`Warband Builder v${packageInfo.version}`);
-
-import { registerSW } from 'virtual:pwa-register';
 
 if ('serviceWorker' in navigator) {
   // && !/localhost/.test(window.location)) {

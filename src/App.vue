@@ -1,6 +1,6 @@
 <template>
   <nav class="d-print-none navbar navbar-expand-md fixed-top bg-light shadow-sm">
-    <div class="container">
+    <div class="container-lg">
       <a class="navbar-brand py-0" href="#">
         <img src="./assets/wild_cosmos_logo.png" alt="" height="64" width="256" class="d-inline-block">
       </a>
@@ -17,12 +17,12 @@
           </li>
           <li class="nav-item">
             <RouterLink class="nav-link" active-class="active" to="/reference">
-              Reference
+              Faction Reference
             </RouterLink>
           </li>
           <li class="nav-item">
             <RouterLink class="nav-link" active-class="active" to="/rules">
-              Rules
+              Quick Rules
             </RouterLink>
           </li>
           <li class="nav-item dropdown">
@@ -64,21 +64,32 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import { useRoute, RouterLink, RouterView } from 'vue-router';
 import { Collapse } from 'bootstrap';
-import { onMounted } from 'vue';
+import { onMounted, watch, ref } from 'vue';
 import { useDataStore } from './stores/data';
 import OrbitzBanner from './components/OrbitzBanner.vue';
+
+const appEnv = import.meta.env.MODE;
 
 const dataStore = useDataStore();
 dataStore.initialise('/factions.json');
 
-const appEnv = import.meta.env.MODE;
+const route = useRoute();
+
+const collapse = ref<Collapse>();
+
+watch(
+  () => route.path, 
+  async () => {
+    collapse.value?.hide();
+  }
+);
 
 onMounted(() => {
   const el = document.getElementById('navbarCollapse');
   // eslint-disable-next-line no-new
-  if (el) new Collapse(el, { toggle: false });
+  if (el) collapse.value = new Collapse(el, { toggle: false });
 });
 </script>
 
