@@ -1,3 +1,20 @@
+<template>
+  <tr v-for="({ name, range, a, ap, dm, notes }, idx) in weaponStats" :key="`${name}_${idx}`"
+    :class="{ 'weapon-stats': true, 'melee-stats': idx > 0 }">
+    <td>
+      <div v-if="name && (idx === 0 || name !== weapon.name)">
+        {{ name }}
+        <small v-if="showFaction">({{ faction }})</small>
+      </div>
+    </td>
+    <td>{{ formatStat(range, '"') }}</td>
+    <td>{{ formatStat(a) }}</td>
+    <td>{{ formatStat(ap) }}</td>
+    <td>{{ formatStat(dm) }}</td>
+    <td><small>{{ notes || '-' }}</small></td>
+  </tr>
+</template>
+
 <script setup lang="ts">
 import { computed } from 'vue';
 import { isObject } from 'lodash-es';
@@ -9,7 +26,7 @@ const dataStore = useDataStore();
 
 const props = defineProps<{
   weapon: Weapon,
-  showFaction: boolean
+  showFaction?: boolean
 }>();
 
 const weaponStats = computed(() => {
@@ -18,7 +35,7 @@ const weaponStats = computed(() => {
   if (isObject(melee)) {
     return [
       props.weapon,
-      melee,
+      { ...props.weapon, ...melee } as Weapon,
     ];
   }
 
@@ -41,19 +58,4 @@ const weaponStats = computed(() => {
 const faction = computed(() => (props.showFaction ? props.weapon.faction : null));
 </script>
 
-<template>
-  <tr v-for="({ name, range, a, ap, dm, notes }, idx) in weaponStats" :key="`${name}_${idx}`"
-    :class="{ 'weapon-stats': true, 'melee-stats': idx > 0 }">
-    <td>
-      <div v-if="name">
-        {{ name }}
-        <small v-if="showFaction">({{ faction }})</small>
-      </div>
-    </td>
-    <td>{{ formatStat(range, '"') }}</td>
-    <td>{{ formatStat(a) }}</td>
-    <td>{{ formatStat(ap) }}</td>
-    <td>{{ formatStat(dm) }}</td>
-    <td><small>{{ notes || '-' }}</small></td>
-  </tr>
-</template>
+

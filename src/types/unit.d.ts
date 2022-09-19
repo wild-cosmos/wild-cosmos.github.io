@@ -1,10 +1,11 @@
 export interface Faction {
   abilities?: Ability[];
   configuration?: Configuration[];
-  models: object;
+  models: { [key: string] : Unit };
   units?: Unit[];
   wargear?: Wargear[];
   weapons?: Weapon[];
+  wargearList?: { [key: string]: Item[] };
 }
 
 export interface Ability {
@@ -30,9 +31,10 @@ export interface Unit extends BaseUnit {
   roles: string[];
   type: string | string[];
   wargear?: string[];
+  wargearList?: string[];
   weapons?: string[];
-  options?: BuildOptions[];
-  optionalWargear?: string[];
+  // options?: BuildOptions[];
+  // optionalWargear?: string[];
 }
 
 export interface SquadUnit extends BaseUnit {
@@ -57,20 +59,17 @@ export interface Item {
 export interface Wargear extends Item {
   faction: string;
   type: string;
-  name: string;
   hidden?: boolean;
-  cost: number;
-  notes: string;
-  usedBy: string[];
+  notes?: string;
 }
 
-export interface Weapon extends Wargear {
-  melee: WeaponStats;
+export interface Weapon extends Wargear, WeaponStats {
+  melee?: WeaponStats;
   combi?: string[];
-  range: number | number[];
-  a: number;
-  ap: number[];
-  dm: number;
+  // range: number | number[];
+  // a: number;
+  // ap: number[];
+  // dm: number;
   ammo?: boolean;
   hidden?: boolean;
 }
@@ -94,7 +93,19 @@ export interface Configuration {
 interface Condition {
   role?: string | string[];
   hasMeleeWeapon?: boolean;
-  requires?: string | string[];
-  not?: string | string[];
-  any?: string | string[];
+  requires?: string[];
+  replaces?: string[];
+  not?: string[];
+  any?: string[];
+  only?: string[];
+  ability?: string[];
+  limit?: number;
+  modelLimit?: number;
+  warbandLimit?: number;
+}
+
+export interface WargearList {
+  name?: string;
+  weapons: Weapon[];
+  wargear: Wargear[];
 }

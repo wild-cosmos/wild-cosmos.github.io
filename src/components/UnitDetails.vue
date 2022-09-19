@@ -3,7 +3,7 @@
     <h3 class="">
       {{ unit.name }}
     </h3>
-    <div class="ml-auto mb-2">
+    <div class="d-print-none ml-auto mb-2 button-bar align-end">
       <slot name="actions" />
     </div>
   </div>
@@ -55,6 +55,10 @@
   </table>
   <WeaponsList v-if="unit.weapons.length" class="d-print-none" :weapons="unit.weapons" />
 
+  <div class="button-bar align-end d-print-none">
+    <slot name="wargear-actions" />
+  </div>
+
   <table class="table">
     <tbody>
       <tr class="align-middle">
@@ -67,9 +71,6 @@
             {{ formatList(allWargear) }}
           </span>
         </td>
-        <td class="text-end">
-          <slot name="wargear-actions" />
-        </td>
       </tr>
       <tr class="align-middle">
         <th>Abilities</th>
@@ -81,13 +82,10 @@
             {{ formatList(unitAbilities) }}
           </span>
         </td>
-        <td class="text-end"></td>
       </tr>
       <tr class="align-middle">
         <th>Faction</th>
-        <td>{{ unit.faction }}</td>
-        <td class="text-end">
-        </td>
+        <td>{{ formatList(unit.faction) }}</td>
       </tr>
     </tbody>
   </table>

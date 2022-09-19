@@ -2,88 +2,90 @@
   <div class="mt-3">
     <UnitDetails :unit="unit">
       <template #actions>
-        <button class="d-print-none btn btn-sm btn-secondary me-2" @click="onClickDuplicate">
+        <button class="btn btn-sm btn-secondary text-nowrap" @click="onClickDuplicate">
           <i class="bi-files" />
           Duplicate
         </button>
-        <button class="d-print-none btn btn-sm btn-danger" @click="onClickRemove">
+        <button class="btn btn-sm btn-danger text-no-wrap" @click="onClickRemove">
           <i class="bi-clipboard-x" />
           Remove
         </button>
       </template>
       <template v-if="availableConfigurationOptions.length" #wargear-actions>
+        <div v-if="rolesForUnit.length > 1"  class="dropdown-center">
+          <button type="button" class="me-1 btn btn-sm btn-outline-primary dropdown-toggle"
+            data-bs-toggle="dropdown">
+            Switch Role
+          </button>
+          <ul class="dropdown-menu">
+            <li v-for="(r) in rolesForUnit" :key="r" :value="r">
+              <a :class="[ 'dropdown-item', { active: r === unit.role } ]" :aria-current="r === unit.role" @click="selectedRole = r">
+                {{ r }}
+              </a>
+            </li>
+          </ul>
+        </div>
         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="collapse"
           :data-bs-target="`#collapse_${unit.id}`" aria-expanded="false" aria-controls="collapseExample">
           <span class="d-collapsed">Show</span>
           <span class="d-expanded">Hide</span>
           Options
         </button>
-
+        <button class="btn btn-sm btn-outline-danger text-nowrap" @click="onClickReset">
+          <i class="bi-x-lg" />
+          Reset
+        </button>
       </template>
-      <template v-if="availableConfigurationOptions.length" #options>
-        <div class="collapse" :id="`collapse_${unit.id}`">
-          <div class="btn-toolbar" role="toolbar">
+      <template #options>
+        <div class="d-print-none collapse" :id="`collapse_${unit.id}`">
+          <div class="button-bar" role="toolbar">
             <button v-for="(option, idx) in availableConfigurationOptions" :key="idx" @click="onSelect(option)"
-              :class="[ 'btn', 'btn-sm', option.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap', 'me-1 mb-1' ]"
+              :class="[ 'btn', 'btn-sm', option.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap' ]"
               :disabled="!option.available">
               {{ option.label }}
             </button>
-            <button class="btn btn-sm btn-outline-danger text-nowrap mb-1" @click="onClickReset">
+            <button v-if="false" class="btn btn-sm btn-outline-danger text-nowrap mb-1" @click="onClickReset">
               <i class="bi-x-lg" />
               Reset
             </button>
           </div>
+          <OptionalWargear :unit="unit" />
         </div>
       </template>
     </UnitDetails>
-    <div class="d-print-none row py-2">
-      <div v-if="rolesForUnit.length > 1" class="col-12 col-sm-6 col-md-4 mb-3 mb-sm-0">
-        <div class="form-floating">
-          <select v-model="selectedRole" class="form-select">
-            <option v-for="(r) in rolesForUnit" :key="r" :value="r">
-              {{ r }}
-            </option>
-          </select>
-          <label for="selectRole">Role</label>
-        </div>
-      </div>
-      <div v-if="false" class="col-5">
-        <div v-for="{ value, text } in wargearOptions" :key="value" class="form-check">
-          <input type="checkbox" :value="value" class="form-check-input">
-          <label class="form-check-label" for="flexCheckDefault">
-            {{ text }}
-          </label>
-        </div>
-      </div>
-    </div>
 
-    <small v-if="devMode" class="d-print-none">
-      <code>{{ unit }}</code>
-    </small>
     <div v-if="devMode" class="d-print-none">
-      Configuration Options
-      <small><code>{{ configurationOptions }}</code></small>
-    </div>
-    <div v-if="devMode" class="d-print-none">
-      Available Configuration Options
-      <small><code>{{ availableConfigurationOptions }}</code></small>
+      <small>
+        <code>{{ unit }}</code>
+      </small>
+      <div v-if="devMode" class="d-print-none">
+        Configuration Options
+        <small><code>{{ configurationOptions }}</code></small>
+      </div>
+      <div v-if="devMode" class="d-print-none">
+        Available Configuration Options
+        <small><code>{{ availableConfigurationOptions }}</code></small>
+      </div>
     </div>
   </div>
-  <div class="border-bottom" />
+  <div class="border-bottom d-print-none" />
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, ref } from 'vue';
 import {
   orderBy, isArray, isNil, isNull, isString, countBy
 } from 'lodash-es';
+import { Collapse } from 'bootstrap';
 
 import UnitDetails from './UnitDetails.vue';
+import OptionalWargear from './OptionalWargear.vue';
 
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
 
 import formatList from '@/utils/formatList';
+
 import type {
   Configuration, Item, SquadUnit, Weapon,
 } from '@/types/unit';
@@ -104,8 +106,6 @@ const squadStore = useSquadStore();
 const unitType = computed(() => dataStore.getUnitByName(props.unit.name));
 
 const toOption = ({ name, cost }: Item) => ({ value: name, text: `${name} (${cost})` });
-
-const weaponsForUnit = computed(() => dataStore.getWeaponsForUnit(props.unit));
 
 const wargearForUnit = computed(() => {
   const { wargear } = props.unit;
@@ -277,12 +277,11 @@ function onSelect(option: Configuration | null) {
   }
 }
 
-import { Collapse } from 'bootstrap';
 
-const onMounted = () => {
-  const collapseElementList = document.querySelectorAll('.collapse')
-  const collapseList = [...collapseElementList].map(collapseEl => new Collapse(collapseEl))
-}
+// const onMounted = () => {
+//   const collapseElementList = document.querySelectorAll('.collapse')
+//   const collapseList = [...collapseElementList].map(collapseEl => new Collapse(collapseEl))
+// }
 </script>
 
 <style scoped lang="scss">
