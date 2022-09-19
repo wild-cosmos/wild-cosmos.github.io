@@ -1,5 +1,6 @@
 [
     [ "Imperium - Adeptus Astartes", "adeptus_astartes.json" ],
+    [ "Imperium - Adeptus Mechanicus", "adeptus_mechanicus.json" ],
     "Necrons",
     [ "T'au Empire", "tau_empire.json" ]
 ]

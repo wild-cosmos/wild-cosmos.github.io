@@ -13,8 +13,9 @@
       "type": [ "Infantry" ],
       "weapons": [ "Staff of Light" ],
       "wargear": [ ],
+      "wargearList": [ "Ancient Armoury", "Eldritch Devices" ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Mercurial Tyrant" ]
-    }, 
+    },
     "Necron Warrior": {
       "cost": 12,
       "mv": [ 5, 8 ],
@@ -29,7 +30,7 @@
       "weapons": [ "Gauss Flayer" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant" ]
-    }, 
+    },
     "Necron Immortal": {
       "cost": 14,
       "mv": [ 5, 8 ],
@@ -43,8 +44,9 @@
       "type": [ "Infantry" ],
       "weapons": [ "Tesla Carbine" ],
       "wargear": [ ],
+      "wargearList": [ "Ancient Armoury - Specialist Only" ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant" ]
-    }, 
+    },
     "Deathmark": {
       "cost": 18,
       "mv": [ 5, 8 ],
@@ -58,8 +60,9 @@
       "type": [ "Infantry" ],
       "weapons": [ "Synaptic Disintegrator" ],
       "wargear": [ ],
+      "wargearList": [ "Ancient Armoury" ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant", "Marked for Death", "Hyperspace Oubliette" ]
-    }, 
+    },
     "Lychguard": {
       "cost": 20,
       "mv": [ 5, 8 ],
@@ -73,8 +76,9 @@
       "type": [ "Infantry" ],
       "weapons": [ "Warscythe" ],
       "wargear": [ ],
+      "wargearList": [ "Ancient Armoury" ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant", "Eternal Protector" ]
-    }, 
+    },
     "Flayed One": {
       "cost": 18,
       "mv": [ 5, 12 ],
@@ -89,7 +93,7 @@
       "weapons": [ "Flensing Claws" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant", "Fearsome (1)", "Ambush", "Flesh Hunger" ]
-    }, 
+    },
     "Canoptek Scarabs": {
       "cost": 14,
       "mv": [ 5, 12 ],
@@ -104,7 +108,7 @@
       "weapons": [ "Feeder Mandibles" ],
       "wargear": [ ],
       "abilities": [ "Living Metal", "Autonomous Servant", "Hover", "Swarm" ]
-    }, 
+    },
     "Canoptek Spyder": {
       "cost": 28,
       "mv": [ 5, 10 ],
@@ -133,8 +137,9 @@
       "type": [ "Infantry" ],
       "weapons": [ "Rod of Covenant" ],
       "wargear": [ ],
+      "wargearList": [ "Ancient Armoury", "Eldritch Devices" ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ]
-    }, 
+    },
     "Triarch Praetorian": {
       "cost": 20,
       "mv": [ 5, 12 ],
@@ -148,6 +153,7 @@
       "type": [ "Infantry" ],
       "weapons": [ "Rod of Covenant" ],
       "wargear": [ ],
+      "wargearList": [ "Ancient Armoury", "Eldritch Devices" ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ]
     }
   },
@@ -409,6 +415,84 @@
       "notes": "When you create your warband, choose one of the following abilities. For the duration of the game, every model in your warband with a weapon optimisation has this ability.\nElectron Amplifier: Any gauss or tesla weapon this model is armed with adds 1 to its AP value.\nIonisation Node: Any gauss or tesla weapon this model is armed with has the Radiation (6+) type.\nDisassembler Coils: When this model attacks with a gauss weapon, if the target is within 9″, this model incurs a critical hit bonus of 1 for that attack.\nArcsplinter Array: When this model attacks with a tesla weapon, successful hit rolls of 6+ inflict additional hits, instead of successful hit rolls of 7+.\nFor the purpose of these abilities, a gauss weapon is any weapon that has ‘gauss’ in its name, and a tesla weapon is any weapon that has ‘tesla’ in its name."
     }
   ],
+
+  "wargearList": {
+    "Ancient Armoury": {
+      "Disruption Field": {
+        "cost": 2
+      },
+      "Nebuloscope": {
+        "cost": 3,
+        "not": [ "Oligarkh", "Triarch Judicator", "Triarch Praetorian" ]
+      },
+      "Noctilith prism": {
+        "cost": 2,
+        "modelLimit": 1
+      },
+      "Ossified Necrodermis": {
+        "cost": 1
+      },
+      "Phase shifter": {
+        "cost": 3,
+        "limit": 1
+      },
+      "Translocation casket": {
+        "cost": 3,
+        "not": [ "Deathmark" ]
+      }
+    },
+    "Eldritch Devices": {
+      "Engrammatic entangler": {
+        "cost": 5,
+        "role": "Leader",
+        "warbandLimit": 1
+      },
+      "Gravity displacer": {
+        "cost": 2
+      },
+      "Lightning field": {
+        "cost": 4,
+        "modelLimit": 1
+      },
+      "Mindshackle nanoscarabs": {
+        "cost": 5,
+        "warbandLimit": 1
+      },
+      "Nightmare shroud": {
+        "cost": 3
+      },
+      "Phylactery": {
+        "cost": 2
+      },
+      "Quantum shielding": {
+        "cost": 4,
+        "invulnerableSave": 2
+      },
+      "Resurrection orb": {
+        "cost": 4,
+        "modelLimit": 1
+      },
+      "Sempiternal weave": {
+        "cost": 3
+      },
+      "Solar pulse": {
+        "cost": 4,
+        "warbandLimit": 1,
+        "requires": "Staff of Light"
+      },
+      "Tesseract labyrinth": {
+        "cost": 9,
+        "warbandLimit": 1
+      },
+      "Gauntlet of Fire": {
+        "cost": 5
+      },
+      "Tachyon Arrow": {
+        "cost": 12,
+        "warbandLimit": 1
+      }
+    }
+  },
 
   "configuration": [
     {
