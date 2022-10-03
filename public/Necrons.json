@@ -193,9 +193,7 @@
       "ap": [ 1 ],
       "dm": [ 1, 2 ],
       "notes": "Pistol, Engulf (2), Flame (2+). When this model makes a melee attack, if they do not attack with this weapon in the same round, they may instead add the Flame (3+) type to their primary weapon.",
-      "usedBy": [
-
-      ]
+      "usedBy": []
     }, {
       "name": "Gauss Blaster",
       "range": 18,
@@ -427,14 +425,14 @@
       },
       "Noctilith prism": {
         "cost": 2,
-        "modelLimit": 1
+        "limit": 1
       },
       "Ossified Necrodermis": {
         "cost": 1
       },
       "Phase shifter": {
         "cost": 3,
-        "limit": 1
+        "modelLimit": 2
       },
       "Translocation casket": {
         "cost": 3,
@@ -445,18 +443,18 @@
       "Engrammatic entangler": {
         "cost": 5,
         "role": "Leader",
-        "warbandLimit": 1
+        "warbandLimit": 3
       },
       "Gravity displacer": {
         "cost": 2
       },
       "Lightning field": {
         "cost": 4,
-        "modelLimit": 1
+        "modelLimit": 2
       },
       "Mindshackle nanoscarabs": {
         "cost": 5,
-        "warbandLimit": 1
+        "warbandLimit": 3
       },
       "Nightmare shroud": {
         "cost": 3
@@ -470,26 +468,26 @@
       },
       "Resurrection orb": {
         "cost": 4,
-        "modelLimit": 1
+        "limit": 1
       },
       "Sempiternal weave": {
         "cost": 3
       },
       "Solar pulse": {
         "cost": 4,
-        "warbandLimit": 1,
+        "warbandLimit": 3,
         "requires": "Staff of Light"
       },
       "Tesseract labyrinth": {
         "cost": 9,
-        "warbandLimit": 1
+        "warbandLimit": 3
       },
       "Gauntlet of Fire": {
         "cost": 5
       },
       "Tachyon Arrow": {
         "cost": 12,
-        "warbandLimit": 1
+        "warbandLimit": 3
       }
     }
   },

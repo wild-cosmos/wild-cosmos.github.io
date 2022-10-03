@@ -511,11 +511,11 @@
       },
       "Cognis weapon": {
         "cost": 1,
-        "limit": 1
+        "modelLimit": 1
       },
       "Enhanced data-tether": {
         "cost": 2,
-        "modelLimit": 1,
+        "limit": 2,
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ],
         "role": [ "Core", "Specialist" ]
       },
@@ -528,7 +528,7 @@
       },
       "Thorium rounds": {
         "cost": 1,
-        "limit": 1
+        "modelLimit": 1
       },
       "Titanium-weave war plate": {
         "cost": 1,
@@ -556,21 +556,21 @@
       },
       "Skull-probe": {
         "cost": 3,
-        "modelLimit": 1
+        "limit": 2
       },
       "Guardian skull": {
         "cost": 2
       },
       "Skull of the Electromartyr": {
         "cost": 2,
-        "modelLimit": 1
+        "limit": 2
       }
     },
     "Arcana Mechanicum": {
       "Cantic thrallnet": {
         "cost": 4,
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ],
-        "warbandLimit": 1
+        "warbandLimit": 3
       },
       "Cogitator engine": {
         "cost": 2
@@ -580,7 +580,7 @@
       },
       "Experimental field-test": {
         "cost": 5,
-        "limit": 1
+        "modelLimit": 1
       },
       "Extensive self-augmentation": {
         "cost": 4,
@@ -588,7 +588,7 @@
       },
       "Frequency resonator": {
         "cost": 3,
-        "limit": 1
+        "modelLimit": 1
       },
       "Neural jammer": {
         "cost": 3
@@ -602,17 +602,17 @@
       "Stasis field": {
         "cost": 4,
         "only": [ "Tech-priest" ],
-        "warbandLimit": 1
+        "warbandLimit": 3
       },
       "Mindscrambler grenade": {
         "cost": 5,
-        "warbandLimit": 1
+        "warbandLimit": 3
       },
       "Phase taser": {
         "cost": 4,
         "replaces": [ "Taser goad" ],
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ],
-        "warbandLimit": 1
+        "warbandLimit": 3
       }
     }
   },

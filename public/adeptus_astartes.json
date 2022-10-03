@@ -283,7 +283,7 @@
       "name": "Signum",
       "notes": "At the beginning of each Manoeuvring Phase, nominate an enemy model that is visible to this model. Until the end of the phase, friendly Adeptus Astartes models within 6\" of this model re-roll hit rolls of 1 and reduce any hit roll penalty they incur for firing at long range by 2 (to a minimum of 0)."
     }, {
-      "name": "Skull probe",
+      "name": "Skull-probe",
       "notes": "When this model is set up on the battlefield, place a Skull-probe marker at a point on the battlefield wholly within 12\" horizontally of this model. For the remainder of the game, enemy models arriving from reserve or using the Infiltrate ability cannot be set up within 9\" horizontally of the Skull-probe marker. When making measurements involving a Skull-probe marker, always measure from the centre of the marker."
     }, {
       "name": "Smoke grenades",
@@ -313,7 +313,7 @@
         "cost": 5,
         "any": [ "Boltgun", "Combi" ],
         "not": [ "Space Marine Biker" ],
-        "limit": 1
+        "modelLimit": 1
       },
       "Bionics": {
         "cost": 2
@@ -322,7 +322,7 @@
         "cost": 1,
         "any": [ "Boltgun", "Combi" ],
         "not": [ "Space Marine Biker" ],
-        "limit": 1
+        "modelLimit": 1
       },
       "Gravis Armour": {
         "cost": 3,
@@ -330,23 +330,23 @@
       },
       "Signum": {
         "cost": 3,
-        "modelLimit": 1,
+        "limit": 2,
         "only": [ "Tactical Marine", "Devastator" ]
       },
       "Skull-probe": {
         "cost": 3,
-        "modelLimit": 1,
-        "limit": 1
+        "limit": 2,
+        "modelLimit": 3
       },
       "Guardian Skull": {
         "cost": 2,
-        "limit": 1
+        "modelLimit": 3
       },
       "Gyrinx": {
         "cost": 6,
         "ability": [ "Psyker" ],
-        "modelLimit": 1,
-        "limit": 1
+        "limit": 2,
+        "modelLimit": 3
       }
     },
     "Special-issue Wargear": {
@@ -355,7 +355,8 @@
         "not": [ "Space Marine Biker" ]
       },
       "Devotional Cherub": {
-        "cost": 3
+        "cost": 3,
+        "modelLimit": 3
       },
       "Iron Halo": {
         "cost": 5,
@@ -372,25 +373,27 @@
         "role": "Leader",
         "requires": "Storm Shield",
         "replaces": "Storm Shield",
-        "warbandLimit": 1
+        "warbandLimit": 4
       },
       "Special-issue Ammunition": {
         "cost": 3
       },
       "Digital Laser": {
         "cost": 3,
-        "not": [ "Terminator" ]
+        "not": [ "Terminator" ],
+        "modelLimit": 5
       },
       "Digital Flamer": {
         "cost": 2,
-        "not": [ "Terminator" ]
+        "not": [ "Terminator" ],
+        "modelLimit": 5
       },
       "Relic Blade": {
         "cost": 3,
         "role": "Leader",
         "requires": "Power Sword",
         "replaces": "Power Sword",
-        "warbandLimit": 1
+        "warbandLimit": 4
       }
     }
   },

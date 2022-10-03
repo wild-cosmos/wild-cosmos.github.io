@@ -4,11 +4,11 @@
     <div class="card-body">
       <div class="button-bar">
         <button v-for="item in wargear" :key="item.name"
-        :class="[ 'btn btn-sm', item.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap' ]"
+          :class="[ 'btn btn-sm', item.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap' ]"
           :disabled="!item.available" @click="onSelect(item)">
           {{ item.name }} ({{ item.cost }})
         </button>
-        <button v-for="item in weapons" :key="item.name" 
+        <button v-for="item in weapons" :key="item.name"
           :class="[ 'btn btn-sm', item.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap' ]"
           :disabled="!item.available" @click="onSelect(item)">
           {{ item.name }} ({{ item.cost }})
@@ -31,47 +31,66 @@ const dataStore = useDataStore();
 const squadStore = useSquadStore();
 
 const itemFilter = ((model) => {
-  const isModelTypeMatch = ({ only } : Condition) => !only || only.includes(model.name);
+  const isModelTypeMatch = ({ only }: Condition) => !only || only.includes(model.name);
   const isExcluded = ({ not }) => {
     if (!not) return false;
     return (not.ability && hasAbility(not))
       || (not.role && hasRoleOrType(not));
   }
-  const isNotExcluded = ({ not } : Condition) => !not || !not.includes(model.name);
-  const hasAbility = ({ name, ability } : Wargear & Condition) => {
-    console.log(model.name, model.abilities, name, ability)
+  const isNotExcluded = ({ not }: Condition) => !not || !not.includes(model.name);
+  const hasAbility = ({ name, ability }: Wargear & Condition) => {
     if (!ability) return true;
     if (isString(ability) && model.abilities?.some((abilityName) => abilityName.startsWith(ability))) return true;
     return model.abilities?.some((abilityName) => ability.some((a) => abilityName.startsWith(a)));
   };
-  const hasRoleOrType = ({ role } : Condition) => !role 
-  || role.includes(model.role) 
-  || (isArray(role) && role.reduce((isType, type) => isType || model.type.includes(type), false));
-  const isNotEquiped = ({ name } : Wargear & Condition) => !model.wargear.find((item) => item.name === name);
-  const hasRequired = ({ requires } : Condition) => !requires 
-    || requires.reduce((equipped, itemName) => equipped || model.weapons?.some(({name})=> name === itemName), false)
-    || requires.reduce((equipped, itemName) => equipped || model.wargear?.some(({name})=> name === itemName), false);
-  const hasAny = ({ any } : Condition) => !any 
+  const hasRoleOrType = ({ role }: Condition) => !role
+    || role.includes(model.role)
+    || (isArray(role) && role.reduce((isType, type) => isType || model.type.includes(type), false));
+  const isNotEquiped = ({ name }: Wargear & Condition) => !model.wargear.find((item) => item.name === name)
+    && !model.weapons.find((item) => item.name === name);
+  const hasRequired = ({ requires }: Condition) => !requires
+    || requires.reduce((equipped, itemName) => equipped || model.weapons?.some(({ name }) => name === itemName), false)
+    || requires.reduce((equipped, itemName) => equipped || model.wargear?.some(({ name }) => name === itemName), false);
+  const hasAny = ({ any }: Condition) => !any
     || any.reduce((equipped, itemName) => equipped || model.weapons?.some(({ name }) => name.startsWith(itemName)), false);
-  const isNotLimited = ({ name, limit, modelLimit, warbandLimit } : Wargear & Condition) => {
+  const isNotLimited = ({ name, limit, modelLimit, warbandLimit }: Wargear & Condition) => {
     if (limit) {
-      const n = model.weapons.filter((w) => w.name === name).length
-        + model.wargear.filter((w) => w.name === name).length;
-
-      if (n >= limit) return false;
+      // No more than one model in your warband can take this item
+      if (squadStore.getWargearCountInWarband[name] > 0) return false;
     }
     if (modelLimit) {
-      const n = squadStore.getModelsWithItem(name)?.length ?? 0;
-      if (n >= modelLimit) return false;
+      // A model cannot take more than one of these items
+      const limitedItems = wargearList.value.flatMap(getLimitedWargear({ modelLimit }));
+
+      if (limitedItems.reduce((hasItem, itemName) => hasItem || model.weapons.some((w) => w.name === itemName) || model.wargear.some((w) => w.name === itemName),
+      false)) return false;
     }
     if (warbandLimit) {
-      const n = squadStore.getWargearCountInWarband[name] ?? 0;
-      if (n >= warbandLimit) return false;
+      // Your warband cannot include more than one of these items
+      const limitedItems = wargearList.value.flatMap(getLimitedWargear({ warbandLimit }));
+      const itemCount: number[] = limitedItems.map((itemName: string) => squadStore.getWargearCountInWarband[itemName] ?? 0);
+      if (itemCount.some((n) => n > 0)) return false;
     }
     return true;
   }
-  
-  return (item : Wargear & Condition) : boolean => isModelTypeMatch(item)
+
+  const getLimitedWargear = ({ limit, modelLimit, warbandLimit }: { limit?: number, modelLimit?: number, warbandLimit?: number }) => ({ weapons, wargear }: { weapons: Weapon[], wargear: Wargear[] }) => {
+    if (limit) return [
+      ...weapons.filter((w) => (limit && w.limit === limit)).map(({ name }) => name),
+      ...wargear.filter((w) => (limit && w.limit === limit)).map(({ name }) => name)
+    ];
+    if (modelLimit) return [
+      ...weapons.filter((w) => (modelLimit && w.modelLimit === modelLimit)).map(({ name }) => name),
+      ...wargear.filter((w) => (modelLimit && w.modelLimit === modelLimit)).map(({ name }) => name)
+    ];
+    if (warbandLimit) return [
+      ...weapons.filter((w) => (warbandLimit && w.warbandLimit)).map(({ name }) => name),
+      ...wargear.filter((w) => (warbandLimit && w.warbandLimit === warbandLimit)).map(({ name }) => name)
+    ];
+    return [];
+  }
+
+  return (item: Wargear & Condition): boolean => isModelTypeMatch(item)
     && hasRoleOrType(item)
     && hasAbility(item)
     && hasRequired(item)
@@ -81,10 +100,10 @@ const itemFilter = ((model) => {
     && isNotLimited(item);
 })(props.unit);
 
-const wargearList = computed(() => dataStore.getWargearListForUnit(props.unit).filter(({ wargear, weapons }) => wargear?.length || weapons?.length ));
+const wargearList = computed(() => dataStore.getWargearListForModel(props.unit).filter(({ wargear, weapons }) => wargear?.length || weapons?.length));
 
 const enabledWargearList = computed(() => wargearList.value.map(({ name, wargear, weapons }) => ({
-  name, 
+  name,
   weapons: weapons?.map((item) => ({ ...item, available: itemFilter(item) })),
   wargear: wargear?.map((item) => ({ ...item, available: itemFilter(item) })),
 })));
@@ -93,7 +112,7 @@ const enabledWargearList = computed(() => wargearList.value.map(({ name, wargear
 //   items.map((item) => ({ ...item, available: itemFilter(item) }));
 // };
 
-function onSelect({ name, cost, replaces } : Wargear & Condition) {
+function onSelect({ name, cost, replaces }: Wargear & Condition) {
   if (replaces) squadStore.removeWargear(props.unit, replaces);
   squadStore.addWargear(props.unit, name, cost)
 }

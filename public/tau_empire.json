@@ -402,11 +402,11 @@
       },
       "Drone Controller": {
         "cost": 1,
-        "limit": 1
+        "modelLimit": 1
       },
       "Markerlight": {
         "cost": 1,
-        "limit": 1,
+        "modelLimit": 1,
         "not": {
           "role": [ "Battlesuit" ]
         }
@@ -414,28 +414,28 @@
       "Networked Command Node": {
         "cost": 2,
         "role": [ "Leader" ],
-        "limit": 1
+        "modelLimit": 1
       },
       "Positional Relay": {
         "cost": 2,
-        "limit": 1
+        "modelLimit": 1
       },
       "Stimulant Injector": {
         "cost": 6,
         "role": [ "Leader", "Battlesuit" ],
-        "warbandLimit": 1
+        "warbandLimit": 2
       },
       "Structural Analyser": {
         "cost": 2,
-        "limit": 1
+        "modelLimit": 1
       },
       "Telemetry Beacon": {
         "cost": 5,
-        "modelLimit": 1
+        "warbandLimit": 2
       },
       "Wide Spectrum Scanner": {
         "cost": 2,
-        "limit": 1,
+        "modelLimit": 1,
         "only": [ "Fire Warrior", "Fire Warrior Shas'ui", "Pathfinder", "Pathfinder Shas'ui" ]
       }
     },
@@ -443,7 +443,7 @@
       "Coldstar Thrusters": {
         "cost": 2,
         "only": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ],
-        "warbandLimit": 1
+        "warbandLimit": 2
       },
       "Fail-safe Detonator": {
         "cost": 2,
@@ -497,7 +497,7 @@
       },
       "Seismic Destabiliser": {
         "cost": 4,
-        "limit": 1
+        "modelLimit": 1
       },
       "Thermoneutronic Incinerator": {
         "cost": 4
