@@ -286,7 +286,7 @@
       "name": "Skull-probe",
       "notes": "When this model is set up on the battlefield, place a Skull-probe marker at a point on the battlefield wholly within 12\" horizontally of this model. For the remainder of the game, enemy models arriving from reserve or using the Infiltrate ability cannot be set up within 9\" horizontally of the Skull-probe marker. When making measurements involving a Skull-probe marker, always measure from the centre of the marker."
     }, {
-      "name": "Smoke grenades",
+      "name": "Smoke Grenades",
       "notes": "Once per game, this model may use their smoke grenades. If they do, then until the end of the phase this model ignores the penalties for retreating, and enemy models that target this model with a ranged attack incur a hit roll penalty of 1."
     }, {
       "name": "Special-issue Ammunition",
@@ -1028,7 +1028,7 @@
       "cost": 0,
       "usedBy": [ "Scout Sergeant" ]
     }, {
-      "weapon": [ "Smoke grenades" ],
+      "weapon": [ "Smoke Grenades" ],
       "replaces": [ "Krak Grenades" ],
       "cost": 0,
       "usedBy": [ "Scout Sergeant", "Space Marine Scout", "Scout Lexicanium" ]

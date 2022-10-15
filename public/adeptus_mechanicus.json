@@ -27,7 +27,7 @@
       "ld": 4,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
-      "wargear": [ "Radium carbine", "Rad grendades" ],
+      "wargear": [ "Radium Carbine", "Rad Grenades" ],
       "wargearList": [ "Battle Tech", "Arcana Mechanicum", "Servo-skulls" ],
       "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Skitarii" ]
@@ -43,7 +43,7 @@
       "ld": 5,
       "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry" ],
-      "wargear": [ "Radium carbine", "Rad grendades" ],
+      "wargear": [ "Radium Carbine", "Rad Grenades" ],
       "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Skitarii" ]
     },
@@ -58,7 +58,7 @@
       "ld": 2,
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Servitor" ],
-      "wargear": [ "Arc cannon", "Arc claw" ],
+      "wargear": [ "Arc Cannon", "Arc Claw" ],
       "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian", "Large (1)", "Mindlock", "Cyborg Warmachine" ],
       "faction": [ "Imperium", "Adeptus Mechanicus" ]
     },
@@ -79,42 +79,42 @@
     }
   },
   "weapons": {
-    "Arc cannon": {
+    "Arc Cannon": {
       "range": 24,
       "a": 2,
       "ap": [ 2, 5 ],
       "dm": [ "D2", 2 ],
       "notes": "Heavy (1), Critical (7+). Each time this weapon inflicts a critical hit on a Machine, that model must roll on the Malfunction Table."
     },
-    "Arc claw": {
+    "Arc Claw": {
       "range": null,
       "a": 2,
       "ap": [ 2, 5 ],
       "dm": 1,
       "notes": "Each time this weapon inflicts a critical hit on a Machine, that model must roll on the Malfunction Table."
     },
-    "Arc grenade": {
+    "Arc Grenades": {
       "range": 6,
       "a": "D2",
       "ap": [ 1, 5 ],
       "dm": 1,
       "notes": "Grenade, Blast (4), Indirect. Each time this weapon inflicts a critical hit on a Machine, that model must roll on the Malfunction Table."
     },
-    "Arc maul": {
+    "Arc Maul": {
       "range": null,
       "a": 2,
       "ap": [ 1, 3 ],
       "dm": [ 1, 2 ],
       "notes": "Each time this weapon inflicts a critical hit on a Machine, that model must roll on the Malfunction Table."
     },
-    "Arc pistol": {
+    "Arc Pistol": {
       "range": [ 9, null ],
       "a": 1,
       "ap": [ 1, 5 ],
       "dm": 1,
       "notes": "Pistol. Each time this weapon inflicts a critical hit on a Machine, that model must roll on the Malfunction Table."
     },
-    "Arc rifle": {
+    "Arc Rifle": {
       "range": 30,
       "a": [ 1, 2 ],
       "ap": [ 1, 5 ],
@@ -142,21 +142,21 @@
       "dm": [ 1, 2 ],
       "notes": "Heavy (1), Blast (3). This weapon cannot target models that are wholly within 9\" of the bearer."
     },
-    "Flechette blaster": {
+    "Flechette Blaster": {
       "range": [ 9, null ],
       "a": 3,
       "ap": [ 0, 2 ],
       "dm": 1,
       "notes": "Pistol"
     },
-    "Flechette carbine": {
+    "Flechette Carbine": {
       "range": 12,
       "a": 5,
       "ap": [ 0, 2 ],
       "dm": 1,
       "notes": "Assault"
     },
-    "Galvanic rifle": {
+    "Galvanic Rifle": {
       "range": 24,
       "a": 1,
       "ap": [ 1, 5 ],
@@ -176,28 +176,28 @@
       "dm": 1,
       "notes": "Pistol. Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target’s armour save, or Dm 3 if the hit roll was double the target’s armour save or more."
     },
-    "Guardian skull": {
+    "Guardian Skull": {
       "range": [ 6, null ],
       "a": 2,
       "ap": 0,
       "dm": 1,
       "notes": "Familiar (6+). When the bearer makes a ranged attack, they can only attack with this weapon if they are firing defensively."
     },
-    "Heavy flamer": {
+    "Heavy Flamer": {
       "range": 8,
       "a": 1,
       "ap": 1,
       "dm": [ 1, 2 ],
       "notes": "Heavy (1), Engulf (2), Critical (7+), Flame (2+)"
     },
-    "Hydraulic claw": {
+    "Hydraulic Claw": {
       "range": null,
       "a": 2,
       "ap": 2,
       "dm": [ "D4", 4 ],
       "notes": "Critical (7+). Attacks with this weapon incur a hit roll penalty of 1."
     },
-    "Krak grenade": {
+    "Krak Grenade": {
       "range": [ 3, null ],
       "a": 1,
       "ap": 4,
@@ -211,7 +211,7 @@
       "dm": [ "D4", 4 ],
       "notes": "Heavy (1), Beam, Critical (6+)"
     },
-    "Magnarail lance": {
+    "Magnarail Lance": {
       "range": 30,
       "a": 1,
       "ap": [ 3, 5 ],
@@ -225,95 +225,95 @@
       "dm": 1,
       "notes": "The bearer can attack with this weapon as an additional secondary weapon, using its normal A value instead of an A value of 1."
     },
-    "Melta bomb": {
+    "Melta Bomb": {
       "range": null,
       "a": 1,
       "ap": 4,
       "dm": 6,
       "notes": "Grenade. This weapon can only target models that are Large (2 or greater). If the target is a Machine that did not move in the previous Manoeuvring Phase, the hit is always successful."
     },
-    "Mindscrambler grenade": {
+    "Mindscrambler Grenade": {
       "range": 6,
       "a": "D2",
       "ap": 0,
       "dm": 0,
       "notes": "Grenade, Blast (4), One Use. A model (enemy or friendly) hit by this weapon reduces their BS and CS values by D4 until the end of the round and their Ld value by D4 until the end of the game. Roll separately for each characteristic, and for each model hit."
     },
-    "Omnissian axe": {
+    "Omnissian Axe": {
       "range": null,
       "a": 2,
       "ap": [ 1, 5 ],
       "dm": 2
     },
-    "Omnissian staff": {
+    "Omnissian Staff": {
       "range": null,
       "a": 2,
       "ap": 1,
       "dm": [ 2, 3 ]
     },
-    "Phase taser": {
+    "Phase Taser": {
       "range": null,
       "a": 2,
       "ap": [ 0, 3 ],
       "dm": 1,
       "notes": "Critical hits additionally inflict two AP 0 hits on the same model. Each time the bearer makes a melee attack, once the attack has been fully resolved, roll a D8 for each model or unit (excluding Large models) that was allocated one or more successful hits from this weapon. On a 3+, that model or unit may be placed anywhere on the battlefield that is within 12\" horizontally and 3\" vertically of their previous position and more than 1\" away from any of your models. They cannot be placed off the ground and made to fall.\nIf the target is a unit and not every model in the unit was hit by this weapon, the value required to move that unit is 7+ instead of 3+."
     },
-    "Phosphor blaster": {
+    "Phosphor Blaster": {
       "range": 18,
       "a": [ 2, 3 ],
       "ap": [ 1, 5 ],
       "dm": 1,
       "notes": "Rapid Fire, Flame (5+)"
     },
-    "Phosphor pistol": {
+    "Phosphor Pistol": {
       "range": [ 9, null ],
       "a": 1,
       "ap": [ 1, 5 ],
       "dm": 1,
       "notes": "Pistol, Flame (5+)"
     },
-    "Phosphor torch": {
+    "Phosphor Torch": {
       "range": 10,
       "a": 1,
       "ap": [ 1, 5 ],
       "dm": [ 1, 2 ],
       "notes": "Assault, Engulf (2), Flame (2+)"
     },
-    "Plasma caliver": {
+    "Plasma Caliver": {
       "range": 12,
       "a": 2,
       "ap": [ 3, 5 ],
       "dm": [ 2, 3 ],
       "notes": "Assault, Critical (7+), Overheat (2D3)"
     },
-    "Plasma cannon": {
+    "Plasma Cannon": {
       "range": 30,
       "a": 1,
       "ap": [ 3, 5 ],
       "dm": [ 2, 3 ],
       "notes": "Heavy (1), Blast (4), Critical (7+), Overheat (2D3)"
     },
-    "Plasma pistol": {
+    "Plasma Pistol": {
       "range": [ 9, null ],
       "a": 1,
       "ap": [ 3, 5 ],
       "dm": [ 2, 3 ],
       "notes": "Pistol, Critical (7+), Overheat (2D3)"
     },
-    "Power fist": {
+    "Power Fist": {
       "range": null,
       "a": 2,
       "ap": 3,
       "dm": [ "D4", 4 ],
       "notes": "Critical (6+). Attacks with this weapon incur a hit roll penalty of 1."
     },
-    "Power sword": {
+    "Power Sword": {
       "range": null,
       "a": 2,
       "ap": [ 3, 5 ],
       "dm": 1
     },
-    "Quantum annihilator": {
+    "Quantum Annihilator": {
       "range": 12,
       "a": "D2",
       "ap": [ 2, 5 ],
@@ -327,42 +327,42 @@
       "dm": 0,
       "notes": "Assault, Engulf (2), Radiation (2+). If this weapon inflicts a critical hit on a model, that model gets two Radiation tokens instead of one for that hit."
     },
-    "Rad grenade": {
+    "Rad Grenades": {
       "range": 6,
       "a": "D2",
       "ap": 0,
       "dm": 0,
       "notes": "Grenade, Blast (4), Indirect, Radiation (2+)"
     },
-    "Radium carbine": {
+    "Radium Carbine": {
       "range": 12,
       "a": 2,
       "ap": [ 0, 4 ],
       "dm": 1,
       "notes": "Assault, Radiation (7+)"
     },
-    "Radium jezzail": {
+    "Radium Jezzail": {
       "range": 30,
       "a": 1,
       "ap": [ 2, 5 ],
       "dm": [ 1, 3 ],
       "notes": "Heavy (1), Sniper, Radiation (7+)"
     },
-    "Radium pistol": {
+    "Radium Pistol": {
       "range": [ 9, null ],
       "a": 1,
       "ap": [ 0, 4 ],
       "dm": 1,
       "notes": "Pistol, Radiation (7+)"
     },
-    "Servo arm": {
+    "Servo Arm": {
       "range": null,
       "a": 1,
       "ap": 2,
       "dm": [ "D4", 4 ],
       "notes": "Critical (7+). The bearer can attack with this weapon as an additional secondary weapon. Attacks with this weapon incur a hit roll penalty of 1."
     },
-    "Servo pincer": {
+    "Servo Pincer": {
       "range": null,
       "a": 1,
       "ap": 0,
@@ -376,14 +376,14 @@
       "dm": 1,
       "notes": "Familiar (6+), One Use. When the bearer attacks with this weapon, they make D2 hit rolls against every enemy model within 4″. Each time this weapon inflicts a critical hit on a Machine, that model must roll on the Malfunction Table."
     },
-    "Taser goad": {
+    "Taser Goad": {
       "range": null,
       "a": 2,
       "ap": [ 0, 3 ],
       "dm": 1,
       "notes": "Critical hits additionally inflict two AP 0 hits on the same model."
     },
-    "Taser lance": {
+    "Taser Lance": {
       "range": null,
       "a": 2,
       "ap": [ 0, 3 ],
@@ -397,28 +397,28 @@
         "notes": "Polearm, Critical (6+). The bearer may only attack with this weapon if they charged in the same round. Critical hits additionally inflict two AP 0 hits on the same model."
       }
     },
-    "Torsion cannon": {
+    "Torsion Cannon": {
       "range": 24,
       "a": 1,
       "ap": 4,
       "dm": [ "D2", 2 ],
       "notes": "Heavy (1), Critical (7+). If the bearer makes a successful hit roll with this weapon, they can immediately make another attack against the same target − this second hit roll is only successful if the value rolled is greater than the first hit roll. They can repeat this process until it is no longer possible to make a greater successful hit roll."
     },
-    "Transonic cannon": {
+    "Transonic Cannon": {
       "range": 10,
       "a": 1,
       "ap": 1,
       "dm": [ 1, 2 ],
       "notes": "Heavy (1), Engulf (3), Stun (5+). If the target model is within 5\", this weapon has the Stun (2+) type."
     },
-    "Transuranic arquebus": {
+    "Transuranic Arquebus": {
       "range": 50,
       "a": 1,
       "ap": [ 2, 5 ],
       "dm": [ "D3", 3 ],
       "notes": "Heavy (2), Sniper, Critical (7+)"
     },
-    "Volkite blaster": {
+    "Volkite Blaster": {
       "range": 18,
       "a": [ 2, 3 ],
       "ap": 2,
@@ -430,25 +430,25 @@
     "Arc-shock implants": {
       "notes": "When this model makes a saving throw against a melee attack, if the value rolled is 8+, the attacking model suffers one AP 3 hit. When this model is destroyed, each model within 1\" of them (enemy and friendly) suffers one AP 3 hit."
     },
-    "Cantic thrallnet": {
+    "Cantic Thrallnet": {
       "notes": "Visible friendly Skitarii and Servitor models within 9\" of this model must use this model’s BS, CS and Ld values instead of their own. In addition, for the purpose of the Mindlock ability, while this model is on the battlefield all friendly Servitors treat it as if there were a friendly Tech-priest on the battlefield."
     },
-    "Cogitator engine": {
+    "Cogitator Engine": {
       "notes": "When this model is set up on the battlefield, choose a Canticle of the Omnissiah (excluding the Catechism of the Divine Chorus). For the duration of the game, this model benefits from that Canticle in addition to whichever Canticle is in effect for the warband that round. If this model’s chosen Canticle provides the same effect as the Canticle that is affecting the warband, that effect applies to failed rolls of 1 or 2, instead of just rolls of 1.\nEvery model in the warband with this item must choose the same additional Canticle."
     },
-    "Cognis weapon": {
+    "Cognis Weapon": {
       "notes": "When you create your warband, choose one ranged weapon this model is armed with (excluding Grenades). When this model makes a ranged attack with the chosen weapon, they ignore any penalties that are the result of faltering, panicking or firing defensively."
     },
-    "Consecrated bionics": {
+    "Consecrated Bionics": {
       "notes": "This model improves the value for their Ignore Damage ability by 1."
     },
-    "Corpus cybernetica": {
+    "Corpus Cybernetica": {
       "notes": "This model has the Heal (2+, Skitarii) ability."
     },
     "Cyber-occularis": {
       "notes": "When this model, or any visible friendly Adeptus Mechanicus model within 3″ of them, makes a ranged attack, they ignore the effects of enemy Stealth abilities. Additionally, if any of these models trigger a trap, roll a D8: on a 6+ the trap is disarmed, and its effects are ignored."
     },
-    "Energy shield": {
+    "Energy Shield": {
       "notes": "This model has the Shield ability, and they improve their invulnerable save by 1 (if this model does not have an invulnerable save, they instead gain an 8+ invulnerable save)."
     },
     "Enhanced data-tether": {
@@ -460,31 +460,31 @@
     "Extensive self-augmentation": {
       "notes": "When this model is set up on the battlefield, roll two D4s and apply the corresponding improvements below to this model’s characteristics:\nAdd 1\" to their ordinary Mv value and 2\" to their advancing Mv value.\nImprove their BS or CS value by 1 (your choice).\nAdd 1 to their Lf value.\nChoose one of the improvements above to apply to this model."
     },
-    "Frequency resonator": {
+    "Frequency Resonator": {
       "notes": "When you create your warband, choose one weapon this model is armed with that has ‘arc’, ‘taser’ or ‘electro’ in its name. The chosen weapon gains the Critical (7+) type."
     },
-    "Induction actuators": {
+    "Induction Actuators": {
       "notes": "This model adds 4\" to their advancing Mv value."
     },
-    "Infoslave skull": {
+    "Infoslave Skull": {
       "notes": "Add 1 to your control score for an objective if this model is within 3\" of it, even if this model is non-scoring."
     },
-    "Logister cortex": {
+    "Logister Cortex": {
       "notes": "This model has the Infiltrate ability."
     },
     "Mag-suspensors": {
       "notes": "This model ignores the effects of the Heavy (1) type for any weapons they are armed with."
     },
-    "Neural jammer": {
+    "Neural Jammer": {
       "notes": "If this model charges, enemy models cannot fire defensively at them, and enemy models and units within 1\" of them in the following Close Quarters Phase fight last in that phase."
     },
     "Rad-censer": {
       "notes": "At the beginning of the Resolution Phase, roll a D8 for each model (enemy and friendly) that is within 1\" of this model: on a 3+, that model gets a Radiation token."
     },
-    "Refractor field": {
+    "Refractor Field": {
       "notes": "This model has a 7+ invulnerable save."
     },
-    "Reinforced exoskeleton": {
+    "Reinforced Exoskeleton": {
       "notes": "Reduce the Dm value of each successful hit inflicted on this model by 1 (to a minimum of 1)."
     },
     "Scryerskull": {
@@ -494,10 +494,10 @@
     "Skull-probe": {
       "notes": "When this model is set up on the battlefield, place a Skull-probe marker at a point on the battlefield wholly within 12\" horizontally of this model. For the remainder of the game, enemy models arriving from reserve or using the Infiltrate ability cannot be set up within 9\" horizontally of the Skull-probe marker. When making measurements involving a Skull-probe marker, always measure from the centre of the marker."
     },
-    "Stasis field": {
+    "Stasis Field": {
       "notes": "This model has a 2+ invulnerable save. Each time this model moves or makes an attack, they lose this invulnerable save until the end of the round. In the Close Quarters Phase, if this model is still benefiting from their stasis field that round, they may choose not to attack."
     },
-    "Thorium rounds": {
+    "Thorium Rounds": {
       "notes": "When you create your warband, choose one ranged weapon this model is armed with that has the Radiation type (excluding Grenades). Improve the value for this weapon’s Radiation type by 2."
     },
     "Titanium-weave warplate": {
@@ -509,7 +509,7 @@
       "Arc-shock implants": {
         "cost": 2
       },
-      "Cognis weapon": {
+      "Cognis Weapon": {
         "cost": 1,
         "modelLimit": 1
       },
@@ -519,14 +519,14 @@
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ],
         "role": [ "Core", "Specialist" ]
       },
-      "Induction actuators": {
+      "Induction Actuators": {
         "cost": 2,
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ]
       },
       "Rad-censer": {
         "cost": 2
       },
-      "Thorium rounds": {
+      "Thorium Rounds": {
         "cost": 1,
         "modelLimit": 1
       },
@@ -536,17 +536,17 @@
       }
     },
     "Servo-skulls": {
-      "Corpus cybernetica": {
+      "Corpus Cybernetica": {
         "cost": 4,
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ]
       },
       "Cyber-occularis": {
         "cost": 3
       },
-      "Infoslave skull": {
+      "Infoslave Skull": {
         "cost": 3
       },
-      "Logister cortex": {
+      "Logister Cortex": {
         "cost": 3,
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ]
       },
@@ -558,7 +558,7 @@
         "cost": 3,
         "limit": 2
       },
-      "Guardian skull": {
+      "Guardian Skull": {
         "cost": 2
       },
       "Skull of the Electromartyr": {
@@ -567,15 +567,15 @@
       }
     },
     "Arcana Mechanicum": {
-      "Cantic thrallnet": {
+      "Cantic Thrallnet": {
         "cost": 4,
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ],
         "warbandLimit": 3
       },
-      "Cogitator engine": {
+      "Cogitator Engine": {
         "cost": 2
       },
-      "Consecrated bionics": {
+      "Consecrated Bionics": {
         "cost": 1
       },
       "Experimental field-test": {
@@ -586,29 +586,29 @@
         "cost": 4,
         "only": [ "Tech-priest" ]
       },
-      "Frequency resonator": {
+      "Frequency Resonator": {
         "cost": 3,
         "modelLimit": 1
       },
-      "Neural jammer": {
+      "Neural Jammer": {
         "cost": 3
       },
-      "Refractor field": {
+      "Refractor Field": {
         "cost": 3
       },
-      "Reinforced exoskeleton": {
+      "Reinforced Exoskeleton": {
         "cost": 3
       },
-      "Stasis field": {
+      "Stasis Field": {
         "cost": 4,
         "only": [ "Tech-priest" ],
         "warbandLimit": 3
       },
-      "Mindscrambler grenade": {
+      "Mindscrambler Grenade": {
         "cost": 5,
         "warbandLimit": 3
       },
-      "Phase taser": {
+      "Phase Taser": {
         "cost": 4,
         "replaces": [ "Taser goad" ],
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ],
@@ -628,31 +628,31 @@
       "replaces": [ "Omnissian axe" ],
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Arc pistol" ],
+      "weapon": [ "Arc Pistol" ],
       "cost": 1,
       "condition": {
-        "not": [ "Arc pistol", "Phosphor pistol", "Grav-pistol", "Plasma pistol" ]
+        "not": [ "Arc Pistol", "Phosphor Pistol", "Grav-pistol", "Plasma Pistol" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Phosphor pistol" ],
+      "weapon": [ "Phosphor Pistol" ],
       "cost": 2,
       "condition": {
-        "not": [ "Arc pistol", "Phosphor pistol", "Grav-pistol", "Plasma pistol" ]
+        "not": [ "Arc Pistol", "Phosphor Pistol", "Grav-pistol", "Plasma Pistol" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
       "weapon": [ "Grav-pistol" ],
       "cost": 2,
       "condition": {
-        "not": [ "Arc pistol", "Phosphor pistol", "Grav-pistol", "Plasma pistol" ]
+        "not": [ "Arc Pistol", "Phosphor Pistol", "Grav-pistol", "Plasma Pistol" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Plasma pistol" ],
+      "weapon": [ "Plasma Pistol" ],
       "cost": 3,
       "condition": {
-        "not": [ "Arc pistol", "Phosphor pistol", "Grav-pistol", "Plasma pistol" ]
+        "not": [ "Arc Pistol", "Phosphor Pistol", "Grav-pistol", "Plasma Pistol" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
@@ -718,6 +718,161 @@
         "not": [ "Servo arm", "Mag-suspensors", "Mechadendrites" ]
       },
       "usedBy": [ "Tech-priest" ]
+    }, {
+      "weapon": [ "Radium Pistol", "Radium Pistol" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 0,
+      "usedBy": [ "Skitarii Princeps", "Skitarii Legionnaire" ]
+    }, {
+      "weapon": [ "Galvanic Rifle" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 0,
+      "usedBy": [ "Skitarii Princeps", "Skitarii Legionnaire" ]
+    }, {
+      "weapon": [ "Flechette Carbine" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 4,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Arc Rifle" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 4,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Plasma Caliver" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 7,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Arc Maul" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 1,
+      "usedBy": [ "Skitarii Princeps", "Skitarii Legionnaire" ]
+    }, {
+      "weapon": [ "Taser Goad" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 1,
+      "usedBy": [ "Skitarii Princeps", "Skitarii Legionnaire" ]
+    }, {
+      "weapon": [ "Power Sword" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 2,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Power Fist" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 6,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Flechette Blaster" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 2,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Flechette Carbine" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 4,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Arc Rifle" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 4,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Phosphor Torch" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 4,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Plasma Caliver" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 7,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Radium Jezzail" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 5,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Transuranic Arquebus" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 8,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Power Fist" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 6,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Radium Pistol" ],
+      "cost": 1,
+      "usedBy": [ "Skitarii Princeps" ],
+      "condition": {
+        "melee": true,
+        "not": [ "Power Fist", "Energy Shield", "Radium Pistol" ]
+      }
+    }, {
+      "weapon": [ "Energy Shield" ],
+      "cost": 2,
+      "usedBy": [ "Skitarii Princeps" ],
+      "condition": {
+        "melee": true,
+        "not": [ "Power Fist", "Energy Shield", "Radium Pistol" ]
+      }
+    }, {
+      "weapon": [ "Flechette Blaster" ],
+      "replaces": [ "Radium Pistol" ],
+      "cost": 1,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Arc Pistol" ],
+      "replaces": [ "Radium Pistol" ],
+      "cost": 0,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Phosphor Pistol" ],
+      "replaces": [ "Radium Pistol" ],
+      "cost": 1,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Grav-pistol" ],
+      "replaces": [ "Radium Pistol" ],
+      "cost": 2,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Plasma Pistol" ],
+      "replaces": [ "Radium Pistol" ],
+      "cost": 2,
+      "usedBy": [ "Skitarii Princeps" ]
+    }, {
+      "weapon": [ "Arc Grenades" ],
+      "replaces": [ "Rad Grenades" ],
+      "cost": 1,
+      "usedBy": [ "Skitarii Princeps" ]
     }
   ]
 }
