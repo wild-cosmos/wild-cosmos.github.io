@@ -11,11 +11,10 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    project: './tsconfig.json',
   },
   rules: {
     'vue/first-attribute-linebreak': 'off',
     'vue/max-attributes-per-line': 'off',
   },
-  ignorePatterns: ['docs', 'node_modules'],
+  ignorePatterns: ['dist', 'node_modules'],
 };

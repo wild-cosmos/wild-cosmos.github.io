@@ -8,13 +8,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": [ "./src/*" ]
     },
-    "typeRoots": [
-      "./src/types"
-    ],
+    "typeRoots": [ "./src/types" ],
     "target": "ES6",
     "lib": [
       "ES2017",
