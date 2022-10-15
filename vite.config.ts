@@ -26,7 +26,6 @@ const pwaOptions : Partial<VitePWAOptions> = {
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    outDir: 'docs',
   },
   plugins: [
     vue(),
