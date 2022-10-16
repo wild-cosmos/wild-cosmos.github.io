@@ -1,0 +1,365 @@
+{
+  "models": {
+    "Ork Boss": {
+      "cost": 8,
+      "mv": [ 4, 10 ],
+      "bs": 6,
+      "cs": 3,
+      "df": 7,
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Slugga", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Sidekick" ]
+    },
+    "Ork Boy": {
+      "cost": 6,
+      "mv": [ 4, 10 ],
+      "bs": 6,
+      "cs": 4,
+      "df": 7,
+      "lf": 4,
+      "si": 1,
+      "ld": 5,
+      "roles": [ "Core", "Specialist" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Slugga", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule" ]
+    },
+    "Warbiker": {
+      "cost": 12,
+      "mv": [ 8, 16 ],
+      "bs": 6,
+      "cs": 4,
+      "df": 5,
+      "lf": 6,
+      "si": 2,
+      "ld": 5,
+      "roles": [ "Specialist" ],
+      "type": [ "Biker" ],
+      "limits": {
+        "comment": "If your leader is a Speedboss, this model may have the Core role"
+      },
+      "weapons": [ "Slugga", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule" ]
+    },
+    "Speedboss": {
+      "cost": 14,
+      "mv": [ 8, 16 ],
+      "bs": 6,
+      "cs": 3,
+      "df": 5,
+      "lf": 8,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Leader" ],
+      "type": [ "Biker" ],
+      "weapons": [ "Slugga", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule" ]
+    },
+    "Wierdboy": {
+      "cost": 22,
+      "mv": [ 4, 10 ],
+      "bs": 6,
+      "cs": 4,
+      "df": [ 7, 7 ],
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Biker" ],
+      "weapons": [ "Gorkamorka staff" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Pskyer (Powers of the Waaagh!)", "Waaagh! Energy", "Sidekick" ]
+    },
+    "Boss Nob": {
+      "cost": 14,
+      "mv": [ 4, 10 ],
+      "bs": 6,
+      "cs": 3,
+      "df": 6,
+      "lf": 8,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Slugga", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Sidekick" ]
+    },
+    "Nob": {
+      "cost": 14,
+      "mv": [ 4, 10 ],
+      "bs": 6,
+      "cs": 3,
+      "df": 6,
+      "lf": 8,
+      "si": 2,
+      "ld": 3,
+      "roles": [ "Core", "Specialist" ],
+      "type": [ "Infantry" ],
+      "limits": {
+        "requires": [ "Boss Nob", "Megaboss" ]
+      },
+      "weapons": [ "Slugga", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads" ]
+    },
+    "Megaboss": {
+      "cost": 35,
+      "mv": [ 4, 8 ],
+      "bs": 6,
+      "cs": 3,
+      "df": 2,
+      "lf": 10,
+      "si": 3,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Power klaw", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads", "Sidekick" ]
+    },
+    "Meganob": {
+      "cost": 35,
+      "mv": [ 4, 8 ],
+      "bs": 6,
+      "cs": 3,
+      "df": 2,
+      "lf": 10,
+      "si": 3,
+      "ld": 3,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "limits": {
+        "requires": [ "Megaboss" ]
+      },
+      "weapons": [ "Power klaw", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads" ]
+    }
+  },
+  "weapons": {
+    "Big choppa": {
+      "range": null,
+      "a": 2,
+      "ap": [ 1, 4 ],
+      "dm": 2,
+      "notes": "Critical (7+)"
+    },
+    "Big shoota": {
+      "range": 18,
+      "a": [ 3, 4 ],
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "Assault, Rapid Fire. The bearer cannot aim with this weapon."
+    },
+    "Big smasha": {
+      "range": null,
+      "a": 2,
+      "ap": 1,
+      "dm": [ 2, 3 ],
+      "notes": "Critical (7+)"
+    },
+    "Burna": {
+      "range": [ 8, null ],
+      "a": 1,
+      "ap": 0,
+      "dm": [ 1, 2 ],
+      "notes": "Assault, Engulf (2), Flame (2+). Melee attacks with this weapon have AP 2/4."
+    },
+    "Burnabomb": {
+      "range": 6,
+      "a": "D2",
+      "ap": 0,
+      "dm": 1,
+      "notes": "Grenade, Blast (4), Indirect, Flame (4+)"
+    },
+    "Burna pistol": {
+      "range": [ 6, null ],
+      "a": 1,
+      "ap": 0,
+      "dm": [ 1, 2 ],
+      "notes": "Pistol, Engulf (2), Flame (2+). Melee attacks with this weapon have AP 2/4."
+    },
+    "Choppa": {
+      "range": null,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "If the bearer charges, this weapon has A 3 until the end of the round."
+    },
+    "Dakkagun": {
+      "range": 10,
+      "a": [ 3, 4 ],
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "Assault, Rapid Fire. The bearer cannot aim with this weapon."
+    },
+    "Gorkamorka staff": {
+      "range": null,
+      "a": 2,
+      "ap": 0,
+      "dm": [ 1, 2 ],
+      "melee": {
+        "name": "Gorkamorka staff (Waaagh!-charged)",
+        "range": null,
+        "a": 2,
+        "ap": 3,
+        "dm": [ 2, 3 ],
+        "notes": "Critical (7+). The bearer must spend 1✷ each time they use this profile."
+      },
+      "notes": null
+    },
+    "Grot gunna": {
+      "range": [ 10, null ],
+      "a": [ 2, 3 ],
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "Familiar (5+), Rapid Fire. When making a ranged attack with this weapon, it can only target visible models, and cover saves may be used to defend against the attack. This weapon can attack at long range."
+    },
+    "Iron gob": {
+      "range": null,
+      "a": 1,
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "The bearer can attack with this weapon as an additional secondary weapon."
+    },
+    "Killsaw": {
+      "range": null,
+      "a": 2,
+      "ap": 5,
+      "dm": [ "D4", 4 ],
+      "notes": "Critical (6+), Paired. Attacks with this weapon incur a hit roll penalty of 1."
+    },
+    "Kombi-rokkit": {
+      "notes": "This weapon has a shoota profile and One Use rokkit launcha profiles."
+    },
+    "Kombi-skorcha": {
+      "notes": "This weapon has a shoota profile and a One Use skorcha profile."
+    },
+    "Kombi-zzappa": {
+      "notes": "This weapon has a shoota profile and a One Use zzap gun profile."
+    },
+    "Megachoppa": {
+      "range": null,
+      "a": 2,
+      "ap": [ 2, 5 ],
+      "dm": [ 2, 3 ],
+      "notes": "Critical (7+). If the bearer attacks more than one target or a unit with this weapon, add 1 to its A value."
+    },
+    "Multirokkit": {
+      "range": 10,
+      "a": 2,
+      "ap": 4,
+      "dm": [ "D4", 4 ],
+      "notes": "Assault, Critical (6+). The bearer cannot aim with this weapon."
+    },
+    "Power klaw": {
+      "range": null,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": [ "D4", 4 ],
+      "notes": "Critical (6+), Paired. Attacks with this weapon incur a hit roll penalty of 1."
+    },
+    "Ritual stabba": {
+      "range": null,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "This weapon can attack with an A value of 3, but these hits cannot be critical."
+    },
+    "Rokkit launcha (boomdakka rokkit)": {
+      "range": 18,
+      "a": 1,
+      "ap": 4,
+      "dm": [ "D4", 4 ],
+      "notes": "Assault, Critical (6+). The bearer cannot aim with this weapon."
+    },
+    "Rokkit launcha (flashbang rokkit)": {
+      "range": 18,
+      "a": "D2",
+      "ap": [ 0, 3 ],
+      "dm": 1,
+      "notes": "Assault, Blast (4), Stun (5+). The bearer cannot aim with this weapon."
+    },
+    "Rokkit pistol": {
+      "range": [ 9, null ],
+      "a": 1,
+      "ap": 4,
+      "dm": [ "D4", 4 ],
+      "notes": "Pistol, Critical (7+). Melee attacks with this weapon incur a hit roll penalty of 1."
+    },
+    "Shoota": {
+      "range": 10,
+      "a": [ 2, 3 ],
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "Assault, Rapid Fire"
+    },
+    "Skorcha": {
+      "range": 8,
+      "a": 1,
+      "ap": 1,
+      "dm": [ 1, 2 ],
+      "notes": "Heavy (1), Engulf (2), Flame (2+), Critical (7+)"
+    },
+    "Slugga": {
+      "range": [ 9, null ],
+      "a": 1,
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "Pistol"
+    },
+    "Smasha": {
+      "range": null,
+      "a": 2,
+      "ap": 0,
+      "dm": [ 1, 2 ],
+      "notes": "If the bearer charges, this weapon has A 3 until the end of the round."
+    },
+    "Stikkbombs": {
+      "range": 6,
+      "a": "D2",
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "Grenade, Blast (4), Indirect"
+    },
+    "Tankbusta bomb": {
+      "range": null,
+      "a": 1,
+      "ap": 4,
+      "dm": [ "D4", 4 ],
+      "notes": "Grenade, Critical (6+). This weapon can only target models that are Large (2 or greater). If the target is a Machine that did not move in the previous Manoeuvring Phase, the hit is always successful."
+    },
+    "Zzap gun": {
+      "range": 18,
+      "a": 1,
+      "ap": "D8",
+      "dm": [ 2, 3 ],
+      "notes": "Assault, Beam, Critical (7+). If a 6+ is rolled for this weapon’s AP value, it has AP 5, but the hit is automatically critical. If an 8 is rolled for this weapon’s AP value, the bearer also suffers 1 injury after the attack has been resolved. The bearer cannot aim with this weapon."
+    },
+    "Zzap pistol": {
+      "range": [ 9, null ],
+      "a": 1,
+      "ap": "D8",
+      "dm": [ 2, 3 ],
+      "notes": "Assault, Beam, Critical (7+). If a 6+ is rolled for this weapon’s AP value, it has AP 5, but the hit is automatically critical. If an 8 is rolled for this weapon’s AP value, the bearer also suffers 1 injury after the attack has been resolved."
+    }
+  }
+}
