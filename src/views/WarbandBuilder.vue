@@ -54,18 +54,12 @@
         <label for="selectUnit">Model</label>
       </div>
     </div>
-    <div class="col-auto">
-      <button class="mt-2 btn btn-success text-nowrap" :disabled="!selectedUnit" @click="onAddSquadMember">
-        <i class="bi-clipboard-plus" />
-        Add Model to Roster
-      </button>
+    <div v-if="squadStore.models.length">
+      <h3>Reference</h3>
+      <WeaponsList v-if="uniqueWeapons.length" :weapons="uniqueWeapons" />
+      <WargearList v-if="uniqueWargear.length" :wargear="uniqueWargear" />
+      <AbilityList v-if="uniqueAbilities.length" :items="uniqueAbilities" />
     </div>
-  </div>
-
-  <div v-if="squadStore.units.length">
-    <h3>Reference</h3>
-    <WeaponsList v-if="uniqueWeapons.length" :weapons="uniqueWeapons" />
-    <WargearList v-if="uniqueWargear.length" :wargear="uniqueWargear" />
   </div>
 </template>
 
@@ -166,6 +160,14 @@ watch(validationErrors, async (errorList) => {
       toastElList.forEach((toastEl) => new Toast(toastEl, option));
     });
   }
+});
+
+  const abilityReference = squadStore.models.reduce((list, { abilities }) => {
+    if (abilities) list.push(...abilities.map((name) => ({ name })));
+    return list;
+  }, [] as Ability[]);
+
+  return orderBy(uniqBy(abilityReference, 'name'), ['name']);
 });
 
 const uniqueWeapons = computed(() => {

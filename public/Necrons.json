@@ -337,7 +337,18 @@
       "usedBy": [ "Oligarkh", "Lychguard" ]
     }
   ],
-  "abilities": [ ],
+  "abilities": [
+    "Living Metal", 
+    "Reanimation Protocols", 
+    "Autonomous Servant",
+    "Mercurial Tyrant",
+    "Marked for Death",
+    "Hyperspace Oubliette",
+    "Eternal Protector",
+    "Flesh Hunger",
+    "Swarm",
+    "Scarab Hive"
+  ],
   "wargear": [
     {
       "name": "Dispersion Shield",
