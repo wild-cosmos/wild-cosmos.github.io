@@ -27,11 +27,16 @@
   background-size: cover;
 }
 
+.sponsor-banner .container-fluid {
+  z-index: 10;
+}
+
 .rocket {
   height: 32px;
   position: absolute;
   left: -64px;
-  animation: zoom 6s ease-in-out infinite;
+  animation: zoom2 15s ease-in-out infinite;
+  z-index: 11;
 }
 
 @keyframes zoom {
@@ -43,4 +48,43 @@
     left: 110%;
   }
 }
+
+@keyframes zoom2 {
+  0% {
+  }
+
+  28% {
+    height: 32px;
+    z-index: 11;
+    left: -64px;
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1);
+    left: 110%;
+    height: 32px;
+    z-index: 11;
+  }
+
+  70% {
+    transform: scale(-1);
+    height: 20px;
+    left: 110%;
+    z-index: 9;
+  }
+
+  85% {
+    transform: scale(-1);
+    height: 20px;
+    left: -64px;
+    z-index: 9;
+  }
+
+  100% {
+    transform: scale(1);
+    height: 32px;
+  }
+}
+
 </style>
