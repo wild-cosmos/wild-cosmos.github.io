@@ -136,11 +136,8 @@ export const useDataStore = defineStore({
             api.get<Faction>(dataFile)
               .then((data) => {
                 this.$patch((state) => {
-                  if (data.abilities) {
-                    state.abilities.push(...data.abilities.map((ability: Ability) => ({
-                      ...ability,
-                      faction: factionName,
-                    })));
+                  if (data.abilities?.length > 0) {
+                    state.abilities.push(...data.abilities.map((name) => ({ name, factionName })));
                   }
                   if (data.models) {
                     const modelList = Object.entries(data.models)
@@ -227,4 +224,17 @@ export const useDataStore = defineStore({
         });
     },
   },
+
+    getAbility(ability: Ability) {
+      if (ability?.description) return ability;
+
+      let filename = ability.name;
+      const suffixOffset = filename.lastIndexOf('(');
+      if (suffixOffset > -1) filename = filename.slice(0, suffixOffset).trim();
+
+      return api.get<string>(`rules/abilities/${filename}.html`, { headers: {
+        Accept: 'text/html' }, responseAs: 'text' })
+        .then((description) => Object.assign(ability, { description }));
+    },
+  }
 });
