@@ -12,7 +12,7 @@ import type {
 interface State {
   factions: string[];
   abilities: Ability[];
-  units: Unit[];
+  models: Unit[];
   wargear: Wargear[];
   weapons: Weapon[];
   wargearList: { [key : string ]: { weapons: Weapon[], wargear: Wargear[] } };
@@ -83,7 +83,7 @@ export const useDataStore = defineStore({
   state: () : State => ({
     factions: [],
     abilities: [],
-    units: [],
+    models: [],
     wargear: [
       { name: 'Empty', hidden: true } as Wargear,
     ],
@@ -99,7 +99,7 @@ export const useDataStore = defineStore({
   }),
 
   getters: {
-    getUniqueFactions: ({ units }) => units.reduce((factionList, { faction }) => {
+    getUniqueFactions: ({ models }) => models.reduce((factionList, { faction, factionName }) => {
       if (isArray(faction)) {
         faction.forEach((f) => {
           if (!factionList.includes(f)) factionList.push(f);
@@ -109,18 +109,18 @@ export const useDataStore = defineStore({
       }
       return factionList;
     }, [] as string[]),
-    getUnitsForFaction: ({ units }) => (factionName: string) => units.filter(({ faction }) => faction === factionName || faction.includes(factionName)),
+    getModelsForFaction: ({ models }) => (lookupName: string) => models.filter(({ faction, factionName }) => factionName === lookupName || faction?.includes(lookupName)),
     getWargear: ({ wargear }) => (wargearName: string) : Wargear | undefined => wargear.find(({ name }) => name === wargearName),
     getWargearForFaction: ({ wargear }) => (factionName: string) => wargear.filter(({ faction }) => faction === factionName),
     getWeapon: ({ weapons }) => (weaponName: string) : Weapon | undefined => weapons.find(({ name }) => name === weaponName),
     getWeaponsForFaction: (state) => (faction: string) => state.weapons.filter((weapon) => weapon.faction === faction),
 
-    getUnitByName: ({ units }) => (unitName: string) => units.find(({ name }) => name === unitName),
+    getModelByName: ({ models }) => (unitName: string) => models.find(({ name }) => name === unitName),
 
-    getConfigurationOptionsForUnit: ({ configuration }) => ({ name }: BaseUnit) => configuration.filter(({ usedBy }) => usedBy.includes(name)),
+    getConfigurationOptionsForModel: ({ configuration }) => ({ name }: BaseUnit) => configuration.filter(({ usedBy }) => usedBy.includes(name)),
 
-    getWargearListForUnit: ({ units, wargearList }) => ({ name } : SquadUnit) : { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
-      const unit = units.find((u) => u.name === name);
+    getWargearListForModel: ({ models, wargearList }) => ({ name } : SquadUnit) : { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
+      const unit = models.find((u) => u.name === name);
       return unit?.wargearList?.map((listName) => ({ name: listName, ...wargearList[listName] })) ?? [];
     },
   },
@@ -139,11 +139,21 @@ export const useDataStore = defineStore({
                   if (data.abilities?.length > 0) {
                     state.abilities.push(...data.abilities.map((name) => ({ name, factionName })));
                   }
+
                   if (data.models) {
                     const modelList = Object.entries(data.models)
-                      .map(([name, model]) => Object.assign(model, { name, faction: /* model.faction || */ factionName }));
-                    state.units.push(...modelList);
+                      .map<Unit>(([name, model]) => Object.assign(model, { name, factionName, faction: model.faction || [factionName] }));
+
+                    state.subFactions[factionName] = modelList.reduce((f, model) => {
+                      model.faction?.forEach((s) => {
+                        if (!f.includes(s)) f.push(s);
+                      });
+                      return f;
+                    }, [] as string[]);
+
+                    state.models.push(...modelList);
                   }
+
                   if (data.weapons) {
                     if (isArray(data.weapons)) {
                       state.weapons.push(...data.weapons.map((item) => Object.assign(item, { faction: factionName })));

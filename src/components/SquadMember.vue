@@ -3,11 +3,11 @@
     <UnitDetails :unit="unit">
       <template #actions>
         <button class="btn btn-sm btn-secondary text-nowrap" @click="onClickDuplicate">
-          <i class="bi-files" />
+          <i class="bi bi-files" />
           Duplicate
         </button>
         <button class="btn btn-sm btn-danger text-no-wrap" @click="onClickRemove">
-          <i class="bi-clipboard-x" />
+          <i class="bi bi-clipboard-x" />
           Remove
         </button>
       </template>
@@ -25,6 +25,7 @@
             </li>
           </ul>
         </div>
+        <SelectRole :options="rolesForUnit" v-model="selectedRole" />
         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="collapse"
           :data-bs-target="`#collapse_${unit.id}`" aria-expanded="false" aria-controls="collapseExample">
           <span class="d-collapsed">Show</span>
@@ -32,7 +33,7 @@
           Options
         </button>
         <button class="btn btn-sm btn-outline-danger text-nowrap" @click="onClickReset">
-          <i class="bi-x-lg" />
+          <i class="bi bi-arrow-counterclockwise" />
           Reset
         </button>
       </template>
@@ -45,7 +46,7 @@
               {{ option.label }}
             </button>
             <button v-if="false" class="btn btn-sm btn-outline-danger text-nowrap mb-1" @click="onClickReset">
-              <i class="bi-x-lg" />
+              <i class="bi bi-x-lg" />
               Reset
             </button>
           </div>
@@ -74,9 +75,9 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import {
-  orderBy, isArray, isNil, isNull, isString, countBy
+  orderBy, isArray, isNil, isNull, isString, countBy,
 } from 'lodash-es';
-import { Collapse } from 'bootstrap';
+import SelectRole from '@/components/SelectRole.vue';
 
 import UnitDetails from './UnitDetails.vue';
 import OptionalWargear from './OptionalWargear.vue';
@@ -86,9 +87,8 @@ import { useSquadStore } from '@/stores/squad';
 
 import formatList from '@/utils/formatList';
 
-import type {
-  Configuration, Item, SquadUnit, Weapon,
-} from '@/types/unit';
+import type { Item, SquadUnit, Weapon } from '@/types/unit';
+import type { Configuration } from '@/types/faction';
 
 const devMode = false; // import.meta.env.DEV;
 
@@ -103,7 +103,7 @@ const selectedOption = ref(null);
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
 
-const unitType = computed(() => dataStore.getUnitByName(props.unit.name));
+const unitType = computed(() => dataStore.getModelByName(props.unit.name));
 
 const toOption = ({ name, cost }: Item) => ({ value: name, text: `${name} (${cost})` });
 
@@ -133,7 +133,7 @@ const selectedRole = computed({
   },
 });
 
-const configurationOptions = computed(() => dataStore.getConfigurationOptionsForUnit(props.unit));
+const configurationOptions = computed(() => dataStore.getConfigurationOptionsForModel(props.unit));
 
 const availableConfigurationOptions = computed(() => {
   const currentWeapons = (props.unit.weapons ?? [])
@@ -195,7 +195,7 @@ const availableConfigurationOptions = computed(() => {
 
   const { role, weapons, wargear } = props.unit;
 
-  const hasRole = ({ condition }: Configuration): boolean => isNil(condition?.role) || condition?.role === role;
+  const hasRole = ({ condition }: Configuration): boolean => isNil(condition?.role) || condition?.role === role || condition?.role.includes(role);
   const hasMeleeWeapon = ({ condition }: Configuration): boolean => isNil(condition?.hasMeleeWeapon) || weapons.some(isMelee) === condition?.hasMeleeWeapon;
   const hasRequired = ({ condition }: Configuration): boolean => isNil(condition?.requires)
     || hasAll(condition?.requires, weapons.map(({ name }) => name))
@@ -276,7 +276,6 @@ function onSelect(option: Configuration | null) {
     selectedOption.value = null;
   }
 }
-
 
 // const onMounted = () => {
 //   const collapseElementList = document.querySelectorAll('.collapse')

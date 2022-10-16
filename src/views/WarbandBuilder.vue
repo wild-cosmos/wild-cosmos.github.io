@@ -88,14 +88,14 @@ const dataStore = useDataStore();
 const squadStore = useSquadStore();
 
 // const state = reactive({ selectedFaction: null as any});
-const selectedUnit = ref(null);
+const selectedModel = ref(null);
 const maxPoints = 100;
 
 const selectedFaction = computed({
   get() { return squadStore.faction; },
   set(faction) {
     squadStore.faction = faction;
-    selectedUnit.value = null;
+    selectedModel.value = null;
   },
 });
 
@@ -104,24 +104,19 @@ const squadName = computed({
   set(name) { squadStore.name = name; },
 });
 
-const availableUnits = computed(() => dataStore.getUnitsForFaction(squadStore.faction));
 
-const availableUnitOptions = computed(() => {
-  const options = availableUnits.value.map(({ name, cost }) => ({ value: name, text: `${name} (${cost})` }));
+const availableModels = computed(() => dataStore.getModelsForFaction(squadStore.faction));
+
+const availableModelOptions = computed(() => {
+  const options = availableModels.value.map(({ name, cost }) => ({ value: name, text: `${name} (${cost})` }));
   return orderBy(options, ['text']);
 });
 
 const validationErrors = computed(() => {
   const errorList = [] as { text: string, icon?: string, variant?: string }[];
 
-  if (squadStore.units.length) {
-    errorList.push({
-        text: `Total ${squadStore.totalPoints} points` 
-          + (squadStore.totalPoints > maxPoints ? `, your Warband value is greater than ${maxPoints}` : ''),
-        variant: squadStore.totalPoints > maxPoints ? 'danger' : 'success',
-      });
-
-    if (squadStore.units.length < 3) {
+  if (squadStore.models.length) {
+    if (squadStore.models.length < 3) {
       errorList.push({ text: 'Your Warband must contain at least 3 models' });
     }
 
@@ -148,6 +143,11 @@ const validationErrors = computed(() => {
     if (roles.specialist > roles.core) {
       errorList.push({ text: 'Your Warband cannot have more Specialist than Core models' });
     }
+
+    errorList.push({
+      text: `Total ${squadStore.totalPoints} points${squadStore.totalPoints > maxPoints ? `, your Warband value is greater than ${maxPoints}` : ''}`,
+      variant: squadStore.totalPoints > maxPoints ? 'danger' : 'success',
+    });
   }
 
   return errorList.slice(0, 2).map((e) => {
@@ -169,7 +169,7 @@ watch(validationErrors, async (errorList) => {
 });
 
 const uniqueWeapons = computed(() => {
-  const weaponsReference = squadStore.units.reduce((list, { weapons }) => {
+  const weaponsReference = squadStore.models.reduce((list, { weapons }) => {
     if (weapons) list.push(...weapons);
     return list;
   }, [] as Weapon[]);
@@ -177,7 +177,7 @@ const uniqueWeapons = computed(() => {
 });
 
 const uniqueWargear = computed(() => {
-  const wargearReference = squadStore.units.reduce((list, { wargear }) => {
+  const wargearReference = squadStore.models.reduce((list, { wargear }) => {
     if (wargear) list.push(...wargear);
     return list;
   }, [] as Wargear[]);
@@ -185,8 +185,8 @@ const uniqueWargear = computed(() => {
 });
 
 function onAddSquadMember() {
-  const unit = availableUnits.value.find(({ name }) => name === selectedUnit.value);
-  if (unit) squadStore.addSquadMember(unit);
+  const model = availableModels.value.find(({ name }) => name === selectedModel.value);
+  if (model) squadStore.addSquadMember(model);
 }
 
 function onReset() {

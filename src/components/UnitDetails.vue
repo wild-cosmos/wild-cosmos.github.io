@@ -120,7 +120,7 @@ const allWargear = computed(() => {
   return [
     ...(weapons ?? []).filter(excludeHidden).map(checkMissing).map(({ name }) => name),
     ...(wargear ?? []).filter(excludeHidden).map(checkMissing).map(({ name }) => name),
-  ]
+  ];
 });
 
 const unitRoleAndType = computed(() => {

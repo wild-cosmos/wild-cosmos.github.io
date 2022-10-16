@@ -5,16 +5,16 @@ import UnitRow from './UnitRow.vue';
 import type { Unit } from '@/types/unit';
 
 const props = defineProps<{
-  units: Unit[],
+  models: Unit[],
   showFaction: boolean
 }>();
 
-const factionUnits = computed(() => orderBy(props.units, ['name']));
+const factionModels = computed(() => orderBy(props.models, ['name']));
 </script>
 
 <template>
   <div class="table-responsive">
-    <table class="table table-hover table-sm">
+    <table class="table table-hover">
       <thead class="table-secondary">
         <tr>
           <th>Model</th>
@@ -25,10 +25,11 @@ const factionUnits = computed(() => orderBy(props.units, ['name']));
           <th>Lf</th>
           <th>Ld</th>
           <th>Role and Type</th>
+          <th>Faction</th>
         </tr>
       </thead>
       <tbody>
-        <UnitRow v-for="(unit) in factionUnits" :key="unit.name" :unit="unit" :show-faction="showFaction" />
+        <UnitRow v-for="(unit) in factionModels" :key="unit.name" :unit="unit" :show-faction="showFaction" />
       </tbody>
     </table>
   </div>

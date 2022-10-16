@@ -35,7 +35,7 @@ interface State {
   faction: string;
   name: string;
   id: number;
-  units: SquadUnit[];
+  models: SquadUnit[];
 }
 
 // eslint-disable-next-line import/prefer-default-export
@@ -46,19 +46,19 @@ export const useSquadStore = defineStore({
     faction: 'None',
     name: '',
     id: 0,
-    units: [],
+    models: [],
   }),
 
   getters: {
-    totalPoints: ({ units }) => units.reduce((total, unit) => total + unit.cost, 0),
+    totalPoints: ({ models }) => models.reduce((total, model) => total + model.cost, 0),
 
-    getModelsWithItem: ({ units }) => (itemName : string) => units.filter(({ weapons, wargear }) => {
+    getModelsWithItem: ({ models }) => (itemName : string) => models.filter(({ weapons, wargear }) => {
       if (weapons.some(({ name }) => name === itemName)) return true;
       if (wargear.some(({ name }) => name === itemName)) return true;
       return false;
     }),
 
-    getWargearCountInWarband: ({ units }) => units.reduce((items : { [key : string] : number }, { wargear, weapons }) => {
+    getWargearCountInWarband: ({ models }) => models.reduce((items : { [key : string] : number }, { wargear, weapons }) => {
       wargear?.forEach(({ name }) => {
         if (name in items) {
           items[name] += 1;
@@ -80,24 +80,24 @@ export const useSquadStore = defineStore({
   actions: {
     clear() {
       this.$patch((state) => {
-        state.units.splice(0);
+        state.models.splice(0);
       });
     },
-    addSquadMember(unit: Unit) {
+    addSquadMember(model: Unit) {
       const dataStore = useDataStore();
 
-      const m = Object.entries(unit)
+      const m = Object.entries(model)
         .reduce((target : { [key : string] : any }, [property, value] : [string, any]) => {
           if (property in target) target[property] = value;
           return target;
         }, createSquadUnit());
 
-      if (unit.roles.length > 0) {
-        const [role] = unit.roles;
+      if (model.roles.length > 0) {
+        const [role] = model.roles;
         Object.assign(m, { role });
       }
 
-      const { weapons = [], wargear = [] } = unit;
+      const { weapons = [], wargear = [] } = model;
       const defaultItems = [
         ...weapons,
         ...wargear,
@@ -105,39 +105,39 @@ export const useSquadStore = defineStore({
       m.weapons = defaultItems.map(dataStore.getWeapon).filter((w) => !!w);
       m.wargear = (wargear ?? []).map(dataStore.getWargear).filter(((w) => !!w));
 
-      this.units.push(m as SquadUnit);
+      this.models.push(m as SquadUnit);
 
       return m;
     },
-    duplicateSquadMember(unit: SquadUnit) {
-      const { weapons, wargear } = unit;
+    duplicateSquadMember(model: SquadUnit) {
+      const { weapons, wargear } = model;
       const newMember = {
-        ...unit,
+        ...model,
         id: generateId(),
         weapons: [...weapons],
         wargear: [...wargear],
       };
-      this.units.push(newMember);
+      this.models.push(newMember);
     },
-    removeSquadMember(unit: SquadUnit) {
-      const idx = this.units.findIndex(({ id }) => id === unit.id);
+    removeSquadMember(model: SquadUnit) {
+      const idx = this.models.findIndex(({ id }) => id === model.id);
       if (idx > -1) {
-        this.units.splice(idx, 1);
+        this.models.splice(idx, 1);
       }
     },
-    setSquadMember(squadId: number, unit: Unit) {
-      const squadUnit = this.units.find(({ id }) => id === squadId);
+    setSquadMember(squadId: number, model: Unit) {
+      const squadUnit = this.models.find(({ id }) => id === squadId);
       if (squadUnit) {
-        Object.assign(squadUnit, unit);
+        Object.assign(squadUnit, model);
       }
     },
 
     resetWargear(unit: SquadUnit): void {
       const dataStore = useDataStore();
-      const model = dataStore.getUnitByName(unit.name);
+      const model = dataStore.getModelByName(unit.name);
       if (model) {
         this.$patch((state) => {
-          const updateModel = state.units.find(({ id }) => id === unit.id);
+          const updateModel = state.models.find(({ id }) => id === unit.id);
           if (updateModel) {
             const { cost, weapons = [], wargear = [] } = model;
             const defaultItems = [...wargear, ...weapons];
@@ -155,7 +155,7 @@ export const useSquadStore = defineStore({
       const dataStore = useDataStore();
 
       this.$patch((state) => {
-        const squadUnit = state.units.find(({ id }) => id === unit.id);
+        const squadUnit = state.models.find(({ id }) => id === unit.id);
         if (squadUnit) {
           squadUnit.cost += cost;
           (isArray(items) ? items : [items])
@@ -174,7 +174,7 @@ export const useSquadStore = defineStore({
 
     removeWargear(unit: SquadUnit, items: string | string[]): void {
       this.$patch((state) => {
-        const squadUnit = state.units.find(({ id }) => id === unit.id);
+        const squadUnit = state.models.find(({ id }) => id === unit.id);
         if (squadUnit) {
           (isArray(items) ? items : [items])
             .forEach((weaponName) => {
@@ -199,7 +199,7 @@ export const useSquadStore = defineStore({
     },
 
     setRole(squadId: number, role: string) {
-      const squadUnit = this.units.find(({ id }) => id === squadId);
+      const squadUnit = this.models.find(({ id }) => id === squadId);
       if (squadUnit) {
         Object.assign(squadUnit, { role });
       }
