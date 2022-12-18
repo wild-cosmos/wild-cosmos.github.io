@@ -1,10 +1,11 @@
 <template>
   <tr v-for="({ name, range, a, ap, dm, notes }, idx) in weaponStats" :key="`${name}_${idx}`"
-    :class="{ 'weapon-stats': true, 'melee-stats': idx > 0 }">
+      :class="{ 'weapon-stats': true, 'melee-stats': idx > 0 }"
+  >
     <td>
       <div v-if="name && (idx === 0 || name !== weapon.name)">
         {{ name }}
-        <small v-if="showFaction">({{ faction }})</small>
+        <small v-if="showFaction" class="d-block">({{ faction }})</small>
       </div>
     </td>
     <td>{{ formatStat(range, '"') }}</td>
@@ -57,5 +58,3 @@ const weaponStats = computed(() => {
 
 const faction = computed(() => (props.showFaction ? props.weapon.faction : null));
 </script>
-
-

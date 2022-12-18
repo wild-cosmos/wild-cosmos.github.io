@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { groupBy, orderBy } from 'lodash-es';
+import { orderBy } from 'lodash-es';
 import WargearRow from './WargearRow.vue';
 import type { Wargear } from '@/types/unit';
 

@@ -22,21 +22,21 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { groupBy, orderBy } from 'lodash-es';
+import { orderBy } from 'lodash-es';
 import WeaponRow from './WeaponRow.vue';
 import type { Weapon } from '@/types/unit';
 
-const props = defineProps<{
+interface Props {
   weapons: Weapon[],
   showFaction?: boolean
-}>();
+}
+
+const props = defineProps<Props>();
 
 const factionWeapons = computed(() => {
   const weapons = props.weapons.filter((weapon) => !!weapon).filter(({ ammo, hidden }) => !hidden && !ammo);
   return orderBy(weapons, ['name']);
 });
-
-const weaponsByFaction = computed(() => groupBy(props.weapons, 'faction'));
 </script>
 
 <style lang="css">

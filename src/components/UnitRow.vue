@@ -12,14 +12,16 @@ const rolesAndTypes = computed(() => {
   const { roles, type } = props.unit;
   return [roles.join(' or '), ...type].filter((s) => s > '').join(', ');
 });
+
+const factions = computed(() => {
+  const { faction } = props.unit;
+  return faction?.join(', ');
+});
 </script>
 
 <template>
   <tr>
-    <td>
-      {{ unit.name }}
-      <span v-if="showFaction">({{ unit.faction }})</span>
-    </td>
+    <td>{{ unit.name }}</td>
     <td>{{ formatStat(unit.mv, '"') }}</td>
     <td>{{ formatStat(unit.bs, '+') }}</td>
     <td>{{ formatStat(unit.cs, '+') }}</td>
@@ -29,5 +31,6 @@ const rolesAndTypes = computed(() => {
     </td>
     <td>{{ formatStat(unit.ld, '+') }}</td>
     <td>{{ rolesAndTypes }}</td>
+    <td>{{ factions }}</td>
   </tr>
 </template>
