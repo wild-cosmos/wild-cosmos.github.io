@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia';
-import { useLocalStorage } from '@vueuse/core';
 import { isArray } from 'lodash-es';
 import { useDataStore } from './data';
+import { useWarbandStore } from './warband';
 import type { SquadUnit, Unit } from '@/types/unit';
+import type { Warband } from '@/types/warband';
 
 const generateId = ((id) => {
   let nextId = id;
@@ -33,19 +34,18 @@ const createSquadUnit = () : SquadUnit => ({
 
 interface State {
   faction: string;
-  name: string;
-  id: number;
+  name: string | null;
+  id: number | null;
   models: SquadUnit[];
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const useSquadStore = defineStore({
   id: 'squad',
 
-  state: () => useLocalStorage<State>('wild-cosmos', {
+  state: () : State => ({
     faction: 'None',
-    name: '',
-    id: 0,
+    name: null,
+    id: null,
     models: [],
   }),
 
@@ -78,6 +78,25 @@ export const useSquadStore = defineStore({
   },
 
   actions: {
+    selectWarband(id : number) {
+      const warbandStore = useWarbandStore();
+      const selectedWarband = warbandStore.getWarband(id);
+      this.$patch((state) => {
+        if (selectedWarband) {
+          Object.assign(state, selectedWarband);
+        } else {
+          this.$reset();
+        }
+      });
+    },
+
+    setName(name : string) {
+      this.name = name;
+      const warbandStore = useWarbandStore();
+      const { id } = this;
+      warbandStore.setName({ id, name } as Warband);
+    },
+
     clear() {
       this.$patch((state) => {
         state.models.splice(0);
