@@ -225,7 +225,11 @@
     }
   },
 
-  "abilities": [ ],
+  "abilities": [
+    "And They Shall Know No Fear",
+    "Transhuman Physiology",
+    "Psyker (Librarius Discipline)"
+   ],
 
   "wargear": [
     {
@@ -244,13 +248,13 @@
       "name": "Bionics",
       "notes": "This model has the Ignore Damage (7+) ability."
     }, {
-      "name": "Camo cloak",
+      "name": "Camo Cloak",
       "notes": "This model has the Camouflage (1) ability."
     }, {
       "name": "Chain Bayonet",
       "notes": "This model is treated as being armed with a chainsword. They cannot attack with this chainsword in the same round that they attack with their boltgun or combi-weapon."
     }, {
-      "name": "Chapter vexillum",
+      "name": "Chapter Vexillum",
       "notes": "This model has the Battle Standard ability."
     }, {
       "name": "Dark Age weapon",
@@ -259,7 +263,7 @@
       "name": "Devotional Cherub",
       "notes": "Once per game, this model may discard one successful hit that has been allocated to them. This must be declared after all successful hits for an attack have been allocated, but before any saving throws are made."
     }, {
-      "name": "Grapnel launcher",
+      "name": "Grapnel Launcher",
       "notes": "When this model advances, they have the Flying ability."
     }, {
       "name": "Gravis Armour",
@@ -271,7 +275,7 @@
       "name": "Master-crafted Weapon",
       "notes": "When you create your warband, choose one weapon this model is armed with (excluding Grenades, Familiars and Steeds). This model re-rolls hit rolls of 1 with the chosen weapon."
     }, {
-      "name": "Purity seals",
+      "name": "Purity Seals",
       "notes": "When you create your warband, choose one of the following abilities. For the duration of the game, every model in your warband with purity seals has this ability.\nRecitation of Focus: If this model takes an aimed shot, they incur a critical hit bonus of 1 for the attack.\nExhortation of Rage: If this model charges, they incur a critical hit bonus of 1 for their attacks in the following Close Quarters Phase.\nLitany of Faith: Enemy attacks that target this model incur a critical hit penalty of 1 if the value required for a critical hit with that attack is better than 8+."
     }, {
       "name": "Refractor Field",
@@ -295,7 +299,7 @@
       "name": "Storm Shield",
       "notes": "This model has the Shield ability and a 7+ invulnerable save."
     }, {
-      "name": "Teleportation transponder",
+      "name": "Teleportation Transponder",
       "notes": "This model has the Teleport Strike (4+) ability."
     }, {
       "name": "Watcher in the Dark",
@@ -1063,41 +1067,41 @@
       },
       "usedBy": [ "Space Marine Scout" ]
     }, {
-      "weapon": [ "Camo cloak" ],
+      "weapon": [ "Camo Cloak" ],
       "cost": 2,
       "condition": {
-        "not": [ "Camo cloak", "Grapnel launcher" ]
+        "not": [ "Camo Cloak", "Grapnel Launcher" ]
       },
       "usedBy": [ "Scout Sergeant", "Space Marine Scout", "Scout Lexicanium" ]
     }, {
-      "weapon": [ "Grapnel launcher" ],
+      "weapon": [ "Grapnel Launcher" ],
       "cost": 2,
       "condition": {
-        "not": [ "Camo cloak", "Grapnel launcher", "Heavy Bolter", "Missile Launcher" ]
+        "not": [ "Camo Cloak", "Grapnel Launcher", "Heavy Bolter", "Missile Launcher" ]
       },
       "usedBy": [ "Scout Sergeant", "Space Marine Scout", "Scout Lexicanium" ]
     }, {
-      "weapon": [ "Purity seals" ],
+      "weapon": [ "Purity Seals" ],
       "cost": 2,
       "condition": {
-        "not": [ "Purity seals" ]
+        "not": [ "Purity Seals" ]
       },
       "usedBy": [ "Space Marine Sergeant", "Tactical Marine", "Space Marine Biker", "Devastator", "Lexicanium", "Scout Sergeant", "Scout Lexicanium", "Terminator Sergeant", "Terminator", "Terminator Lexicanium" ]
     }, {
-      "weapon": [ "Purity seals" ],
+      "weapon": [ "Purity Seals" ],
       "cost": 2,
       "condition": {
         "role": "Specialist",
-        "not": [ "Purity seals" ]
+        "not": [ "Purity Seals" ]
       },
       "usedBy": [ "Space Marine Scout" ]
     }, {
-      "weapon": [ "Chapter vexillum" ],
+      "weapon": [ "Chapter Vexillum" ],
       "replaces": [ ],
       "cost": 5,
       "condition": {
         "role": "Core",
-        "not": [ "Chapter vexillum" ]
+        "not": [ "Chapter Vexillum" ]
       },
       "usedBy": [ "Tactical Marine" ]
     },
@@ -1172,11 +1176,11 @@
       "cost": 0,
       "usedBy": [ "Terminator Sergeant", "Terminator" ]
     }, {
-      "weapon": [ "Teleportation transponder" ],
+      "weapon": [ "Teleportation Transponder" ],
       "replaces": [ ],
       "cost": 3,
       "condition": {
-        "not": [ "Teleportation transponder" ]
+        "not": [ "Teleportation Transponder" ]
       },
       "usedBy": [ "Terminator Sergeant", "Terminator", "Terminator Lexicanium" ]
     }, {
