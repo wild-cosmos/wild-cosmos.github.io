@@ -7,6 +7,7 @@ const props = defineProps<{
   showFaction: boolean
 }>();
 
+const notes = computed(() => props.item.notes || '-');
 const faction = computed(() => (props.showFaction ? props.item.faction : null));
 </script>
 
@@ -16,6 +17,8 @@ const faction = computed(() => (props.showFaction ? props.item.faction : null));
       <span class="text-nowrap">{{ item.name }}</span>
       <small v-if="showFaction" class="d-block">({{ faction }})</small>
     </td>
-    <td><small style="white-space: pre-line">{{ item.notes || '-' }}</small></td>
+    <td>
+      <div class="small" style="white-space: pre-line" v-html="notes" />
+    </td>
   </tr>
 </template>
