@@ -2,56 +2,64 @@
   <h3 class="d-none d-print-block">
     {{ squadName }}
   </h3>
-  <div class="row d-print-none ">
-    <div class="col">
-      <div class="form-floating">
-        <input v-model="squadName" class="form-control">
-        <label for="selectWeapon">Warband Name</label>
-      </div>
+  <div class="row d-print-none align-items-center">
+    <div class="col-12 col-sm mb-2 mb-sm-0">
+      <SelectWarband v-model:warband="selectedWarband" />
     </div>
-    <div class="col-auto">
-      <button class="mt-2 btn btn-danger text-nowrap" :disabled="!squadStore.units.length" @click="onReset">
-        <i class="bi-trash3" />
-        Reset
-      </button>
+    <div class="col-12 col-sm-4" v-if="selectedWarband">
+      <div class="form-floating">
+        <input id="warbandName" v-model="squadName" class="form-control">
+        <label for="warbandName">Warband Name</label>
+      </div>
     </div>
   </div>
 
-  <SquadMember v-for="(unit) in squadStore.units" :key="unit.id" :unit="unit" />
+  <div v-if="selectedWarband">
+    <SquadMember v-for="(model) in squadStore.models" :key="model.id" :unit="model" />
 
-  <div class="toast-container position-fixed bottom-0 end-0 p-3 pb-5">
-    <div v-for="{ text, variant, icon } in validationErrors" :key="text" role="alert"
-      :class="['toast', 'fade show', `text-bg-${variant || 'warning'}`, 'mb-2']" aria-live="assertive"
-      aria-atomic="true">
-      <div class="toast-body">
-        <div class="d-flex align-items-center">
-          <h3 :class="['mb-0 me-2', icon ?? 'bi-exclamation-diamond']" />
-          <div>{{ text }}</div>
+    <div class="toast-container d-print-none position-fixed bottom-0 end-0 p-3 pb-5">
+      <div v-for="{ text, variant, icon } in validationErrors" :key="text" role="alert"
+        :class="['toast', 'fade show', `text-bg-${variant || 'warning'}`, 'mb-2']" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-body">
+          <div class="d-flex align-items-center">
+            <h3 :class="['mb-0 me-2', icon ?? 'bi-exclamation-diamond']" />
+            <div>{{ text }}</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div v-if="squadStore.units.length" class="d-flex justify-content-end my-3">
-    <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{
-    squadStore.totalPoints
-    }} Pts</strong>
-  </div>
-
-  <div class="d-print-none bg-light my-3 py-2 row">
-    <div class="col-12 col-sm-auto">
-      <SelectFaction v-model:faction="selectedFaction" class="mb-3 mb-sm-0" />
+    <div v-if="squadStore.models.length" class="d-flex justify-content-end my-3">
+      <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{
+      squadStore.totalPoints
+      }} Pts</strong>
     </div>
-    <div class="col-12 col-sm-auto">
-      <div class="form-floating">
-        <select id="selectUnit" v-model="selectedUnit" class="form-select" :disabled="!availableUnitOptions.length">
-          <option v-if="selectedFaction === 'None'" disabled :value="null">Select Faction</option>
-          <option v-else-if="!selectedUnit" disabled :value="null">Select Model</option>
-          <option v-for="({ value, text }) in availableUnitOptions" :key="value" :value="value">
-            {{ text }}
-          </option>
-        </select>
-        <label for="selectUnit">Model</label>
+
+    <div class="d-print-none bg-light my-3 py-2 row align-items-center">
+      <div class="col-12 col-sm-6 col-md-4">
+        <SelectFaction v-model:faction="selectedFaction" :valid-factions="validListFactions" class="mb-2 mb-md-0" />
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 mb-2 mb-md-0">
+        <div class="form-floating">
+          <select id="selectUnit" v-model="selectedModel" class="form-select" :disabled="!availableModelOptions.length">
+            <option v-if="!selectedModel" disabled :value="null">Select Model</option>
+            <option v-for="({ value, text }) in availableModelOptions" :key="value" :value="value">
+              {{ text }}
+            </option>
+          </select>
+          <label for="selectUnit">Model</label>
+        </div>
+      </div>
+      <div class="col-auto d-flex flex-nowrap">
+        <button class="btn btn-success text-nowrap" :disabled="!selectedModel" @click="onAddSquadMember">
+          <i class="bi bi-clipboard-plus" />
+          Add Model
+        </button>
+        <button class="ms-2 btn btn-danger text-nowrap" :disabled="!squadStore.models.length" @click="onReset">
+          <i class="bi bi-arrow-counterclockwise" />
+          Reset
+        </button>
       </div>
     </div>
     <div v-if="squadStore.models.length">
@@ -68,15 +76,18 @@ import {
   computed, ref, watch, nextTick,
 } from 'vue';
 import { Toast } from 'bootstrap';
-import { isString, orderBy, uniqBy } from 'lodash-es';
+import { isArray, orderBy, uniqBy } from 'lodash-es';
 import SquadMember from '@/components/SquadMember.vue';
 import SelectFaction from '@/components/SelectFaction.vue';
+import AbilityList from '../components/AbilityList.vue';
 import WeaponsList from '../components/WeaponsList.vue';
 import WargearList from '../components/WargearList.vue';
 
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
 import type { Wargear, Weapon } from '@/types/unit';
+import SelectWarband from '../components/SelectWarband.vue';
+import type { Ability } from '@/types/faction';
 
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
@@ -93,11 +104,21 @@ const selectedFaction = computed({
   },
 });
 
-const squadName = computed({
-  get() { return squadStore.name; },
-  set(name) { squadStore.name = name; },
+const selectedWarband = computed({
+  get() { return squadStore?.id; },
+  set(id) { squadStore.selectWarband(id); },
 });
 
+const squadName = computed({
+  get() { return squadStore.name; },
+  set(name) { squadStore.setName(name); },
+});
+
+const validListFactions = computed(() => squadStore.models.reduce((validFactions, { faction }) => {
+  const factions: string[] = isArray(faction) ? faction : [faction];
+  validFactions.push(...factions.filter((f) => !validFactions.includes(f)));
+  return validFactions;
+}, [] as string[]));
 
 const availableModels = computed(() => dataStore.getModelsForFaction(squadStore.faction));
 
@@ -114,7 +135,19 @@ const validationErrors = computed(() => {
       errorList.push({ text: 'Your Warband must contain at least 3 models' });
     }
 
-    const roles = squadStore.units.reduce((o, { role }) => {
+    // Check models all from valid faction(s)
+    const listFactions = squadStore.models.reduce((validFactions, { name, faction }) => {
+      const factions: string[] = isArray(faction) ? faction : [faction];
+
+      if (!validFactions.length) return [...factions];
+
+      if (!factions.reduce((valid, f) => valid || validFactions.includes(f), false)) {
+        errorList.push({ text: `${name} is not allowed`, variant: 'danger' });
+      }
+      return validFactions.filter((f) => factions.includes(f));
+    }, [] as string[]);
+
+    const roles = squadStore.models.reduce((o, { role }) => {
       if (!role) return o;
       const key = role.toLowerCase();
       if (key in o) {
@@ -144,12 +177,10 @@ const validationErrors = computed(() => {
     });
   }
 
-  return errorList.slice(0, 2).map((e) => {
-    return {
-      ...e,
-      icon: e.variant === 'success' ? 'bi-check-circle' : null,
-    };
-  });
+  return errorList.slice(0, 2).map((e) => ({
+    ...e,
+    icon: e.variant === 'success' ? 'bi-check-circle' : null,
+  }));
 });
 
 watch(validationErrors, async (errorList) => {
@@ -162,6 +193,7 @@ watch(validationErrors, async (errorList) => {
   }
 });
 
+const uniqueAbilities = computed(() => {
   const abilityReference = squadStore.models.reduce((list, { abilities }) => {
     if (abilities) list.push(...abilities.map((name) => ({ name })));
     return list;

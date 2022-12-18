@@ -1,40 +1,51 @@
 <template>
   <div class="form-floating">
-    <select id="faction" v-model="selectedFaction"
-      class="form-select" aria-label="Selected faction" placeholder="Faction">
+    <select id="faction" v-model="selectedFaction" class="form-select" aria-label="Selected faction" placeholder="Faction">
       <option v-if="allowNull || !selectedFaction" :value="null">
         Select Faction
       </option>
-      <option v-for="(name) in factions" :key="name" :value="name">
-        {{ name }}
+      <option v-for="({ text, value, disabled }) in factions" :key="value" :value="value" :disabled="disabled">
+        {{ text }}
       </option>
     </select>
     <label for="faction">Faction</label>
   </div>
 </template>
 
-<script setup lang="ts">
-import { computed } from 'vue';
+<script lang="ts">
+import { defineComponent } from 'vue';
 import { orderBy } from 'lodash-es';
 import { useDataStore } from '@/stores/data';
 
-const emit = defineEmits(['update:faction']);
-
-const dataStore = useDataStore();
-
-const props = defineProps<{
-  faction: string | null,
-  allowNull?: boolean,
-}>();
-
-const selectedFaction = computed({
-  get() { return props.faction; },
-  set(faction) { emit('update:faction', faction); },
+export default defineComponent({
+  emits: ['update:faction'],
+  props: {
+    faction: { type: String, default: null },
+    validFactions: { type: Array, default: () => ([]) },
+    allowNull: { type: Boolean, default: false },
+  },
+  setup() {
+    const { getUniqueFactions } = useDataStore();
+    return { getUniqueFactions };
+  },
+  computed: {
+    selectedFaction: {
+      get() {
+        return this.faction;
+      },
+      set(faction: string) {
+        this.$emit('update:faction', faction);
+      },
+    },
+    factions() {
+      const options = this.getUniqueFactions
+        .map((name) => ({
+          value: name,
+          text: name,
+          disabled: this.validFactions?.length > 0 && !this.validFactions.includes(name),
+        }));
+      return orderBy(options, ['text']);
+    },
+  },
 });
-
-const factions = computed(() => orderBy(dataStore.getUniqueFactions));
-
 </script>
-
-<style scoped>
-</style>
