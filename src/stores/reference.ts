@@ -1,14 +1,10 @@
 import { defineStore } from 'pinia';
 import { mande } from 'mande';
-
-export interface Rule {
-  title: string;
-  section: string;
-}
+import type { Rule } from '@/types/reference';
 
 interface State {
   searchTerms: string[],
-  rules: Rule[]
+  rules: Rule[] 
 }
 
 const api = mande('/');

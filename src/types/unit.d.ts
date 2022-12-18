@@ -1,19 +1,3 @@
-export interface Faction {
-  abilities?: Ability[];
-  configuration?: Configuration[];
-  models: { [key: string] : Unit };
-  units?: Unit[];
-  wargear?: Wargear[];
-  weapons?: Weapon[];
-  wargearList?: { [key: string]: Item[] };
-}
-
-export interface Ability {
-  faction: string;
-  name: string;
-  cost: number;
-}
-
 interface BaseUnit {
   faction: string;
   name: string;
@@ -33,6 +17,8 @@ export interface Unit extends BaseUnit {
   wargear?: string[];
   wargearList?: string[];
   weapons?: string[];
+  faction: string[];
+  factionName?: string;
   // options?: BuildOptions[];
   // optionalWargear?: string[];
 }
@@ -82,27 +68,6 @@ export interface WeaponStats {
   notes?: string;
 }
 
-export interface Configuration {
-  weapon: string | string[];
-  replaces: string | string[];
-  condition?: Condition;
-  cost: number;
-  usedBy: string | string[];
-}
-
-interface Condition {
-  role?: string | string[];
-  hasMeleeWeapon?: boolean;
-  requires?: string[];
-  replaces?: string[];
-  not?: string[];
-  any?: string[];
-  only?: string[];
-  ability?: string[];
-  limit?: number;
-  modelLimit?: number;
-  warbandLimit?: number;
-}
 
 export interface WargearList {
   name?: string;
