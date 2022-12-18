@@ -11,7 +11,7 @@
       "ld": 3,
       "roles": [ "Leader", "Specialist" ],
       "type": [ "Infantry" ],
-      "wargear": [ "Omnissian axe" ],
+      "wargear": [ "Omnissian Axe" ],
       "wargearList": [ "Battle Tech", "Arcana Mechanicum", "Servo-skulls" ],
       "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian", "Master of Mechanisms" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Cult Mechanicus" ]
@@ -73,7 +73,7 @@
       "ld": 4,
       "roles": [ "Heavy Support" ],
       "type": [ "Machine" ],
-      "wargear": [ "Taser lance" ],
+      "wargear": [ "Taser Lance" ],
       "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian", "Explodes!", "Large Mount" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Skitarii" ]
     }
@@ -128,14 +128,14 @@
       "dm": 2,
       "notes": "Heavy (1), Critical (6+)"
     },
-    "Eradication ray (atomising beam)": {
+    "Eradication Ray (atomising beam)": {
       "range": 9,
       "a": 1,
       "ap": [ 2, 5 ],
       "dm": [ "D2", 2 ],
       "notes": "Heavy (1), Beam. This weapon cannot target models that are further away than its Rng value."
     },
-    "Eradication ray (diffused beam)": {
+    "Eradication Ray (diffused beam)": {
       "range": 18,
       "a": 1,
       "ap": 2,
@@ -610,7 +610,7 @@
       },
       "Phase Taser": {
         "cost": 4,
-        "replaces": [ "Taser goad" ],
+        "replaces": [ "Taser Goad" ],
         "only": [ "Skitarii Princeps", "Skitarii Legionnaire" ],
         "warbandLimit": 3
       }
@@ -618,14 +618,14 @@
   },
   "configuration": [
     {
-      "weapon": [ "Omnissian staff" ],
+      "weapon": [ "Omnissian Staff" ],
       "cost": 0,
-      "replaces": [ "Omnissian axe" ],
+      "replaces": [ "Omnissian Axe" ],
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Power fist" ],
+      "weapon": [ "Power Fist" ],
       "cost": 3,
-      "replaces": [ "Omnissian axe" ],
+      "replaces": [ "Omnissian Axe" ],
       "usedBy": [ "Tech-priest" ]
     }, {
       "weapon": [ "Arc Pistol" ],
@@ -656,66 +656,66 @@
       },
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Servo arm" ],
+      "weapon": [ "Servo Arm" ],
       "cost": 5,
       "condition": {
-        "not": [ "Servo arm", "Eradication ray", "Magnarail lance", "Quantum annihilator", "Rad-cleanser", "Transonic cannon", "Volkite blaster", "Mechadendrites", "Mag-suspensors" ]
+        "not": [ "Servo Arm", "Eradication Ray", "Magnarail Lance", "Quantum Annihilator", "Rad-cleanser", "Transonic Cannon", "Volkite Blaster", "Mechadendrites", "Mag-suspensors" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Eradication ray" ],
+      "weapon": [ "Eradication Ray" ],
       "cost": 3,
       "condition": {
-        "not": [ "Servo arm", "Eradication ray", "Magnarail lance", "Quantum annihilator", "Rad-cleanser", "Transonic cannon", "Volkite blaster" ]
+        "not": [ "Servo Arm", "Eradication Ray", "Magnarail Lance", "Quantum Annihilator", "Rad-cleanser", "Transonic Cannon", "Volkite Blaster" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Magnarail lance" ],
+      "weapon": [ "Magnarail Lance" ],
       "cost": 7,
       "condition": {
-        "not": [ "Servo arm", "Eradication ray", "Magnarail lance", "Quantum annihilator", "Rad-cleanser", "Transonic cannon", "Volkite blaster" ]
+        "not": [ "Servo Arm", "Eradication Ray", "Magnarail Lance", "Quantum Annihilator", "Rad-cleanser", "Transonic Cannon", "Volkite Blaster" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Quantum annihilator" ],
+      "weapon": [ "Quantum Annihilator" ],
       "cost": 5,
       "condition": {
-        "not": [ "Servo arm", "Eradication ray", "Magnarail lance", "Quantum annihilator", "Rad-cleanser", "Transonic cannon", "Volkite blaster" ]
+        "not": [ "Servo Arm", "Eradication Ray", "Magnarail Lance", "Quantum Annihilator", "Rad-cleanser", "Transonic Cannon", "Volkite Blaster" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
       "weapon": [ "Rad-cleanser" ],
       "cost": 3,
       "condition": {
-        "not": [ "Servo arm", "Eradication ray", "Magnarail lance", "Quantum annihilator", "Rad-cleanser", "Transonic cannon", "Volkite blaster" ]
+        "not": [ "Servo Arm", "Eradication Ray", "Magnarail Lance", "Quantum Annihilator", "Rad-cleanser", "Transonic Cannon", "Volkite Blaster" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Transonic cannon" ],
+      "weapon": [ "Transonic Cannon" ],
       "cost": 4,
       "condition": {
-        "not": [ "Servo arm", "Eradication ray", "Magnarail lance", "Quantum annihilator", "Rad-cleanser", "Transonic cannon", "Volkite blaster" ]
+        "not": [ "Servo Arm", "Eradication Ray", "Magnarail Lance", "Quantum Annihilator", "Rad-cleanser", "Transonic Cannon", "Volkite Blaster" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
-      "weapon": [ "Volkite blaster" ],
+      "weapon": [ "Volkite Blaster" ],
       "cost": 8,
       "condition": {
-        "not": [ "Servo arm", "Eradication ray", "Magnarail lance", "Quantum annihilator", "Rad-cleanser", "Transonic cannon", "Volkite blaster" ]
+        "not": [ "Servo Arm", "Eradication Ray", "Magnarail Lance", "Quantum Annihilator", "Rad-cleanser", "Transonic Cannon", "Volkite Blaster" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
       "weapon": [ "Mechadendrites" ],
       "cost": 3,
       "condition": {
-        "not": [ "Servo arm", "Mag-suspensors", "Mechadendrites" ]
+        "not": [ "Servo Arm", "Mag-suspensors", "Mechadendrites" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
       "weapon": [ "Mag-suspensors" ],
       "cost": 2,
       "condition": {
-        "not": [ "Servo arm", "Mag-suspensors", "Mechadendrites" ]
+        "not": [ "Servo Arm", "Mag-suspensors", "Mechadendrites" ]
       },
       "usedBy": [ "Tech-priest" ]
     }, {
