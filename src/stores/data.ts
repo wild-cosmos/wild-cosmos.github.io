@@ -1,16 +1,16 @@
 import { defineStore } from 'pinia';
 import { mande } from 'mande';
-import { assign, isArray, isString } from 'lodash-es';
+import { isArray, isString, uniq } from 'lodash-es';
 
 import type {
-  Faction,
   BaseUnit, Unit, SquadUnit,
-  Ability, Wargear, Weapon,
-  Configuration, Item, Condition,
+  Wargear, Weapon, Item,
 } from '@/types/unit';
+import type { Ability, Configuration, Faction } from '@/types/faction';
 
 interface State {
   factions: string[];
+  subFactions: { [key : string] : string[] };
   abilities: Ability[];
   models: Unit[];
   wargear: Wargear[];
@@ -76,12 +76,12 @@ function parseFaction(faction : string | [string, string]) {
   };
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export const useDataStore = defineStore({
   id: 'data',
 
   state: () : State => ({
     factions: [],
+    subFactions: {},
     abilities: [],
     models: [],
     wargear: [
@@ -104,16 +104,32 @@ export const useDataStore = defineStore({
         faction.forEach((f) => {
           if (!factionList.includes(f)) factionList.push(f);
         });
-      } else if (!factionList.includes(faction)) {
-        factionList.push(faction);
+      } else if (factionName && !factionList.includes(factionName)) {
+        factionList.push(factionName);
       }
       return factionList;
     }, [] as string[]),
     getModelsForFaction: ({ models }) => (lookupName: string) => models.filter(({ faction, factionName }) => factionName === lookupName || faction?.includes(lookupName)),
+    getAbilitiesForFaction: ({ abilities }) => (lookupName: string) => abilities.filter(({ faction, factionName }) => factionName === lookupName || faction?.includes(lookupName)),
     getWargear: ({ wargear }) => (wargearName: string) : Wargear | undefined => wargear.find(({ name }) => name === wargearName),
-    getWargearForFaction: ({ wargear }) => (factionName: string) => wargear.filter(({ faction }) => faction === factionName),
+    getWargearForFaction({ wargear }) {
+      return (factionName: string) => {
+        const searchFactions = this.getSearchFactions(factionName);
+        return wargear.filter(({ faction }) => searchFactions.includes(faction));
+      };
+    },
+
     getWeapon: ({ weapons }) => (weaponName: string) : Weapon | undefined => weapons.find(({ name }) => name === weaponName),
-    getWeaponsForFaction: (state) => (faction: string) => state.weapons.filter((weapon) => weapon.faction === faction),
+    getWeaponsForFaction({ weapons }) {
+      return (factionName: string) => {
+        const searchFactions = this.getSearchFactions(factionName);
+        return weapons.filter(({ faction }) => searchFactions.includes(faction));
+      };
+    },
+    getSearchFactions: ({ subFactions }) => (factionName : string) => {
+      const searchFactions = Object.entries(subFactions).filter(([, list]) => list.includes(factionName)).map(([f]) => f);
+      return searchFactions.length ? uniq(searchFactions) : [factionName];
+    },
 
     getModelByName: ({ models }) => (unitName: string) => models.find(({ name }) => name === unitName),
 
@@ -158,18 +174,19 @@ export const useDataStore = defineStore({
                     if (isArray(data.weapons)) {
                       state.weapons.push(...data.weapons.map((item) => Object.assign(item, { faction: factionName })));
                     } else {
-                      state.weapons.push(...Object.entries(data.weapons).map(([name, item]) => Object.assign(item, { name, faction: factionName })));
+                      const weaponsArray = Object.entries<Weapon>(data.weapons)
+                        .map<Weapon>(([name, item]) => Object.assign(item, { name, faction: factionName }));
+                      state.weapons.push(...weaponsArray);
                     }
                   }
+
                   if (data.wargear) {
                     if (isArray(data.wargear)) {
                       state.wargear.push(...data.wargear.map((item) => Object.assign(item, { faction: factionName })));
                     } else {
-                      state.wargear.push(...Object.entries<{ [key:string]:Wargear }>(data.wargear).map(([name, item]) => ({
-                        name,
-                        faction: factionName,
-                        ...item,
-                      })));
+                      const wargearArray = Object.entries<Wargear>(data.wargear)
+                        .map(([name, item]) => Object.assign(item, { name, faction: factionName }));
+                      state.wargear.push(...wargearArray);
                     }
                   }
 
@@ -210,7 +227,6 @@ export const useDataStore = defineStore({
                       }))
                       .forEach(({ name, weapons, wargear }) => {
                         Object.assign(state.wargearList, { [name]: { weapons, wargear } });
-                        // state.wargearList[wargearList.name] = { weapons, wargear };
                       });
                   }
                   if (data.configuration) {
@@ -230,10 +246,22 @@ export const useDataStore = defineStore({
               .catch((error) => {
                 console.error(`Error processing ${dataFile}`, error);
               });
-          });
+          })        
+        })
+    },
+
+    loadHtml() {
+      this.abilities.forEach((ability) => {
+        console.log(`Loading /rules/abilities/${ability.name}.html`);
+        api.get(`rules/abilities/${ability.name}.html`, { headers: {
+          Accept: 'text/html' } })
+          .then((description) => {
+            debugger;
+            return Object.assign(ability, { description });
+          })
+          .catch((error) => { console.log(error); });
         });
     },
-  },
 
     getAbility(ability: Ability) {
       if (ability?.description) return ability;
