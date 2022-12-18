@@ -266,9 +266,10 @@ export const useDataStore = defineStore({
     getAbility(ability: Ability) {
       if (ability?.description) return ability;
 
-      let filename = ability.name;
-      const suffixOffset = filename.lastIndexOf('(');
-      if (suffixOffset > -1) filename = filename.slice(0, suffixOffset).trim();
+      let filename = ability.name.replace(/\([0-9+]+\)/, '').trim();
+
+      // const suffixOffset = filename.lastIndexOf('(');
+      // if (suffixOffset > -1) filename = filename.slice(0, suffixOffset).trim();
 
       return api.get<string>(`rules/abilities/${filename}.html`, { headers: {
         Accept: 'text/html' }, responseAs: 'text' })
