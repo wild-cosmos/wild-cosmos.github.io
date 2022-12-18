@@ -78,7 +78,7 @@
       "ld": 4,
       "roles": [ "Specialist" ],
       "type": [ "Biker" ],
-      "weapons": [ "Gorkamorka staff" ],
+      "weapons": [ "Gorkamorka Staff" ],
       "wargear": [ ],
       "wargearList": [ ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Pskyer (Powers of the Waaagh!)", "Waaagh! Energy", "Sidekick" ]
@@ -129,7 +129,7 @@
       "ld": 3,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
-      "weapons": [ "Power klaw", "Stikkbombs" ],
+      "weapons": [ "Power Klaw", "Stikkbombs" ],
       "wargear": [ ],
       "wargearList": [ ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads", "Sidekick" ]
@@ -148,28 +148,28 @@
       "limits": {
         "requires": [ "Megaboss" ]
       },
-      "weapons": [ "Power klaw", "Stikkbombs" ],
+      "weapons": [ "Power Klaw", "Stikkbombs" ],
       "wargear": [ ],
       "wargearList": [ ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads" ]
     }
   },
   "weapons": {
-    "Big choppa": {
+    "Big Choppa": {
       "range": null,
       "a": 2,
       "ap": [ 1, 4 ],
       "dm": 2,
       "notes": "Critical (7+)"
     },
-    "Big shoota": {
+    "Big Shoota": {
       "range": 18,
       "a": [ 3, 4 ],
       "ap": [ 0, 4 ],
       "dm": 1,
       "notes": "Assault, Rapid Fire. The bearer cannot aim with this weapon."
     },
-    "Big smasha": {
+    "Big Smasha": {
       "range": null,
       "a": 2,
       "ap": 1,
@@ -190,7 +190,7 @@
       "dm": 1,
       "notes": "Grenade, Blast (4), Indirect, Flame (4+)"
     },
-    "Burna pistol": {
+    "Burna Pistol": {
       "range": [ 6, null ],
       "a": 1,
       "ap": 0,
@@ -211,7 +211,7 @@
       "dm": 1,
       "notes": "Assault, Rapid Fire. The bearer cannot aim with this weapon."
     },
-    "Gorkamorka staff": {
+    "Gorkamorka Staff": {
       "range": null,
       "a": 2,
       "ap": 0,
@@ -226,14 +226,14 @@
       },
       "notes": null
     },
-    "Grot gunna": {
+    "Grot Gunna": {
       "range": [ 10, null ],
       "a": [ 2, 3 ],
       "ap": [ 0, 4 ],
       "dm": 1,
       "notes": "Familiar (5+), Rapid Fire. When making a ranged attack with this weapon, it can only target visible models, and cover saves may be used to defend against the attack. This weapon can attack at long range."
     },
-    "Iron gob": {
+    "Iron Gob": {
       "range": null,
       "a": 1,
       "ap": [ 0, 4 ],
@@ -270,14 +270,14 @@
       "dm": [ "D4", 4 ],
       "notes": "Assault, Critical (6+). The bearer cannot aim with this weapon."
     },
-    "Power klaw": {
+    "Power Klaw": {
       "range": null,
       "a": 2,
       "ap": [ 3, 5 ],
       "dm": [ "D4", 4 ],
       "notes": "Critical (6+), Paired. Attacks with this weapon incur a hit roll penalty of 1."
     },
-    "Ritual stabba": {
+    "Ritual Stabba": {
       "range": null,
       "a": 2,
       "ap": [ 0, 4 ],
@@ -298,7 +298,7 @@
       "dm": 1,
       "notes": "Assault, Blast (4), Stun (5+). The bearer cannot aim with this weapon."
     },
-    "Rokkit pistol": {
+    "Rokkit Pistol": {
       "range": [ 9, null ],
       "a": 1,
       "ap": 4,
@@ -340,26 +340,97 @@
       "dm": 1,
       "notes": "Grenade, Blast (4), Indirect"
     },
-    "Tankbusta bomb": {
+    "Tankbusta Bomb": {
       "range": null,
       "a": 1,
       "ap": 4,
       "dm": [ "D4", 4 ],
       "notes": "Grenade, Critical (6+). This weapon can only target models that are Large (2 or greater). If the target is a Machine that did not move in the previous Manoeuvring Phase, the hit is always successful."
     },
-    "Zzap gun": {
+    "Zzap Gun": {
       "range": 18,
       "a": 1,
       "ap": "D8",
       "dm": [ 2, 3 ],
-      "notes": "Assault, Beam, Critical (7+). If a 6+ is rolled for this weapon’s AP value, it has AP 5, but the hit is automatically critical. If an 8 is rolled for this weapon’s AP value, the bearer also suffers 1 injury after the attack has been resolved. The bearer cannot aim with this weapon."
+      "notes": "Assault, Beam, Critical (7+). If a 6+ is rolled for this weapon's AP value, it has AP 5, but the hit is automatically critical. If an 8 is rolled for this weapon's AP value, the bearer also suffers 1 injury after the attack has been resolved. The bearer cannot aim with this weapon."
     },
-    "Zzap pistol": {
+    "Zzap Pistol": {
       "range": [ 9, null ],
       "a": 1,
       "ap": "D8",
       "dm": [ 2, 3 ],
-      "notes": "Assault, Beam, Critical (7+). If a 6+ is rolled for this weapon’s AP value, it has AP 5, but the hit is automatically critical. If an 8 is rolled for this weapon’s AP value, the bearer also suffers 1 injury after the attack has been resolved."
+      "notes": "Assault, Beam, Critical (7+). If a 6+ is rolled for this weapon's AP value, it has AP 5, but the hit is automatically critical. If an 8 is rolled for this weapon's AP value, the bearer also suffers 1 injury after the attack has been resolved."
+    }
+  },
+  "wargear": {
+    "Bilious Saliva": {
+      "notes": "This model's fang-filled gob or bionik gob has the Poison (7+) type."
+    },
+    "Bioniks": {
+      "notes": "This model has the Ignore Damage (7+) ability."
+    },
+    "Bosspole": {
+      "notes": "When making morale checks, visible friendly Ork models within 9\" of this model may use this model's Ld value instead of their own."
+    },
+    "Cybork Upgrade": {
+      "notes": "This model has the Ignore Damage (7+) ability. When this model is set up on the battlefield, roll two D4s and apply the corresponding improvements below to this model's characteristics:<ol><li>Improve their BS value by 1.</li><li>Improve their CS value by 1.</li><li>Add 1 to their Lf value.</li><li>Improve the value for their Ignore Damage ability by 1.</li></ol>"
+    },
+    "'Eavy Armour": {
+      "notes": "This model has a 6+ armour save."
+    },
+    "'Eavier Armour": {
+      "notes": "This model improvaes their armour save by 1."
+    },
+    "Force Field": {
+      "notes": "This model has a 7+ invunerable save."
+    },
+    "Glyph of Gork (of Mork)": {
+      "notes": "If this model charges, after they have completed their movement, choose one enemy model within 1\" of them and roll a D8: if the value rolled is equal to or greater than this model's CS value, the chosen model suffers one AP 0 hit; if the value rolled is 6+, they additionally get one Stun token."
+    },
+    "Grizzled Hide": {
+      "notes": "This model has a 6+ armour save."
+    },
+    "Horned Helmet": {
+      "notes": "If this model charges, after they have completed their movement, choose one enemy model within 1\" of them and roll a D8: if the value rolled is equal to or greater than this model's CS value, the chosen model suffers one AP 0 hit; if the value rolled is 6+, they additionally get one Stun token."
+    },
+    "Kamo gear": {
+      "notes": "This model has the Ambush and Camouflage (1) abilities."
+    },
+    "Killa Warpaint": {
+      "notes": "This model has Fearsome (1) ability. Enemy models within 1\" of this model re-roll successful morale checks."
+    },
+    "Klan Banna": {
+      "notes": "This model has the Battle Standards ability."
+    },
+    "Kopper Brainkap": {
+      "notes": "When this model generates their warp charges, do not roll one of the dice: instead, set it automatically to an 8."
+    },
+    "Loudshouta": {
+      "notes": "<p>Once per round, when this model acts during the Manoeuvring Phase, either before or after they move, they can shout at visible friendly Ork models and units within 12″ of them. Choose what you want this model to shout from the list below, and the model or unit that is being shouted at. This model then makes a Ld check: if the check is successful, each of the models being shouted at receives the benefit of the chosen effect until the end of the round.</p><p>If this model is faltering, they worsen their Ld value by 1 for the purpose of the Ld check; they cannot shout at models if they are panicking.</p><ul><li>Hit 'Em 'Arder! This model adds 1 to the critical Dm value of any melee weapons they are armed with that have 'choppa' or 'smasha' in their name.</li><li>Oi! You Gitz! This model immediately becomes composed (they can still falter or panic again later in the round, for example if they fail their next morale check).</li><li>Quit Larkin' About! This model can charge models that retreated from them in the same phase.</li></ul>"
+    },
+    "Lucky Blue Warpaint": {
+      "notes": "When this model is set up on the battlefield, they get a Luck token. When making a hit roll or a saving throw for this model, if they have a Luck token, you may change one of the dice rolled as part of that action to an 8. Then roll a D8: on a 7+, this model keeps their Luck token; otherwise it is discarded."
+    },
+    "Medikul Stapla": {
+      "notes": "Once per game, this model may use the Heal (2+, Orks) ability. If they make a successful roll for this ability, the nominated model regains D3 life instead of 1."
+    },
+    "Mystick Warpaint": {
+      "notes": "This model improves their invulnerable save by 1."
+    },
+    "Savage Mask": {
+      "notes": "This model has the Fearsome (1) ability, and they improve their invulnerable save by 1."
+    },
+    "Scorched Gitbonez": {
+      "notes": "Each time this model manifests Frazzle or Killbolt, roll a D8 for each model hit by the power: on a 6+, that model gets a Flame token."
+    },
+    "Shokk Field": {
+      "notes": "This model has a 7+ invulnerable save. When this model makes a saving throw against a melee attack, if the value rolled is 8+, the attacking model suffers one AP 3 hit."
+    },
+    "Skrap Shield": {
+      "notes": "This model has the Shield ability, and they improve their armour save by 1."
+    },
+    "Stabby Bitz": {
+      "notes": "If this model charges, after they have completed their movement, each enemy model within 1\" of them suffers one AP 1 hit."
     }
   }
 }
