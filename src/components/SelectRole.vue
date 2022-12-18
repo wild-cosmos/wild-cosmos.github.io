@@ -12,14 +12,19 @@
     </ul>
 
     <div ref="confirmModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-      aria-hidden="true">
+         aria-hidden="true"
+    >
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           Changing role to {{ currentRole }} will reset this model's wargear, are you sure you want to continue?
         </div>
         <div class="Modal-footer">
-          <button class="btn btn-sm btn-light">Cancel</button>
-          <button class="btn btn-sm btn-primary">OK</button>
+          <button class="btn btn-sm btn-light">
+            Cancel
+          </button>
+          <button class="btn btn-sm btn-primary">
+            OK
+          </button>
         </div>
       </div>
     </div>

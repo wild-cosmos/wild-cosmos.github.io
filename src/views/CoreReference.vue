@@ -2,14 +2,18 @@
   <div class="rules">
     <div class="form-floating">
       <input id="search" v-model="queryString" type="text" autocomplete="off"
-      placeholder="Search"
-      class="form-control" aria-label="Search">
+             placeholder="Search"
+             class="form-control" aria-label="Search"
+      >
       <label for="search">Search</label>
     </div>
     <div>
       <section v-for="{ title, section } in matchingRules" :key="title"
-        class="card my-3">
-        <h5 class="card-header">{{ title }}</h5>
+               class="card my-3"
+      >
+        <h5 class="card-header">
+          {{ title }}
+        </h5>
         <div class="card-body" v-html="section" />
       </section>
     </div>

@@ -7,7 +7,8 @@
       <div class="col-12 col-sm-6">
         <div class="form-floating">
           <input id="search" v-model="searchText" type="text" class="form-control" placeholder="Search"
-            aria-label="Search">
+                 aria-label="Search"
+          >
           <label for="search">Search</label>
         </div>
       </div>

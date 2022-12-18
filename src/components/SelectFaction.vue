@@ -18,12 +18,12 @@ import { orderBy } from 'lodash-es';
 import { useDataStore } from '@/stores/data';
 
 export default defineComponent({
-  emits: ['update:faction'],
   props: {
     faction: { type: String, default: null },
     validFactions: { type: Array, default: () => ([]) },
     allowNull: { type: Boolean, default: false },
   },
+  emits: ['update:faction'],
   setup() {
     const { getUniqueFactions } = useDataStore();
     return { getUniqueFactions };

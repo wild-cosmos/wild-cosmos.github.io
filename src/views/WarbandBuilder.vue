@@ -6,7 +6,7 @@
     <div class="col-12 col-sm mb-2 mb-sm-0">
       <SelectWarband v-model:warband="selectedWarband" />
     </div>
-    <div class="col-12 col-sm-4" v-if="selectedWarband">
+    <div v-if="selectedWarband" class="col-12 col-sm-4">
       <div class="form-floating">
         <input id="warbandName" v-model="squadName" class="form-control">
         <label for="warbandName">Warband Name</label>
@@ -19,8 +19,9 @@
 
     <div class="toast-container d-print-none position-fixed bottom-0 end-0 p-3 pb-5">
       <div v-for="{ text, variant, icon } in validationErrors" :key="text" role="alert"
-        :class="['toast', 'fade show', `text-bg-${variant || 'warning'}`, 'mb-2']" aria-live="assertive"
-        aria-atomic="true">
+           :class="['toast', 'fade show', `text-bg-${variant || 'warning'}`, 'mb-2']" aria-live="assertive"
+           aria-atomic="true"
+      >
         <div class="toast-body">
           <div class="d-flex align-items-center">
             <h3 :class="['mb-0 me-2', icon ?? 'bi-exclamation-diamond']" />
@@ -32,7 +33,7 @@
 
     <div v-if="squadStore.models.length" class="d-flex justify-content-end my-3">
       <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{
-      squadStore.totalPoints
+        squadStore.totalPoints
       }} Pts</strong>
     </div>
 
@@ -43,7 +44,9 @@
       <div class="col-12 col-sm-6 col-md-4 mb-2 mb-md-0">
         <div class="form-floating">
           <select id="selectUnit" v-model="selectedModel" class="form-select" :disabled="!availableModelOptions.length">
-            <option v-if="!selectedModel" disabled :value="null">Select Model</option>
+            <option v-if="!selectedModel" disabled :value="null">
+              Select Model
+            </option>
             <option v-for="({ value, text }) in availableModelOptions" :key="value" :value="value">
               {{ text }}
             </option>

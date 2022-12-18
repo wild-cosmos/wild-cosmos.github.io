@@ -3,10 +3,16 @@
     <div class="form-floating flex-grow-1">
       <select id="selectWarband" v-model="selectedWarband" class="form-control">
         <template v-if="!selectedWarband">
-          <option v-if="warbandOptions.length" disabled :value="null">Select existing Warband or create new one</option>
-          <option v-else disabled :value="null">Create new Warband</option>
+          <option v-if="warbandOptions.length" disabled :value="null">
+            Select existing Warband or create new one
+          </option>
+          <option v-else disabled :value="null">
+            Create new Warband
+          </option>
         </template>
-        <option v-for="{ value, label } in warbandOptions" :key="value" :value="value">{{ label }}</option>
+        <option v-for="{ value, label } in warbandOptions" :key="value" :value="value">
+          {{ label }}
+        </option>
       </select>
       <label for="selectWarband">Warband</label>
     </div>

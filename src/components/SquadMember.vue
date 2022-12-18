@@ -12,9 +12,10 @@
         </button>
       </template>
       <template v-if="availableConfigurationOptions.length" #wargear-actions>
-        <div v-if="rolesForUnit.length > 1"  class="dropdown-center">
+        <div v-if="rolesForUnit.length > 1" class="dropdown-center">
           <button type="button" class="me-1 btn btn-sm btn-outline-primary dropdown-toggle"
-            data-bs-toggle="dropdown">
+                  data-bs-toggle="dropdown"
+          >
             Switch Role
           </button>
           <ul class="dropdown-menu">
@@ -25,9 +26,10 @@
             </li>
           </ul>
         </div>
-        <SelectRole :options="rolesForUnit" v-model="selectedRole" />
+        <SelectRole v-model="selectedRole" :options="rolesForUnit" />
         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="collapse"
-          :data-bs-target="`#collapse_${unit.id}`" aria-expanded="false" aria-controls="collapseExample">
+                :data-bs-target="`#collapse_${unit.id}`" aria-expanded="false" aria-controls="collapseExample"
+        >
           <span class="d-collapsed">Show</span>
           <span class="d-expanded">Hide</span>
           Options
@@ -38,11 +40,12 @@
         </button>
       </template>
       <template #options>
-        <div class="d-print-none collapse" :id="`collapse_${unit.id}`">
+        <div :id="`collapse_${unit.id}`" class="d-print-none collapse">
           <div class="button-bar" role="toolbar">
-            <button v-for="(option, idx) in availableConfigurationOptions" :key="idx" @click="onSelect(option)"
-              :class="[ 'btn', 'btn-sm', option.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap' ]"
-              :disabled="!option.available">
+            <button v-for="(option, idx) in availableConfigurationOptions" :key="idx" :class="[ 'btn', 'btn-sm', option.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap' ]"
+                    :disabled="!option.available"
+                    @click="onSelect(option)"
+            >
               {{ option.label }}
             </button>
             <button v-if="false" class="btn btn-sm btn-outline-danger text-nowrap mb-1" @click="onClickReset">

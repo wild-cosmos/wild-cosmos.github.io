@@ -5,7 +5,7 @@
       <small v-if="showFaction" class="d-block">({{ faction }})</small>
     </td>
     <td>
-      <div class="small rules" v-html="description"></div>
+      <div class="small rules" v-html="description" />
     </td>
   </tr>
 </template>
@@ -20,6 +20,13 @@ export default defineComponent({
     item: { type: Object, required: true },
     showFaction: { type: Boolean, default: false },
   },
+  setup() {
+    // const props = defineProps<Props>();
+
+    const dataStore = useDataStore();
+
+    return { dataStore };
+  },
   data() {
     return {
       description: null,
@@ -32,13 +39,6 @@ export default defineComponent({
           this.description = description;
         })
     }
-  },
-  setup() {
-    // const props = defineProps<Props>();
-
-    const dataStore = useDataStore();
-
-    return { dataStore };
   }
 });
 </script>
