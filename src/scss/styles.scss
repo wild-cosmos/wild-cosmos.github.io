@@ -1,4 +1,5 @@
 @import "bootstrap/scss/bootstrap";
+// @import "bootstrap-icons/font/bootstrap-icons";
 
 .button-bar {
   display: flex;
@@ -31,4 +32,70 @@
 
 .toast-container {
   z-index: 1000;
+}
+.rules,
+.core-reference {
+
+  p,
+  ul,
+  table {
+    margin-bottom: 0.5em;
+  }
+
+  .card-body {
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    padding-left: 1em;
+  }
+
+  table {
+    border-top: 1px;
+    border-bottom: 1px;
+
+    thead tr {
+
+      td,
+      th {
+        border-top-width: 1px;
+      }
+
+      th {
+        background-color: #e8e9ea;
+      }
+    }
+
+    tr {
+
+      td,
+      th {
+        padding: 0.25rem 0.5rem;
+        border-bottom-width: 1px;
+        border-bottom-color: #e8e9ea;
+
+        &:first-of-type {
+          white-space: nowrap;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        th {
+          background-color: #e8e9ea;
+        }
+
+        &:last-of-type {
+
+          td,
+          th {
+            border-color: inherit;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="core-reference">
+  <div class="rules">
     <div class="form-floating">
       <input id="search" v-model="queryString" type="text" autocomplete="off"
       placeholder="Search"
@@ -17,18 +17,18 @@
 </template>
 
 <script setup lang="ts">
-import { useReferenceStore } from '@/stores/reference';
 import { computed, ref, watch } from 'vue';
 import { debounce, orderBy } from 'lodash-es';
+import { useReferenceStore } from '@/stores/reference';
 
 const queryString = ref('');
-  
+
 const referenceStore = useReferenceStore();
- 
+
 referenceStore.initialise();
 
 const setQueryString = debounce((s) => {
-  referenceStore.setSearch(s); 
+  referenceStore.setSearch(s);
 }, 250);
 
 watch(queryString, (q) => {
@@ -38,60 +38,3 @@ watch(queryString, (q) => {
 const matchingRules = computed(() => orderBy(referenceStore.matchingRules, ['title']));
 
 </script>
-
-<style lang="scss">
-  .core-reference {
-    p, ul, table {
-      margin-bottom: 0.5em;
-    } 
-    
-    .card-body {
-      :last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    ul {
-      padding-left: 1em;
-    }
-    table {
-      border-top: 1px;
-      border-bottom: 1px;
-
-      thead tr {
-        td, th {
-          border-top-width: 1px;
-        }
-        th {
-          background-color: #e8e9ea;
-        }
-      }
-
-      tr {
-        td, th { 
-          padding: 0.25rem 0.5rem;
-          border-bottom-width: 1px;
-          border-bottom-color: #e8e9ea;
-
-          &:first-of-type {
-            white-space: nowrap;
-          }
-        }
-      }
-
-      tbody {
-        tr {
-          th {
-            background-color: #e8e9ea;
-          }
-          &:last-of-type {
-            td, th {
-              border-color: inherit;
-            }
-          }
-        }
-      }
-    }
-
-  }
-</style>
