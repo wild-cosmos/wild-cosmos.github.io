@@ -311,7 +311,7 @@
       "name": "Fail-safe Detonator",
       "notes": "This model has the Explodes! ability. When they are reduced to 0 life, they may choose to automatically explode instead of rolling for it (they cannot choose not to explode)."
     }, {
-      "name": "Fusion blades",
+      "name": "Fusion Blades",
       "notes": "Any fusion blaster this model is armed with has Rng 10\"/−, and have A 2 In the Close Quarters Phase."
     }, {
       "name": "Grav-inhibitor Field",
