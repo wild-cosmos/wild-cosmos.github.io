@@ -84,6 +84,22 @@
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Optical Data Uplink" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
+    "Piranha": {
+      "cost": 30,
+      "mv": [ 8, 16 ],
+      "bs": 5,
+      "cs": null,
+      "df": 4,
+      "lf": 12,
+      "si": 3,
+      "ld": 5,
+      "roles": [ "Specialist" ],
+      "type": [ "Machine" ],
+      "weapons": [ "Burst Cannon", "Empty", "Empty" ],
+      "wargear": [ ],
+      "abilities": [ "Coordinated Fire Arcs", "Hover", "Large (2)", "Explodes!", "Vehicle Movement", "Ramming Attack", "Drone Dock" ],
+      "faction": [ "T'au Empire", "Fire Caste" ]
+    },
     "Pathfinder Shas'ui": {
       "cost": 10,
       "mv": [ 5, 10 ],
@@ -683,6 +699,14 @@
       "notes": "Heavy (1), Sniper"
     },
     {
+      "name": "Seeker Missile",
+      "range": 50,
+      "a": 1,
+      "ap": [2, 4],
+      "dm": ["D2", "D4"],
+      "notes": "Heavy (1), Critical (6+), One Use. If a model or unit has any of your Markerlight tokens, this model can target them even if they are not visible."
+    },
+    {
       "name": "Smart Missile System",
       "range": 20,
       "a": 4,
@@ -704,7 +728,7 @@
       "weapon": [ "Missile Pod" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 3,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Piranha" ]
     },
     {
       "weapon": [ "Burst Cannon" ],
@@ -821,13 +845,13 @@
       "weapon": [ "Flamer" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 0,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)", "Piranha" ]
     },
     {
       "weapon": [ "Fusion Blaster" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 7,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)", "Piranha" ]
     },
     {
       "weapon": [ "Plasma Rifle" ],
@@ -896,7 +920,65 @@
         "not": [ "Flamer", "Burst Cannon" ]
       },
       "usedBy": [ "Recon Drone" ]
+    }, {
+      "weapon": "Seeker Missile",
+      "cost": 4,
+      "replaces": "Empty",
+      "condition": {
+        "not": [ "Shield Generator", "Repair Microdrones" ]
+      },
+      "usedBy": [ "Piranha" ]
+    }, {
+      "weapon": "Shield Generator",
+      "cost": 3,
+      "replaces": "Empty",
+      "condition": {
+        "not": [ "Seeker Missile", "Repair Microdrones", "Shield Generator" ]
+      },
+      "usedBy": [ "Piranha" ]
+    }, {
+      "weapon": "Repair Microdrones",
+      "cost": 3,
+      "replaces": "Empty",
+      "condition": {
+        "not": [ "Seeker Missile", "Shield Generator", "Repair Microdrones" ]
+      },
+      "usedBy": [ "Piranha" ]
+    }, {
+      "weapon": "High-intensity Markerlight",
+      "cost": 3,
+      "condition": {
+        "not": [ "High-intensity Markerlight", "Positional Relay", "Structural Analyser", "Telemetry Beacon", "Targeting AI" ]
+      },
+      "usedBy": [ "Piranha" ]
+    }, {
+      "weapon": "Positional Relay",
+      "cost": 2,
+      "condition": {
+        "not": [ "High-intensity Markerlight", "Positional Relay", "Structural Analyser", "Telemetry Beacon", "Targeting AI" ]
+      },
+      "usedBy": [ "Piranha" ]
+    }, {
+      "weapon": "Structural Analyser",
+      "cost": 2,
+      "condition": {
+        "not": [ "High-intensity Markerlight", "Positional Relay", "Structural Analyser", "Telemetry Beacon", "Targeting AI" ]
+      },
+      "usedBy": [ "Piranha" ]
+    }, {
+      "weapon": "Telemetry Beacon",
+      "cost": 5,
+      "condition": {
+        "not": [ "High-intensity Markerlight", "Positional Relay", "Structural Analyser", "Telemetry Beacon", "Targeting AI" ]
+      },
+      "usedBy": [ "Piranha" ]
+    }, {
+      "weapon": "Targeting AI",
+      "cost": 3,
+      "condition": {
+        "not": [ "High-intensity Markerlight", "Positional Relay", "Structural Analyser", "Telemetry Beacon", "Targeting AI" ]
+      },
+      "usedBy": [ "Piranha" ]
     }
-
   ]
 }
