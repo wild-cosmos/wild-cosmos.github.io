@@ -14,7 +14,7 @@
       "weapons": [ "Slugga", "Stikkbombs", "Empty" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule", "Sidekick: This model can be in a unit with up to one Gretchin Infantry or Squig Beast model." ]
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Sidekick" ]
     },
     "Ork Boy": {
       "cost": 6,
