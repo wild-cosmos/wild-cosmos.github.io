@@ -17,6 +17,10 @@ const factions = computed(() => {
   const { faction } = props.unit;
   return faction?.join(', ');
 });
+
+const calcSi = computed(() => { 
+  return Math.round(props.unit.lf / 4);
+})
 </script>
 
 <template>
@@ -27,7 +31,7 @@ const factions = computed(() => {
     <td>{{ formatStat(unit.cs, '+') }}</td>
     <td>{{ formatStat(unit.df, '+') }}</td>
     <td class="text-nowrap">
-      {{ unit.lf }}<sub>{{ unit.si }}</sub>
+      {{ unit.lf }}<sub>{{ calcSi }}</sub>
     </td>
     <td>{{ formatStat(unit.ld, '+') }}</td>
     <td>{{ rolesAndTypes }}</td>

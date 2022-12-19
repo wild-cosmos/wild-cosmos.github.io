@@ -39,7 +39,7 @@
           {{ formatStat(unit.df, "+") }}
         </td>
         <td class="stat text-nowrap">
-          {{ unit.lf }}<sub>{{ unit.si }}</sub>
+          {{ unit.lf }}<sub>{{ calcSi }}</sub>
         </td>
         <td class="stat">
           {{ formatStat(unit.ld, "+") }}
@@ -106,6 +106,10 @@ const props = defineProps<{
 }>();
 
 const unit = computed(() => props.unit);
+
+const calcSi = computed(() => { 
+  return Math.round(props.unit.lf / 4);
+})
 
 const allWargear = computed(() => {
   const { weapons, wargear } = props.unit;
