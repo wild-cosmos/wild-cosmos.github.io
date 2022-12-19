@@ -14,7 +14,8 @@
       "weapons": [ "Slugga", "Stikkbombs", "Empty" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule", "Sidekick" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Sidekick" ],
+      "faction": [ "Orks" ]
     },
     "Ork Boy": {
       "cost": 6,
@@ -30,7 +31,25 @@
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule" ],
+      "faction": [ "Orks" ]
+    },
+    "Squig": {
+      "cost": 8,
+      "mv": [ 6, 12 ],
+      "bs": null,
+      "cs": 4,
+      "df": 8,
+      "lf": 4,
+      "si": 1,
+      "ld": 6,
+      "roles": [ "Support", "Specialist" ],
+      "type": [ "Beast" ],
+      "weapons": [ "Fang-filled Gob" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "Bail of Teef and Fury", "Mushroom Brained" ],
+      "faction": [ "Orks", "Squigs" ]
     },
     "Warbiker": {
       "cost": 12,
@@ -44,12 +63,13 @@
       "roles": [ "Specialist" ],
       "type": [ "Biker" ],
       "limits": {
-        "comment": "If your leader is a Speedboss, this model may have the Core role"
+        "comment": "If your leader is a Speedboss, this model may have the Core role."
       },
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule" ],
+      "faction": [ "Orks" ]
     },
     "Speedboss": {
       "cost": 14,
@@ -65,7 +85,8 @@
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule" ],
+      "faction": [ "Orks" ]
     },
     "Wierdboy": {
       "cost": 22,
@@ -81,7 +102,8 @@
       "weapons": [ "Gorkamorka Staff" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule", "Pskyer (Powers of the Waaagh!)", "Waaagh! Energy", "Sidekick" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Pskyer (Powers of the Waaagh!)", "Waaagh! Energy", "Sidekick" ],
+      "faction": [ "Orks" ]
     },
     "Boss Nob": {
       "cost": 14,
@@ -97,7 +119,8 @@
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Sidekick" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Sidekick" ],
+      "faction": [ "Orks" ]
     },
     "Nob": {
       "cost": 14,
@@ -116,7 +139,8 @@
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads" ],
+      "faction": [ "Orks" ]
     },
     "Megaboss": {
       "cost": 35,
@@ -132,7 +156,8 @@
       "weapons": [ "Power Klaw", "Stikkbombs" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads", "Sidekick" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads", "Sidekick" ],
+      "faction": [ "Orks" ]
     },
     "Meganob": {
       "cost": 35,
@@ -151,7 +176,45 @@
       "weapons": [ "Power Klaw", "Stikkbombs" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads" ],
+      "faction": [ "Orks" ]
+    },
+    "Kommando Boss": {
+      "cost": 11,
+      "mv": [ 4, 10 ],
+      "bs": 6,
+      "cs": 3,
+      "df": 7,
+      "lf": 6,
+      "si": 2,
+      "ld": 4,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Slugga", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Infiltrate", "Sidekick" ],
+      "faction": [ "Orks", "Kommando" ]
+    },
+    "Kommando": {
+      "cost": 9,
+      "mv": [ 4, 10 ],
+      "bs": 6,
+      "cs": 4,
+      "df": 7,
+      "lf": 4,
+      "si": 1,
+      "ld": 5,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "limits":{
+        "comment": "If your leader is a Kommando Boss, this model may have the Core role."
+      },
+      "weapons": [ "Slugga", "Stikkbombs" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Infiltrate" ],
+      "faction": [ "Orks", "Kommando" ]
     }
   },
   "weapons": {
@@ -210,6 +273,13 @@
       "ap": [ 0, 4 ],
       "dm": 1,
       "notes": "Assault, Rapid Fire. The bearer cannot aim with this weapon."
+    },
+    "Fang-filled Gob": {
+      "range": null,
+      "a": 2,
+      "ap": [1, 4],
+      "dm": 1,
+      "notes": "The A value of this weapon is 3 if the bearer is injured, or 4 if they are seriously injured. If the bearer is Cavalry, this weapon has the Steed (4+) type."
     },
     "Gorkamorka Staff": {
       "range": null,
@@ -434,7 +504,16 @@
     }
   },
   "wargearLists": {
-
+    "Kommon Gubbinz": {
+      "Bioniks": {
+        "cost": 2,
+        "modelLimit": 1
+      },
+      "'Eavier Armour": {
+        "cost": 1,
+        "not": ["Biker", "Meganob", "Kommando"]
+      }
+    }
   },
   "configuration": [
     {
