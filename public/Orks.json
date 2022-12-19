@@ -11,10 +11,10 @@
       "ld": 4,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
-      "weapons": [ "Slugga", "Stikkbombs" ],
+      "weapons": [ "Slugga", "Stikkbombs", "Empty" ],
       "wargear": [ ],
       "wargearList": [ ],
-      "abilities": [ "'Ere We Go!", "Mob Rule", "Sidekick" ]
+      "abilities": [ "'Ere We Go!", "Mob Rule", "Sidekick: This model can be in a unit with up to one Gretchin Infantry or Squig Beast model." ]
     },
     "Ork Boy": {
       "cost": 6,
@@ -432,5 +432,85 @@
     "Stabby Bitz": {
       "notes": "If this model charges, after they have completed their movement, each enemy model within 1\" of them suffers one AP 1 hit."
     }
-  }
+  },
+  "wargearLists": {
+
+  },
+  "configuration": [
+    {
+      "weapon": [ "Shoota" ],
+      "cost": 1,
+      "replaces": [ "Slugga" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Choppa" ],
+      "cost": 2,
+      "replaces": [ "Slugga" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Big Choppa" ],
+      "cost": 5,
+      "replaces": [ "Slugga" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Smasha" ],
+      "cost": 2,
+      "replaces": [ "Slugga" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Big Smasha" ],
+      "cost": 5,
+      "replaces": [ "Slugga" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Power Klaw" ],
+      "cost": 9,
+      "replaces": [ "Slugga" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Slugga" ],
+      "cost": 1,
+      "replaces": [ "Empty" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Choppa" ],
+      "cost": 2,
+      "replaces": [ "Empty" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Smasha" ],
+      "cost": 2,
+      "replaces": [ "Empty" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Skrap Shield" ],
+      "cost": 1,
+      "condition": {
+        "any": ["Choppa", "Smasha"]
+      },
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Burna Pistol" ],
+      "cost": 3,
+      "replaces": [ "Slugga" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Rokkit Pistol" ],
+      "cost": 3,
+      "replaces": [ "Slugga" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "Zzap Pistol" ],
+      "cost": 3,
+      "replaces": [ "Slugga" ],
+      "usedBy": [ "Ork Boss" ]
+    }, {
+      "weapon": [ "'Eavy Armour" ],
+      "cost": 1,
+      "condition": {
+        "not": ["'Eavy Armour"]
+      },
+      "usedBy": [ "Ork Boss" ]
+    }
+  ]
 }
