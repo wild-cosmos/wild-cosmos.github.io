@@ -1,6 +1,7 @@
 <template>
   <div class="form-floating">
-    <select id="faction" v-model="selectedFaction" class="form-select" aria-label="Selected faction" placeholder="Faction">
+    <select id="faction" v-model="selectedFaction" class="form-select" aria-label="Selected faction"
+      placeholder="Faction">
       <option v-if="allowNull || !selectedFaction" :value="null">
         Select Faction
       </option>
@@ -14,6 +15,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { storeToRefs } from 'pinia'
 import { orderBy } from 'lodash-es';
 import { useDataStore } from '@/stores/data';
 
@@ -25,7 +27,7 @@ export default defineComponent({
   },
   emits: ['update:faction'],
   setup() {
-    const { getUniqueFactions } = useDataStore();
+    const { getUniqueFactions } = storeToRefs(useDataStore());
     return { getUniqueFactions };
   },
   computed: {
