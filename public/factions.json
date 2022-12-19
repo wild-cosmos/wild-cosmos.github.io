@@ -3,5 +3,6 @@
     [ "Imperium - Adeptus Mechanicus", "adeptus_mechanicus.json" ],
     "Necrons",
     "Orks",
-    [ "T'au Empire", "tau_empire.json" ]
+    [ "T'au Empire", "tau_empire.json" ],
+    [ "Nighthaunt", "nighthaunt.json" ]
 ]
