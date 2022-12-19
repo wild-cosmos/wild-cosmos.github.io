@@ -164,7 +164,7 @@
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
       "weapons": [ "Pulse Carbine", "Pulse Carbine" ],
-      "abilities": [ "Coordinated Fire Arcs", "AI Support", "Saviour Protocols", "Hover" ],
+      "abilities": [ "Coordinated Fire Arcs", "AI Support", "Companion AI", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
     "Missile Drone": {
@@ -179,7 +179,7 @@
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
       "weapons": [ "Smart Missile System" ],
-      "abilities": [ "Coordinated Fire Arcs", "AI Support", "Saviour Protocols", "Hover" ],
+      "abilities": [ "Coordinated Fire Arcs", "AI Support", "Companion AI", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
     "Sniper Drone": {
@@ -226,7 +226,7 @@
       "type": [ "Drone", "Machine" ],
       "weapons": [ ],
       "wargear": [ "Markerlight" ],
-      "abilities": [ "AI Support", "Saviour Protocols", "Hover" ],
+      "abilities": [ "AI Support", "Companion AI", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
     "Tactical Drone": {
@@ -241,7 +241,7 @@
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
       "weapons": [ "Empty" ],
-      "abilities": [ "AI Support", "Saviour Protocols", "Hover" ],
+      "abilities": [ "AI Support", "Companion AI", "Saviour Protocols", "Hover" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
     "Guardian Drone": {
@@ -255,7 +255,7 @@
       "ld": 5,
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
-      "abilities": [ "AI Support", "Saviour Protocols", "Hover" ],
+      "abilities": [ "AI Support", "Companion AI", "Saviour Protocols", "Hover", "Shield Projector" ],
       "faction": [ "T'au Empire", "Fire Caste" ]
     },
     "Recon Drone": {
