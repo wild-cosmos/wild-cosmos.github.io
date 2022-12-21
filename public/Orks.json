@@ -13,7 +13,7 @@
       "type": [ "Infantry" ],
       "weapons": [ "Slugga", "Stikkbombs", "Empty" ],
       "wargear": [ ],
-      "wargearList": [ ],
+      "wargearList": [ "Kommon Gubbinz", "Shiny Gubbinz", "Kustom Weapon" ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Sidekick" ],
       "faction": [ "Orks" ]
     },
@@ -30,7 +30,7 @@
       "type": [ "Infantry" ],
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
-      "wargearList": [ ],
+      "wargearList": [ "Kommon Gubbinz", "Kustom Weapon" ],
       "abilities": [ "'Ere We Go!", "Mob Rule" ],
       "faction": [ "Orks" ]
     },
@@ -67,7 +67,7 @@
       },
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
-      "wargearList": [ ],
+      "wargearList": [ "Kommon Gubbinz", "Kustom Weapon" ],
       "abilities": [ "'Ere We Go!", "Mob Rule" ],
       "faction": [ "Orks" ]
     },
@@ -84,7 +84,7 @@
       "type": [ "Biker" ],
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
-      "wargearList": [ ],
+      "wargearList": [ "Kommon Gubbinz", "Shiny Gubbinz", "Kustom Weapon" ],
       "abilities": [ "'Ere We Go!", "Mob Rule" ],
       "faction": [ "Orks" ]
     },
@@ -118,7 +118,7 @@
       "type": [ "Infantry" ],
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
-      "wargearList": [ ],
+      "wargearList": [ "Kommon Gubbinz", "Shiny Gubbinz", "Kustom Weapon" ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Sidekick" ],
       "faction": [ "Orks" ]
     },
@@ -138,7 +138,7 @@
       },
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
-      "wargearList": [ ],
+      "wargearList": [ "Kommon Gubbinz", "Kustom Weapon" ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads" ],
       "faction": [ "Orks" ]
     },
@@ -154,7 +154,7 @@
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
       "weapons": [ "Power Klaw", "Stikkbombs" ],
-      "wargear": [ ],
+      "wargear": [ "Kommon Gubbinz", "Shiny Gubbinz" ],
       "wargearList": [ ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads", "Sidekick" ],
       "faction": [ "Orks" ]
@@ -175,7 +175,7 @@
       },
       "weapons": [ "Power Klaw", "Stikkbombs" ],
       "wargear": [ ],
-      "wargearList": [ ],
+      "wargearList": [ "Kommon Gubbinz", "Shiny Gubbinz" ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Large (1)", "Fearsome (1)", "Breakin' Heads" ],
       "faction": [ "Orks" ]
     },
@@ -186,13 +186,12 @@
       "cs": 3,
       "df": 7,
       "lf": 6,
-      "si": 2,
       "ld": 4,
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
-      "wargearList": [ ],
+      "wargearList": [ "Kommon Gubbinz", "Shiny Gubbinz", "Kustom Weapon" ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Infiltrate", "Sidekick" ],
       "faction": [ "Orks", "Kommando" ]
     },
@@ -203,7 +202,6 @@
       "cs": 4,
       "df": 7,
       "lf": 4,
-      "si": 1,
       "ld": 5,
       "roles": [ "Specialist" ],
       "type": [ "Infantry" ],
@@ -212,12 +210,52 @@
       },
       "weapons": [ "Slugga", "Stikkbombs" ],
       "wargear": [ ],
-      "wargearList": [ ],
+      "wargearList": [ "Kommon Gubbinz", "Kustom Weapon" ],
       "abilities": [ "'Ere We Go!", "Mob Rule", "Infiltrate" ],
       "faction": [ "Orks", "Kommando" ]
+    },
+    "Kovert Ops Grot": {
+      "cost": 9,
+      "mv": [ 4, 8 ],
+      "bs": 5,
+      "cs": 6,
+      "df": 7,
+      "lf": 2,
+      "ld": 6,
+      "roles": [ "Support" ],
+      "type": [ "Infantry" ],
+      "limits":{
+        "comment": "You can only include this model in your warband if your warband also has at least one Kommando. You cannot have more than 3 Kovert Ops Grots in your warband."
+      },
+      "weapons": [ "Stabba", "Empty", "Empty" ],
+      "wargear": [ ],
+      "wargearList": [ ],
+      "abilities": [ "Puny", "Mob Rule", "Infiltrate" ],
+      "faction": [ "Orks", "Gretchin" ]
+    },
+    "Bomb Squig": {
+      "cost": 10,
+      "mv": [ 6, 12 ],
+      "bs": null,
+      "cs": 4,
+      "df": 8,
+      "lf": 4,
+      "ld": 6,
+      "roles": [ "Support" ],
+      "type": [ "Beast" ],
+      "weapons": [ "Fang-filled Gob" ],
+      "abilities": [ ],
+      "faction": [ "Orks", "Squigs" ]
     }
   },
   "weapons": {
+    "Basha": {
+      "range": null,
+      "a": 2,
+      "ap": 0,
+      "dm": [1, "D2"],
+      "notes": null
+    },
     "Big Choppa": {
       "range": null,
       "a": 2,
@@ -238,6 +276,27 @@
       "ap": 1,
       "dm": [ 2, 3 ],
       "notes": "Critical (7+)"
+    },
+    "Bionik Gob": {
+      "range": null,
+      "a": 2,
+      "ap": [ 2, 5],
+      "dm": [ 2 ],
+      "notes": "The A value of this weapon is 3 if the bearer is injured, or 4 if they are seriously injured. If the bearer is Cavalry, this weapon has the Steed (4+) type."
+    },
+    "Blasta": {
+      "range": 9,
+      "a": 1,
+      "ap": [ 0, 3],
+      "dm": 1,
+      "notes": "Pistol"
+    },
+    "Breacha Ram": {
+      "range": null,
+      "a": 2,
+      "ap": [ 3, 5 ],
+      "dm": [ "D4", 4 ],
+      "notes": "Critical (6+). The bearer cannot attack with this weapon if they attack with any other weapons in the same phase. After the bearer charges, they may immediately make a melee attack with this weapon: this weapon has A 1 and the Stun (2+) type for the purpose of this attack. The bearer can move through the walls of ruins as if they were not there."
     },
     "Burna": {
       "range": [ 8, null ],
@@ -277,7 +336,7 @@
     "Fang-filled Gob": {
       "range": null,
       "a": 2,
-      "ap": [1, 4],
+      "ap": [ 1, 4 ],
       "dm": 1,
       "notes": "The A value of this weapon is 3 if the bearer is injured, or 4 if they are seriously injured. If the bearer is Cavalry, this weapon has the Steed (4+) type."
     },
@@ -295,6 +354,13 @@
         "notes": "Critical (7+). The bearer must spend 1✷ each time they use this profile."
       },
       "notes": null
+    },
+    "Grappla Hook": {
+      "range": 10,
+      "a": 1,
+      "ap": [ 0, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "The bearer changes their advancing Mv value to 10\"; when they advance, they have the Flying ability. If the bearer successfully hits an enemy model with this weapon, move the bearer to be within 1″ of the model they hit."
     },
     "Grot Gunna": {
       "range": [ 10, null ],
@@ -317,14 +383,28 @@
       "dm": [ "D4", 4 ],
       "notes": "Critical (6+), Paired. Attacks with this weapon incur a hit roll penalty of 1."
     },
-    "Kombi-rokkit": {
-      "notes": "This weapon has a shoota profile and One Use rokkit launcha profiles."
+    "Kombi-rokkit (boomdakka rokkit)": {
+      "combi": ["Shoota", "Rokkit Launcha (boomdakka rokkit)"],
+      "notes": "This weapon has a Shoota profile and One Use Rokkit Launcha profiles."
+    },
+    "Kombi-rokkit (flashbang rokkit)": {
+      "combi": ["Shoota", "Rokkit Launcha (flashbang rokkit)"],
+      "notes": "This weapon has a Shoota profile and One Use Rokkit Launcha profiles."
     },
     "Kombi-skorcha": {
-      "notes": "This weapon has a shoota profile and a One Use skorcha profile."
+      "combi": ["Shoota", "Skorcha"],
+      "notes": "This weapon has a Shoota profile and a One Use Skorcha profile."
     },
     "Kombi-zzappa": {
-      "notes": "This weapon has a shoota profile and a One Use zzap gun profile."
+      "combi": ["Shoota", "Zzap Gun"],
+      "notes": "This weapon has a Shoota profile and a One Use Zzap Gun profile."
+    },
+    "Long Shoota": {
+      "range": 30,
+      "a": 2,
+      "ap": [2,5],
+      "dm": 1,
+      "notes": "Sniper. If the bearer makes an aimed shot with this weapon it has Dm 1/3."
     },
     "Megachoppa": {
       "range": null,
@@ -340,6 +420,13 @@
       "dm": [ "D4", 4 ],
       "notes": "Assault, Critical (6+). The bearer cannot aim with this weapon."
     },
+    "Pointy Horn": {
+      "range": null,
+      "a": 1,
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Critical (7+). The bearer can only attack with this weapon if they charged in the same round. They can attack with it as an additional secondary weapon."
+    },
     "Power Klaw": {
       "range": null,
       "a": 2,
@@ -354,15 +441,21 @@
       "dm": 1,
       "notes": "This weapon can attack with an A value of 3, but these hits cannot be critical."
     },
-    "Rokkit launcha (boomdakka rokkit)": {
+    "Rokkit Launcha": {
       "range": 18,
+      "combi": ["Rokkit Launcha (boomdakka rokkit)", "Rokkit Launcha (flashbang rokkit)"]
+    },
+    "Rokkit Launcha (boomdakka rokkit)": {
+      "range": 18,
+      "ammo": true,
       "a": 1,
       "ap": 4,
       "dm": [ "D4", 4 ],
       "notes": "Assault, Critical (6+). The bearer cannot aim with this weapon."
     },
-    "Rokkit launcha (flashbang rokkit)": {
+    "Rokkit Launcha (flashbang rokkit)": {
       "range": 18,
+      "ammo": true,
       "a": "D2",
       "ap": [ 0, 3 ],
       "dm": 1,
@@ -403,6 +496,14 @@
       "dm": [ 1, 2 ],
       "notes": "If the bearer charges, this weapon has A 3 until the end of the round."
     },
+
+    "Stabba": {
+      "range": null,
+      "a": 2,
+      "ap": [ 0, 3 ],
+      "dm": 1,
+      "notes": "Paired"
+    },
     "Stikkbombs": {
       "range": 6,
       "a": "D2",
@@ -416,6 +517,13 @@
       "ap": 4,
       "dm": [ "D4", 4 ],
       "notes": "Grenade, Critical (6+). This weapon can only target models that are Large (2 or greater). If the target is a Machine that did not move in the previous Manoeuvring Phase, the hit is always successful."
+    },
+    "Throwin' Knives": {
+      "range": 8,
+      "a": 2,
+      "ap": [0,4],
+      "dm": 1,
+      "notes": "Assault. This weapon can attack with A 3, but these hits cannot be critical. When the bearer attacks with this weapon, they cannot attack with any other weapons at the same time."
     },
     "Zzap Gun": {
       "range": 18,
