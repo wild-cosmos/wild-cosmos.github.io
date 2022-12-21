@@ -4,26 +4,34 @@
       Switch Role
     </button>
     <ul class="dropdown-menu">
-      <li v-for="(r) in options" :key="r" :value="r">
-        <a :class="['dropdown-item', { active: r === value }]" :aria-current="r === value" @click="selectedRole = r">
-          {{ r }}
-        </a>
+      <li v-for="roleOption in options" :key="roleOption">
+        <button type="button" :class="['dropdown-item', { active: roleOption === role }]"
+          :aria-current="roleOption === role" @click="confirmRole(roleOption)">
+          {{ roleOption }}
+        </button>
       </li>
     </ul>
 
-    <div ref="confirmModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-    <div ref="confirmModel" class="modal fade" tabindex="-1"
+    <div ref="confirmModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
-          Changing role to {{ currentRole }} will reset this model's wargear, are you sure you want to continue?
-        </div>
-        <div class="Modal-footer">
-          <button type="button" class="btn btn-sm btn-light">
-            Cancel
-          </button>
-          <button type="button" class="btn btn-sm btn-primary">
-            OK
-          </button>
+          <div class="modal-body">
+            <p>
+              Changing role to <strong>{{ selectedRole }}</strong> will reset this model's wargear.
+            </p>
+            <p class="mb-0">
+              Are you sure you want to continue?
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-light" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-sm btn-primary" @click="onClickConfirm">
+              OK
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -36,34 +44,37 @@ import { Modal } from 'bootstrap';
 
 export default defineComponent({
   props: {
-    value: {
+    role: {
       type: String,
       default: null,
     },
     options: {
-      type: Array,
+      type: Array<string>,
       required: true,
     },
   },
+  emits: ['update:role'],
   data() {
     return {
-      currentRole: null,
+      selectedRole: null,
       modal: null,
+    } as {
+      selectedRole: string | null,
+      modal: Modal | null
     };
   },
-  computed: {
-    selectedRole: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.currentRole = value;
-
-        const options = {};
-        const { confirmModal } = this.$refs;
-        this.modal = new Modal(confirmModal, options);
-        // or
-      },
+  methods: {
+    confirmRole(role: string) {
+      this.selectedRole = role;
+      const options = {};
+      const { confirmModal } = this.$refs;
+      this.modal ??= new Modal(confirmModal as Element, options);
+      this.modal.show();
+    },
+    onClickConfirm() {
+      if (this.selectedRole) this.$emit('update:role', this.selectedRole);
+      this.modal?.hide();
+      this.selectedRole = null;
     },
   },
 });

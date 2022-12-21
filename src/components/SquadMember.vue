@@ -12,20 +12,7 @@
         </button>
       </template>
       <template v-if="availableConfigurationOptions.length" #wargear-actions>
-        <div v-if="rolesForUnit.length > 1" class="dropdown-center">
-          <button type="button" class="me-1 btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
-            Switch Role
-          </button>
-          <ul class="dropdown-menu">
-            <li v-for="(r) in rolesForUnit" :key="r" :value="r">
-              <a :class="['dropdown-item', { active: r === unit.role }]" :aria-current="r === unit.role"
-                @click="selectedRole = r">
-                {{ r }}
-              </a>
-            </li>
-          </ul>
-        </div>
-        <SelectRole v-model="selectedRole" :options="rolesForUnit" />
+        <SelectRole v-model:role="selectedRole" :options="rolesForUnit" />
         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="collapse"
           :data-bs-target="`#collapse_${unit.id}`" aria-expanded="false" aria-controls="collapseExample">
           <span class="d-collapsed">Show</span>
