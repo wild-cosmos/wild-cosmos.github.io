@@ -44,7 +44,7 @@
       "type": [ "Infantry" ],
       "weapons": [ "Tesla Carbine" ],
       "wargear": [ ],
-      "wargearList": [ "Ancient Armoury - Specialist Only" ],
+      "wargearList": [ "Ancient Armoury" ],
       "abilities": [ "Living Metal", "Reanimation Protocols", "Autonomous Servant" ]
     },
     "Deathmark": {
