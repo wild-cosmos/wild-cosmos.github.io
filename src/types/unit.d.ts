@@ -68,7 +68,6 @@ export interface WeaponStats {
   notes?: string;
 }
 
-
 export interface WargearList {
   name?: string;
   weapons: Weapon[];

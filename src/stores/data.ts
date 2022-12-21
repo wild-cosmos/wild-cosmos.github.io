@@ -10,12 +10,12 @@ import type { Ability, Configuration, Faction } from '@/types/faction';
 
 interface State {
   factions: string[];
-  subFactions: { [key : string] : string[] };
+  subFactions: { [key: string]: string[] };
   abilities: Ability[];
   models: Unit[];
   wargear: Wargear[];
   weapons: Weapon[];
-  wargearList: { [key : string ]: { weapons: Weapon[], wargear: Wargear[] } };
+  wargearList: { [key: string]: { weapons: Weapon[], wargear: Wargear[] } };
   configuration: Configuration[];
   filter: {
     faction: string | null,
@@ -31,10 +31,10 @@ function makeArray(items?: string | string[] | null) {
   return [items];
 }
 
-function checkArrays<T extends { [key:string]: any | null }>(item? : T) {
+function checkArrays<T extends { [key: string]: any | null }>(item?: T) {
   if (!item) return null;
 
-  const result = {} as { [key:string]: any | null };
+  const result = {} as { [key: string]: any | null };
 
   Object.entries(item).forEach(([key, value]) => {
     switch (key) {
@@ -58,13 +58,13 @@ function checkArrays<T extends { [key:string]: any | null }>(item? : T) {
   return result;
 }
 
-function findItem(itemName : string, items? : Item[] | { [key : string]: Item }) {
+function findItem(itemName: string, items?: Item[] | { [key: string]: Item }) {
   if (!items) return null;
   if (isArray(items)) return items.find(({ name }) => name === itemName);
   return items[itemName];
 }
 
-function parseFaction(faction : string | [string, string]) {
+function parseFaction(faction: string | [string, string]) {
   if (isArray(faction)) {
     const [factionName, dataFile] = faction;
     return { factionName, dataFile };
@@ -76,10 +76,11 @@ function parseFaction(faction : string | [string, string]) {
   };
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export const useDataStore = defineStore({
   id: 'data',
 
-  state: () : State => ({
+  state: (): State => ({
     factions: [],
     subFactions: {},
     abilities: [],
@@ -111,7 +112,7 @@ export const useDataStore = defineStore({
     }, [] as string[]),
     getModelsForFaction: (state) => (lookupName: string) => state.models.filter(({ faction, factionName }) => factionName === lookupName || faction?.includes(lookupName)),
     getAbilitiesForFaction: (state) => (lookupName: string) => state.abilities.filter(({ faction, factionName }) => factionName === lookupName || faction?.includes(lookupName)),
-    getWargear: (state) => (wargearName: string) : Wargear | undefined => state.wargear.find(({ name }) => name === wargearName),
+    getWargear: (state) => (wargearName: string): Wargear | undefined => state.wargear.find(({ name }) => name === wargearName),
     getWargearForFaction() {
       return (factionName: string) => {
         const searchFactions = this.getSearchFactions(factionName);
@@ -119,14 +120,14 @@ export const useDataStore = defineStore({
       };
     },
 
-    getWeapon: (state) => (weaponName: string) : Weapon | undefined => state.weapons.find(({ name }) => name === weaponName),
+    getWeapon: (state) => (weaponName: string): Weapon | undefined => state.weapons.find(({ name }) => name === weaponName),
     getWeaponsForFaction() {
       return (factionName: string) => {
         const searchFactions = this.getSearchFactions(factionName);
         return this.weapons.filter(({ faction }) => searchFactions.includes(faction));
       };
     },
-    getSearchFactions: (state) => (factionName : string) => {
+    getSearchFactions: (state) => (factionName: string) => {
       const searchFactions = Object.entries(state.subFactions).filter(([, list]) => list.includes(factionName)).map(([f]) => f);
       return searchFactions.length ? uniq(searchFactions) : [factionName];
     },
@@ -135,7 +136,7 @@ export const useDataStore = defineStore({
 
     getConfigurationOptionsForModel: (state) => ({ name }: BaseUnit) => state.configuration.filter(({ usedBy }) => usedBy.includes(name)),
 
-    getWargearListForModel: (state) => ({ name } : SquadUnit) : { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
+    getWargearListForModel: (state) => ({ name }: SquadUnit): { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
       const unit = state.models.find((u) => u.name === name);
       return unit?.wargearList?.map((listName) => ({ name: listName, ...state.wargearList[listName] })) ?? [];
     },
@@ -152,7 +153,7 @@ export const useDataStore = defineStore({
             api.get<Faction>(dataFile)
               .then((data) => {
                 this.$patch((state) => {
-                  if (data.abilities?.length > 0) {
+                  if (data.abilities && data.abilities.length > 0) {
                     state.abilities.push(...data.abilities.map((name) => ({ name, factionName })));
                   }
 
@@ -246,21 +247,19 @@ export const useDataStore = defineStore({
               .catch((error) => {
                 console.error(`Error processing ${dataFile}`, error);
               });
-          })        
-        })
+          });
+        });
     },
 
     loadHtml() {
       this.abilities.forEach((ability) => {
         console.log(`Loading /rules/abilities/${ability.name}.html`);
-        api.get(`rules/abilities/${ability.name}.html`, { headers: {
-          Accept: 'text/html' } })
-          .then((description) => {
-            debugger;
-            return Object.assign(ability, { description });
-          })
+        api.get(`rules/abilities/${ability.name}.html`, {
+          headers: { Accept: 'text/html' },
+        })
+          .then((description) => Object.assign(ability, { description }))
           .catch((error) => { console.log(error); });
-        });
+      });
     },
 
     getAbility(ability: Ability) {
@@ -271,9 +270,11 @@ export const useDataStore = defineStore({
       // const suffixOffset = filename.lastIndexOf('(');
       // if (suffixOffset > -1) filename = filename.slice(0, suffixOffset).trim();
 
-      return api.get<string>(`rules/abilities/${filename}.html`, { headers: {
-        Accept: 'text/html' }, responseAs: 'text' })
+      return api.get<string>(`rules/abilities/${filename}.html`, {
+        headers: { Accept: 'text/html' },
+        responseAs: 'text',
+      })
         .then((description) => Object.assign(ability, { description }));
     },
-  }
+  },
 });

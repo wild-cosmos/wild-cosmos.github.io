@@ -4,11 +4,12 @@ import type { Rule } from '@/types/reference';
 
 interface State {
   searchTerms: string[],
-  rules: Rule[] 
+  rules: Rule[]
 }
 
 const api = mande('/');
 
+// eslint-disable-next-line import/prefer-default-export
 export const useReferenceStore = defineStore('reference', {
   state: (): State => ({
     searchTerms: [],
@@ -16,7 +17,7 @@ export const useReferenceStore = defineStore('reference', {
   }),
 
   getters: {
-    searchRules: ({ rules } : State) => (queryString : string) : Rule[] => {
+    searchRules: ({ rules }: State) => (queryString: string): Rule[] => {
       const searchTerms = queryString.split(' ').filter((s) => s > '');
       const match = new RegExp(searchTerms.map((s) => `${s}`).join('|'), 'i');
 

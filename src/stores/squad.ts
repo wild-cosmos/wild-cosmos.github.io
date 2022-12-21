@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia';
 import { isArray } from 'lodash-es';
-import { useDataStore } from './data';
-import { useWarbandStore } from './warband';
 import type { SquadUnit, Unit } from '@/types/unit';
 import type { Warband } from '@/types/warband';
+import { useDataStore } from './data';
+import { useWarbandStore } from './warband';
 
 const generateId = ((id) => {
   let nextId = id;
@@ -13,7 +13,7 @@ const generateId = ((id) => {
   };
 })(Date.now());
 
-const createSquadUnit = () : SquadUnit => ({
+const createSquadUnit = (): SquadUnit => ({
   id: generateId(),
   faction: '',
   name: '',
@@ -39,10 +39,11 @@ interface State {
   models: SquadUnit[];
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export const useSquadStore = defineStore({
   id: 'squad',
 
-  state: () : State => ({
+  state: (): State => ({
     faction: 'None',
     name: null,
     id: null,
@@ -52,13 +53,13 @@ export const useSquadStore = defineStore({
   getters: {
     totalPoints: ({ models }) => models.reduce((total, model) => total + model.cost, 0),
 
-    getModelsWithItem: ({ models }) => (itemName : string) => models.filter(({ weapons, wargear }) => {
+    getModelsWithItem: ({ models }) => (itemName: string) => models.filter(({ weapons, wargear }) => {
       if (weapons.some(({ name }) => name === itemName)) return true;
       if (wargear.some(({ name }) => name === itemName)) return true;
       return false;
     }),
 
-    getWargearCountInWarband: ({ models }) => models.reduce((items : { [key : string] : number }, { wargear, weapons }) => {
+    getWargearCountInWarband: ({ models }) => models.reduce((items: { [key: string]: number }, { wargear, weapons }) => {
       wargear?.forEach(({ name }) => {
         if (name in items) {
           items[name] += 1;
@@ -78,7 +79,7 @@ export const useSquadStore = defineStore({
   },
 
   actions: {
-    selectWarband(id : number) {
+    selectWarband(id: number) {
       const warbandStore = useWarbandStore();
       const selectedWarband = warbandStore.getWarband(id);
       this.$patch((state) => {
@@ -90,7 +91,7 @@ export const useSquadStore = defineStore({
       });
     },
 
-    setName(name : string) {
+    setName(name: string) {
       this.name = name;
       const warbandStore = useWarbandStore();
       const { id } = this;
@@ -106,7 +107,7 @@ export const useSquadStore = defineStore({
       const dataStore = useDataStore();
 
       const m = Object.entries(model)
-        .reduce((target : { [key : string] : any }, [property, value] : [string, any]) => {
+        .reduce((target: { [key: string]: any }, [property, value]: [string, any]) => {
           if (property in target) target[property] = value;
           return target;
         }, createSquadUnit());

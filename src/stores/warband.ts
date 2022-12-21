@@ -14,6 +14,7 @@ const generateId = ((id) => {
   };
 })(Date.now());
 
+// eslint-disable-next-line import/prefer-default-export
 export const useWarbandStore = defineStore({
   id: 'warband',
 
@@ -22,17 +23,17 @@ export const useWarbandStore = defineStore({
   }),
 
   getters: {
-    getWarband: ({ warbands }) => (id : number) => warbands.find((w) => w.id === id),
+    getWarband: ({ warbands }) => (id: number) => warbands.find((w) => w.id === id),
   },
 
   actions: {
-    setName({ id, name } : Warband) {
+    setName({ id, name }: Warband) {
       const warband = this.getWarband(id);
       if (warband) warband.name = name;
     },
 
     add() {
-      const warband : Warband = {
+      const warband: Warband = {
         id: generateId(),
         name: null,
         models: [],
@@ -43,7 +44,7 @@ export const useWarbandStore = defineStore({
       return warband;
     },
 
-    remove(id : number) {
+    remove(id: number) {
       const idx = this.warbands.findIndex((w) => w.id === id);
       if (idx > -1) this.warbands.splice(idx, 1);
     },
