@@ -195,7 +195,7 @@
       "ld": 5,
       "roles": [ "Specialist" ],
       "type": [ "Infantry" ],
-      "limits":{
+      "limits": {
         "comment": "If your leader is a Kommando Boss, this model may have the Core role."
       },
       "weapons": [ "Slugga", "Stikkbombs" ],
@@ -609,7 +609,7 @@
       },
       "'Eavier Armour": {
         "cost": 1,
-        "not": ["Biker", "Meganob", "Kommando"]
+        "not": [ "Biker", "Meganob", "Kommando" ]
       }
     }
   },
@@ -663,7 +663,7 @@
       "weapon": [ "Skrap Shield" ],
       "cost": 1,
       "condition": {
-        "any": ["Choppa", "Smasha"]
+        "any": [ "Choppa", "Smasha" ]
       },
       "usedBy": [ "Ork Boss" ]
     }, {
@@ -685,7 +685,7 @@
       "weapon": [ "'Eavy Armour" ],
       "cost": 1,
       "condition": {
-        "not": ["'Eavy Armour"]
+        "not": [ "'Eavy Armour" ]
       },
       "usedBy": [ "Ork Boss" ]
     }

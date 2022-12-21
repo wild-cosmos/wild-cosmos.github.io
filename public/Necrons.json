@@ -183,7 +183,7 @@
       "ap": [ 1 ],
       "dm": [ 1, 2 ],
       "notes": "Pistol, Engulf (2), Flame (2+). When this model makes a melee attack, if they do not attack with this weapon in the same round, they may instead add the Flame (3+) type to their primary weapon.",
-      "usedBy": []
+      "usedBy": [ ]
     }, {
       "name": "Gauss Blaster",
       "range": 18,
@@ -328,8 +328,8 @@
     }
   ],
   "abilities": [
-    "Living Metal", 
-    "Reanimation Protocols", 
+    "Living Metal",
+    "Reanimation Protocols",
     "Autonomous Servant",
     "Mercurial Tyrant",
     "Marked for Death",

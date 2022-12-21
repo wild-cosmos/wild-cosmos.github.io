@@ -477,7 +477,7 @@
       },
       "Dynamic Mirror Field": {
         "cost": 3,
-        "not": { 
+        "not": {
           "ability": [ "Large" ]
         }
       },
@@ -684,8 +684,8 @@
       "name": "Seeker Missile",
       "range": 50,
       "a": 1,
-      "ap": [2, 4],
-      "dm": ["D2", "D4"],
+      "ap": [ 2, 4 ],
+      "dm": [ "D2", "D4" ],
       "notes": "Heavy (1), Critical (6+), One Use. If a model or unit has any of your Markerlight tokens, this model can target them even if they are not visible."
     },
     {
