@@ -23,7 +23,7 @@
         aria-atomic="true">
         <div class="toast-body">
           <div class="d-flex align-items-center">
-            <i :class="['h3 mb-0 me-2', icon ?? 'bi-exclamation-diamond']" />
+            <i :class="['fs-3 mb-0 me-2', icon ?? 'bi-exclamation-diamond']" />
             <div>{{ text }}</div>
           </div>
         </div>
@@ -32,7 +32,7 @@
 
     <div v-if="squadStore.models.length" class="d-flex justify-content-end my-3">
       <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{
-        squadStore.totalPoints
+          squadStore.totalPoints
       }} Pts</strong>
     </div>
 
@@ -42,8 +42,7 @@
       </div>
       <div class="col-12 col-sm-6 col-md-4 mb-2 mb-md-0">
         <div class="form-floating">
-          <select id="selectUnit" v-model="selectedModel" class="form-select"
-            :disabled="!availableModelOptions.length">
+          <select id="selectUnit" v-model="selectedModel" class="form-select" :disabled="!availableModelOptions.length">
             <option v-if="!selectedModel" disabled :value="null">
               Select Model
             </option>
@@ -55,8 +54,7 @@
         </div>
       </div>
       <div class="col-auto d-flex flex-nowrap">
-        <button type="button" class="btn btn-success text-nowrap" :disabled="!selectedModel"
-          @click="onAddSquadMember">
+        <button type="button" class="btn btn-success text-nowrap" :disabled="!selectedModel" @click="onAddSquadMember">
           <i class="bi bi-clipboard-plus" />
           Add Model
         </button>

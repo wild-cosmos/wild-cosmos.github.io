@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex align-items-center justify-content-between">
-    <h3 class="">
+    <h3>
       {{ unit.name }}
     </h3>
     <div class="d-print-none ml-auto mb-2 button-bar align-end">
