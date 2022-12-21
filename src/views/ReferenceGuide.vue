@@ -7,8 +7,7 @@
       <div class="col-12 col-sm-6">
         <div class="form-floating">
           <input id="search" v-model="searchText" type="text" class="form-control" placeholder="Search"
-                 aria-label="Search"
-          >
+            aria-label="Search">
           <label for="search">Search</label>
         </div>
       </div>
@@ -69,6 +68,10 @@ const props = defineProps<{
 const router = useRouter();
 const dataStore = useDataStore();
 
+function doSearch(query: { q: string | null, faction: string | null }) {
+  router.push({ name: 'reference', query });
+}
+
 watch(props, async ({ faction, q }) => {
   if (!isUndefined(faction)) dataStore.filter = { faction, q };
   else doSearch(dataStore.filter);
@@ -83,10 +86,6 @@ const selectedFaction = computed({
   get() { return dataStore.filter.faction; },
   set(faction) { doSearch({ ...dataStore.filter, faction }); },
 });
-
-function doSearch(query: { q: string | null, faction: string | null }) {
-  router.push({ name: 'reference', query });
-}
 
 const searchFilter = (query: string | null) => {
   const test = query

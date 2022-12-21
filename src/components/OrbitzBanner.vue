@@ -1,9 +1,8 @@
 <template>
   <nav class="navbar fixed-bottom navbar-dark bg-dark sponsor-banner">
-    <img src="../assets/rocket.png" class="rocket">
+    <img src="../assets/rocket.png" class="rocket" alt="Orbitz rocket">
     <a class="container-fluid text-decoration-none" href="https://apps.apple.com/gb/app/orbitz/id1630650820"
-       target="_blank"
-    >
+      target="_blank" rel="noopener noreferrer">
       <div class="navbar-brand py-0">
         Sponsored by Orbitz</div>
       <div class="ms-auto me-0 py-0 navbar-brand" href="https://apps.apple.com/gb/app/orbitz/id1630650820">
@@ -51,8 +50,7 @@
 }
 
 @keyframes zoom2 {
-  0% {
-  }
+  0% {}
 
   28% {
     height: 32px;
@@ -87,5 +85,4 @@
     height: 32px;
   }
 }
-
 </style>

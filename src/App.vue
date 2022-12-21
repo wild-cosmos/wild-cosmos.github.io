@@ -1,9 +1,11 @@
 <template>
   <nav class="d-print-none navbar navbar-expand-md fixed-top bg-light shadow-sm">
     <div class="container-lg">
-      <a class="navbar-brand py-0" href="#">
-        <img src="./assets/wild_cosmos_logo.png" alt="" height="64" width="256" class="d-inline-block">
-      </a>
+      <router-link class="navbar-brand py-0" to="/">
+        <img src="./assets/wild_cosmos_logo.png" alt="Wild Cosmos Warband Builder" height="64" width="256"
+          class="d-inline-block">
+        <span class="d-none">Wild Cosmos Warband Builder</span>
+      </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" />
@@ -31,15 +33,14 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item"
-                  href="https://drive.google.com/file/d/1eQ5XuCMya0glnFFAUHfl825W-RcZ43jV/view?usp=sharing"
-                  target="_blank">
+                <a class="dropdown-item" target="_blank" rel="noopener noreferrer"
+                  href="https://drive.google.com/file/d/1eQ5XuCMya0glnFFAUHfl825W-RcZ43jV/view?usp=sharing">
                   Core Rules
                 </a>
               </li>
               <li>
-                <a class="dropdown-item"
-                  href="https://drive.google.com/drive/u/2/folders/1_AT9l8767WZn3r46qmTbWjCsnY9IZ75_" target="_blank">
+                <a class="dropdown-item" target="_blank" rel="noopener noreferrer"
+                  href="https://drive.google.com/drive/u/2/folders/1_AT9l8767WZn3r46qmTbWjCsnY9IZ75_">
                   Faction Books
                 </a>
               </li>
@@ -80,10 +81,10 @@ const route = useRoute();
 const collapse = ref<Collapse>();
 
 watch(
-  () => route.path, 
+  () => route.path,
   async () => {
     collapse.value?.hide();
-  }
+  },
 );
 
 onMounted(() => {

@@ -18,9 +18,7 @@ const factions = computed(() => {
   return faction?.join(', ');
 });
 
-const calcSi = computed(() => { 
-  return Math.round(props.unit.lf / 4);
-})
+const calcSi = computed(() => Math.round(props.unit.lf / 4));
 </script>
 
 <template>

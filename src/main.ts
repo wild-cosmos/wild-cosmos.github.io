@@ -6,6 +6,7 @@ import router from './router';
 
 import '@/scss/styles.scss';
 import 'bootstrap-icons/font/bootstrap-icons.scss';
+import 'bootstrap';
 
 import packageInfo from '../package.json';
 

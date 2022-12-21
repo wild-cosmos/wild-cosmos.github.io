@@ -2,25 +2,24 @@
   <div class="mt-3">
     <UnitDetails :unit="unit">
       <template #actions>
-        <button class="btn btn-sm btn-secondary text-nowrap" @click="onClickDuplicate">
+        <button type="button" class="btn btn-sm btn-secondary text-nowrap" @click="onClickDuplicate">
           <i class="bi bi-files" />
           Duplicate
         </button>
-        <button class="btn btn-sm btn-danger text-no-wrap" @click="onClickRemove">
+        <button type="button" class="btn btn-sm btn-danger text-no-wrap" @click="onClickRemove">
           <i class="bi bi-clipboard-x" />
           Remove
         </button>
       </template>
       <template v-if="availableConfigurationOptions.length" #wargear-actions>
         <div v-if="rolesForUnit.length > 1" class="dropdown-center">
-          <button type="button" class="me-1 btn btn-sm btn-outline-primary dropdown-toggle"
-                  data-bs-toggle="dropdown"
-          >
+          <button type="button" class="me-1 btn btn-sm btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
             Switch Role
           </button>
           <ul class="dropdown-menu">
             <li v-for="(r) in rolesForUnit" :key="r" :value="r">
-              <a :class="[ 'dropdown-item', { active: r === unit.role } ]" :aria-current="r === unit.role" @click="selectedRole = r">
+              <a :class="['dropdown-item', { active: r === unit.role }]" :aria-current="r === unit.role"
+                @click="selectedRole = r">
                 {{ r }}
               </a>
             </li>
@@ -28,13 +27,12 @@
         </div>
         <SelectRole v-model="selectedRole" :options="rolesForUnit" />
         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="collapse"
-                :data-bs-target="`#collapse_${unit.id}`" aria-expanded="false" aria-controls="collapseExample"
-        >
+          :data-bs-target="`#collapse_${unit.id}`" aria-expanded="false" aria-controls="collapseExample">
           <span class="d-collapsed">Show</span>
           <span class="d-expanded">Hide</span>
           Options
         </button>
-        <button class="btn btn-sm btn-outline-danger text-nowrap" @click="onClickReset">
+        <button type="button" class="btn btn-sm btn-outline-danger text-nowrap" @click="onClickReset">
           <i class="bi bi-arrow-counterclockwise" />
           Reset
         </button>
@@ -42,13 +40,13 @@
       <template #options>
         <div :id="`collapse_${unit.id}`" class="d-print-none collapse">
           <div class="button-bar" role="toolbar">
-            <button v-for="(option, idx) in availableConfigurationOptions" :key="idx" :class="[ 'btn', 'btn-sm', option.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap' ]"
-                    :disabled="!option.available"
-                    @click="onSelect(option)"
-            >
+            <button type="button" v-for="(option, idx) in availableConfigurationOptions" :key="idx"
+              :class="['btn', 'btn-sm', option.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap']"
+              :disabled="!option.available" @click="onSelect(option)">
               {{ option.label }}
             </button>
-            <button v-if="false" class="btn btn-sm btn-outline-danger text-nowrap mb-1" @click="onClickReset">
+            <button v-if="false" type="button" class="btn btn-sm btn-outline-danger text-nowrap mb-1"
+              @click="onClickReset">
               <i class="bi bi-x-lg" />
               Reset
             </button>

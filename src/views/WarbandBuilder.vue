@@ -19,12 +19,11 @@
 
     <div class="toast-container d-print-none position-fixed bottom-0 end-0 p-3 pb-5">
       <div v-for="{ text, variant, icon } in validationErrors" :key="text" role="alert"
-           :class="['toast', 'fade show', `text-bg-${variant || 'warning'}`, 'mb-2']" aria-live="assertive"
-           aria-atomic="true"
-      >
+        :class="['toast', 'fade show', `text-bg-${variant || 'warning'}`, 'mb-2']" aria-live="assertive"
+        aria-atomic="true">
         <div class="toast-body">
           <div class="d-flex align-items-center">
-            <h3 :class="['mb-0 me-2', icon ?? 'bi-exclamation-diamond']" />
+            <i :class="['h3 mb-0 me-2', icon ?? 'bi-exclamation-diamond']" />
             <div>{{ text }}</div>
           </div>
         </div>

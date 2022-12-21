@@ -107,9 +107,7 @@ const props = defineProps<{
 
 const unit = computed(() => props.unit);
 
-const calcSi = computed(() => { 
-  return Math.round(props.unit.lf / 4);
-})
+const calcSi = computed(() => Math.round(props.unit.lf / 4));
 
 const allWargear = computed(() => {
   const { weapons, wargear } = props.unit;

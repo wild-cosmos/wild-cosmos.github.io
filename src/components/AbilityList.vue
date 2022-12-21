@@ -22,12 +22,12 @@ export default defineComponent({
   components: { AbilityRow },
   props: {
     items: { type: Array, required: true },
-    showFaction: { type: Boolean, default: false }
+    showFaction: { type: Boolean, default: false },
   },
   setup() {
     return {};
-  }
-})
+  },
+});
 </script>
 
 <style scoped>

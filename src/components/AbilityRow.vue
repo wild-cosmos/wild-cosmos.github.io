@@ -29,16 +29,16 @@ export default defineComponent({
   data() {
     return {
       description: null,
-    }
+    };
   },
   created() {
     if (this.item?.name) {
       this.dataStore.getAbility(this.item)
         .then(({ description }) => {
           this.description = description;
-        })
+        });
     }
-  }
+  },
 });
 </script>
 
