@@ -117,6 +117,7 @@ const selectedRole = computed({
   },
   set(role) {
     squadStore.setRole(props.unit.id, role);
+    squadStore.resetWargear(props.unit);
   },
 });
 
