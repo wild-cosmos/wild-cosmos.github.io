@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import AbilityRow from './AbilityRow.vue'
+import { defineComponent } from 'vue';
+import AbilityRow from './AbilityRow.vue';
 
 export default defineComponent({
   components: { AbilityRow },

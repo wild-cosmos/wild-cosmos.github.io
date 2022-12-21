@@ -23,8 +23,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { orderBy } from 'lodash-es';
-import WeaponRow from './WeaponRow.vue';
 import type { Weapon } from '@/types/unit';
+import WeaponRow from './WeaponRow.vue';
 
 interface Props {
   weapons: Weapon[],

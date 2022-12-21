@@ -17,8 +17,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { orderBy } from 'lodash-es';
-import WargearRow from './WargearRow.vue';
 import type { Wargear } from '@/types/unit';
+import WargearRow from './WargearRow.vue';
 
 const props = defineProps<{
   wargear: Wargear[],

@@ -11,9 +11,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, defineProps } from 'vue'
+import { defineComponent } from 'vue';
 import { useDataStore } from '@/stores/data';
-import type { Ability } from '@/types/faction';
 
 export default defineComponent({
   props: {

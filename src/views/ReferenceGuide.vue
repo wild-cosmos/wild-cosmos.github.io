@@ -42,11 +42,11 @@ import { isUndefined, orderBy } from 'lodash-es';
 import SelectFaction from '@/components/SelectFaction.vue';
 import UnitList from '@/components/UnitList.vue';
 import { useDataStore } from '@/stores/data';
-import AbilityList from '../components/AbilityList.vue'
-import WeaponsList from '../components/WeaponsList.vue';
-import WargearList from '../components/WargearList.vue';
 import type { Item, Wargear, Weapon } from '@/types/unit';
 import type { Ability } from '@/types/faction';
+import AbilityList from '../components/AbilityList.vue';
+import WeaponsList from '../components/WeaponsList.vue';
+import WargearList from '../components/WargearList.vue';
 
 function groupByFaction<T extends Item>(items: Wargear[]): { faction: string, items: T[] }[] {
   const groupedItems = items.reduce((groupedList, item) => {

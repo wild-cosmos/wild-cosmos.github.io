@@ -82,9 +82,6 @@ import {
 } from 'lodash-es';
 import SelectRole from '@/components/SelectRole.vue';
 
-import UnitDetails from './UnitDetails.vue';
-import OptionalWargear from './OptionalWargear.vue';
-
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
 
@@ -92,6 +89,8 @@ import formatList from '@/utils/formatList';
 
 import type { Item, SquadUnit, Weapon } from '@/types/unit';
 import type { Configuration } from '@/types/faction';
+import OptionalWargear from './OptionalWargear.vue';
+import UnitDetails from './UnitDetails.vue';
 
 const devMode = false; // import.meta.env.DEV;
 

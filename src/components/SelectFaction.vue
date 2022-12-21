@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { storeToRefs } from 'pinia'
+import { storeToRefs } from 'pinia';
 import { orderBy } from 'lodash-es';
 import { useDataStore } from '@/stores/data';
 

@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, } from 'vue';
+import { defineComponent } from 'vue';
 import { Modal } from 'bootstrap';
 
 export default defineComponent({

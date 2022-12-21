@@ -82,15 +82,15 @@ import { Toast } from 'bootstrap';
 import { isArray, orderBy, uniqBy } from 'lodash-es';
 import SquadMember from '@/components/SquadMember.vue';
 import SelectFaction from '@/components/SelectFaction.vue';
+import { useDataStore } from '@/stores/data';
+import { useSquadStore } from '@/stores/squad';
+import type { Wargear, Weapon } from '@/types/unit';
+import type { Ability } from '@/types/faction';
 import AbilityList from '../components/AbilityList.vue';
 import WeaponsList from '../components/WeaponsList.vue';
 import WargearList from '../components/WargearList.vue';
 
-import { useDataStore } from '@/stores/data';
-import { useSquadStore } from '@/stores/squad';
-import type { Wargear, Weapon } from '@/types/unit';
 import SelectWarband from '../components/SelectWarband.vue';
-import type { Ability } from '@/types/faction';
 
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
