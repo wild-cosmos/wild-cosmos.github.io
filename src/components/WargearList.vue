@@ -8,7 +8,8 @@
         </tr>
       </thead>
       <tbody>
-        <WargearRow v-for="(item) in factionWargear" :key="item.name" :item="item" :show-faction="showFaction" />
+        <WargearRow v-for="(item) in factionWargear" :key="item.name" :item="item"
+          :show-faction="showFaction" />
       </tbody>
     </table>
   </div>

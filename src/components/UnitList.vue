@@ -29,7 +29,8 @@ const factionModels = computed(() => orderBy(props.models, ['name']));
         </tr>
       </thead>
       <tbody>
-        <UnitRow v-for="(unit) in factionModels" :key="unit.name" :unit="unit" :show-faction="showFaction" />
+        <UnitRow v-for="(unit) in factionModels" :key="unit.name" :unit="unit"
+          :show-faction="showFaction" />
       </tbody>
     </table>
   </div>

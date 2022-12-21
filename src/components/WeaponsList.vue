@@ -14,7 +14,8 @@
         </tr>
       </thead>
       <tbody>
-        <WeaponRow v-for="(weapon) in factionWeapons" :key="weapon.name" :weapon="weapon" :show-faction="showFaction" />
+        <WeaponRow v-for="(weapon) in factionWeapons" :key="weapon.name" :weapon="weapon"
+          :show-faction="showFaction" />
       </tbody>
     </table>
   </div>

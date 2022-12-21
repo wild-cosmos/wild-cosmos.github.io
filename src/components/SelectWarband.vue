@@ -16,11 +16,12 @@
       </select>
       <label for="selectWarband">Warband</label>
     </div>
-    <button class="btn btn-success text-nowrap ms-2" @click="addWarband">
+    <button type="button" class="btn btn-success text-nowrap ms-2" @click="addWarband">
       <i class="bi bi-plus-lg" />
       New
     </button>
-    <button :disabled="!warband" class="btn btn-danger text-nowrap ms-2" @click="deleteWarband">
+    <button type="button" :disabled="!warband" class="btn btn-danger text-nowrap ms-2"
+      @click="deleteWarband">
       <i class="bi bi-trash3" />
       Delete
     </button>
@@ -34,7 +35,7 @@ import { useWarbandStore } from '@/stores/warband';
 const emit = defineEmits(['update:warband']);
 
 const props = defineProps<{
-  warband : number | null
+  warband: number | null
 }>();
 
 const warbandStore = useWarbandStore();

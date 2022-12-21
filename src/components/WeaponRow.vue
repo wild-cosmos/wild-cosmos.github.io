@@ -2,8 +2,7 @@
   <tr v-for="({
         name, range, a, ap, dm, notes,
       }, idx) in weaponStats" :key="`${name}_${idx}`"
-    :class="{ 'weapon-stats': true, 'melee-stats': idx > 0 }"
-  >
+    :class="{ 'weapon-stats': true, 'melee-stats': idx > 0 }">
     <td>
       <div v-if="name && (idx === 0 || name !== weapon.name)">
         {{ name }}

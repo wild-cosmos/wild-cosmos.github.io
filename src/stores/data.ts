@@ -253,12 +253,13 @@ export const useDataStore = defineStore({
 
     loadHtml() {
       this.abilities.forEach((ability) => {
-        console.log(`Loading /rules/abilities/${ability.name}.html`);
         api.get(`rules/abilities/${ability.name}.html`, {
           headers: { Accept: 'text/html' },
         })
           .then((description) => Object.assign(ability, { description }))
-          .catch((error) => { console.log(error); });
+          .catch((error) => {
+            console.error(error);
+          });
       });
     },
 

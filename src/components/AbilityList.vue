@@ -8,7 +8,8 @@
         </tr>
       </thead>
       <tbody>
-        <AbilityRow v-for="(item) in items" :key="item.name" :item="item" :show-faction="showFaction" />
+        <AbilityRow v-for="(item) in items" :key="item.name" :item="item"
+          :show-faction="showFaction" />
       </tbody>
     </table>
   </div>

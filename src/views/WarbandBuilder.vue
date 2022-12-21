@@ -42,7 +42,8 @@
       </div>
       <div class="col-12 col-sm-6 col-md-4 mb-2 mb-md-0">
         <div class="form-floating">
-          <select id="selectUnit" v-model="selectedModel" class="form-select" :disabled="!availableModelOptions.length">
+          <select id="selectUnit" v-model="selectedModel" class="form-select"
+            :disabled="!availableModelOptions.length">
             <option v-if="!selectedModel" disabled :value="null">
               Select Model
             </option>
@@ -54,11 +55,13 @@
         </div>
       </div>
       <div class="col-auto d-flex flex-nowrap">
-        <button class="btn btn-success text-nowrap" :disabled="!selectedModel" @click="onAddSquadMember">
+        <button type="button" class="btn btn-success text-nowrap" :disabled="!selectedModel"
+          @click="onAddSquadMember">
           <i class="bi bi-clipboard-plus" />
           Add Model
         </button>
-        <button class="ms-2 btn btn-danger text-nowrap" :disabled="!squadStore.models.length" @click="onReset">
+        <button type="button" class="ms-2 btn btn-danger text-nowrap" :disabled="!squadStore.models.length"
+          @click="onReset">
           <i class="bi bi-arrow-counterclockwise" />
           Reset
         </button>

@@ -5,24 +5,23 @@
     </button>
     <ul class="dropdown-menu">
       <li v-for="(r) in options" :key="r" :value="r">
-        <a :class="[ 'dropdown-item', { active: r === value } ]" :aria-current="r === value" @click="selectedRole = r">
+        <a :class="['dropdown-item', { active: r === value }]" :aria-current="r === value" @click="selectedRole = r">
           {{ r }}
         </a>
       </li>
     </ul>
 
     <div ref="confirmModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-         aria-hidden="true"
-    >
+    <div ref="confirmModel" class="modal fade" tabindex="-1"
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           Changing role to {{ currentRole }} will reset this model's wargear, are you sure you want to continue?
         </div>
         <div class="Modal-footer">
-          <button class="btn btn-sm btn-light">
+          <button type="button" class="btn btn-sm btn-light">
             Cancel
           </button>
-          <button class="btn btn-sm btn-primary">
+          <button type="button" class="btn btn-sm btn-primary">
             OK
           </button>
         </div>

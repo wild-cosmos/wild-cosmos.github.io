@@ -40,7 +40,7 @@
       <template #options>
         <div :id="`collapse_${unit.id}`" class="d-print-none collapse">
           <div class="button-bar" role="toolbar">
-            <button type="button" v-for="(option, idx) in availableConfigurationOptions" :key="idx"
+            <button v-for="(option, idx) in availableConfigurationOptions" :key="idx" type="button"
               :class="['btn', 'btn-sm', option.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap']"
               :disabled="!option.available" @click="onSelect(option)">
               {{ option.label }}

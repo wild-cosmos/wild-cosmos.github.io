@@ -5,16 +5,14 @@
     </div>
     <div class="card-body">
       <div class="button-bar">
-        <button v-for="item in wargear" :key="item.name"
+        <button v-for="item in wargear" :key="item.name" type="button"
           :class="['btn btn-sm', item.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap']"
-          :disabled="!item.available" @click="onSelect(item)"
-        >
+          :disabled="!item.available" @click="onSelect(item)">
           {{ item.name }} ({{ item.cost }})
         </button>
-        <button v-for="item in weapons" :key="item.name"
+        <button v-for="item in weapons" :key="item.name" type="button"
           :class="['btn btn-sm', item.available ? 'btn-outline-primary' : 'btn-outline-secondary', 'text-nowrap']"
-          :disabled="!item.available" @click="onSelect(item)"
-        >
+          :disabled="!item.available" @click="onSelect(item)">
           {{ item.name }} ({{ item.cost }})
         </button>
       </div>
