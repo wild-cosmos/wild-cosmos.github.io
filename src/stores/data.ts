@@ -99,7 +99,7 @@ export const useDataStore = defineStore({
   }),
 
   getters: {
-    getUniqueFactions: ({ models }) => models.reduce((factionList, { faction, factionName }) => {
+    getUniqueFactions: (state) => state.models.reduce((factionList, { faction, factionName }) => {
       if (isArray(faction)) {
         faction.forEach((f) => {
           if (!factionList.includes(f)) factionList.push(f);
@@ -109,35 +109,35 @@ export const useDataStore = defineStore({
       }
       return factionList;
     }, [] as string[]),
-    getModelsForFaction: ({ models }) => (lookupName: string) => models.filter(({ faction, factionName }) => factionName === lookupName || faction?.includes(lookupName)),
-    getAbilitiesForFaction: ({ abilities }) => (lookupName: string) => abilities.filter(({ faction, factionName }) => factionName === lookupName || faction?.includes(lookupName)),
-    getWargear: ({ wargear }) => (wargearName: string) : Wargear | undefined => wargear.find(({ name }) => name === wargearName),
-    getWargearForFaction({ wargear }) {
+    getModelsForFaction: (state) => (lookupName: string) => state.models.filter(({ faction, factionName }) => factionName === lookupName || faction?.includes(lookupName)),
+    getAbilitiesForFaction: (state) => (lookupName: string) => state.abilities.filter(({ faction, factionName }) => factionName === lookupName || faction?.includes(lookupName)),
+    getWargear: (state) => (wargearName: string) : Wargear | undefined => state.wargear.find(({ name }) => name === wargearName),
+    getWargearForFaction() {
       return (factionName: string) => {
         const searchFactions = this.getSearchFactions(factionName);
-        return wargear.filter(({ faction }) => searchFactions.includes(faction));
+        return this.wargear.filter(({ faction }) => searchFactions.includes(faction));
       };
     },
 
-    getWeapon: ({ weapons }) => (weaponName: string) : Weapon | undefined => weapons.find(({ name }) => name === weaponName),
-    getWeaponsForFaction({ weapons }) {
+    getWeapon: (state) => (weaponName: string) : Weapon | undefined => state.weapons.find(({ name }) => name === weaponName),
+    getWeaponsForFaction() {
       return (factionName: string) => {
         const searchFactions = this.getSearchFactions(factionName);
-        return weapons.filter(({ faction }) => searchFactions.includes(faction));
+        return this.weapons.filter(({ faction }) => searchFactions.includes(faction));
       };
     },
-    getSearchFactions: ({ subFactions }) => (factionName : string) => {
-      const searchFactions = Object.entries(subFactions).filter(([, list]) => list.includes(factionName)).map(([f]) => f);
+    getSearchFactions: (state) => (factionName : string) => {
+      const searchFactions = Object.entries(state.subFactions).filter(([, list]) => list.includes(factionName)).map(([f]) => f);
       return searchFactions.length ? uniq(searchFactions) : [factionName];
     },
 
-    getModelByName: ({ models }) => (unitName: string) => models.find(({ name }) => name === unitName),
+    getModelByName: (state) => (unitName: string) => state.models.find(({ name }) => name === unitName),
 
-    getConfigurationOptionsForModel: ({ configuration }) => ({ name }: BaseUnit) => configuration.filter(({ usedBy }) => usedBy.includes(name)),
+    getConfigurationOptionsForModel: (state) => ({ name }: BaseUnit) => state.configuration.filter(({ usedBy }) => usedBy.includes(name)),
 
-    getWargearListForModel: ({ models, wargearList }) => ({ name } : SquadUnit) : { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
-      const unit = models.find((u) => u.name === name);
-      return unit?.wargearList?.map((listName) => ({ name: listName, ...wargearList[listName] })) ?? [];
+    getWargearListForModel: (state) => ({ name } : SquadUnit) : { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
+      const unit = state.models.find((u) => u.name === name);
+      return unit?.wargearList?.map((listName) => ({ name: listName, ...state.wargearList[listName] })) ?? [];
     },
   },
 
@@ -266,7 +266,7 @@ export const useDataStore = defineStore({
     getAbility(ability: Ability) {
       if (ability?.description) return ability;
 
-      let filename = ability.name.replace(/\([0-9+]+\)/, '').trim();
+      const filename = ability.name.replace(/\([0-9+]+\)/, '').trim();
 
       // const suffixOffset = filename.lastIndexOf('(');
       // if (suffixOffset > -1) filename = filename.slice(0, suffixOffset).trim();
