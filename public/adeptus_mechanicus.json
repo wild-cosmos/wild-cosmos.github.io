@@ -40,7 +40,8 @@
       "ld": 5,
       "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry" ],
-      "wargear": [ "Radium Carbine", "Rad Grenades" ],
+      "wargear": [ "Radium Carbine", "Rad Grenades", "Empty" ],
+      "wargearList": ["Battle Tech", "Servo-skulls"],
       "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Skitarii" ]
     },
@@ -54,11 +55,11 @@
       "ld": 2,
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Servitor" ],
-      "wargear": [ "Arc Cannon", "Arc Claw" ],
+      "wargear": [ "Arc Cannon", "Arc Claw", "Empty" ],
       "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian", "Large (1)", "Mindlock", "Cyborg Warmachine" ],
       "faction": [ "Imperium", "Adeptus Mechanicus" ]
     },
-    "Sydonian Dragon": {
+    "Sydonian Dragoon": {
       "cost": 38,
       "mv": [ 10, 14 ],
       "bs": 4,
@@ -68,7 +69,7 @@
       "ld": 4,
       "roles": [ "Heavy Support" ],
       "type": [ "Machine" ],
-      "wargear": [ "Taser Lance" ],
+      "wargear": [ "Taser Lance", "Empty", "Empty" ],
       "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian", "Explodes!", "Large Mount" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Skitarii" ]
     }
@@ -495,7 +496,7 @@
     "Thorium Rounds": {
       "notes": "When you create your warband, choose one ranged weapon this model is armed with that has the Radiation type (excluding Grenades). Improve the value for this weapon’s Radiation type by 2."
     },
-    "Titanium-weave warplate": {
+    "Titanium-weave war plate": {
       "notes": "This model improves their armour save by 1."
     }
   },
@@ -867,7 +868,331 @@
       "weapon": [ "Arc Grenades" ],
       "replaces": [ "Rad Grenades" ],
       "cost": 1,
-      "usedBy": [ "Skitarii Princeps" ]
+      "usedBy": [ "Skitarii Princeps", "Skitarii Legionnaire" ]
+    }, {
+      "weapon": [ "Flechette Blaster", "Flechette Blaster" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 2,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Flechette Carbine" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 4,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Arc Rifle" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 4,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Phosphor Torch" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 4,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Plasma Caliver" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 7,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Radium Jezzail" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 5,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Transuranic Arquebus" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 8,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Power Fist" ],
+      "replaces": [ "Radium Carbine" ],
+      "cost": 6,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "role": "Specialist"
+      }
+    }, {
+      "weapon": [ "Radium Pistol" ],
+      "replaces": [ "Empty" ],
+      "cost": 1,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "hasMeleeWeapon": true,
+        "not": [ "Power Fist" ]
+      }
+    }, {
+      "weapon": [ "Energy Shield" ],
+      "replaces": [ "Empty" ],
+      "cost": 2,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "hasMeleeWeapon": true,
+        "not": [ "Power Fist" ]
+      }
+    }, {
+      "weapon": [ "Arc Pistol" ],
+      "replaces": [ "Radium Pistol" ],
+      "cost": 0,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "requires": ["Radium Pistol", "Radium Pistol"]
+      }
+    }, {
+      "weapon": [ "Phosphor Pistol" ],
+      "replaces": [ "Radium Pistol" ],
+      "cost": 1,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "requires": ["Radium Pistol", "Radium Pistol"]
+      }
+    }, {
+      "weapon": [ "Plasma Pistol" ],
+      "replaces": [ "Radium Pistol" ],
+      "cost": 2,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "requires": ["Radium Pistol", "Radium Pistol"]
+      }
+    }, {
+      "weapon": [ "Krak Grenade" ],
+      "replaces": [  ],
+      "cost": 2,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "not": ["Krak Grenade", "Melta Bomb"]
+      }
+    }, {
+      "weapon": [ "Melta Bomb" ],
+      "replaces": [  ],
+      "cost": 5,
+      "usedBy": [ "Skitarii Legionnaire" ],
+      "condition": {
+        "not": ["Krak Grenade", "Melta Bomb"]
+      }
+    }, {
+      "weapon": [ "Torsion Cannon" ],
+      "replaces": [ "Arc Cannon" ],
+      "cost": 0,
+      "usedBy": [ "Kataphron Servitor" ]
+    }, {
+      "weapon": [ "Plasma Cannon" ],
+      "replaces": [ "Arc Cannon" ],
+      "cost": 4,
+      "usedBy": [ "Kataphron Servitor" ]
+    }, {
+      "weapon": [ "Grav-cannon" ],
+      "replaces": [ "Arc Cannon" ],
+      "cost": 4,
+      "usedBy": [ "Kataphron Servitor" ]
+    }, {
+      "weapon": [ "Hydraulic Claw" ],
+      "replaces": [ "Arc Claw" ],
+      "cost": 4,
+      "usedBy": [ "Kataphron Servitor" ]
+    }, {
+      "weapon": [ "Phosphor Blaster" ],
+      "replaces": [ "Arc Claw" ],
+      "cost": 2,
+      "usedBy": [ "Kataphron Servitor" ]
+    }, {
+      "weapon": [ "Heavy Flamer" ],
+      "replaces": [ "Arc Claw" ],
+      "cost": 3,
+      "usedBy": [ "Kataphron Servitor" ]
+    }, {
+      "weapon": [ "Servo Pincer", "Servo Pincer" ],
+      "replaces": [],
+      "cost": 3,
+      "usedBy": [ "Kataphron Servitor" ],
+      "condition": {
+        "not": ["Servo Pincer"]
+      }
+    }, {
+      "weapon": [ "Titanium-weave war plate" ],
+      "replaces": [ "Empty" ],
+      "cost": 1,
+      "usedBy": [ "Kataphron Servitor" ]
+    }, {
+      "weapon": [ "Cognis Weapon" ],
+      "replaces": [ "Empty" ],
+      "cost": 1,
+      "usedBy": [ "Kataphron Servitor" ]
+    }, {
+      "weapon": [ "Radium Jezzail" ],
+      "replaces": [ "Taser Lance" ],
+      "cost": 0,
+      "usedBy": [ "Sydonian Dragoon" ]
+    }, {
+      "weapon": [ "Autocannon", "Autocannon" ],
+      "replaces": [ "Taser Lance" ],
+      "cost": 12,
+      "usedBy": [ "Sydonian Dragoon" ]
+    }, {
+      "weapon": [ "Lascannon", "Lascannon" ],
+      "replaces": [ "Taser Lance" ],
+      "cost": 20,
+      "usedBy": [ "Sydonian Dragoon" ]
+    }, {
+      "weapon": [ "Radium Pistol" ],
+      "replaces": [ "Empty" ],
+      "cost": 1,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Plasma Pistol", "Phosphor Pistol", "Energy Shield", "Arc Pistol", "Radium Pistol"]
+      }
+    }, {
+      "weapon": [ "Arc Pistol" ],
+      "replaces": [ "Empty" ],
+      "cost": 0,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Plasma Pistol", "Phosphor Pistol", "Energy Shield", "Arc Pistol", "Radium Pistol"]
+      }
+    }, {
+      "weapon": [ "Phosphor Pistol" ],
+      "replaces": [ "Empty" ],
+      "cost": 1,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Plasma Pistol", "Phosphor Pistol", "Energy Shield", "Arc Pistol", "Radium Pistol"]
+      }
+    }, {
+      "weapon": [ "Plasma Pistol" ],
+      "replaces": [ "Empty" ],
+      "cost": 2,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Plasma Pistol", "Phosphor Pistol", "Energy Shield", "Arc Pistol", "Radium Pistol"]
+      }
+    }, {
+      "weapon": [ "Energy Shield" ],
+      "replaces": [ "Empty" ],
+      "cost": 2,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "requires": ["Taser Lance"],
+        "not": ["Plasma Pistol", "Phosphor Pistol", "Energy Shield", "Arc Pistol", "Radium Pistol"]
+      }
+    }, {
+      "weapon": [ "Rad-censer" ],
+      "replaces": [ "Empty" ],
+      "cost": 2,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Rad-censer","Thorium Rounds","Frequency Resonator","Titanium-weave war plate","Neural Jammer", "Enhanced data-tether","Cognis Weapom"]
+      }
+    }, {
+      "weapon": [ "Thorium Rounds" ],
+      "replaces": [ "Empty" ],
+      "cost": 1,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Rad-censer","Thorium Rounds","Frequency Resonator","Titanium-weave war plate","Neural Jammer", "Enhanced data-tether","Cognis Weapom"]
+      }
+    }, {
+      "weapon": [ "Frequency Resonator" ],
+      "replaces": [ "Empty" ],
+      "cost": 3,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Rad-censer","Thorium Rounds","Frequency Resonator","Titanium-weave war plate","Neural Jammer", "Enhanced data-tether","Cognis Weapom"]
+      }
+    }, {
+      "weapon": [ "Titanium-weave war plate" ],
+      "replaces": [ "Empty" ],
+      "cost": 3,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Rad-censer","Thorium Rounds","Frequency Resonator","Titanium-weave war plate","Neural Jammer", "Enhanced data-tether","Cognis Weapom"]
+      }
+    }, {
+      "weapon": [ "Neural Jammer" ],
+      "replaces": [ "Empty" ],
+      "cost": 3,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Rad-censer","Thorium Rounds","Frequency Resonator","Titanium-weave war plate","Neural Jammer", "Enhanced data-tether","Cognis Weapom"]
+      }
+    }, {
+      "weapon": [ "Enhanced data-tether" ],
+      "replaces": [ "Empty" ],
+      "cost": 2,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Rad-censer","Thorium Rounds","Frequency Resonator","Titanium-weave war plate","Neural Jammer", "Enhanced data-tether","Cognis Weapom"]
+      }
+    }, {
+      "weapon": [ "Cognis Weapon" ],
+      "replaces": [ "Empty" ],
+      "cost": 2,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Rad-censer","Thorium Rounds","Frequency Resonator","Titanium-weave war plate","Neural Jammer", "Enhanced data-tether","Cognis Weapom"],
+        "requires":["Autocannon"]
+      }
+    }, {
+      "weapon": [ "Cognis Weapon" ],
+      "replaces": [ "Empty" ],
+      "cost": 2,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Rad-censer","Thorium Rounds","Frequency Resonator","Titanium-weave war plate","Neural Jammer", "Enhanced data-tether","Cognis Weapom"],
+        "requires":["Lascannon"]
+      }
+    }, {
+      "weapon": [ "Cyber-occularis" ],
+      "replaces": [  ],
+      "cost": 3,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Cyber-occularis","Infislave Skull","Guardian Skull","Skull-probe"]
+      }
+    }, {
+      "weapon": [ "Infoslave Skull" ],
+      "replaces": [  ],
+      "cost": 3,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Cyber-occularis","Infislave Skull","Guardian Skull","Skull-probe"]
+      }
+    }, {
+      "weapon": [ "Guardian Skull" ],
+      "replaces": [  ],
+      "cost": 2,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Cyber-occularis","Infislave Skull","Guardian Skull","Skull-probe"]
+      }
+    }, {
+      "weapon": [ "Skull-probe" ],
+      "replaces": [  ],
+      "cost": 3,
+      "usedBy": [ "Sydonian Dragoon" ],
+      "condition": {
+        "not": ["Cyber-occularis","Infislave Skull","Guardian Skull","Skull-probe"]
+      }
     }
   ]
 }
