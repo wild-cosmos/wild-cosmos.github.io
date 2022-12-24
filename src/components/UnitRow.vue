@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import formatStat from '@/utils/formatStat';
 import type { Unit } from '@/types/unit';
+import { isArray } from 'lodash-es';
 
 const props = defineProps<{
   unit: Unit,
@@ -9,8 +10,10 @@ const props = defineProps<{
 }>();
 
 const rolesAndTypes = computed(() => {
-  const { roles, type } = props.unit;
-  return [roles.join(' or '), ...type].filter((s) => s > '').join(', ');
+  const { type } = props.unit;
+  const rolesAsArray = ({ roles }: Unit) => (isArray(roles) ? roles : Object.keys(roles));
+
+  return [rolesAsArray(props.unit).join(' or '), ...type].filter((s) => s > '').join(', ');
 });
 
 const factions = computed(() => {
