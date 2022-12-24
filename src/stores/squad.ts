@@ -30,6 +30,7 @@ const createSquadUnit = (): SquadUnit => ({
   role: '',
   wargear: [],
   weapons: [],
+  limits: null,
 });
 
 interface State {
@@ -104,7 +105,9 @@ export const useSquadStore = defineStore({
       });
     },
     addSquadMember(model: Unit) {
-      const dataStore = useDataStore();
+      const { getWeapon, getWargear } = useDataStore();
+
+      debugger;
 
       const m = Object.entries(model)
         .reduce((target: { [key: string]: any }, [property, value]: [string, any]) => {
@@ -115,14 +118,13 @@ export const useSquadStore = defineStore({
       if (typeof model.roles !== 'string') {
         const getDefaultRole = ({ roles }: Unit) => {
           let role = roles;
-          if (isObject(roles)) {
-            [role] = Object.keys(roles);
-          } else if (isArray(roles) && roles.length > 0) {
+          if (isArray(roles)) {
             [role] = roles;
+          } else if (isObject(roles)) {
+            [role] = Object.keys(roles);
           }
           return role;
         };
-
         Object.assign(m, { role: getDefaultRole(model) });
       }
 
@@ -131,8 +133,8 @@ export const useSquadStore = defineStore({
         ...weapons,
         ...wargear,
       ];
-      m.weapons = defaultItems.map(dataStore.getWeapon).filter((w) => !!w);
-      m.wargear = (wargear ?? []).map(dataStore.getWargear).filter(((w) => !!w));
+      m.weapons = defaultItems.map(getWeapon).filter((w) => !!w);
+      m.wargear = (wargear ?? []).map(getWargear).filter(((w) => !!w));
 
       this.models.push(m as SquadUnit);
 

@@ -61,6 +61,10 @@
 
   <table class="table">
     <tbody>
+      <tr v-if="unit.limits" class="align-middle">
+        <th>Limits</th>
+        <td>{{ unit.limits.comment }}</td>
+      </tr>
       <tr class="align-middle">
         <th>Wargear</th>
         <td>

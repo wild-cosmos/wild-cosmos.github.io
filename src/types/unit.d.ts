@@ -21,10 +21,15 @@ export interface Unit extends BaseUnit {
   factionName?: string;
   // options?: BuildOptions[];
   // optionalWargear?: string[];
+  limits?: UnitLimits
 }
 
 export interface Roles {
   [key: string]: UnitCustomisation
+}
+
+export interface UnitLimits {
+  comment?: string
 }
 
 export interface UnitCustomisation {
