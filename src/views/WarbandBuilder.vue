@@ -165,9 +165,11 @@ const validationErrors = computed(() => {
       specialist: 0,
     } as { [key: string]: number });
 
-    if (!roles.leader) {
+    const allHaveAbility = (requiredAbility: string) => squadStore.models.every(({ abilities }) => abilities.includes(requiredAbility));
+
+    if (!roles.leader && !allHaveAbility('Autonomous Servant')) {
       errorList.push({ text: 'Your Warband must have a Leader' });
-    } else if (roles.leader !== 1) {
+    } else if (roles.leader > 1) {
       errorList.push({ text: 'Your Warband cannot have more than one Leader' });
     }
     if (roles.specialist > roles.core) {
