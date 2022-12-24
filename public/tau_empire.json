@@ -53,7 +53,14 @@
       "df": 6,
       "lf": 3,
       "ld": 5,
-      "roles": [ "Core", "Specialist" ],
+      "roles": {
+        "Core": {
+          "wargearList": [ "Support Systems" ]
+        },
+        "Specialist": {
+          "wargearList": [ "Support Systems", "Prototype Technology" ]
+        }
+      },
       "type": [ "Infantry" ],
       "weapons": [ "Pulse Carbine", "Empty", "Photon Grenades" ],
       "wargear": [ ],
@@ -115,7 +122,14 @@
       "df": 7,
       "lf": 3,
       "ld": 5,
-      "roles": [ "Core", "Specialist" ],
+      "roles": {
+        "Core": {
+          "wargearList": [ "Support Systems" ]
+        },
+        "Specialist": {
+          "wargearList": [ "Support Systems", "Prototype Technology" ]
+        }
+      },
       "type": [ "Infantry" ],
       "weapons": [ "Pulse Carbine", "Photon Grenades", "Empty" ],
       "wargear": [ ],
@@ -136,19 +150,22 @@
           "cost": 20,
           "bs": 4,
           "lf": 5,
-          "ld": 4
+          "ld": 4,
+          "wargearList": [ "Support Systems", "Prototype Technology" ]
         },
         "Core": {
           "cost": 20,
           "bs": 4,
           "lf": 5,
-          "ld": 4
+          "ld": 4,
+          "wargearList": [ "Support Systems", "Prototype Technology" ]
         },
         "Leader": {
           "cost": 22,
           "bs": 3,
           "lf": 6,
-          "ld": 3
+          "ld": 3,
+          "wargearList": [ "Support Systems", "Battlesuit Systems", "Prototype Technology" ]
         }
       },
       "type": [ "Infantry", "Battlesuit" ],
@@ -156,24 +173,12 @@
       "wargear": [ "Stealth Field" ],
       "wargearList": [ "Support Systems", "Prototype Technology" ],
       "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate", "Camouflage (1)", "Jetpack Thrust" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
+      "faction": [ "T'au Empire", "Fire Caste" ],
+      "limits": {
+        "comment": "If your Leader is a Stealth Battlesuit, this model may have the Core role."
+      }
     },
-    "Stealth Battlesuit (Leader)": {
-      "cost": 22,
-      "mv": [ 6, 12 ],
-      "bs": 3,
-      "cs": 6,
-      "df": 4,
-      "lf": 6,
-      "ld": 3,
-      "roles": [ "Leader" ],
-      "type": [ "Infantry", "Battlesuit" ],
-      "weapons": [ "Burst Cannon" ],
-      "wargear": [ "Stealth Field" ],
-      "wargearList": [ "Support Systems", "Battlesuit Systems", "Prototype Technology" ],
-      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Infiltrate", "Camouflage (1)", "Jetpack Thrust" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
-    },
+
     "Gun Drone": {
       "cost": 7,
       "mv": [ 6, 12 ],
@@ -186,7 +191,8 @@
       "type": [ "Drone", "Machine" ],
       "weapons": [ "Pulse Carbine", "Pulse Carbine" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support", "Companion AI", "Saviour Protocols", "Hover" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
+      "faction": [ "T'au Empire", "Fire Caste" ],
+      "limits": { "comment": "The number of Drones in your warband cannot exceed the number of other Fire Caste models in your warband." }
     },
     "Missile Drone": {
       "cost": 12,
@@ -200,7 +206,8 @@
       "type": [ "Drone", "Machine" ],
       "weapons": [ "Smart Missile System" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support", "Companion AI", "Saviour Protocols", "Hover" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
+      "faction": [ "T'au Empire", "Fire Caste" ],
+      "limits": { "comment": "The number of Drones in your warband cannot exceed the number of other Fire Caste models in your warband." }
     },
     "Sniper Drone": {
       "cost": 16,
@@ -215,7 +222,8 @@
       "weapons": [ "Longshot Pulse Rifle" ],
       "wargear": [ "Stealth Field" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support", "Saviour Protocols", "Hover" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
+      "faction": [ "T'au Empire", "Fire Caste" ],
+      "limits": { "comment": "The number of Drones in your warband cannot exceed the number of other Fire Caste models in your warband." }
     },
     "Tactical Support Turret": {
       "cost": 10,
@@ -229,7 +237,8 @@
       "type": [ "Drone", "Machine" ],
       "weapons": [ "Smart Missile System" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
+      "faction": [ "T'au Empire", "Fire Caste" ],
+      "limits": { "comment": "The number of Drones in your warband cannot exceed the number of other Fire Caste models in your warband." }
     },
     "Marker Drone": {
       "cost": 5,
@@ -244,7 +253,8 @@
       "weapons": [ ],
       "wargear": [ "Markerlight" ],
       "abilities": [ "AI Support", "Companion AI", "Saviour Protocols", "Hover" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
+      "faction": [ "T'au Empire", "Fire Caste" ],
+      "limits": { "comment": "The number of Drones in your warband cannot exceed the number of other Fire Caste models in your warband." }
     },
     "Tactical Drone": {
       "cost": 4,
@@ -258,7 +268,8 @@
       "type": [ "Drone", "Machine" ],
       "weapons": [ "Empty" ],
       "abilities": [ "AI Support", "Companion AI", "Saviour Protocols", "Hover" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
+      "faction": [ "T'au Empire", "Fire Caste" ],
+      "limits": { "comment": "The number of Drones in your warband cannot exceed the number of other Fire Caste models in your warband." }
     },
     "Guardian Drone": {
       "cost": 8,
@@ -271,7 +282,8 @@
       "roles": [ "Support" ],
       "type": [ "Drone", "Machine" ],
       "abilities": [ "AI Support", "Companion AI", "Saviour Protocols", "Hover", "Shield Projector" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
+      "faction": [ "T'au Empire", "Fire Caste" ],
+      "limits": { "comment": "The number of Drones in your warband cannot exceed the number of other Fire Caste models in your warband." }
     },
     "Recon Drone": {
       "cost": 5,
@@ -285,7 +297,8 @@
       "type": [ "Drone", "Machine" ],
       "wargear": [ "Empty" ],
       "abilities": [ "Coordinated Fire Arcs", "AI Support", "Saviour Protocols", "Hover", "Infiltrate" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
+      "faction": [ "T'au Empire", "Fire Caste" ],
+      "limits": { "comment": "The number of Drones in your warband cannot exceed the number of other Fire Caste models in your warband." }
     }
   },
   "abilities": [ ],
@@ -456,7 +469,7 @@
     "Battlesuit Systems": {
       "Coldstar Thrusters": {
         "cost": 2,
-        "only": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ],
+        "only": [ "Crisis Battlesuit" ],
         "warbandLimit": 2
       },
       "Fail-safe Detonator": {
@@ -726,38 +739,38 @@
       "weapon": [ "Missile Pod" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 3,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Piranha" ]
+      "usedBy": [ "Crisis Battlesuit", "Piranha" ]
     },
     {
       "weapon": [ "Burst Cannon" ],
       "replaces": [ "Empty" ],
       "cost": 5,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit" ]
     }, {
       "weapon": [ "Flamer" ],
       "replaces": [ "Empty" ],
       "cost": 4,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit" ]
     }, {
       "weapon": [ "Fusion Blaster" ],
       "replaces": [ "Empty" ],
       "cost": 12,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit" ]
     }, {
       "weapon": [ "Missile Pod" ],
       "replaces": [ "Empty" ],
       "cost": 8,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit" ]
     }, {
       "weapon": [ "Plasma Rifle" ],
       "replaces": [ "Empty" ],
       "cost": 8,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit" ]
     }, {
       "weapon": [ "Shield Generator" ],
       "replaces": [ "Empty" ],
       "cost": 12,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit" ]
     }, {
       "weapon": [ "Descent Thrusters" ],
       "replaces": [ ],
@@ -765,7 +778,7 @@
       "condition": {
         "not": [ "Descent Thrusters" ]
       },
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit" ]
     },
 
     {
@@ -843,19 +856,19 @@
       "weapon": [ "Flamer" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 0,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)", "Piranha" ]
+      "usedBy": [ "Crisis Battlesuit", "Stealth Battlesuit", "Piranha" ]
     },
     {
       "weapon": [ "Fusion Blaster" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 7,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)", "Piranha" ]
+      "usedBy": [ "Crisis Battlesuit", "Stealth Battlesuit", "Piranha" ]
     },
     {
       "weapon": [ "Plasma Rifle" ],
       "replaces": [ "Burst Cannon" ],
       "cost": 3,
-      "usedBy": [ "Crisis Battlesuit", "Crisis Battlesuit (Leader)", "Stealth Battlesuit", "Stealth Battlesuit (Leader)" ]
+      "usedBy": [ "Crisis Battlesuit", "Stealth Battlesuit" ]
     },
 
     {

@@ -37,7 +37,6 @@
       "df": 5,
       "lf": 4,
       "ld": 2,
-      "roles": [ "Core", "Specialist" ],
       "type": [ "Infantry" ],
       "weapons": [ "Tesla Carbine" ],
       "wargear": [ ],
@@ -108,7 +107,8 @@
       "type": [ ],
       "weapons": [ "Feeder Mandibles" ],
       "wargear": [ ],
-      "abilities": [ "Living Metal", "Autonomous Servant", "Hover", "Swarm" ]
+      "abilities": [ "Living Metal", "Autonomous Servant", "Hover", "Swarm" ],
+      "faction": [ "Necrons", "Canoptek" ]
     },
     "Canoptek Spyder": {
       "cost": 28,
@@ -122,7 +122,8 @@
       "type": [ ],
       "weapons": [ "Fabricator Claws" ],
       "wargear": [ ],
-      "abilities": [ "Living Metal", "Autonomous Servant", "Hover", "Large (2)", "Scarab Hive" ]
+      "abilities": [ "Living Metal", "Autonomous Servant", "Hover", "Large (2)", "Scarab Hive" ],
+      "faction": [ "Necrons", "Canoptek" ]
     },
     "Triarch Judicator": {
       "cost": 23,
@@ -137,7 +138,8 @@
       "weapons": [ "Rod of Covenant" ],
       "wargear": [ ],
       "wargearList": [ "Ancient Armoury", "Eldritch Devices" ],
-      "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ]
+      "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ],
+      "faction": [ "Necrons", "Triarch" ]
     },
     "Triarch Praetorian": {
       "cost": 20,
@@ -152,7 +154,8 @@
       "weapons": [ "Rod of Covenant" ],
       "wargear": [ ],
       "wargearList": [ "Ancient Armoury", "Eldritch Devices" ],
-      "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ]
+      "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ],
+      "faction": [ "Necrons", "Triarch" ]
     }
   },
   "weapons": [
