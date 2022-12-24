@@ -611,6 +611,14 @@
         "not": [ "Disruption Field", "Ossified Necrodermis" ]
       },
       "usedBy": [ "Flayed One" ]
+    }, {
+      "weapon": "Ossified Necrodermis",
+      "replaces": null,
+      "cost": 2,
+      "condition": {
+        "not": [ "Ossified Necrodermis" ]
+      },
+      "usedBy": [ "Canoptek Spyder" ]
     },
 
     {
