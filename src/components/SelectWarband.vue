@@ -20,8 +20,7 @@
       <i class="bi bi-plus-lg" />
       New
     </button>
-    <button type="button" :disabled="!warband" class="btn btn-danger text-nowrap ms-2"
-      @click="deleteWarband">
+    <button type="button" :disabled="!warband" class="btn btn-danger text-nowrap ms-2" @click="deleteWarband">
       <i class="bi bi-trash3" />
       Delete
     </button>
@@ -31,6 +30,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useWarbandStore } from '@/stores/warband';
+import { orderBy } from 'lodash-es';
 
 const emit = defineEmits(['update:warband']);
 
@@ -40,10 +40,10 @@ const props = defineProps<{
 
 const warbandStore = useWarbandStore();
 
-const warbandOptions = computed(() => warbandStore.warbands.map(({ id, name }) => ({
+const warbandOptions = computed(() => orderBy(warbandStore.warbands.map(({ id, name }) => ({
   value: id,
   label: name || '- Unnamed Warband -',
-})));
+})), ['label']));
 
 const selectedWarband = computed({
   get() { return props.warband; },
