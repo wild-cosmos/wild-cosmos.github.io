@@ -4,7 +4,7 @@ import { isArray, isString, uniq } from 'lodash-es';
 
 import type {
   BaseUnit, Unit, SquadUnit,
-  Wargear, Weapon, Item,
+  Wargear, Weapon, Item, Roles,
 } from '@/types/unit';
 import type { Ability, Configuration, Faction } from '@/types/faction';
 
@@ -136,9 +136,12 @@ export const useDataStore = defineStore({
 
     getConfigurationOptionsForModel: (state) => ({ name }: BaseUnit) => state.configuration.filter(({ usedBy }) => usedBy.includes(name)),
 
-    getWargearListForModel: (state) => ({ name }: SquadUnit): { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
+    getWargearListForModel: (state) => ({ name, role }: SquadUnit): { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
       const unit = state.models.find((u) => u.name === name);
-      return unit?.wargearList?.map((listName) => ({ name: listName, ...state.wargearList[listName] })) ?? [];
+      if (!unit) return [];
+      const roleSpecificAttributes = role in unit.roles ? (unit.roles as Roles)[role] : null;
+      const wargearList = roleSpecificAttributes?.wargearList ?? unit?.wargearList;
+      return wargearList?.map((listName) => ({ name: listName, ...state.wargearList[listName] })) ?? [];
     },
   },
 

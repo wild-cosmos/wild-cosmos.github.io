@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { isArray } from 'lodash-es';
+import { isArray, isObject } from 'lodash-es';
 import type { SquadUnit, Unit } from '@/types/unit';
 import type { Warband } from '@/types/warband';
 import { useDataStore } from './data';
@@ -112,9 +112,18 @@ export const useSquadStore = defineStore({
           return target;
         }, createSquadUnit());
 
-      if (model.roles.length > 0) {
-        const [role] = model.roles;
-        Object.assign(m, { role });
+      if (typeof model.roles !== 'string') {
+        const getDefaultRole = ({ roles }: Unit) => {
+          let role = roles;
+          if (isObject(roles)) {
+            [role] = Object.keys(roles);
+          } else if (isArray(roles) && roles.length > 0) {
+            [role] = roles;
+          }
+          return role;
+        };
+
+        Object.assign(m, { role: getDefaultRole(model) });
       }
 
       const { weapons = [], wargear = [] } = model;
@@ -221,7 +230,11 @@ export const useSquadStore = defineStore({
     setRole(squadId: number, role: string) {
       const squadUnit = this.models.find(({ id }) => id === squadId);
       if (squadUnit) {
+        const { getModelByName } = useDataStore();
         Object.assign(squadUnit, { role });
+        const model = getModelByName(squadUnit.name);
+        const roleStats = model?.roles[role];
+        if (roleStats) Object.assign(squadUnit, roleStats);
       }
     },
   },

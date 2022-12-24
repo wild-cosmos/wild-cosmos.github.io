@@ -12,7 +12,7 @@ interface BaseUnit {
   abilities: string[];
 }
 export interface Unit extends BaseUnit {
-  roles: string[];
+  roles: string[] | Roles;
   type: string | string[];
   wargear?: string[];
   wargearList?: string[];
@@ -21,6 +21,24 @@ export interface Unit extends BaseUnit {
   factionName?: string;
   // options?: BuildOptions[];
   // optionalWargear?: string[];
+}
+
+export interface Roles {
+  [key: string]: UnitCustomisation
+}
+
+export interface UnitCustomisation {
+  mv?: number[];
+  bs?: number;
+  cs?: number;
+  df?: number;
+  lf?: number;
+  si?: number;
+  ld?: number;
+  abilities: string[];
+  wargear?: string[];
+  wargearList?: string[];
+  weapons?: string[];
 }
 
 export interface SquadUnit extends BaseUnit {

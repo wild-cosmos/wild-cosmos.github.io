@@ -31,9 +31,9 @@
     </div>
 
     <div v-if="squadStore.models.length" class="d-flex justify-content-end my-3">
-      <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">Total {{
-          squadStore.totalPoints
-      }} Pts</strong>
+      <strong :class="{ 'text-nowrap': true, 'text-danger': squadStore.totalPoints > maxPoints }">
+        Total {{ squadStore.totalPoints }} Pts
+      </strong>
     </div>
 
     <div class="d-print-none bg-light my-3 py-2 row align-items-center">

@@ -107,7 +107,10 @@ const wargearOptions = computed(() => wargearForUnit.value.map(toOption));
 const rolesForUnit = computed(() => {
   if (!unitType.value) return [];
   const { roles } = unitType.value;
-  const options = isArray(roles) ? roles : [roles];
+  if (typeof roles === 'string') return [roles];
+  if (isArray(roles)) return roles;
+
+  const options = Object.keys(roles);
   return options;
 });
 
@@ -116,8 +119,8 @@ const selectedRole = computed({
     return props.unit.role;
   },
   set(role) {
-    squadStore.setRole(props.unit.id, role);
     squadStore.resetWargear(props.unit);
+    squadStore.setRole(props.unit.id, role);
   },
 });
 

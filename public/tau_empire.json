@@ -8,23 +8,20 @@
       "df": 4,
       "lf": 8,
       "ld": 4,
-      "roles": [ "Specialist" ],
-      "type": [ "Infantry", "Battlesuit" ],
-      "weapons": [ "Burst Cannon", "Empty" ],
-      "wargear": [ ],
-      "wargearList": [ "Support Systems", "Battlesuit Systems", "Prototype Technology" ],
-      "abilities": [ "Coordinated Fire Arcs", "Bonding Knife Ritual", "Large (1)", "Jetpack Thrust" ],
-      "faction": [ "T'au Empire", "Fire Caste" ]
-    },
-    "Crisis Battlesuit (Leader)": {
-      "cost": 22,
-      "mv": [ 6, 12 ],
-      "bs": 3,
-      "cs": 6,
-      "df": 4,
-      "lf": 9,
-      "ld": 3,
-      "roles": [ "Leader" ],
+      "roles": {
+        "Specialist": {
+          "cost": 20,
+          "bs": 4,
+          "lf": 8,
+          "ld": 4
+        },
+        "Leader": {
+          "cost": 22,
+          "bs": 3,
+          "lf": 9,
+          "ld": 3
+        }
+      },
       "type": [ "Infantry", "Battlesuit" ],
       "weapons": [ "Burst Cannon", "Empty" ],
       "wargear": [ ],
@@ -134,7 +131,26 @@
       "df": 4,
       "lf": 5,
       "ld": 4,
-      "roles": [ "Specialist" ],
+      "roles": {
+        "Specialist": {
+          "cost": 20,
+          "bs": 4,
+          "lf": 5,
+          "ld": 4
+        },
+        "Core": {
+          "cost": 20,
+          "bs": 4,
+          "lf": 5,
+          "ld": 4
+        },
+        "Leader": {
+          "cost": 22,
+          "bs": 3,
+          "lf": 6,
+          "ld": 3
+        }
+      },
       "type": [ "Infantry", "Battlesuit" ],
       "weapons": [ "Burst Cannon" ],
       "wargear": [ "Stealth Field" ],
