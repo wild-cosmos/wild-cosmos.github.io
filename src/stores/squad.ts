@@ -107,8 +107,6 @@ export const useSquadStore = defineStore({
     addSquadMember(model: Unit) {
       const { getWeapon, getWargear } = useDataStore();
 
-      debugger;
-
       const m = Object.entries(model)
         .reduce((target: { [key: string]: any }, [property, value]: [string, any]) => {
           if (property in target) target[property] = value;
