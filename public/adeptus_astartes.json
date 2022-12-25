@@ -180,7 +180,14 @@
       "df": [ 2, 7 ],
       "lf": 8,
       "ld": 3,
-      "roles": [ "Specialist" ],
+      "roles": {
+        "Specialist": {
+          "wargearList": [ "Tactical Wargear", "Special-issue Wargear" ]
+        },
+        "Core": {
+          "wargearList": [ "Tactical Wargear" ]
+        }
+      },
       "type": [ "Infantry", "Terminator" ],
       "weapons": [ "Power Sword", "Storm Bolter" ],
       "wargear": [ ],
@@ -189,7 +196,8 @@
         "And They Shall Know No Fear",
         "Transhuman Physiology"
       ],
-      "faction": [ "Imperium", "Adeptus Astartes" ]
+      "faction": [ "Imperium", "Adeptus Astartes" ],
+      "limits": { "comment": "If your Leader is a Terminator Sergeant, this model may have the Core role." }
     },
     "Terminator Lexicanium": {
       "cost": 35,

@@ -151,7 +151,7 @@
           "bs": 4,
           "lf": 5,
           "ld": 4,
-          "wargearList": [ "Support Systems", "Prototype Technology" ]
+          "wargearList": [ "Support Systems" ]
         },
         "Core": {
           "cost": 20,
