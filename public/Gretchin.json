@@ -1,0 +1,85 @@
+{
+  "models": {
+    "Grot Boss": {
+      "mv": [ 4, 8 ],
+      "bs": 4,
+      "cs": 5,
+      "df": 7,
+      "lf": 4,
+      "ld": 6,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "cost": 7,
+      "limits": { "comment": "If this model is your Leader, the only Orks you can include in your warband are Gretchin, Squigs, Snotlings, Troggoths, Artillery and Freebooters." },
+      "weapons": [ "Stabba" ],
+      "abilities": [ "Puny", "Mob Rule", "Slippery Git" ],
+      "faction": [ "Orks", "Gretchin" ]
+    },
+    "Gretchin": {
+      "mv": [ 4, 8 ],
+      "bs": 5,
+      "cs": 6,
+      "df": 8,
+      "lf": 2,
+      "ld": 7,
+      "roles": [ "Support" ],
+      "type": [ "Infantry" ],
+      "cost": 3,
+      "limits": { "comment": "If your Leader is a Gretchin, this model has the Core role." },
+      "weapons": [ "Stabba" ],
+      "abilities": [ "Puny", "Mob Rule" ],
+      "faction": [ "Orks", "Gretchin" ]
+    },
+    "'ard Grot": {
+      "mv": [ 4, 8 ],
+      "bs": 5,
+      "cs": 6,
+      "df": 7,
+      "lf": 2,
+      "ld": 6,
+      "roles": [ "Core" ],
+      "type": [ "Infantry" ],
+      "cost": 4,
+      "weapons": [ "Stabba" ],
+      "abilities": [ "Puny", "Mob Rule" ],
+      "faction": [ "Orks", "Gretchin" ]
+    },
+    "Killa Kan": {
+      "mv": [ 5, 10 ],
+      "bs": 5,
+      "cs": 6,
+      "df": 3,
+      "lf": 12,
+      "ld": 5,
+      "roles": [ "Specialist" ],
+      "type": [ "Machine" ],
+      "cost": 32,
+      "weapons": [ "Big Shoota", "Killa Klaw" ],
+      "abilities": [ "Mob Rule", "Large (3)", "Explodes!", "Big an' Klanky" ],
+      "faction": [ "Orks", "Gretchin" ]
+    },
+    "Skraptank": {
+      "mv": [ 5, 10 ],
+      "bs": 5,
+      "cs": 6,
+      "df": 3,
+      "lf": 12,
+      "ld": 5,
+      "roles": [ "Specialist" ],
+      "type": [ "Machine" ],
+      "cost": 27,
+      "weapons": [ "Big Shoota" ],
+      "abilities": [ "Mob Rule", "Large (3)", "Explodes!", "Big an' Klanky" ],
+      "faction": [ "Orks", "Gretchin" ]
+    }
+  },
+  "weapons": {
+    "Killa Klaw": {
+      "range": null,
+      "a": 2,
+      "ap": [ 2, 5 ],
+      "dm": [ 2, 3 ],
+      "notes": "Paired"
+    }
+  }
+}

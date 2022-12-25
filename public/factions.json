@@ -1,8 +1,9 @@
 [
-    [ "Imperium - Adeptus Astartes", "adeptus_astartes.json" ],
-    [ "Imperium - Adeptus Mechanicus", "adeptus_mechanicus.json" ],
-    "Necrons",
-    "Orks",
-    [ "T'au Empire", "tau_empire.json" ],
-    [ "Nighthaunt", "nighthaunt.json" ]
+  [ "Imperium - Adeptus Astartes", "adeptus_astartes.json" ],
+  [ "Imperium - Adeptus Mechanicus", "adeptus_mechanicus.json" ],
+  "Necrons",
+  "Orks",
+  "Gretchin",
+  [ "T'au Empire", "tau_empire.json" ],
+  [ "Nighthaunt", "nighthaunt.json" ]
 ]
