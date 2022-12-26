@@ -16,13 +16,14 @@
 </template>
 
 <script lang="ts">
+import type { Ability } from '@/types/faction';
 import { defineComponent } from 'vue';
 import AbilityRow from './AbilityRow.vue';
 
 export default defineComponent({
   components: { AbilityRow },
   props: {
-    items: { type: Array, required: true },
+    items: { type: Array<Ability>, required: true },
     showFaction: { type: Boolean, default: false },
   },
   setup() {
