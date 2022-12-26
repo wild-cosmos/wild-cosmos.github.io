@@ -1,4 +1,4 @@
 export interface Rule {
-  title: string;
-  section: string;
+  title: string
+  section: string
 }
