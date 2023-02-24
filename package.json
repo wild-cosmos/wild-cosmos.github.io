@@ -1,13 +1,13 @@
 {
   "name": "warband-builder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "displayName": "Wild Cosmos - Warband Builder",
   "description": "Squad Builder and Reference Guide for Wild Cosmos",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
-    "build-only": "vite build",
+    "build-only": "npm -force version patch && vite build",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "deploy": "firebase deploy"
