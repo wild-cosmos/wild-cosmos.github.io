@@ -1,18 +1,11 @@
 import { useLocalStorage } from '@vueuse/core';
 import { defineStore } from 'pinia';
 import type { Warband } from '@/types/warband';
+import generateId from '@/utils/id-helper';
 
 interface State {
   warbands: Warband[];
 }
-
-const generateId = ((id) => {
-  let nextId = id;
-  return () => {
-    nextId += 1;
-    return nextId;
-  };
-})(Date.now());
 
 // eslint-disable-next-line import/prefer-default-export
 export const useWarbandStore = defineStore({

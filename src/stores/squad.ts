@@ -2,16 +2,9 @@ import { defineStore } from 'pinia';
 import { isArray, isObject } from 'lodash-es';
 import type { SquadUnit, Unit } from '@/types/unit';
 import type { Warband } from '@/types/warband';
+import generateId from '@/utils/id-helper';
 import { useDataStore } from './data';
 import { useWarbandStore } from './warband';
-
-const generateId = ((id) => {
-  let nextId = id;
-  return () => {
-    nextId += 1;
-    return nextId;
-  };
-})(Date.now());
 
 const createSquadUnit = (): SquadUnit => ({
   id: generateId(),
