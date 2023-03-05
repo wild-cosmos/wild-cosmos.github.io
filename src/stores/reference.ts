@@ -17,16 +17,16 @@ export const useReferenceStore = defineStore('reference', {
   }),
 
   getters: {
-    searchRules: ({ rules }: State) => (queryString: string): Rule[] => {
+    searchRules: (state: State) => (queryString: string): Rule[] => {
       const searchTerms = queryString.split(' ').filter((s) => s > '');
       const match = new RegExp(searchTerms.map((s) => `${s}`).join('|'), 'i');
 
-      return rules.filter(({ title }) => match.test(title));
+      return state.rules.filter(({ title }) => match.test(title));
     },
 
-    matchingRules: ({ searchTerms, rules }) => {
-      const match = new RegExp(searchTerms.map((s) => `${s}`).join('|'), 'i');
-      return rules.filter(({ title }) => match.test(title));
+    matchingRules: (state) => {
+      const match = new RegExp(state.searchTerms.map((s) => `${s}`).join('|'), 'i');
+      return state.rules.filter(({ title }) => match.test(title));
     },
   },
 

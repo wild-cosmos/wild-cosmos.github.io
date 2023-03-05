@@ -16,7 +16,7 @@ export const useWarbandStore = defineStore({
   }),
 
   getters: {
-    getWarband: ({ warbands }) => (id: number) => warbands.find((w) => w.id === id),
+    getWarband: (state) => (id: number) => state.warbands.find((w) => w.id === id),
   },
 
   actions: {

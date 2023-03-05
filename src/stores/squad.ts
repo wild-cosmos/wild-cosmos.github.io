@@ -45,9 +45,9 @@ export const useSquadStore = defineStore({
   }),
 
   getters: {
-    totalPoints: ({ models }) => models.reduce((total, model) => total + model.cost, 0),
+    totalPoints: (state) => state.models.reduce((total, model) => total + model.cost, 0),
 
-    getModelsWithItem: ({ models }) => (itemName: string) => models.filter(({ weapons, wargear }) => {
+    getModelsWithItem: (state) => (itemName: string) => state.models.filter(({ weapons, wargear }) => {
       if (weapons.some(({ name }) => name === itemName)) return true;
       if (wargear.some(({ name }) => name === itemName)) return true;
       return false;
