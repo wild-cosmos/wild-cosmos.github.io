@@ -13,7 +13,7 @@ export const useWarbandStore = defineStore({
 
   state: () => useLocalStorage<State>('wild-cosmos-warband', {
     warbands: [],
-  }),
+  }, { deep: true, mergeDefaults: true }),
 
   getters: {
     getWarband: (state) => (id: number) => state.warbands.find((w) => w.id === id),

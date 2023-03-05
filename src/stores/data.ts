@@ -267,7 +267,7 @@ export const useDataStore = defineStore({
     },
 
     getAbility(ability: Ability) {
-      if (ability?.description) return ability;
+      if (ability?.description) return Promise.resolve(ability);
 
       const filename = ability.name.replace(/\([0-9+]+\)/, '').trim();
 

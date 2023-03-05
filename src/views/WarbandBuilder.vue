@@ -79,7 +79,9 @@ import {
   computed, ref, watch, nextTick,
 } from 'vue';
 import { Toast } from 'bootstrap';
-import { isArray, orderBy, uniqBy } from 'lodash-es';
+import {
+  isArray, orderBy, uniqBy, debounce,
+} from 'lodash-es';
 import SquadMember from '@/components/SquadMember.vue';
 import SelectFaction from '@/components/SelectFaction.vue';
 import { useDataStore } from '@/stores/data';
@@ -94,6 +96,12 @@ import SelectWarband from '../components/SelectWarband.vue';
 
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
+
+// squadStore.$subscribe((mutation, state) => {
+//   console.log(mutation, state);
+//   if (mutation.type === 'direct') {
+//   }
+// });
 
 // const state = reactive({ selectedFaction: null as any});
 const selectedModel = ref(null);
@@ -112,9 +120,11 @@ const selectedWarband = computed({
   set(id) { squadStore.selectWarband(id); },
 });
 
+const setName = debounce(squadStore.setName, 200);
+
 const squadName = computed({
   get() { return squadStore.name; },
-  set(name) { squadStore.setName(name); },
+  set(name) { setName(name); },
 });
 
 const validListFactions = computed(() => squadStore.models.reduce((validFactions, { faction }) => {

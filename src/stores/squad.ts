@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { isArray, isObject } from 'lodash-es';
+import { isArray } from 'lodash-es';
 import type { SquadUnit, Unit } from '@/types/unit';
 import type { Warband } from '@/types/warband';
 import generateId from '@/utils/id-helper';
@@ -53,19 +53,19 @@ export const useSquadStore = defineStore({
       return false;
     }),
 
-    getWargearCountInWarband: ({ models }) => models.reduce((items: { [key: string]: number }, { wargear, weapons }) => {
+    getWargearCountInWarband: (state) => state.models.reduce((items: { [key: string]: number }, { wargear, weapons }) => {
       wargear?.forEach(({ name }) => {
         if (name in items) {
-          items[name] += 1;
+          items[name] += 1; // eslint-disable-line no-param-reassign
         } else {
-          items[name] = 1;
+          items[name] = 1; // eslint-disable-line no-param-reassign
         }
       });
       weapons?.forEach(({ name }) => {
         if (name in items) {
-          items[name] += 1;
+          items[name] += 1; // eslint-disable-line no-param-reassign
         } else {
-          items[name] = 1;
+          items[name] = 1; // eslint-disable-line no-param-reassign
         }
       });
       return items;
@@ -76,20 +76,21 @@ export const useSquadStore = defineStore({
     selectWarband(id: number) {
       const warbandStore = useWarbandStore();
       const selectedWarband = warbandStore.getWarband(id);
-      this.$patch((state) => {
-        if (selectedWarband) {
-          Object.assign(state, selectedWarband);
-        } else {
-          this.$reset();
-        }
-      });
+      // this.$patch((state) => {
+      if (selectedWarband) {
+        // Object.assign(state, selectedWarband);
+        Object.assign(this, selectedWarband);
+      } else {
+        this.$reset();
+      }
+      // });
     },
 
     setName(name: string) {
       this.name = name;
-      const warbandStore = useWarbandStore();
+      const { setName } = useWarbandStore();
       const { id } = this;
-      warbandStore.setName({ id, name } as Warband);
+      setName({ id, name } as Warband);
     },
 
     clear() {
@@ -102,21 +103,20 @@ export const useSquadStore = defineStore({
 
       const m = Object.entries(model)
         .reduce((target: { [key: string]: any }, [property, value]: [string, any]) => {
-          if (property in target) target[property] = value;
+          if (property in target) target[property] = value; // eslint-disable-line no-param-reassign
           return target;
         }, createSquadUnit());
 
       if (typeof model.roles !== 'string') {
         const getDefaultRole = ({ roles }: Unit) => {
-          let role = roles;
           if (isArray(roles)) {
-            [role] = roles;
-          } else if (isObject(roles)) {
-            [role] = Object.keys(roles);
+            const [role] = roles;
+            return role;
           }
+          const [role] = Object.keys(roles);
           return role;
         };
-        Object.assign(m, { role: getDefaultRole(model) });
+        m.role = getDefaultRole(model);
       }
 
       const { weapons = [], wargear = [] } = model;
@@ -225,9 +225,12 @@ export const useSquadStore = defineStore({
       if (squadUnit) {
         const { getModelByName } = useDataStore();
         Object.assign(squadUnit, { role });
+
         const model = getModelByName(squadUnit.name);
-        const roleStats = model?.roles[role];
-        if (roleStats) Object.assign(squadUnit, roleStats);
+        if (model && role in model.roles) {
+          const roleStats = (model.roles as Roles)[role];
+          if (roleStats) Object.assign(squadUnit, roleStats);
+        }
       }
     },
   },
