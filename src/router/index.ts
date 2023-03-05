@@ -1,3 +1,4 @@
+import { getCurrentUser } from 'vuefire';
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 const router = createRouter({
@@ -6,6 +7,15 @@ const router = createRouter({
     {
       path: '/',
       redirect: '/builder',
+    },
+    {
+      path: '/login',
+      component: () => import('@/views/LoginPage.vue'),
+    },
+    {
+      path: '/auth-required',
+      name: 'auth-required',
+      component: () => import('@/views/AuthRequired.vue'),
     },
     {
       path: '/reference',
@@ -23,12 +33,36 @@ const router = createRouter({
       path: '/builder',
       name: 'home',
       component: () => import('@/views/WarbandBuilder.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/:pathMatch(.*)*',
       redirect: '/builder',
     },
   ],
+});
+
+router.beforeEach(async (to) => {
+  // routes with `meta: { requiresAuth: true }` will check for the users, others won't
+  if (to.meta?.requiresAuth) {
+    const currentUser = await getCurrentUser();
+    // if the user is not logged in, redirect to the login page
+    if (!currentUser) {
+      /*
+      return {
+        name: 'auth-required',
+        query: {
+          // we keep the current path in the query so we can redirect to it after login
+          // with `router.push(route.query.redirectTo || '/')`
+          redirectTo: to.fullPath,
+        },
+      };
+      */
+    }
+  }
+  return true;
 });
 
 export default router;

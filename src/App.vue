@@ -50,6 +50,18 @@
             </ul>
           </li>
         </ul>
+        <ul class="navbar-nav">
+          <li v-if="currentUser" class="nav-item">
+            <button type="button" class="btn btn-outline-primary" @click="onClickSignOut">
+              Sign Out
+            </button>
+          </li>
+          <li v-else class="nav-item">
+            <button type="button" class="btn btn-outline-primary" @click="onClickSignIn">
+              Sign In
+            </button>
+          </li>
+        </ul>
         <form v-if="false" class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search"
             aria-label="Search">
@@ -72,10 +84,15 @@
 import { useRoute, RouterLink, RouterView } from 'vue-router';
 import { Collapse } from 'bootstrap';
 import { onMounted, watch, ref } from 'vue';
+import { useCurrentUser, useFirebaseAuth } from 'vuefire';
+import { signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
 import { useDataStore } from './stores/data';
 import OrbitzBanner from './components/OrbitzBanner.vue';
 
 const appEnv = import.meta.env.MODE;
+
+const currentUser = useCurrentUser();
+const auth = useFirebaseAuth();
 
 const dataStore = useDataStore();
 dataStore.initialise('/factions.json');
@@ -90,6 +107,22 @@ watch(
     collapse.value?.hide();
   },
 );
+
+auth?.onAuthStateChanged((user) => {
+  if (user) router.push('/');
+});
+
+const onClickSignIn = () => {
+  if (auth) {
+    const provider = new GoogleAuthProvider();
+    signInWithRedirect(auth, provider);
+  }
+};
+
+const onClickSignOut = () => {
+  auth?.signOut();
+  router.push('/');
+};
 
 onMounted(() => {
   const el = document.getElementById('navbarCollapse');
