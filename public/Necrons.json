@@ -45,7 +45,8 @@
         "Core": {
         },
         "Specialist": {
-          "wargearList": [ "Ancient Armoury" ]
+          "wargearList": [ "Ancient Armoury" ],
+          "wargear": [ "Empty" ]
         }
       },
 
