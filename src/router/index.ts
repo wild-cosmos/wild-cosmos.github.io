@@ -1,7 +1,4 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import CoreReference from '@/views/CoreReference.vue';
-import ReferenceGuide from '@/views/ReferenceGuide.vue';
-import WarbandBuilder from '@/views/WarbandBuilder.vue';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -13,19 +10,19 @@ const router = createRouter({
     {
       path: '/reference',
       name: 'reference',
-      component: ReferenceGuide,
+      component: () => import('@/views/ReferenceGuide.vue'),
       props: (route) => ({ ...route.query }),
     },
     {
       path: '/rules',
       name: 'rules',
-      component: CoreReference,
+      component: () => import('@/views/CoreReference.vue'),
       props: (route) => ({ ...route.query }),
     },
     {
       path: '/builder',
       name: 'home',
-      component: WarbandBuilder,
+      component: () => import('@/views/WarbandBuilder.vue'),
     },
     {
       path: '/:pathMatch(.*)*',
