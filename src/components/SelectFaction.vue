@@ -1,11 +1,13 @@
 <template>
   <div class="form-floating">
-    <select id="faction" v-model="selectedFaction" class="form-select" aria-label="Selected faction"
+    <select id="faction" v-model="selectedFaction" class="form-select"
+      aria-label="Selected faction"
       placeholder="Faction">
       <option v-if="allowNull || !selectedFaction" :value="null">
         Select Faction
       </option>
-      <option v-for="({ text, value, disabled }) in factions" :key="value" :value="value" :disabled="disabled">
+      <option v-for="({ text, value, disabled }) in factions" :key="value" :value="value"
+        :disabled="disabled">
         {{ text }}
       </option>
     </select>

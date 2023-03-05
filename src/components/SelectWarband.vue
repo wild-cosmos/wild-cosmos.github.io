@@ -20,7 +20,8 @@
       <i class="bi bi-plus-lg" />
       New
     </button>
-    <button type="button" :disabled="!warband" class="btn btn-danger text-nowrap ms-2" @click="deleteWarband">
+    <button type="button" :disabled="!warband" class="btn btn-danger text-nowrap ms-2"
+      @click="deleteWarband">
       <i class="bi bi-trash3" />
       Delete
     </button>

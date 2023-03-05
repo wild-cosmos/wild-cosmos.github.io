@@ -20,7 +20,6 @@ export default defineComponent({
     showFaction: { type: Boolean, default: false },
   },
   setup() {
-
     const dataStore = useDataStore();
 
     return { dataStore };

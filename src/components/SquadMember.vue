@@ -11,7 +11,7 @@
           Remove
         </button>
       </template>
-      <template v-if="availableConfigurationOptions.length" #wargear-actions>
+      <template v-if="hasConfigurationOptions" #wargear-actions>
         <SelectRole v-model:role="selectedRole" :options="rolesForUnit" />
         <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="collapse"
           :data-bs-target="`#collapse_${unit.id}`" aria-expanded="false" aria-controls="collapseExample">
@@ -79,7 +79,7 @@ import UnitDetails from './UnitDetails.vue';
 
 const devMode = false; // import.meta.env.DEV;
 
-const emit = defineEmits(['update:unit']);
+defineEmits(['update:unit']);
 
 const props = defineProps<{
   unit: SquadUnit
@@ -91,18 +91,6 @@ const dataStore = useDataStore();
 const squadStore = useSquadStore();
 
 const unitType = computed(() => dataStore.getModelByName(props.unit.name));
-
-const toOption = ({ name, cost }: Item) => ({ value: name, text: `${name} (${cost})` });
-
-const wargearForUnit = computed(() => {
-  const { wargear } = props.unit;
-  if (wargear) {
-    return Object.entries(wargear).map(([name, { cost }]) => ({ name, cost }));
-  }
-  return [];
-});
-
-const wargearOptions = computed(() => wargearForUnit.value.map(toOption));
 
 const rolesForUnit = computed(() => {
   if (!unitType.value) return [];
@@ -242,7 +230,12 @@ const availableConfigurationOptions = computed(() => {
   return orderBy(options, ['sortOrder', 'label']);
 });
 
-const numAvailableOptions = computed(() => availableConfigurationOptions.value.filter(({ available }) => available).length);
+const hasConfigurationOptions = computed(
+  () => {
+    if (availableConfigurationOptions.value.length > 0) return true;
+    return (unitType.value?.wargearList && unitType.value.wargearList.length > 0);
+  },
+);
 
 function onClickReset() {
   squadStore.resetWargear(props.unit);
