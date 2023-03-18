@@ -5,8 +5,7 @@
   <div class="row d-print-none align-items-center">
     <div class="col-12 col-sm mb-2 mb-sm-0">
       <SelectWarband v-model:warband="selectedWarband" />
-    </div>
-    <div v-if="selectedWarband" class="col-12 col-sm-4">
+    <div v-if="selectedWarband" class="col">
       <div class="form-floating">
         <input id="warbandName" v-model="squadName" class="form-control">
         <label for="warbandName">Warband Name</label>
@@ -99,9 +98,9 @@ const squadStore = useSquadStore();
 
 // squadStore.$subscribe((mutation, state) => {
 //   console.log(mutation, state);
-//   if (mutation.type === 'direct') {
-//   }
-// });
+const props = defineProps<{
+  id?: number | null
+}>();
 
 // const state = reactive({ selectedFaction: null as any});
 const selectedModel = ref(null);
@@ -118,6 +117,14 @@ const selectedFaction = computed({
 const selectedWarband = computed({
   get() { return squadStore?.id; },
   set(id) { squadStore.selectWarband(id); },
+  get() { return props.id; },
+  set(id) { squadStore.selectWarband(id as number); },
+});
+
+watchEffect(() => {
+  if (props.id) {
+    squadStore.selectWarband(props.id);
+  }
 });
 
 const setName = debounce(squadStore.setName, 200);
