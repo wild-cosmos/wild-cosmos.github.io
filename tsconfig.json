@@ -5,15 +5,17 @@
     "src/**/*",
     "src/**/*.vue"
   ],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": [ "./src/*" ]
     },
-    "typeRoots": [ "./src/types" ],
-    "target": "ES6",
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./node_modules/@types", "./src/types" ],
+    "target": "esnext",
     "lib": [
-      "ES2017",
+      "ESNext",
       "DOM"
     ]
   },

@@ -13,6 +13,7 @@ module.exports = {
   },
   rules: {
     'max-len': 'off',
+    'vue/max-len': 'off',
     'vue/first-attribute-linebreak': ['error', {
       singleline: 'beside',
       multiline: 'beside',

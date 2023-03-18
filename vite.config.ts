@@ -21,6 +21,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      bootstrap$: 'bootstrap/dist/js/bootstrap.esm.min.js',
     },
   },
 });
