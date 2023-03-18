@@ -66,14 +66,11 @@ import {
   orderBy, isArray, isNil, isNull, isString, countBy,
 } from 'lodash-es';
 import SelectRole from '@/components/SelectRole.vue';
-
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
-
 import formatList from '@/utils/formatList';
-
-import type { Item, SquadUnit, Weapon } from '@/types/unit';
 import type { Configuration } from '@/types/faction';
+import type { SquadUnit, Weapon, Item } from '@/types/unit';
 import OptionalWargear from './OptionalWargear.vue';
 import UnitDetails from './UnitDetails.vue';
 
