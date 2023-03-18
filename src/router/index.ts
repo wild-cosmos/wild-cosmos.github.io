@@ -32,7 +32,19 @@ const router = createRouter({
     {
       path: '/builder',
       name: 'home',
+      component: () => import('@/views/WarbandList.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/builder/:id',
+      name: 'warband',
       component: () => import('@/views/WarbandBuilder.vue'),
+      props: ({ params } ) => {
+        const { id } = params as { id: string };
+        return { id: Number.parseInt(id, 10) };
+      },
       meta: {
         requiresAuth: true,
       },
