@@ -107,12 +107,13 @@ export const useSquadStore = defineStore({
         state.models.splice(0);
       });
     },
-    addSquadMember(model: Unit) {
+    addModel(model: Unit) {
       const { getWeapon, getWargear } = useDataStore();
 
       const m = Object.entries(model)
         .reduce((target: { [key: string]: any }, [property, value]: [string, any]) => {
-          if (property in target) target[property] = value; // eslint-disable-line no-param-reassign
+          // eslint-disable-next-line no-param-reassign
+          if (property in target) target[property] = value;
           return target;
         }, createSquadUnit());
 
@@ -121,9 +122,11 @@ export const useSquadStore = defineStore({
           if (isArray(roles)) {
             const [role] = roles;
             return role;
+          } if (isObject(roles)) {
+            const [role] = Object.keys(roles);
+            return role;
           }
-          const [role] = Object.keys(roles);
-          return role;
+          return roles as string;
         };
         m.role = getDefaultRole(model);
       }
@@ -137,6 +140,8 @@ export const useSquadStore = defineStore({
       m.wargear = (wargear ?? []).map(getWargear).filter(((w) => !!w));
 
       this.models.push(m as SquadUnit);
+
+      if (this.id) useWarbandStore().updateWarband(this.id, { models: this.models });
 
       return m;
     },

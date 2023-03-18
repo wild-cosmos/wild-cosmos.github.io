@@ -281,7 +281,7 @@ const uniqueWargear = computed(() => {
 
 function onAddSquadMember() {
   const model = availableModels.value.find(({ name }) => name === selectedModel.value);
-  if (model) squadStore.addSquadMember(model);
+  if (model) squadStore.addModel(model);
 }
 
 function onReset() {
