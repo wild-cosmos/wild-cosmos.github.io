@@ -12,6 +12,34 @@
         <label for="warbandName">Warband Name</label>
       </div>
     </div>
+    <div class="col col-auto ps-0">
+      <div class="d-flex">
+        <ConfirmModal @confirm="deleteWarband">
+          <template #trigger="{ show }">
+            <button type="button" :disabled="!selectedWarband" class="btn btn-danger text-nowrap"
+              @click="show">
+              <i class="bi bi-trash3" />
+              <span class="d-none d-sm-inline ms-1">Delete</span>
+            </button>
+          </template>
+          <template #content>
+            You are about to delete <strong>{{ squadName || '- Unnamed Warband -' }}</strong>.
+          </template>
+        </ConfirmModal>
+        <ConfirmModal @confirm="onReset">
+          <template #trigger="{ show }">
+            <button type="button" class="ms-2 btn btn-danger text-nowrap" :disabled="!squadStore.models.length"
+              @click="show">
+              <i class="bi bi-arrow-counterclockwise" />
+              <span class="d-none d-sm-inline ms-1">Reset</span>
+            </button>
+          </template>
+          <template #content>
+            You are about to remove all models from <strong>{{ squadName || '- Unnamed Warband -' }}</strong>.
+          </template>
+        </ConfirmModal>
+      </div>
+    </div>
     <div class="col-12 mt-3">
       <div class="form-floating">
         <textarea id="warbandFluff" v-model="squadFluff" class="form-control" />
@@ -48,7 +76,8 @@
       </div>
       <div class="col-12 col-sm-6 col-md-4 mb-2 mb-md-0">
         <div class="form-floating">
-          <select id="selectUnit" v-model="selectedModel" class="form-select" :disabled="!availableModelOptions.length">
+          <select id="selectUnit" v-model="selectedModel" class="form-select"
+            :disabled="!availableModelOptions.length">
             <option v-if="!selectedModel" disabled :value="null">
               Select Model
             </option>
@@ -59,15 +88,11 @@
           <label for="selectUnit">Model</label>
         </div>
       </div>
-      <div class="col-auto d-flex flex-nowrap">
-        <button type="button" class="btn btn-success text-nowrap" :disabled="!selectedModel" @click="onAddSquadMember">
+      <div class="col col-auto">
+        <button type="button" class="btn btn-success text-nowrap" :disabled="!selectedModel"
+          @click="onAddSquadMember">
           <i class="bi bi-clipboard-plus" />
           Add Model
-        </button>
-        <button type="button" class="ms-2 btn btn-danger text-nowrap" :disabled="!squadStore.models.length"
-          @click="onReset">
-          <i class="bi bi-arrow-counterclockwise" />
-          Reset
         </button>
       </div>
     </div>
@@ -82,24 +107,27 @@
 
 <script setup lang="ts">
 import {
-  computed, ref, watch, nextTick,
+  computed, ref, nextTick, watch, watchEffect,
 } from 'vue';
 import { Toast } from 'bootstrap';
-import {
-  isArray, orderBy, uniqBy, debounce,
-} from 'lodash-es';
+import { isArray, orderBy, uniqBy } from 'lodash-es';
 import SquadMember from '@/components/SquadMember.vue';
 import SelectFaction from '@/components/SelectFaction.vue';
+import ConfirmModal from '@/components/ConfirmModal.vue';
+import { useRouter } from 'vue-router';
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
+import { useWarbandStore } from '@/stores/warband';
 import type { Wargear, Weapon } from '@/types/unit';
 import type { Ability } from '@/types/faction';
-import AbilityList from '../components/AbilityList.vue';
-import WeaponsList from '../components/WeaponsList.vue';
 import WargearList from '../components/WargearList.vue';
+import WeaponsList from '../components/WeaponsList.vue';
+import AbilityList from '../components/AbilityList.vue';
 
+const router = useRouter();
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
+const warbandStore = useWarbandStore();
 
 const props = defineProps<{
   id?: number | null
@@ -128,7 +156,12 @@ watchEffect(() => {
   }
 });
 
-const setName = debounce(squadStore.setName, 200);
+const deleteWarband = () => {
+  if (selectedWarband.value) {
+    warbandStore.remove(selectedWarband.value);
+    router.replace('/builder');
+  }
+};
 
 const squadName = computed({
   get() { return squadStore.name ?? ''; },
