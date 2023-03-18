@@ -137,9 +137,9 @@
       "roles": [ "Leader" ],
       "type": [ "Infantry" ],
       "weapons": [ "Rod of Covenant" ],
-      "wargear": [ ],
+      "wargear": [ "Gravity Displacer" ],
       "wargearList": [ "Ancient Armoury", "Eldritch Devices" ],
-      "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ],
+      "abilities": [ "Living Metal", "Reanimation Protocols", "Flying" ],
       "faction": [ "Necrons", "Triarch" ]
     },
     "Triarch Praetorian": {
@@ -153,9 +153,9 @@
       "roles": [ "Specialist" ],
       "type": [ "Infantry" ],
       "weapons": [ "Rod of Covenant" ],
-      "wargear": [ ],
+      "wargear": [ "Gravity Displacer" ],
       "wargearList": [ "Ancient Armoury", "Eldritch Devices" ],
-      "abilities": [ "Living Metal", "Reanimation Protocols", "Gravity Displacer" ],
+      "abilities": [ "Living Metal", "Reanimation Protocols", "Flying" ],
       "faction": [ "Necrons", "Triarch" ]
     }
   },
@@ -355,6 +355,7 @@
     {
       "name": "Dispersion Shield",
       "usedBy": [ "Lychguard" ],
+      "abilities": [ "Shield" ],
       "notes": "This model has the Shield ability and a 7+ invulnerable save."
     }, {
       "name": "Disruption Field",
@@ -366,6 +367,8 @@
       "notes": "If this model is destroyed and does not reanimate, nominate a friendly Necron Infantry model (excluding Flayed Ones) on the battlefield. That model replaces their BS, CS and Ld values with this model’s values, replaces all of their abilities with this model’s abilities, and becomes your warband’s Leader. Your Leader is not considered to be destroyed until the nominated model is also destroyed."
     }, {
       "name": "Gravity Displacer",
+      "mv": [ 5, 12 ],
+      "abilities": [ "Flying" ],
       "notes": "This model changes their Mv value to 5″/12″. When they advance, they have the Flying ability."
     }, {
       "name": "Lightning Field",
@@ -379,6 +382,7 @@
       "notes": "When this model, or any visible friendly Necron model within 3″ of them, makes a ranged attack, they ignore the effects of enemy Stealth abilities. Additionally, if any of these models trigger a trap, roll a D8: on a 6+ the trap is disarmed, and its effects are ignored."
     }, {
       "name": "Nightmare Shroud",
+      "abilities": [ "Fearsome (2)" ],
       "notes": "This model has the Fearsome (2) ability, but visible enemy models must make a morale check when they are within 9\" of this model, instead of only within 3\". Visible enemy models within 9\" of this model must re-roll successful morale checks."
     }, {
       "name": "Noctilith Prism",
@@ -392,6 +396,7 @@
       "notes": "This model has a 7+ invulnerable save. They can move through terrain and other models as if they were not there. If they move through impassable or difficult terrain, they are treated as having moved through dangerous terrain instead."
     }, {
       "name": "Phylactery",
+      "abilities": [ "Regeneration (5+)" ],
       "notes": "This model replaces the rules for their Living Metal ability with the following:\nThis model has the Regeneration (5+) ability. When they use this ability, roll two D8s instead of one; for each successful roll, they regain 1 life, and may also discard one Poison, Plague or Radiation token."
     }, {
       "name": "Quantum Shielding",
@@ -410,6 +415,7 @@
       "notes": "In the Close Quarters Phase, instead of attacking, this model may attempt to capture an enemy model within 3″ in the labyrinth. Roll a D6: if the value rolled is greater than the target model’s remaining life, they are caught within the labyrinth and removed from the battlefield.\nThe model caught in the labyrinth is not treated as destroyed until the end of the game, and as such may not be targeted by or benefit from any abilities that target destroyed models, such as abilities that bring them back into play or that allow them to attack before they are removed from the battlefield.\nOnce a model has been captured, the tesseract labyrinth may not be used again for the rest of the game."
     }, {
       "name": "Translocation Casket",
+      "abilities": [ "Dimensional Strike (4+)" ],
       "notes": "This model has the Dimensional Strike (4+) ability."
     }, {
       "name": "Weapon Optimisation",

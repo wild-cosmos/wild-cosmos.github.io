@@ -312,18 +312,26 @@
       "notes": "Any burst cannon this model is armed with has A 6/8 and the Rapid Fire type."
     }, {
       "name": "Bio-fabrication Array",
+      "abilities": [ "Heal (2+)" ],
       "notes": "This model has the Heal (2+, Fire Caste excluding Battlesuits) ability."
     }, {
       "name": "Bionics",
+      "abilities": [ "Ignore Damage (7+)" ],
       "notes": "This model has the Ignore Damage (7+) ability."
     }, {
       "name": "Blacksun Generator",
       "notes": "Once per game, when this model is chosen as the target of a ranged attack, before any hit rolls are made this model may activate their blacksun generator. Until the end of the phase, enemy models that target this model or their unit with a ranged attack incur a hit roll penalty of 2. A model cannot benefit from a blacksun generator more than once per game."
     }, {
       "name": "Coldstar Thrusters",
+      "mv": [ 8, 16 ],
+      "abilities": {
+        "replace": [ "Jetpack Thrust" ],
+        "with": [ "Flying" ]
+      },
       "notes": "This model changes their Mv value to 8\"/16\" and replaces their Jetpack Thrust ability with the Flying ability."
     }, {
       "name": "Descent Thrusters",
+      "abilities": [ "Manta Stirke (4+)" ],
       "notes": "This model has the Manta Strike (4+) ability."
     }, {
       "name": "Destabilised Electrokinetic Core",
@@ -336,6 +344,7 @@
       "notes": "Enemy models that target this model or their unit incur a hit roll penalty of 1. This penalty is cumulative with other hit roll penalties, such as the penalty conferred by a stealth field."
     }, {
       "name": "Fail-safe Detonator",
+      "abilities": [ "Explodes!" ],
       "notes": "This model has the Explodes! ability. When they are reduced to 0 life, they may choose to automatically explode instead of rolling for it (they cannot choose not to explode)."
     }, {
       "name": "Fusion Blades",
@@ -366,12 +375,14 @@
       "notes": "Once per game, when this model makes a ranged attack, they may activate their novasurge reactor. If they do so, any pulse rifle or plasma rifle used as part of that attack has AP 5 and adds 2 to its Dm value."
     }, {
       "name": "Positional Relay",
+      "abilities": [ "Deep Strike" ],
       "notes": "When a friendly model arrives from reserve using the Deep Strike ability, they add 2 to the roll for this ability if they set up within 6\" of this model."
     }, {
       "name": "Pulse Accelerator",
       "notes": "Models within 6\" of any friendly models with Pulse Accelerators increase the Rng value of their pulse rifles and pulse carbines by 4\" and increase the Rng value of their pulse blasters and pulse pistols by 2\"."
     }, {
       "name": "Repair Microdrones",
+      "abilities": [ "Regeneration (2+)" ],
       "notes": "This model has the Regeneration (2+) ability. If the value rolled for this ability is 7+, they regain 2 life instead of 1."
     }, {
       "name": "Repulsor Impact Field",
@@ -390,6 +401,7 @@
       "notes": "This model incurs a hit roll bonus of 1 for their ranged attacks if they do not move in the same phase."
     }, {
       "name": "Stealth Field",
+      "abilities": [ "Stealth (1)" ],
       "notes": "This model has the Stealth (1) ability."
     }, {
       "name": "Stealth Field Projector",
@@ -416,7 +428,6 @@
       "name": "Wide Spectrum Scanner",
       "notes": "When this model, or any visible friendly Fire Caste model within 3″ of them, makes a ranged attack, they ignore the effects of enemy Stealth abilities."
     }
-
   ],
 
   "wargearList": {

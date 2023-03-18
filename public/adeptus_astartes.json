@@ -243,15 +243,18 @@
       "notes": "This model changes the Rng value of their frag grenades to 18\" and the Rng value of their krak grenades to 18\"/-."
     }, {
       "name": "Bionics",
+      "abilities": [ "Ignore Damage (7+)" ],
       "notes": "This model has the Ignore Damage (7+) ability."
     }, {
       "name": "Camo Cloak",
+      "abilities": [ "Camouflage (1)" ],
       "notes": "This model has the Camouflage (1) ability."
     }, {
       "name": "Chain Bayonet",
       "notes": "This model is treated as being armed with a chainsword. They cannot attack with this chainsword in the same round that they attack with their boltgun or combi-weapon."
     }, {
       "name": "Chapter Vexillum",
+      "abilities": [ "Battle Standard" ],
       "notes": "This model has the Battle Standard ability."
     }, {
       "name": "Dark Age weapon",
@@ -279,6 +282,7 @@
       "notes": "This model has a 7+ invulnerable save."
     }, {
       "name": "Relic Shield",
+      "abilities": [ "Shield" ],
       "notes": "This model has the Shield ability and a 7+ invulnerable save. Each time this model makes a block roll, they roll two dice and discard the lowest value."
     }, {
       "name": "Signum",
@@ -294,9 +298,11 @@
       "notes": "When you create your warband, choose up to two of the following abilities. When a model in your warband with special-issue ammunition attacks with a Bolter weapon, they may choose for it to have one of the chosen abilities while resolving that attack (declare which ability you will use before making any hit rolls for that attack).\nKraken Bolts: Add 6\" to this weapon’s Rng value (or 3\" if it is a Pistol) and add 1 to this weapon’s AP value, to a maximum of AP 2/5.\nVengeance Rounds: Subtract 6\" from this weapon’s Rng value (or 3\" if it is a Pistol) and add 2 to this weapon’s AP value, to a maximum of AP 3/6.\nDragonfire Bolts: This weapon has the Flame (6+) type. The target’s cover save is worsened by this weapon’s AP value, in addition to their armour save.\nHellfire Rounds: This weapon has the Poison (6+) type.\nMetal Storm Frag Shells: This weapon has the Blast (2) type, but cannot benefit from the Critical or Sniper type, if it has either of these types."
     }, {
       "name": "Storm Shield",
+      "abilities": [ "Shield" ],
       "notes": "This model has the Shield ability and a 7+ invulnerable save."
     }, {
       "name": "Teleportation Transponder",
+      "abilities": [ "Teleport Strike (4+)" ],
       "notes": "This model has the Teleport Strike (4+) ability."
     }, {
       "name": "Watcher in the Dark",
