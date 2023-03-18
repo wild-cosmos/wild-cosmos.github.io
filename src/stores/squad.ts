@@ -27,10 +27,11 @@ const createSquadUnit = (): SquadUnit => ({
 });
 
 interface State {
-  faction: string;
-  name: string | null;
-  id: number | null;
-  models: SquadUnit[];
+  faction: string
+  name: string | null
+  fluff: string | null
+  id: number | null
+  models: SquadUnit[]
 }
 
 // eslint-disable-next-line import/prefer-default-export
@@ -40,6 +41,7 @@ export const useSquadStore = defineStore({
   state: (): State => ({
     faction: 'None',
     name: null,
+    fluff: null,
     id: null,
     models: [],
   }),
@@ -88,9 +90,16 @@ export const useSquadStore = defineStore({
 
     setName(name: string) {
       this.name = name;
-      const { setName } = useWarbandStore();
-      const { id } = this;
-      setName({ id, name } as Warband);
+
+      const warbandStore = useWarbandStore();
+      if (this.id) warbandStore.updateWarband(this.id, { name });
+    },
+
+    setFluff(fluff: string) {
+      this.fluff = fluff;
+
+      const warbandStore = useWarbandStore();
+      if (this.id) warbandStore.updateWarband(this.id, { fluff });
     },
 
     clear() {

@@ -2,11 +2,20 @@
   <h3 class="d-none d-print-block">
     {{ squadName }}
   </h3>
-  <div class="row d-print-none align-items-center">
-    <div v-if="selectedWarband" class="col">
+  <div v-if="squadFluff > ''" class="d-none d-print-block">
+    {{ squadFluff }}
+  </div>
+  <div v-if="selectedWarband" class="row d-print-none align-items-center">
+    <div class="col">
       <div class="form-floating">
         <input id="warbandName" v-model="squadName" class="form-control">
         <label for="warbandName">Warband Name</label>
+      </div>
+    </div>
+    <div class="col-12 mt-3">
+      <div class="form-floating">
+        <textarea id="warbandFluff" v-model="squadFluff" class="form-control" />
+        <label for="warbandFluff">Warband Fluff</label>
       </div>
     </div>
   </div>
@@ -92,8 +101,6 @@ import WargearList from '../components/WargearList.vue';
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
 
-// squadStore.$subscribe((mutation, state) => {
-//   console.log(mutation, state);
 const props = defineProps<{
   id?: number | null
 }>();
@@ -111,8 +118,6 @@ const selectedFaction = computed({
 });
 
 const selectedWarband = computed({
-  get() { return squadStore?.id; },
-  set(id) { squadStore.selectWarband(id); },
   get() { return props.id; },
   set(id) { squadStore.selectWarband(id as number); },
 });
@@ -126,8 +131,13 @@ watchEffect(() => {
 const setName = debounce(squadStore.setName, 200);
 
 const squadName = computed({
-  get() { return squadStore.name; },
-  set(name) { setName(name); },
+  get() { return squadStore.name ?? ''; },
+  set(name: string) { squadStore.setName(name); },
+});
+
+const squadFluff = computed({
+  get() { return squadStore.fluff ?? ''; },
+  set(fluff: string) { squadStore.setFluff(fluff); },
 });
 
 const validListFactions = computed(() => squadStore.models.reduce((validFactions, { faction }) => {
@@ -245,3 +255,11 @@ function onReset() {
   squadStore.clear();
 }
 </script>
+
+<style lang="scss" scoped>
+.form-floating {
+  &>textarea.form-control {
+    height: calc(6rem + 2px);
+  }
+}
+</style>

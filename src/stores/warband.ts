@@ -20,15 +20,18 @@ export const useWarbandStore = defineStore({
   },
 
   actions: {
-    setName({ id, name }: Warband) {
+    updateWarband(id: number, update: WarbandUpdate) {
       const warband = this.getWarband(id);
-      if (warband) warband.name = name;
+      if (warband) Object.assign(warband, update);
+
+      return warband;
     },
 
     add() {
       const warband: Warband = {
         id: generateId(),
-        name: null,
+        name: '',
+        fluff: '',
         models: [],
       };
 
