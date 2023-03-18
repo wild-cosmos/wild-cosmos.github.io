@@ -278,7 +278,8 @@ export const useDataStore = defineStore({
         headers: { Accept: 'text/html' },
         responseAs: 'text',
       })
-        .then((description) => Object.assign(ability, { description }));
+        .then((description) => Object.assign(ability, { description }))
+        .catch(() => ({ description: 'ERROR: Not found', ...ability }));
     },
   },
 });
