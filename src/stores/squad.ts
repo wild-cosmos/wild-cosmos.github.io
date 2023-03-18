@@ -208,7 +208,27 @@ export const useSquadStore = defineStore({
           (isArray(items) ? items : [items])
             .map(dataStore.getWargear)
             .forEach((wargear) => {
-              if (wargear) squadUnit.wargear.push({ ...wargear });
+              if (wargear) {
+                const { abilities, mv } = wargear;
+                if (mv) squadUnit.mv = mv;
+
+                if (isArray(abilities)) {
+                  abilities.filter((ability) => !squadUnit.abilities.includes(ability))
+                    .forEach((ability) => {
+                      squadUnit.abilities.push(ability);
+                    });
+                } else if (isObject(wargear.abilities)) {
+                  abilities.replace?.forEach((ability) => {
+                    const idx = squadUnit.abilities.indexOf(ability);
+                    if (idx > -1) squadUnit.abilities.splice(idx, 1);
+                  });
+                  abilities.with?.filter((ability) => !squadUnit.abilities.includes(ability))
+                    .forEach((ability) => {
+                      squadUnit.abilities.push(ability);
+                    });
+                }
+                squadUnit.wargear.push({ ...wargear });
+              }
             });
         }
       });
