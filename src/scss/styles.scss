@@ -33,6 +33,7 @@
 .toast-container {
   z-index: 1000;
 }
+
 .rules,
 .core-reference {
 
@@ -98,4 +99,15 @@
       }
     }
   }
+}
+
+.navbar.fixed-top {
+  background-color: transparent !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.table-hover>tbody>tr:hover>* {
+  --bs-table-accent-bg: rgba($blue-100, 0.1);
+  color: var(--bs-table-hover-color);
 }
