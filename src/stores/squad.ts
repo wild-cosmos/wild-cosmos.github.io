@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia';
-import { isArray } from 'lodash-es';
-import type { SquadUnit, Unit } from '@/types/unit';
-import type { Warband } from '@/types/warband';
+import { isArray, isObject } from 'lodash-es';
 import generateId from '@/utils/id-helper';
+import type { SquadUnit, Unit, Roles } from '@/types/unit';
 import { useDataStore } from './data';
 import { useWarbandStore } from './warband';
 
@@ -77,15 +76,14 @@ export const useSquadStore = defineStore({
   actions: {
     selectWarband(id: number) {
       const warbandStore = useWarbandStore();
-      const selectedWarband = warbandStore.getWarband(id);
-      // this.$patch((state) => {
-      if (selectedWarband) {
-        // Object.assign(state, selectedWarband);
-        Object.assign(this, selectedWarband);
-      } else {
-        this.$reset();
-      }
-      // });
+      this.$patch((state) => {
+        const selectedWarband = warbandStore.getWarband(id);
+        if (selectedWarband) {
+          Object.assign(state, selectedWarband);
+        } else {
+          this.$reset();
+        }
+      });
     },
 
     setName(name: string) {
