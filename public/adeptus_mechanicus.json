@@ -12,7 +12,7 @@
       "type": [ "Infantry" ],
       "wargear": [ "Omnissian Axe" ],
       "wargearList": [ "Battle Tech", "Arcana Mechanicum", "Servo-skulls" ],
-      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian", "Master of Mechanisms" ],
+      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissiah", "Master of Mechanisms" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Cult Mechanicus" ]
     },
     "Skitarii Princeps": {
@@ -27,7 +27,7 @@
       "type": [ "Infantry" ],
       "wargear": [ "Radium Carbine", "Rad Grenades" ],
       "wargearList": [ "Battle Tech", "Arcana Mechanicum", "Servo-skulls" ],
-      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian" ],
+      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissiah" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Skitarii" ]
     },
     "Skitarii Legionnaire": {
@@ -42,7 +42,7 @@
       "type": [ "Infantry" ],
       "wargear": [ "Radium Carbine", "Rad Grenades", "Empty" ],
       "wargearList": ["Battle Tech", "Servo-skulls"],
-      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian" ],
+      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissiah" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Skitarii" ]
     },
     "Kataphron Servitor": {
@@ -56,7 +56,7 @@
       "roles": [ "Specialist" ],
       "type": [ "Infantry", "Servitor" ],
       "wargear": [ "Arc Cannon", "Arc Claw", "Empty" ],
-      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian", "Large (1)", "Mindlock", "Cyborg Warmachine" ],
+      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissiah", "Large (1)", "Mindlock", "Cyborg Warmachine" ],
       "faction": [ "Imperium", "Adeptus Mechanicus" ]
     },
     "Sydonian Dragoon": {
@@ -70,7 +70,7 @@
       "roles": [ "Heavy Support" ],
       "type": [ "Machine" ],
       "wargear": [ "Taser Lance", "Empty", "Empty" ],
-      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissian", "Explodes!", "Large Mount" ],
+      "abilities": [ "Cybernetic Enhancement", "Canticles of the Omnissiah", "Explodes!", "Large Mount" ],
       "faction": [ "Imperium", "Adeptus Mechanicus", "Skitarii" ]
     }
   },
