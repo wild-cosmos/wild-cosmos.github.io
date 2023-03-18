@@ -11,9 +11,9 @@ interface State {
 export const useWarbandStore = defineStore({
   id: 'warband',
 
-  state: () => useLocalStorage<State>('wild-cosmos-warband', {
-    warbands: [],
-  }, { deep: true, mergeDefaults: true }),
+  state: () => ({
+    warbands: useLocalStorage('wild-cosmos-warband', []),
+  }),
 
   getters: {
     getWarband: (state) => (id: number) => state.warbands.find((w) => w.id === id),
