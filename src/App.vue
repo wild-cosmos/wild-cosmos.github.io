@@ -2,11 +2,12 @@
   <nav class="d-print-none navbar navbar-expand-md fixed-top bg-light shadow-sm">
     <div class="container-lg">
       <RouterLink class="navbar-brand py-0" to="/">
-        <img src="./assets/wild_cosmos_logo.png" alt="Wild Cosmos Warband Builder" height="64" width="256"
-          class="d-inline-block">
+        <img src="./assets/wild_cosmos_logo.png" alt="Wild Cosmos Warband Builder"
+          height="64" width="256" class="d-inline-block">
         <span class="d-none">Wild Cosmos Warband Builder</span>
       </RouterLink>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" />
       </button>
@@ -14,7 +15,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
             <RouterLink class="nav-link" active-class="active" to="/builder">
-              Warband Builder
+              My Warbands
             </RouterLink>
           </li>
           <li class="nav-item">
@@ -28,7 +29,8 @@
             </RouterLink>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
               Useful Links
             </a>
             <ul class="dropdown-menu">
@@ -47,20 +49,9 @@
             </ul>
           </li>
         </ul>
-        <ul class="navbar-nav">
-          <li v-if="currentUser" class="nav-item">
-            <button type="button" class="btn btn-outline-primary" @click="onClickSignOut">
-              Sign Out
-            </button>
-          </li>
-          <li v-else class="nav-item">
-            <button type="button" class="btn btn-outline-primary" @click="onClickSignIn">
-              Sign In
-            </button>
-          </li>
-        </ul>
         <form v-if="false" class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" placeholder="Search"
+            aria-label="Search">
           <button class="btn btn-outline-success" type="submit">
             Search
           </button>
@@ -77,19 +68,16 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute, RouterLink, RouterView } from 'vue-router';
-import { Collapse } from 'bootstrap';
 import { onMounted, watch, ref } from 'vue';
-import { useCurrentUser, useFirebaseAuth } from 'vuefire';
-import { signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
+import { RouterLink, RouterView, useRoute } from 'vue-router';
+import { Collapse } from 'bootstrap';
+import { useCurrentUser } from 'vuefire';
 import { useDataStore } from './stores/data';
 import OrbitzBanner from './components/OrbitzBanner.vue';
-import router from './router';
 
 const appEnv = import.meta.env.MODE;
 
 const currentUser = useCurrentUser();
-const auth = useFirebaseAuth();
 
 const dataStore = useDataStore();
 dataStore.initialise('/factions.json');
@@ -104,22 +92,6 @@ watch(
     collapse.value?.hide();
   },
 );
-
-auth?.onAuthStateChanged((user) => {
-  if (user) router.push('/');
-});
-
-const onClickSignIn = () => {
-  if (auth) {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
-  }
-};
-
-const onClickSignOut = () => {
-  auth?.signOut();
-  router.push('/');
-};
 
 onMounted(() => {
   const el = document.getElementById('navbarCollapse');
