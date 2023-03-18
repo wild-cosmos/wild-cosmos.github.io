@@ -3,8 +3,6 @@
     {{ squadName }}
   </h3>
   <div class="row d-print-none align-items-center">
-    <div class="col-12 col-sm mb-2 mb-sm-0">
-      <SelectWarband v-model:warband="selectedWarband" />
     <div v-if="selectedWarband" class="col">
       <div class="form-floating">
         <input id="warbandName" v-model="squadName" class="form-control">
@@ -90,8 +88,6 @@ import type { Ability } from '@/types/faction';
 import AbilityList from '../components/AbilityList.vue';
 import WeaponsList from '../components/WeaponsList.vue';
 import WargearList from '../components/WargearList.vue';
-
-import SelectWarband from '../components/SelectWarband.vue';
 
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
