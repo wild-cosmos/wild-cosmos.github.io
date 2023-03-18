@@ -131,11 +131,12 @@ export const useSquadStore = defineStore({
         m.role = getDefaultRole(model);
       }
 
-      const { weapons = [], wargear = [] } = model;
+      const { abilities, weapons = [], wargear = [] } = model;
       const defaultItems = [
         ...weapons,
         ...wargear,
       ];
+      m.abilities = [...abilities];
       m.weapons = defaultItems.map(getWeapon).filter((w) => !!w);
       m.wargear = (wargear ?? []).map(getWargear).filter(((w) => !!w));
 
@@ -171,14 +172,19 @@ export const useSquadStore = defineStore({
     resetWargear(unit: SquadUnit): void {
       const dataStore = useDataStore();
       const model = dataStore.getModelByName(unit.name);
+
       if (model) {
         this.$patch((state) => {
           const updateModel = state.models.find(({ id }) => id === unit.id);
           if (updateModel) {
-            const { cost, weapons = [], wargear = [] } = model;
+            const {
+              cost, mv, abilities = [], weapons = [], wargear = [],
+            } = model;
             const defaultItems = [...wargear, ...weapons];
             Object.assign(updateModel, {
               cost,
+              mv,
+              abilities: [...abilities],
               weapons: defaultItems.map(dataStore.getWeapon).filter((w) => !!w),
               wargear: defaultItems.map(dataStore.getWargear).filter((w) => !!w),
             });
