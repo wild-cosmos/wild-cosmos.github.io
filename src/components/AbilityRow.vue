@@ -21,8 +21,9 @@ export default defineComponent({
   },
   setup() {
     const dataStore = useDataStore();
+    const { getAbility } = dataStore;
 
-    return { dataStore };
+    return { getAbility };
   },
   data() {
     return {
@@ -31,7 +32,7 @@ export default defineComponent({
   },
   created() {
     if (this.item?.name) {
-      this.dataStore.getAbility(this.item)
+      this.getAbility(this.item)
         .then(({ description }) => {
           this.description = description;
         });

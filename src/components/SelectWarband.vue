@@ -18,12 +18,12 @@
     </div>
     <button type="button" class="btn btn-success text-nowrap ms-2" @click="addWarband">
       <i class="bi bi-plus-lg" />
-      New
+      <span class="d-none d-sm-inline ms-1">New</span>
     </button>
     <button type="button" :disabled="!warband" class="btn btn-danger text-nowrap ms-2"
       @click="deleteWarband">
       <i class="bi bi-trash3" />
-      Delete
+      <span class="d-none d-sm-inline ms-1">Delete</span>
     </button>
   </div>
 </template>
