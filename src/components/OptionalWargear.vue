@@ -59,16 +59,18 @@ const wargearList = computed(() => dataStore.getWargearListForModel(props.unit).
 
 const makeItemFilter = (model, wargearList) => {
   const isModelTypeMatch = ({ only }: Condition) => !only || only.includes(model.name);
+
   const hasAbility = ({ ability }: Wargear & Condition) => {
     if (!ability) return true;
     if (isString(ability) && model.abilities?.some((name) => name.startsWith(ability))) return true;
     return model.abilities?.some((name) => ability.some((a) => name.startsWith(a)));
   };
-  const isExcluded = ({ not }) => {
+  const isExcluded = ({ not }: Condition) => {
     if (!not) return false;
+    if (not.includes(model.name)) return true;
     return (not.ability && hasAbility(not)) || (not.role && hasRoleOrType(not));
   };
-  const isNotExcluded = ({ not }: Condition) => !not || !not.includes(model.name);
+
   const hasRoleOrType = ({ role }: Condition) => !role
     || role.includes(model.role)
     || (isArray(role) && role.reduce((isType, type) => isType || model.type.includes(type), false));
