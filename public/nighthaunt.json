@@ -77,7 +77,7 @@
             "weapons": [ "Chill Dagger" ],
             "wargear": [ ],
             "wargearList": [ "Grave Remnants", "Gifts of the Underworlds" ],
-            "abilities": [ "Ethereal", "Fearsome (1)", "Shreaking Wail", "Spell-eater" ],
+            "abilities": [ "Ethereal", "Fearsome (1)", "Shrieking Wail", "Spell-eater" ],
             "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
         }
     },
@@ -177,7 +177,7 @@
         "Deadly Bladesman",
         "Spirit Torment",
         "Desperate Frenzy",
-        "Shreaking Wail",
+        "Shrieking Wail",
         "Spell-eater",
         "Psyker (Sorceries of Undeath)"
     ],
@@ -239,6 +239,10 @@
         }, {
             "name": "Psyker (Sorceries of Undeath)",
             "abilities": [ "Psyker (Sorceries of Undeath)" ],
+            "notes": null
+        }, {
+            "name": "Spell-eater",
+            "abilities": [ "Spell-eater" ],
             "notes": null
         }
     ],
@@ -340,19 +344,19 @@
             "weapon": [ "Rusted Club" ],
             "replaces": [ "Rusted Blade" ],
             "cost": 0,
-            "usedBy": [ "Dreadwarden" ]
+            "usedBy": [ "Dreadwarden", "Chainrasp" ]
         }, {
             "weapon": [ "Deadweight Shackle" ],
             "replaces": [ "Rusted Blade" ],
             "cost": 3,
             "usedBy": [ "Dreadwarden" ]
         }, {
-            "weapon": [ "Deadweight Shackle" ],
-            "replaces": null,
+            "weapon": "Deadweight Shackle",
+            "replaces": [ ],
             "cost": 2,
             "condition": {
-                "requires": [ "Deadweight Shackle"],
-                "not": [ "Deadwieght Shackle", "Deadweight Shackle" ]
+                "requires": [ "Deadweight Shackle" ],
+                "not": [ [ "Deadweight Shackle", "Deadweight Shackle" ] ]
             },
             "usedBy": [ "Dreadwarden" ]
         }, {
@@ -363,6 +367,54 @@
                 "not": [ "Psyker (Sorceries of Undeath)" ]
             },
             "usedBy": [ "Dreadwarden" ]
+        },
+
+        {
+            "weapon": [ "Ruined Crossbow" ],
+            "replaces": [ "Rusted Blade" ],
+            "cost": 0,
+            "usedBy": [ "Chainrasp" ]
+        }, {
+            "weapon": [ "Deadweight Shackle", "Deadweight Shackle" ],
+            "replaces": [ "Rusted Blade" ],
+            "cost": 4,
+            "usedBy": [ "Chainrasp" ]
+        }, {
+            "weapon": [ "Rusted Shiv" ],
+            "replaces": null,
+            "cost": 1,
+            "condition": {
+                "any": [ "Rusted Blade", "Rusted Club", "Ruined Crossbow"],
+                "not": [ "Rusted Shiv", "Battered Shield"]
+            },
+            "usedBy": [ "Chainrasp" ]
+        }, {
+            "weapon": [ "Battered Shield" ],
+            "replaces": null,
+            "cost": 2,
+            "condition": {
+                "any": [ "Rusted Blade", "Rusted Club"],
+                "not": [ "Rusted Shiv", "Battered Shield"]
+            },
+            "usedBy": [ "Chainrasp" ]
+        }, {
+            "weapon": [ "Spectural Pennant" ],
+            "replaces": null,
+            "cost": 5,
+            "condition": {
+                "not": [ "Spectural Pennant"]
+            },
+            "usedBy": [ "Chainrasp" ]
+        },
+
+        {
+            "weapon": "Spell-eater",
+            "replaces": null,
+            "cost": 4,
+            "condition": {
+                "not": "Spell-eater"
+            },
+            "usedBy": [ "Myrmourn Banshee"]
         }
     ]
 }
