@@ -32,6 +32,7 @@ interface Condition {
   any?: string[]
   only?: string[]
   ability?: string[]
+  multiple?: boolean
   limit?: number
   modelLimit?: number
   warbandLimit?: number

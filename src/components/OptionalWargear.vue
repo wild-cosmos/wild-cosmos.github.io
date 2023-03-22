@@ -111,7 +111,7 @@ const makeItemFilter = (model, wargearList) => {
     && hasAbility(item)
     && hasRequired(item)
     && hasAny(item)
-    && !isEquiped(item)
+    && (item.multiple || !isEquiped(item))
     && !isExcluded(item)
     && isNotLimited(item);
 };
