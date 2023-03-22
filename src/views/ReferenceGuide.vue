@@ -48,7 +48,7 @@ import AbilityList from '../components/AbilityList.vue';
 import WeaponsList from '../components/WeaponsList.vue';
 import WargearList from '../components/WargearList.vue';
 
-function groupByFaction<T extends Item>(items: Wargear[]): { faction: string, items: T[] }[] {
+function groupByFaction<T extends Item>(items: T[]): { faction: string, items: T[] }[] {
   const groupedItems = items.reduce((groupedList, item) => {
     if (item.faction in groupedList) {
       groupedList[item.faction].push(item as T);

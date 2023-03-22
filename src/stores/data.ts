@@ -157,7 +157,7 @@ export const useDataStore = defineStore({
               .then((data) => {
                 this.$patch((state) => {
                   if (data.abilities && data.abilities.length > 0) {
-                    state.abilities.push(...data.abilities.map((name) => ({ name, factionName })));
+                    state.abilities.push(...data.abilities.map((name) => ({ name, faction: factionName })));
                   }
 
                   if (data.models) {
