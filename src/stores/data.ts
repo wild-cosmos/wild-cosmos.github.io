@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { mande } from 'mande';
 import { isArray, isString, uniq } from 'lodash-es';
-
+import rules from '@/rules';
 import type {
   BaseUnit, Unit, SquadUnit,
   Wargear, Weapon, Item, Roles,
@@ -136,12 +136,26 @@ export const useDataStore = defineStore({
 
     getConfigurationOptionsForModel: (state) => ({ name }: BaseUnit) => state.configuration.filter(({ usedBy }) => usedBy.includes(name)),
 
-    getWargearListForModel: (state) => ({ name, role }: SquadUnit): { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
-      const unit = state.models.find((u) => u.name === name);
+    getWargearListForModel: (state) => (model: SquadUnit): { name: string, weapons: Weapon[], wargear: Wargear[] }[] => {
+      const unit = state.models.find(({ name }) => name === model.name);
       if (!unit) return [];
-      const roleSpecificAttributes = role in unit.roles ? (unit.roles as Roles)[role] : null;
+      const roleSpecificAttributes = model.role in unit.roles ? (unit.roles as Roles)[model.role] : null;
       const wargearList = roleSpecificAttributes?.wargearList ?? unit?.wargearList;
-      return wargearList?.map((listName) => ({ name: listName, ...state.wargearList[listName] })) ?? [];
+
+      return wargearList?.map((listName) => {
+        const { weapons, wargear } = state.wargearList[listName];
+        return {
+          name: listName,
+          weapons,
+          wargear: wargear.map((item) => {
+            const customRule = rules[item.name];
+            if (customRule) {
+              return customRule(model, item);
+            }
+            return item;
+          }),
+        };
+      }) ?? [];
     },
   },
 
