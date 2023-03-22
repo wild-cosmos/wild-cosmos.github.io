@@ -25,7 +25,9 @@ import { computed } from 'vue';
 import { isArray, isString } from 'lodash-es';
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
-import type { SquadUnit, Wargear, Weapon } from '@/types/unit';
+import type {
+  SquadUnit, Unit, Wargear, Weapon,
+} from '@/types/unit';
 import type { Condition } from '@/types/faction';
 
 const props = defineProps<{ unit: SquadUnit }>();
@@ -67,7 +69,6 @@ const makeItemFilter = (model, wargearList) => {
   };
   const isExcluded = ({ not }: Condition) => {
     if (!not) return false;
-    if (not.includes(model.name)) return true;
     return (not.ability && hasAbility(not)) || (not.role && hasRoleOrType(not));
   };
 

@@ -6,7 +6,9 @@ import type {
   BaseUnit, Unit, SquadUnit,
   Wargear, Weapon, Item, Roles,
 } from '@/types/unit';
-import type { Ability, Configuration, Faction } from '@/types/faction';
+import type {
+  Ability, Condition, Configuration, Faction,
+} from '@/types/faction';
 
 interface State {
   factions: string[];
@@ -142,18 +144,24 @@ export const useDataStore = defineStore({
       const roleSpecificAttributes = model.role in unit.roles ? (unit.roles as Roles)[model.role] : null;
       const wargearList = roleSpecificAttributes?.wargearList ?? unit?.wargearList;
 
+      const modelNotExluded = ({ not }: Wargear & Condition) : boolean => {
+        if (isArray(not) && not.includes(model.name)) return false;
+        return true;
+      };
+
       return wargearList?.map((listName) => {
         const { weapons, wargear } = state.wargearList[listName];
         return {
           name: listName,
           weapons,
-          wargear: wargear.map((item) => {
-            const customRule = rules[item.name];
-            if (customRule) {
-              return customRule(model, item);
-            }
-            return item;
-          }),
+          wargear: wargear.filter(modelNotExluded)
+            .map((item) => {
+              const customRule = rules[item.name];
+              if (customRule) {
+                return customRule(model, item);
+              }
+              return item;
+            }),
         };
       }) ?? [];
     },
