@@ -1,420 +1,421 @@
 {
-    "models": {
-        "Knight of Shrouds": {
-            "cost": 13,
-            "mv": [ 5, 10 ],
-            "bs": 3,
-            "cs": 3,
-            "df": 6,
-            "lf": 5,
-            "ld": 3,
-            "roles": [ "Leader" ],
-            "type": [ "Infantry" ],
-            "weapons": [ "Rusted Blade" ],
-            "wargear": [ ],
-            "wargearList": [ "Grave Remnants", "Gifts of the Underworlds" ],
-            "abilities": [ "Ethereal", "Fearsome (1)", "Deadly Bladesman" ],
-            "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
-        },
-        "Dreadwarden": {
-            "cost": 13,
-            "mv": [ 5, 10 ],
-            "bs": 4,
-            "cs": 4,
-            "df": 6,
-            "lf": 5,
-            "ld": 3,
-            "roles": [ "Leader" ],
-            "type": [ "Infantry" ],
-            "weapons": [ "Rusted Blade" ],
-            "wargear": [ ],
-            "wargearList": [ "Grave Remnants", "Gifts of the Underworlds" ],
-            "abilities": [ "Ethereal", "Fearsome (1)", "Spirit Torment" ],
-            "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
-        },
-        "Chainrasp": {
-            "cost": 6,
-            "mv": [ 5, 10 ],
-            "bs": 5,
-            "cs": 5,
-            "df": 7,
-            "lf": 3,
-            "ld": 5,
-            "roles": [ "Core" ],
-            "type": [ "Infantry" ],
-            "weapons": [ "Rusted Blade" ],
-            "wargear": [ ],
-            "wargearList": [ "Grave Remnants" ],
-            "abilities": [ "Ethereal", "Fearsome (1)" ],
-            "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
-        },
-        "Bladeheist Revenant": {
-            "cost": 12,
-            "mv": [ 6, 12 ],
-            "bs": 5,
-            "cs": 4,
-            "df": 7,
-            "lf": 3,
-            "ld": 4,
-            "roles": [ "Specialist" ],
-            "type": [ "Infantry" ],
-            "weapons": [ "Rusted Greatblade" ],
-            "wargear": [ ],
-            "wargearList": [ "Grave Remnants", "Gifts of the Underworlds" ],
-            "abilities": [ "Ethereal", "Fearsome (1)", "Desperate Frenzy" ],
-            "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
-        },
-        "Myrmourn Banshee": {
-            "cost": 13,
-            "mv": [ 6, 12 ],
-            "bs": 5,
-            "cs": 5,
-            "df": 7,
-            "lf": 3,
-            "ld": 4,
-            "roles": [ "Specialist" ],
-            "type": [ "Infantry" ],
-            "weapons": [ "Chill Dagger" ],
-            "wargear": [ ],
-            "wargearList": [ "Grave Remnants", "Gifts of the Underworlds" ],
-            "abilities": [ "Ethereal", "Fearsome (1)", "Shrieking Wail", "Spell-eater" ],
-            "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
-        }
+  "models": {
+    "Knight of Shrouds": {
+      "cost": 13,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 6,
+      "lf": 5,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Rusted Blade" ],
+      "wargear": [ ],
+      "wargearList": [ "Grave Remnants", "Gifts of the Underworlds" ],
+      "abilities": [ "Ethereal", "Fearsome (1)", "Deadly Bladesman" ],
+      "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
     },
-    "weapons": [
-        {
-            "name": "Chill Dagger",
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 1, 4 ],
-            "dm": [ 1, 2 ],
-            "notes": "This weapon can attack with an A value of 3, but these hits cannot be critical."
-        }, {
-            "name": "Deadweight Flail",
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": 0,
-            "dm": [ "D2", 2 ],
-            "notes": "Block rolls cannot be used to discard successful hits made by this weapon."
-        }, {
-            "name": "Deadweight Shackle",
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": 0,
-            "dm": [ "D2", 2 ],
-            "notes": "Block rolls cannot be used to discard successful hits made by this weapon. Each time an enemy model is destroyed within 3\" of the bearer, choose a friendly Malignant within 6\" of the bearer: that model discards one injury."
-        }, {
-            "name": "Ghostly Hooves",
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": 0,
-            "dm": [ 1, 2 ],
-            "notes": "Steed (5+)"
-        }, {
-            "name": "Hexfire",
-            "range": 8,
-            "melee": false,
-            "a": 1,
-            "ap": 0,
-            "dm": [ 1, 2 ],
-            "notes": "Assault, Engulf (2), Flame (2+)"
-        }, {
-            "name": "Ruined Crossbow",
-            "range": 24,
-            "melee": false,
-            "a": 1,
-            "ap": [ 0, 4 ],
-            "dm": 1,
-            "notes": null
-        }, {
-            "name": "Rusted Blade",
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 0, 4 ],
-            "dm": 1,
-            "notes": null
-        }, {
-            "name": "Rusted Club",
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 0, 4 ],
-            "dm": [ 1, 2 ],
-            "notes": null
-        }, {
-            "name": "Rusted Greatblade",
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 1, 4 ],
-            "dm": [ 1, 2 ],
-            "notes": "Critical (7+)"
-        }, {
-            "name": "Rusted Shiv",
-            "range": null,
-            "melee": true,
-            "a": 2,
-            "ap": [ 0, 4 ],
-            "dm": 1,
-            "notes": "This weapon can attack with an A value of 3, but these hits cannot be critical."
-        }, {
-            "name": "Sorrowheist",
-            "range": [ 12, null],
-            "melee": true,
-            "a": 2,
-            "ap": 1,
-            "dm": 1,
-            "notes": "Familiar (4+)"
-        }
-    ],
-    "abilities": [
-        "Ethereal",
-        "Deadly Bladesman",
-        "Spirit Torment",
-        "Desperate Frenzy",
-        "Shrieking Wail",
-        "Spell-eater",
-        "Psyker (Sorceries of Undeath)"
-    ],
-    "wargear": [
-        {
-            "name": "Balefire Ring",
-            "notes": "This model’s melee weapons gain the Flame (7+) type.\n\nOnce per game in the Manoeuvring Phase, this model may unleash the burning souls trapped inside the ring: they are treated as being armed with hexfire until the end of the phase. This model's melee weapons then lose the Flame type gained from this item for the remainder of the game." 
-        }, {
-            "name": "Battered Shield",
-            "abilities": [ "Shield" ],
-            "notes": "This model has the Shield ability, and they improve their armour save by 1."
-        }, {
-            "name": "Corpse Candle",
-            "notes": "At any point during a round, this model may snuff out one of their corpse candles. If they do, choose a visible model (enemy or friendly, excluding Machines) within 9\" of them: that model loses 1 life. Then, choose a friendly Psyker within 9\" of the model that snuffed out their candle: that Psyker immediately gains a warp charge.\n\nEach time one of your models snuffs out a candle, roll a D8: on a 3+, models from your warband cannot snuff out any more candles that round. Each candle can only be snuffed out once per game."
-        }, {
-            "name": "Ethereal Steed",
-            "mv": [ 8, 16 ],
-            "abilities": [ "Flying" ],
-            "notes": "This model changes their Mv value to 8\"/16\", adds 2 to their Lf value and gains the Flying ability. They change their type from Infantry to Cavalry. A model riding an ethereal steed is additionally armed with ghostly hooves."
-        }, {
-            "name": "Grasping Chains",
-            "notes": "Enemy models within 1\" of this model must re-roll successful hit rols of 8+."
-        }, {
-            "name": "Gravemist Cloak",
-            "notes": "Enemy models incur a hit roll penalty of 1 for any ranged attack that targets this model or the unit they are in, and if either the attacking models or this model charged earlier in the round, those attacking models also incur a hit roll penalty of 1 for any melee attack that targets this model or the unit they are in."
-        }, {
-            "name": "Haunted Gravesit",
-            "abilities": [ "Ambush" ],
-            "notes": "This model has the Ambush ability."
-        }, {
-            "name": "Page of the Midnight Tome",
-            "notes": "Once per game, this model can manifest one power chosen from the Sorceries of Undeath (choose this power when you create your warband). This model does not have to be a Psyker to manifest this power; if they are a Psyker, this power does not count towards the limits on the number and type of powers they can manifest during the same round. The power is manifested without any augmentation: if this model is a Psyker, they may spend their warp charges to augment this power as normal."
-        }, {
-            "name": "Memory of Treachery",
-            "notes": "When this model is set up on the battlefield, choose an enemy model. For the duration of the game, this model re-rolls failed hit rolls for attacks that target the chosen model."
-        }, {
-            "name": "Mortal Hourglass",
-            "notes": "When this model is set up on the battlefield, choose an enemy model. Add 2 to the target model’s second Lf value: this is their time of death (if the target model is a Leader, the time of death is instead equal to 3 plus their second Lf value). During the Take Damage step of the Resolution Phase, if the round number is equal to the time of death, and the bearer of the mortal hourglass has not been destroyed and is on the battlefield, the target model is immediately destroyed.\n\nThe mortal hourglass can only be used if its bearer is set up on the battlefield during deployment, and if at any subsequent point prior to the time of death the bearer is removed from the battlefield and set up in reserve, the effects of the mortal hourglass are ignored for the remainder of the game."
-        }, {
-            "name": "Murderous Spectre",
-            "notes": "This model improves their BS and CS values each by 1."
-        }, {
-            "name": "Phantom Blade",
-            "notes": "When you create your warband, choose one rusted blade or rusted greatblade this model is armed with. When this model attacks with the chosen weapon, the target’s invulnerable save is worsened by this weapon’s AP value, in addition to their armour save."
-        }, {
-            "name": "Sepulchral Chill",
-            "notes": "At the beginning of each Close Quarters Phase, enemy models within 1\" of one or more models with this item must make a Ld check. If the check is failed, those models fight last that phase."
-        }, {
-            "name": "Shadeglass Fragment",
-            "abilities": [ "Regeneration (5+)" ],
-            "notes": "This model has the Regeneration (5+) ability."
-        }, {
-            "name": "Spectral Pennant",
-            "notes": "This model has the Battle Standar ability."
-        }, {
-            "name": "Terrifying Phantasm",
-            "abilities": [ "Fearsome (3)" ],
-            "notes": "This model has the Fearsome (3) ability, but visible enemy models must make a morale check when they are within 9\" of this model, instead of only within 3\"."
-        }, {
-            "name": "Psyker (Sorceries of Undeath)",
-            "abilities": [ "Psyker (Sorceries of Undeath)" ],
-            "notes": null
-        }, {
-            "name": "Spell-eater",
-            "abilities": [ "Spell-eater" ],
-            "notes": null
-        }
-    ],
-    "wargearList": {
-        "Grave Remnants":
-        {
-            "Corpse Candle": {
-                "cost": 2
-            },
-            "Grasping Chains":
-            {
-                "cost": 1
-            },
-            "Haunted Gravesite":
-            {
-                "cost": 3
-            },
-            "Memory of Treachery":
-            {
-                "cost": 3,
-                "limit": 1,
-                "modelLimit": 2
-            },
-            "Sepulchral Chill":
-            {
-                "cost": 3
-            },
-            "Shadeglass Fragment":
-            {
-                "cost": 1
-            }
-        },
-        "Gifts of the Underworlds":
-        {
-            "Balefire Ring":
-            {
-                "cost": 3
-            },
-            "Gravemist Cloak":
-            {
-                "cost": 3
-            },
-            "Page of the Midnight Tome":
-            {
-                "cost": 4,
-                "warbandLimit": 3
-            },
-            "Mortal Hourglass":
-            {
-                "cost": 9,
-                "warbandLimit": 3
-            },
-            "Murderous Spectre":
-            {
-                "cost": 2,
-                "limit": 1
-            },
-            "Phantom Blade":
-            {
-                "cost": 2
-            },
-            "Terrifying Phantasm":
-            {
-                "cost": 3,
-                "modelLimit": 2
-            },
-            "Sorrowheist":
-            {
-                "cost": 3
-            }
-        }
+    "Dreadwarden": {
+      "cost": 13,
+      "mv": [ 5, 10 ],
+      "bs": 4,
+      "cs": 4,
+      "df": 6,
+      "lf": 5,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Rusted Blade" ],
+      "wargear": [ ],
+      "wargearList": [ "Grave Remnants", "Gifts of the Underworlds" ],
+      "abilities": [ "Ethereal", "Fearsome (1)", "Spirit Torment" ],
+      "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
     },
-    "configuration": [
-        {
-            "weapon": [ "Rusted Greatblade" ],
-            "replaces": [ "Rusted Blade" ],
-            "cost": 4,
-            "usedBy": [ "Knight of Shrouds" ]
-        }, {
-            "weapon": [ "Battered Shield" ],
-            "replaces": null,
-            "cost": 2,
-            "condition": {
-                "requires": [ "Rusted Blade" ],
-                "not": [ "Battered Shield" ]
-            },
-            "usedBy": [ "Knight of Shrouds" ]
-        }, {
-            "weapon": [ "Ethereal Steed" ],
-            "replaces": null,
-            "cost": 7,
-            "condition": {
-                "not": [ "Ethereal Steed" ]
-            },
-            "usedBy": [ "Knight of Shrouds" ]
-        },
+    "Chainrasp": {
+      "cost": 6,
+      "mv": [ 5, 10 ],
+      "bs": 5,
+      "cs": 5,
+      "df": 7,
+      "lf": 3,
+      "ld": 5,
+      "roles": [ "Core" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Rusted Blade" ],
+      "wargear": [ ],
+      "wargearList": [ "Grave Remnants" ],
+      "abilities": [ "Ethereal", "Fearsome (1)" ],
+      "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
+    },
+    "Bladeheist Revenant": {
+      "cost": 12,
+      "mv": [ 6, 12 ],
+      "bs": 5,
+      "cs": 4,
+      "df": 7,
+      "lf": 3,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Rusted Greatblade" ],
+      "wargear": [ ],
+      "wargearList": [ "Grave Remnants", "Gifts of the Underworlds" ],
+      "abilities": [ "Ethereal", "Fearsome (1)", "Desperate Frenzy" ],
+      "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
+    },
+    "Myrmourn Banshee": {
+      "cost": 13,
+      "mv": [ 6, 12 ],
+      "bs": 5,
+      "cs": 5,
+      "df": 7,
+      "lf": 3,
+      "ld": 4,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "weapons": [ "Chill Dagger" ],
+      "wargear": [ ],
+      "wargearList": [ "Grave Remnants", "Gifts of the Underworlds" ],
+      "abilities": [ "Ethereal", "Fearsome (1)", "Shrieking Wail", "Spell-eater" ],
+      "faction": [ "Nighthaunt", "Nagash", "Undead", "Malignant" ]
+    }
+  },
+  "weapons": [
+    {
+      "name": "Chill Dagger",
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "This weapon can attack with an A value of 3, but these hits cannot be critical."
+    }, {
+      "name": "Deadweight Flail",
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": 0,
+      "dm": [ "D2", 2 ],
+      "notes": "Block rolls cannot be used to discard successful hits made by this weapon."
+    }, {
+      "name": "Deadweight Shackle",
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": 0,
+      "dm": [ "D2", 2 ],
+      "notes": "Block rolls cannot be used to discard successful hits made by this weapon. Each time an enemy model is destroyed within 3\" of the bearer, choose a friendly Malignant within 6\" of the bearer: that model discards one injury."
+    }, {
+      "name": "Ghostly Hooves",
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": 0,
+      "dm": [ 1, 2 ],
+      "notes": "Steed (5+)"
+    }, {
+      "name": "Hexfire",
+      "range": 8,
+      "melee": false,
+      "a": 1,
+      "ap": 0,
+      "dm": [ 1, 2 ],
+      "notes": "Assault, Engulf (2), Flame (2+)"
+    }, {
+      "name": "Ruined Crossbow",
+      "range": 24,
+      "melee": false,
+      "a": 1,
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": null
+    }, {
+      "name": "Rusted Blade",
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": null
+    }, {
+      "name": "Rusted Club",
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": null
+    }, {
+      "name": "Rusted Greatblade",
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 1, 4 ],
+      "dm": [ 1, 2 ],
+      "notes": "Critical (7+)"
+    }, {
+      "name": "Rusted Shiv",
+      "range": null,
+      "melee": true,
+      "a": 2,
+      "ap": [ 0, 4 ],
+      "dm": 1,
+      "notes": "This weapon can attack with an A value of 3, but these hits cannot be critical."
+    }, {
+      "name": "Sorrowheist",
+      "range": [ 12, null ],
+      "melee": true,
+      "a": 2,
+      "ap": 1,
+      "dm": 1,
+      "notes": "Familiar (4+)"
+    }
+  ],
+  "abilities": [
+    "Ethereal",
+    "Deadly Bladesman",
+    "Spirit Torment",
+    "Desperate Frenzy",
+    "Shrieking Wail",
+    "Spell-eater",
+    "Psyker (Sorceries of Undeath)"
+  ],
+  "wargear": [
+    {
+      "name": "Balefire Ring",
+      "notes": "This model’s melee weapons gain the Flame (7+) type.\n\nOnce per game in the Manoeuvring Phase, this model may unleash the burning souls trapped inside the ring: they are treated as being armed with hexfire until the end of the phase. This model's melee weapons then lose the Flame type gained from this item for the remainder of the game."
+    }, {
+      "name": "Battered Shield",
+      "abilities": [ "Shield" ],
+      "notes": "This model has the Shield ability, and they improve their armour save by 1."
+    }, {
+      "name": "Corpse Candle",
+      "notes": "At any point during a round, this model may snuff out one of their corpse candles. If they do, choose a visible model (enemy or friendly, excluding Machines) within 9\" of them: that model loses 1 life. Then, choose a friendly Psyker within 9\" of the model that snuffed out their candle: that Psyker immediately gains a warp charge.\n\nEach time one of your models snuffs out a candle, roll a D8: on a 3+, models from your warband cannot snuff out any more candles that round. Each candle can only be snuffed out once per game."
+    }, {
+      "name": "Ethereal Steed",
+      "mv": [ 8, 16 ],
+      "abilities": [ "Flying" ],
+      "notes": "This model changes their Mv value to 8\"/16\", adds 2 to their Lf value and gains the Flying ability. They change their type from Infantry to Cavalry. A model riding an ethereal steed is additionally armed with ghostly hooves."
+    }, {
+      "name": "Grasping Chains",
+      "notes": "Enemy models within 1\" of this model must re-roll successful hit rols of 8+."
+    }, {
+      "name": "Gravemist Cloak",
+      "notes": "Enemy models incur a hit roll penalty of 1 for any ranged attack that targets this model or the unit they are in, and if either the attacking models or this model charged earlier in the round, those attacking models also incur a hit roll penalty of 1 for any melee attack that targets this model or the unit they are in."
+    }, {
+      "name": "Haunted Gravesit",
+      "abilities": [ "Ambush" ],
+      "notes": "This model has the Ambush ability."
+    }, {
+      "name": "Page of the Midnight Tome",
+      "notes": "Once per game, this model can manifest one power chosen from the Sorceries of Undeath (choose this power when you create your warband). This model does not have to be a Psyker to manifest this power; if they are a Psyker, this power does not count towards the limits on the number and type of powers they can manifest during the same round. The power is manifested without any augmentation: if this model is a Psyker, they may spend their warp charges to augment this power as normal."
+    }, {
+      "name": "Memory of Treachery",
+      "notes": "When this model is set up on the battlefield, choose an enemy model. For the duration of the game, this model re-rolls failed hit rolls for attacks that target the chosen model."
+    }, {
+      "name": "Mortal Hourglass",
+      "notes": "When this model is set up on the battlefield, choose an enemy model. Add 2 to the target model’s second Lf value: this is their time of death (if the target model is a Leader, the time of death is instead equal to 3 plus their second Lf value). During the Take Damage step of the Resolution Phase, if the round number is equal to the time of death, and the bearer of the mortal hourglass has not been destroyed and is on the battlefield, the target model is immediately destroyed.\n\nThe mortal hourglass can only be used if its bearer is set up on the battlefield during deployment, and if at any subsequent point prior to the time of death the bearer is removed from the battlefield and set up in reserve, the effects of the mortal hourglass are ignored for the remainder of the game."
+    }, {
+      "name": "Murderous Spectre",
+      "notes": "This model improves their BS and CS values each by 1."
+    }, {
+      "name": "Phantom Blade",
+      "notes": "When you create your warband, choose one rusted blade or rusted greatblade this model is armed with. When this model attacks with the chosen weapon, the target’s invulnerable save is worsened by this weapon’s AP value, in addition to their armour save."
+    }, {
+      "name": "Sepulchral Chill",
+      "notes": "At the beginning of each Close Quarters Phase, enemy models within 1\" of one or more models with this item must make a Ld check. If the check is failed, those models fight last that phase."
+    }, {
+      "name": "Shadeglass Fragment",
+      "abilities": [ "Regeneration (5+)" ],
+      "notes": "This model has the Regeneration (5+) ability."
+    }, {
+      "name": "Spectral Pennant",
+      "notes": "This model has the Battle Standar ability."
+    }, {
+      "name": "Terrifying Phantasm",
+      "abilities": [ "Fearsome (3)" ],
+      "notes": "This model has the Fearsome (3) ability, but visible enemy models must make a morale check when they are within 9\" of this model, instead of only within 3\"."
+    }, {
+      "name": "Psyker (Sorceries of Undeath)",
+      "abilities": [ "Psyker (Sorceries of Undeath)" ],
+      "notes": null
+    }, {
+      "name": "Spell-eater",
+      "abilities": [ "Spell-eater" ],
+      "notes": null
+    }
+  ],
+  "wargearList": {
+    "Grave Remnants":
+    {
+      "Corpse Candle": {
+        "cost": 2,
+        "multiple": true
+      },
+      "Grasping Chains":
+      {
+        "cost": 1
+      },
+      "Haunted Gravesite":
+      {
+        "cost": 3
+      },
+      "Memory of Treachery":
+      {
+        "cost": 3,
+        "limit": 1,
+        "modelLimit": 2
+      },
+      "Sepulchral Chill":
+      {
+        "cost": 3
+      },
+      "Shadeglass Fragment":
+      {
+        "cost": 1
+      }
+    },
+    "Gifts of the Underworlds":
+    {
+      "Balefire Ring":
+      {
+        "cost": 3
+      },
+      "Gravemist Cloak":
+      {
+        "cost": 3
+      },
+      "Page of the Midnight Tome":
+      {
+        "cost": 4,
+        "warbandLimit": 3
+      },
+      "Mortal Hourglass":
+      {
+        "cost": 9,
+        "warbandLimit": 3
+      },
+      "Murderous Spectre":
+      {
+        "cost": 2,
+        "limit": 1
+      },
+      "Phantom Blade":
+      {
+        "cost": 2
+      },
+      "Terrifying Phantasm":
+      {
+        "cost": 3,
+        "modelLimit": 2
+      },
+      "Sorrowheist":
+      {
+        "cost": 3
+      }
+    }
+  },
+  "configuration": [
+    {
+      "weapon": [ "Rusted Greatblade" ],
+      "replaces": [ "Rusted Blade" ],
+      "cost": 4,
+      "usedBy": [ "Knight of Shrouds" ]
+    }, {
+      "weapon": [ "Battered Shield" ],
+      "replaces": null,
+      "cost": 2,
+      "condition": {
+        "requires": [ "Rusted Blade" ],
+        "not": [ "Battered Shield" ]
+      },
+      "usedBy": [ "Knight of Shrouds" ]
+    }, {
+      "weapon": [ "Ethereal Steed" ],
+      "replaces": null,
+      "cost": 7,
+      "condition": {
+        "not": [ "Ethereal Steed" ]
+      },
+      "usedBy": [ "Knight of Shrouds" ]
+    },
 
-        {
-            "weapon": [ "Rusted Club" ],
-            "replaces": [ "Rusted Blade" ],
-            "cost": 0,
-            "usedBy": [ "Dreadwarden", "Chainrasp" ]
-        }, {
-            "weapon": [ "Deadweight Shackle" ],
-            "replaces": [ "Rusted Blade" ],
-            "cost": 3,
-            "usedBy": [ "Dreadwarden" ]
-        }, {
-            "weapon": "Deadweight Shackle",
-            "replaces": [ ],
-            "cost": 2,
-            "condition": {
-                "requires": [ "Deadweight Shackle" ],
-                "not": [ [ "Deadweight Shackle", "Deadweight Shackle" ] ]
-            },
-            "usedBy": [ "Dreadwarden" ]
-        }, {
-            "weapon": [ "Psyker (Sorceries of Undeath)" ],
-            "replaces": null,
-            "cost": 8,
-            "condition": {
-                "not": [ "Psyker (Sorceries of Undeath)" ]
-            },
-            "usedBy": [ "Dreadwarden" ]
-        },
+    {
+      "weapon": [ "Rusted Club" ],
+      "replaces": [ "Rusted Blade" ],
+      "cost": 0,
+      "usedBy": [ "Dreadwarden", "Chainrasp" ]
+    }, {
+      "weapon": [ "Deadweight Shackle" ],
+      "replaces": [ "Rusted Blade" ],
+      "cost": 3,
+      "usedBy": [ "Dreadwarden" ]
+    }, {
+      "weapon": "Deadweight Shackle",
+      "replaces": [ ],
+      "cost": 2,
+      "condition": {
+        "requires": [ "Deadweight Shackle" ],
+        "not": [ [ "Deadweight Shackle", "Deadweight Shackle" ] ]
+      },
+      "usedBy": [ "Dreadwarden" ]
+    }, {
+      "weapon": [ "Psyker (Sorceries of Undeath)" ],
+      "replaces": null,
+      "cost": 8,
+      "condition": {
+        "not": [ "Psyker (Sorceries of Undeath)" ]
+      },
+      "usedBy": [ "Dreadwarden" ]
+    },
 
-        {
-            "weapon": [ "Ruined Crossbow" ],
-            "replaces": [ "Rusted Blade" ],
-            "cost": 0,
-            "usedBy": [ "Chainrasp" ]
-        }, {
-            "weapon": [ "Deadweight Shackle", "Deadweight Shackle" ],
-            "replaces": [ "Rusted Blade" ],
-            "cost": 4,
-            "usedBy": [ "Chainrasp" ]
-        }, {
-            "weapon": [ "Rusted Shiv" ],
-            "replaces": null,
-            "cost": 1,
-            "condition": {
-                "any": [ "Rusted Blade", "Rusted Club", "Ruined Crossbow"],
-                "not": [ "Rusted Shiv", "Battered Shield"]
-            },
-            "usedBy": [ "Chainrasp" ]
-        }, {
-            "weapon": [ "Battered Shield" ],
-            "replaces": null,
-            "cost": 2,
-            "condition": {
-                "any": [ "Rusted Blade", "Rusted Club"],
-                "not": [ "Rusted Shiv", "Battered Shield"]
-            },
-            "usedBy": [ "Chainrasp" ]
-        }, {
-            "weapon": [ "Spectural Pennant" ],
-            "replaces": null,
-            "cost": 5,
-            "condition": {
-                "not": [ "Spectural Pennant"]
-            },
-            "usedBy": [ "Chainrasp" ]
-        },
+    {
+      "weapon": [ "Ruined Crossbow" ],
+      "replaces": [ "Rusted Blade" ],
+      "cost": 0,
+      "usedBy": [ "Chainrasp" ]
+    }, {
+      "weapon": [ "Deadweight Shackle", "Deadweight Shackle" ],
+      "replaces": [ "Rusted Blade" ],
+      "cost": 4,
+      "usedBy": [ "Chainrasp" ]
+    }, {
+      "weapon": [ "Rusted Shiv" ],
+      "replaces": null,
+      "cost": 1,
+      "condition": {
+        "any": [ "Rusted Blade", "Rusted Club", "Ruined Crossbow" ],
+        "not": [ "Rusted Shiv", "Battered Shield" ]
+      },
+      "usedBy": [ "Chainrasp" ]
+    }, {
+      "weapon": [ "Battered Shield" ],
+      "replaces": null,
+      "cost": 2,
+      "condition": {
+        "any": [ "Rusted Blade", "Rusted Club" ],
+        "not": [ "Rusted Shiv", "Battered Shield" ]
+      },
+      "usedBy": [ "Chainrasp" ]
+    }, {
+      "weapon": [ "Spectural Pennant" ],
+      "replaces": null,
+      "cost": 5,
+      "condition": {
+        "not": [ "Spectural Pennant" ]
+      },
+      "usedBy": [ "Chainrasp" ]
+    },
 
-        {
-            "weapon": "Spell-eater",
-            "replaces": null,
-            "cost": 4,
-            "condition": {
-                "not": "Spell-eater"
-            },
-            "usedBy": [ "Myrmourn Banshee"]
-        }
-    ]
+    {
+      "weapon": "Spell-eater",
+      "replaces": null,
+      "cost": 4,
+      "condition": {
+        "not": "Spell-eater"
+      },
+      "usedBy": [ "Myrmourn Banshee" ]
+    }
+  ]
 }
