@@ -372,6 +372,7 @@
       "notes": "This model changes their Mv value to 5″/12″. When they advance, they have the Flying ability."
     }, {
       "name": "Lightning Field",
+      "invulnerableSave": 7,
       "notes": "This model has a 7+ invulnerable save. When this model makes a saving throw against a melee attack, if the value rolled is 8+, the attacking model suffers one AP 3 hit."
     }, {
       "name": "Mindshackle Nanoscarabs",
@@ -400,6 +401,7 @@
       "notes": "This model replaces the rules for their Living Metal ability with the following:\nThis model has the Regeneration (5+) ability. When they use this ability, roll two D8s instead of one; for each successful roll, they regain 1 life, and may also discard one Poison, Plague or Radiation token."
     }, {
       "name": "Quantum Shielding",
+      "invulnerableSave": 7,
       "notes": "This model has a 7+ invulnerable save. When this model makes a saving throw, they improve any invulnerable save they have by an amount equal to the Dm value of the attack (for example, a 7+ invulnerable save would become a 4+ invulnerable save while defending against a Dm 3 attack − note that an invulnerable save can never be improved to be better than 3+)."
     }, {
       "name": "Resurrection Orb",

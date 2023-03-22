@@ -36,7 +36,7 @@ export interface UnitCustomisation {
   mv?: number[];
   bs?: number;
   cs?: number;
-  df?: number;
+  df?: number | number[];
   lf?: number;
   si?: number;
   ld?: number;

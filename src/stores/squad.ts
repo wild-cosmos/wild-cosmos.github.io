@@ -176,12 +176,13 @@ export const useSquadStore = defineStore({
           const updateModel = state.models.find(({ id }) => id === unit.id);
           if (updateModel) {
             const {
-              cost, mv, abilities = [], weapons = [], wargear = [],
+              cost, mv, df, abilities = [], weapons = [], wargear = [],
             } = model;
             const defaultItems = [...wargear, ...weapons];
             Object.assign(updateModel, {
               cost,
               mv,
+              df,
               abilities: [...abilities],
               weapons: defaultItems.map(dataStore.getWeapon).filter((w) => !!w),
               wargear: defaultItems.map(dataStore.getWargear).filter((w) => !!w),
@@ -207,8 +208,15 @@ export const useSquadStore = defineStore({
             .map(dataStore.getWargear)
             .forEach((wargear) => {
               if (wargear) {
-                const { abilities, mv } = wargear;
+                const { abilities, mv, invulnerableSave } = wargear;
                 if (mv) squadUnit.mv = mv;
+                if (invulnerableSave) {
+                  if (isArray(squadUnit.df)) {
+                    squadUnit.df[1] = invulnerableSave;
+                  } else {
+                    squadUnit.df = [squadUnit.df, invulnerableSave];
+                  }
+                }
 
                 if (isArray(abilities)) {
                   abilities.filter((ability) => !squadUnit.abilities.includes(ability))
