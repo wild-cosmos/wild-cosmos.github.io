@@ -780,12 +780,12 @@
     }, {
       "weapon": [ "Shield Generator" ],
       "replaces": [ "Empty" ],
-      "cost": 12,
+      "cost": 3,
       "usedBy": [ "Crisis Battlesuit" ]
     }, {
       "weapon": [ "Descent Thrusters" ],
       "replaces": [ ],
-      "cost": 12,
+      "cost": 3,
       "condition": {
         "not": [ "Descent Thrusters" ]
       },
