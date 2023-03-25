@@ -71,6 +71,7 @@ import { useSquadStore } from '@/stores/squad';
 import formatList from '@/utils/formatList';
 import type { Configuration } from '@/types/faction';
 import type { SquadUnit, Weapon, Item } from '@/types/unit';
+import { applyModelRules } from '@/model-rules';
 import OptionalWargear from './OptionalWargear.vue';
 import UnitDetails from './UnitDetails.vue';
 
@@ -87,7 +88,7 @@ const selectedOption = ref(null);
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
 
-const unitType = computed(() => dataStore.getModelByName(props.unit.name));
+const unitType = computed(() => applyModelRules(squadStore.models, dataStore.getModelByName(props.unit.name)));
 
 const rolesForUnit = computed(() => {
   if (!unitType.value) return [];

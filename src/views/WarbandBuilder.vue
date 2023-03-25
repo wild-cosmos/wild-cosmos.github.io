@@ -107,7 +107,7 @@
 
 <script setup lang="ts">
 import {
-  computed, ref, nextTick, watch, watchEffect,
+  computed, ref, nextTick, watch, watchEffect, provide,
 } from 'vue';
 import { Toast } from 'bootstrap';
 import { isArray, orderBy, uniqBy } from 'lodash-es';
@@ -118,8 +118,10 @@ import { useRouter } from 'vue-router';
 import { useDataStore } from '@/stores/data';
 import { useSquadStore } from '@/stores/squad';
 import { useWarbandStore } from '@/stores/warband';
-import type { Wargear, Weapon } from '@/types/unit';
+import type { SquadUnit, Wargear, Weapon } from '@/types/unit';
 import type { Ability } from '@/types/faction';
+import { validRolesForModel } from '@/utils/role-helpers';
+import { applyModelRules } from '@/model-rules';
 import WargearList from '../components/WargearList.vue';
 import WeaponsList from '../components/WeaponsList.vue';
 import AbilityList from '../components/AbilityList.vue';
@@ -128,6 +130,9 @@ const router = useRouter();
 const dataStore = useDataStore();
 const squadStore = useSquadStore();
 const warbandStore = useWarbandStore();
+
+provide('dataStore', dataStore);
+provide('squadStore', squadStore);
 
 const props = defineProps<{
   id?: number | null
@@ -205,6 +210,16 @@ const validationErrors = computed(() => {
       }
       return validFactions.filter((f) => factions.includes(f));
     }, [] as string[]);
+
+    // Check models have valid roles
+    const checkValidRoles = (models: SquadUnit[]) => models.forEach(({ name, role }) => {
+      const unitType = applyModelRules(models, dataStore.getModelByName(name));
+      if (!validRolesForModel(unitType).includes(role)) {
+        errorList.push({ text: `${name} has invalid role ${role}`, variant: 'danger' });
+      }
+    });
+
+    checkValidRoles(squadStore.models);
 
     const roles = squadStore.models.reduce((o, { role }) => {
       if (!role) return o;

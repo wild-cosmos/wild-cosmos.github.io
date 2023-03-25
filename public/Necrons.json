@@ -151,6 +151,9 @@
       "lf": 4,
       "ld": 2,
       "roles": [ "Specialist" ],
+      "limits": {
+        "comment": "If your Leader is a Triarch Judicator, this model may have the Core role."
+      },
       "type": [ "Infantry" ],
       "weapons": [ "Rod of Covenant" ],
       "wargear": [ "Gravity Displacer" ],

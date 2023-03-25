@@ -44,7 +44,10 @@
         <td class="stat">
           {{ formatStat(unit.ld, "+") }}
         </td>
-        <td>{{ formatList(unitRoleAndType) }}</td>
+        <td :class="{ 'text-danger': roleWarning }">
+          <i v-if="roleWarning" class="bi-exclamation-diamond" />
+          {{ formatList(unitRoleAndType) }}
+        </td>
         <td>
           <div class="text-end">
             {{ unit.cost }}
@@ -61,9 +64,9 @@
 
   <table class="table">
     <tbody>
-      <tr v-if="unit.limits" class="align-middle">
+      <tr v-if="props.unit.limits" class="align-middle">
         <th>Limits</th>
-        <td>{{ unit.limits.comment }}</td>
+        <td>{{ props.unit.limits.comment }}</td>
       </tr>
       <tr class="align-middle">
         <th>Wargear</th>
@@ -89,27 +92,32 @@
       </tr>
       <tr class="align-middle">
         <th>Faction</th>
-        <td>{{ formatList(unit.faction) }}</td>
+        <td>{{ formatList(props.unit.faction) }}</td>
       </tr>
     </tbody>
   </table>
 
-  <slot name="options" />
+  <slot name="options" :roles-for-unit="validRolesForUnit" />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { sortBy, isArray } from 'lodash-es';
+import { computed, inject } from 'vue';
+import { sortBy } from 'lodash-es';
 import formatStat from '@/utils/formatStat';
 import formatList from '@/utils/formatList';
 import type { SquadUnit, Wargear, Weapon } from '@/types/unit';
+import { applyModelRules } from '@/model-rules';
+import { modelRoleAndType, validRolesForModel } from '@/utils/role-helpers';
 import WeaponsList from './WeaponsList.vue';
 
 const props = defineProps<{
   unit: SquadUnit
 }>();
 
-const unit = computed(() => props.unit);
+const dataStore = inject('dataStore');
+const squadStore = inject('squadStore');
+
+const unitType = computed(() => applyModelRules(squadStore.models, dataStore.getModelByName(props.unit.name)));
 
 const calcSi = computed(() => Math.round(props.unit.lf / 4));
 
@@ -129,16 +137,13 @@ const allWargear = computed(() => {
   ];
 });
 
-const unitRoleAndType = computed(() => {
-  const { role, type } = props.unit;
-  const roleAndType: string[] = [];
-  if (role) roleAndType.push(role);
-  if (isArray(type)) {
-    roleAndType.push(...type);
-  } else {
-    roleAndType.push(type);
-  }
-  return roleAndType;
+const unitRoleAndType = computed(() => modelRoleAndType(props.unit));
+
+const validRolesForUnit = computed(() => validRolesForModel(unitType.value));
+
+const roleWarning = computed(() => {
+  const { role } = props.unit;
+  return role > '' && !validRolesForUnit.value.includes(role);
 });
 
 const unitAbilities = computed(() => sortBy(props.unit.abilities));

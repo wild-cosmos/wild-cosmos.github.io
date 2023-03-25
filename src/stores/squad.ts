@@ -25,6 +25,17 @@ const createSquadUnit = (): SquadUnit => ({
   limits: null,
 });
 
+const getDefaultRole = ({ roles }: Unit) => {
+  if (isArray(roles)) {
+    const [role] = roles;
+    return role;
+  } if (isObject(roles)) {
+    const [role] = Object.keys(roles);
+    return role;
+  }
+  return roles as string;
+};
+
 interface State {
   faction: string
   name: string | null
@@ -116,16 +127,6 @@ export const useSquadStore = defineStore({
         }, createSquadUnit());
 
       if (typeof model.roles !== 'string') {
-        const getDefaultRole = ({ roles }: Unit) => {
-          if (isArray(roles)) {
-            const [role] = roles;
-            return role;
-          } if (isObject(roles)) {
-            const [role] = Object.keys(roles);
-            return role;
-          }
-          return roles as string;
-        };
         m.role = getDefaultRole(model);
       }
 
@@ -181,6 +182,7 @@ export const useSquadStore = defineStore({
             const defaultItems = [...wargear, ...weapons];
             Object.assign(updateModel, {
               cost,
+              role: getDefaultRole(model),
               mv,
               df,
               abilities: [...abilities],
