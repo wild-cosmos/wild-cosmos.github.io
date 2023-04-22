@@ -273,9 +273,18 @@ export const useSquadStore = defineStore({
       if (squadUnit) {
         const { getModelByName } = useDataStore();
         Object.assign(squadUnit, { role });
-
         const model = getModelByName(squadUnit.name);
-        if (model && role in model.roles) {
+
+        if (!model) return;
+
+        const {
+          bs, cs, lf, ld,
+        } = model;
+        Object.assign(squadUnit, {
+          bs, cs, lf, ld,
+        });
+
+        if (role in model.roles) {
           const roleStats = (model.roles as Roles)[role];
           if (roleStats) Object.assign(squadUnit, roleStats);
         }

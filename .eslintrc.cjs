@@ -37,6 +37,7 @@ module.exports = {
       alignAttributesVertically: false,
       ignores: [],
     }],
+    'quote-props': ['error', 'consistent-as-needed'],
   },
   ignorePatterns: ['dist', 'node_modules'],
 };
