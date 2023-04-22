@@ -54,7 +54,7 @@
             "weapons": [ "Scything Talon", "Scything Talon", "Scything Talon", "Scything Talon" ],
             "wargear": [ ],
             "wargearList": [ "Biomorphs", "Apex Biomorphs" ],
-            "abilities": [ "Synapse", "Shadow in the Warp", "Large (1)", "Fearsome (2)", "Flying", "Aerial Strike (4+)" ],
+            "abilities": [ "Synapse", "Shadow in the Warp", "Large (1)", "Fearsome (2)", "Flying", "Deep Strike (4+)" ],
             "faction": [ "Tyranids", "Hive Fleets" ]
         },
         "Hormagaunt": {
@@ -105,7 +105,7 @@
             "weapons": [ "Fleshborer" ],
             "wargear": [ ],
             "wargearList": [ "Biomorphs" ],
-            "abilities": [ "Instinctive Behaviour", "Flying", "Aerial Strike (4+)", "Blinding Venom" ],
+            "abilities": [ "Instinctive Behaviour", "Flying", "Deep Strike (4+)", "Blinding Venom" ],
             "faction": [ "Tyranids", "Hive Fleets" ]
         },
         "Genestealer": {

@@ -420,7 +420,7 @@
       "notes": "In the Close Quarters Phase, instead of attacking, this model may attempt to capture an enemy model within 3″ in the labyrinth. Roll a D6: if the value rolled is greater than the target model’s remaining life, they are caught within the labyrinth and removed from the battlefield.\nThe model caught in the labyrinth is not treated as destroyed until the end of the game, and as such may not be targeted by or benefit from any abilities that target destroyed models, such as abilities that bring them back into play or that allow them to attack before they are removed from the battlefield.\nOnce a model has been captured, the tesseract labyrinth may not be used again for the rest of the game."
     }, {
       "name": "Translocation Casket",
-      "abilities": [ "Dimensional Strike (4+)" ],
+      "abilities": [ "Deep Strike (4+)" ],
       "notes": "This model has the Dimensional Strike (4+) ability."
     }, {
       "name": "Weapon Optimisation",

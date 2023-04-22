@@ -331,7 +331,7 @@
       "notes": "This model changes their Mv value to 8\"/16\" and replaces their Jetpack Thrust ability with the Flying ability."
     }, {
       "name": "Descent Thrusters",
-      "abilities": [ "Manta Stirke (4+)" ],
+      "abilities": [ "Deep Stirke (4+)" ],
       "notes": "This model has the Manta Strike (4+) ability."
     }, {
       "name": "Destabilised Electrokinetic Core",

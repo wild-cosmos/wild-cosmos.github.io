@@ -302,7 +302,7 @@
       "notes": "This model has the Shield ability and a 7+ invulnerable save."
     }, {
       "name": "Teleportation Transponder",
-      "abilities": [ "Teleport Strike (4+)" ],
+      "abilities": [ "Deep Strike (4+)" ],
       "notes": "This model has the Teleport Strike (4+) ability."
     }, {
       "name": "Watcher in the Dark",
