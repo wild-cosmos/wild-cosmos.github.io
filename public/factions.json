@@ -6,5 +6,6 @@
   "Gretchin",
   [ "T'au Empire", "tau_empire.json" ],
   [ "Nighthaunt", "nighthaunt.json" ],
-  [ "Tyranids", "tyranids.json"]
+  [ "Super Mario World", "mario.json" ],
+  [ "Tyranids", "tyranids.json" ]
 ]

@@ -150,7 +150,11 @@
       "df": 4,
       "lf": 4,
       "ld": 2,
-      "roles": [ "Specialist" ],
+      "roles": {
+        "Specialist": {
+          "wargearList": [ "Ancient Armoury", "Eldritch Devices" ]
+        }
+      },
       "limits": {
         "comment": "If your Leader is a Triarch Judicator, this model may have the Core role."
       },
