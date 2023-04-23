@@ -1,0 +1,82 @@
+{
+  "models": {
+    "Mario": {
+      "cost": 20,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 6,
+      "lf": 5,
+      "ld": 3,
+      "roles": [ "Leader" ],
+      "type": [ "Infantry" ],
+      "weapons": [ ],
+      "wargear": [ ]
+    },
+    "Luigi": {
+      "cost": 20,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 6,
+      "lf": 5,
+      "ld": 3,
+      "roles": [ "Leader", "Specialist" ],
+      "type": [ "Infantry" ],
+      "weapons": [ ],
+      "wargear": [ ]
+    },
+    "Peach": {
+      "cost": 20,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 6,
+      "lf": 5,
+      "ld": 3,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "weapons": [ ],
+      "wargear": [ ]
+    },
+    "Toad": {
+      "cost": 20,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 6,
+      "lf": 5,
+      "ld": 3,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "weapons": [ ],
+      "wargear": [ ]
+    },
+    "Yoshi": {
+      "cost": 20,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 6,
+      "lf": 5,
+      "ld": 3,
+      "roles": [ "Specialist" ],
+      "type": [ "Infantry" ],
+      "weapons": [ ],
+      "wargear": [ ]
+    },
+    "Koopa Trooper": {
+      "cost": 5,
+      "mv": [ 5, 10 ],
+      "bs": 3,
+      "cs": 3,
+      "df": 6,
+      "lf": 5,
+      "ld": 3,
+      "roles": [ "Core" ],
+      "type": [ "Infantry" ],
+      "weapons": [ ],
+      "wargear": [ ]
+    }
+  }
+}
