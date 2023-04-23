@@ -153,6 +153,9 @@
       "roles": {
         "Specialist": {
           "wargearList": [ "Ancient Armoury", "Eldritch Devices" ]
+        },
+        "Core": {
+          "wargearList": []
         }
       },
       "limits": {
