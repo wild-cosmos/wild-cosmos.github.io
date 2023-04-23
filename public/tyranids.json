@@ -24,7 +24,7 @@
             "limits": {
                 "comment": "This model can only have the Core role if your Leader is a Tyranid Warrior or a Tyranid Shrike."
             },
-            "weapons": [ "Scything Talon", "Scything Talon", "Scything Talon", "Scything Talon" ],
+            "weapons": [ "Scything Talon", "Scything Talon", "Scything Talon", "Scything Talon", "Empty" ],
             "wargear": [ ],
             "wargearList": [ "Biomorphs", "Apex Biomorphs" ],
             "abilities": [ "Synapse", "Shadow in the Warp", "Large (1)", "Fearsome (2)" ],
@@ -130,7 +130,7 @@
             "weapons": [ "Rending Claws", "Rending Claws", "Rending Claws", "Rending Claws" ],
             "wargear": [ ],
             "wargearList": [ ],
-            "abilities": [ "Infiltrate", "Ambush", "Uncanny Reflexes (7+)", "Fearsome (1)", "Flurry of Claws" ],
+            "abilities": [ "Infiltrate", "Ambush", "Quick Reflexes (7+)", "Fearsome (1)", "Flurry of Claws" ],
             "faction": [ "Tyranids", "Hive Fleets" ]
         },
         "Lictor": {
@@ -170,17 +170,273 @@
         }
     },
     "wargear": [
-
+        {
+            "name": "Accelerated Healing",
+            "notes": "This model has the Regeneration (2+) ability. If the value rolled for this ability is 6+, they regain 2 life instead of 1."
+        },
+        {
+            "name": "Acid Blood",
+            "notes": "Each time an enemy model or unit makes a melee attack with this model as a target, once the attack has been resolved, roll a number of D8s equal to the life this model lost as a result of that attack. For each 6+ rolled, the attacking model or unit suffers one AP 1 hit."
+        },
+        {
+            "name": "Adrenal Glands",
+            "notes": "This model adds 2″ to their advancing Mv value."
+        },
+        {
+            "name": "Brainleech Worms",
+            "notes": "When this model attacks with a Living Ammo weapon, place a Brainleech marker next to any model that loses life as a result of the attack. In the Take Damage step of the Resolution Phase, each model with any Brainleech markers next to them must roll a number of D8s equal to their Ld value. For each 1 rolled, that model suffers an injury. Then remove that model's Brainleech marker."
+        },
+        {
+            "name": "Cerebryogenesis",
+            "abilities": [ "Psyker (Powers of the Hive Mind)" ],
+            "notes": "This model has the Psyker (Powers of the Hive Mind) ability."
+        },
+        {
+            "name": "Enhanced Senses",
+            "notes": "This model reduces any hit roll penalty they incur for firing at long range by 1 (to a minimum of 0)."
+        },
+        {
+            "name": "Evolved Ammunition",
+            "notes": "When you create your warband, choose one of the following abilities. For the duration of the game, every model in your warband with evolved ammunition has this ability.\nCorrosive Grubs: Any Living Ammo weapon this model is armed with adds 1 to its AP value.\nSwollen Gestation Sacs: Any Living Ammo weapon this model is armed with (excluding thorax swarms) has the Rapid Fire type. Its rapid fire A value is 1 more than its ordinary A value. If this model is armed with a thorax swarm, it instead changes its A value to 2.\nViolent Emesis: When this model attacks with a Living Ammo weapon, if the target is within 8″, this model incurs a critical hit bonus of 1 for that attack."
+        },
+        {
+            "name": "Flesh Hooks",
+            "notes": "At the beginning of each Close Quarters Phase, you may choose one enemy model within 1″ of this model and attempt to ensnare them with this model's flesh hooks. Roll a D8: if the result is less than the target model's CS value, they are ensnared - they fight last this phase."
+        },
+        {
+            "name": "Hardened Carapace",
+            "notes": "This model improves their armour save by 1."
+        },
+        {
+            "name": "Hyper-adaptive biology",
+            "notes": "While this model has lost any life, they have the Ignore Damage (7+) ability. While their remaining life is half their total Lf value or less, they have the Ignore Damage (6+) ability instead; or while they are seriously injured, they have the Ignore Damage (5+) ability."
+        },
+        {
+            "name": "Lurking Predator",
+            "notes": "This model has the Ambush ability."
+        },
+        {
+            "name": "Monstrous Musculature",
+            "notes": "This model incurs a critical hit bonus of 1 for all of their melee attacks. This model's melee weapons (excluding lash whips and thorax swarms) add 1 to their critical Dm value."
+        },
+        {
+            "name": "Precognitive Sensoria",
+            "notes": "This model fights first in the Close Quarters Phase."
+        },
+        {
+            "name": "Psionic Reservoir",
+            "notes": "When this model generates their warp charges, if the number of charges they generate (before overcharging) is 1 or less, they generate 1 additional charge."
+        },
+        {
+            "name": "Razor Chitin",
+            "notes": "Add 1 to the ordinary AP value of this model's melee weapons (excluding a lash whip, acid maw or thorax swarm)."
+        },
+        {
+            "name": "Synaptic Resonance",
+            "notes": "If a friendly Hive Fleets model has a worse BS or CS value than this model's, they improve that value by 1 while they are within 9″ of this model.\n\nIf this model is a Zoanthrope, the ability above is ignored; instead, friendly Hive Fleets models have a 7+ invulnerable save while they are within 9″ of this model."
+        },
+        {
+            "name": "Toxin Sacs",
+            "notes": "Any melee weapon (excluding a lash whip, acid maw or thorax swarm) and any spinefist or spike rifle this model is armed with has the Poison (6+) type."
+        }
     ],
     "wargearList": {
         "Biomorphs": {
-
+            "Acid Blood": {
+                "cost": 1
+            },
+            "Adrenal Glands": {
+                "cost": 1
+            },
+            "Enhanced Senses": {
+                "cost": 1
+            },
+            "Hardened Carapace": {
+                "cost": 1
+            },
+            "Lurking Predator": {
+                "cost": 2,
+                "only": [ "Hormagaunt", "Termagant" ]
+            },
+            "Razor Chitin": {
+                "cost": 2
+            },
+            "Toxin Sacs": {
+                "cost": 3
+            }
         },
         "Apex Biomorphs": {
-
+            "Accelerated Healing": {
+                "cost": 4
+            },
+            "Cerebryogenesis": {
+                "cost": 8,
+                "not": [ "Psyker (Powers of the Hive Mind)" ]
+            },
+            "Hyper-adaptive Biology": {
+                "cost": 3
+            },
+            "Monstrous Musculature": {
+                "cost": 7
+            },
+            "Precognitive Sensoria": {
+                "cost": 9
+            },
+            "Psionic Reservoir": {
+                "cost": 9,
+                "ability": [ "Psyker (Powers of the Hive Mind)" ]
+            },
+            "Synaptic Resonance": {
+                "cost": 9,
+                "ability": [ "Synapse" ],
+                "role": [ "Leader" ]
+            },
+            "Bio-plasma": {
+                "cost": 4,
+                "modelLimit": 2
+            },
+            "Thorax Swarm": {
+                "cost": 4,
+                "modelLimit": 2
+            }
         }
     },
     "weapons": [
-        
+        {
+            "name": "Acid Maw",
+            "range": null,
+            "a": 1,
+            "ap": [ 2, 4 ],
+            "dm": 1,
+            "notes": "The bearer can attack with this weapon as an additional secondary weapon."
+        },
+        {
+            "name": "Barbed strangler",
+            "range": 24,
+            "a": "D2",
+            "ap": [ 1, 4 ],
+            "dm": [ 1, 2 ],
+            "notes": "Blast (4). Successful hits allocated to the initial model nominated as the target for the attack are always critical hits. If the initial model is part of a unit, the player controlling the unit chooses which model in the unit suffers the critical hits (the chosen model must have been allocated at least one successful hit)."
+        },
+        {
+            "name": "Bio-plasma",
+            "range": 8,
+            "a": "D2",
+            "ap": [ 3, 5 ],
+            "dm": 2,
+            "notes": "Assault, Blast (2)"
+        },
+        {
+            "name": "Biting Talons",
+            "range": null,
+            "a": 2,
+            "ap": [ 0, 4 ],
+            "dm": [ 1, 2 ],
+            "notes": "Paired"
+        },
+        {
+            "name": "Bonesword",
+            "range": null,
+            "a": 2,
+            "ap": [ 2, 4 ],
+            "dm": [ 1, 2 ],
+            "notes": "Paired"
+        },
+        {
+            "name": "Deathspitter",
+            "range": 12,
+            "a": 3,
+            "ap": [ 1, 4 ],
+            "dm": 1,
+            "notes": "Assault, Living Ammo"
+        },
+        {
+            "name": "Devourer",
+            "range": 10,
+            "a": 3,
+            "ap": [ 0, 3 ],
+            "dm": 1,
+            "notes": "Assault, Living Ammo"
+        },
+        {
+            "name": "Fleshborer",
+            "range": 10,
+            "a": 2,
+            "ap": [ 1, 4 ],
+            "dm": 1,
+            "notes": "Assault, Living Ammo"
+        },
+        {
+            "name": "Lash Whip",
+            "range": null,
+            "a": 2,
+            "ap": [ 0, 2 ],
+            "dm": 1,
+            "notes": "The bearer can use the Shield ability during the Close Quarters Phase. This weapon can only be used as a secondary weapon, but uses its normal A value, instead of being reduced to an A value of 1."
+        },
+        {
+            "name": "Rending Claw",
+            "range": null,
+            "a": 2,
+            "ap": [ 2, 5 ],
+            "dm": 1,
+            "notes": "Paired"
+        },
+        {
+            "name": "Scything Talon",
+            "range": null,
+            "a": 2,
+            "ap": [ 0, 3 ],
+            "dm": 1,
+            "notes": "Paired. The bearer may use any number of scything talons they are armed with as additional secondary weapons. These additional secondary weapons can only ever have an A value 1, regardless of any other rules."
+        },
+        {
+            "name": "Spike Rifle",
+            "range": 20,
+            "a": 1,
+            "ap": [ 2, 4 ],
+            "dm": [ 1, 3 ],
+            "notes": "Sniper"
+        },
+        {
+            "name": "Spinefist",
+            "range": [ 8, null],
+            "a": 2,
+            "ap": [ 1, 4 ],
+            "dm": 1,
+            "notes": "Pistol, Paired. This weapon cannot target models that are more than 12″ away."
+        },
+        {
+            "name": "Spinemaws",
+            "range": null,
+            "a": 4,
+            "ap": 1,
+            "dm": 1,
+            "notes": "For every full 2 life the bearer has lost, reduce this weapon's A value by 1."
+        },
+        {
+            "name": "Thorax Swarm",
+            "range": null,
+            "a": "D2",
+            "ap": [ 0, 3 ],
+            "dm": 1,
+            "notes": "Engulf (4), Living Ammo. The bearer can attack with this weapon as an additional secondary weapon. When this weapon is a secondary weapon, it uses its normal A value, instead of being reduced to an A value of 1."
+        },
+        {
+            "name": "Venom Cannon",
+            "range": 24,
+            "a": [ 4, 6],
+            "ap": [ 2, 5 ],
+            "dm": 1,
+            "notes": "Poison (7+), Rapid Fire. When attacking with this weapon, if the bearer does not move in the same phase, they may use this weapon's rapid fire A value for the attack even if the target is more than 12″ away from them."
+        }
+    ],
+    "configuration": [
+        {
+            "weapon": [ "Devourer" ],
+            "replaces": [ "Scything Talon", "Scything Talon", "Empty" ],
+            "cost": 0,
+            "usedBy": [ "Tyranid Warrior" ]
+        }
     ]
 }
