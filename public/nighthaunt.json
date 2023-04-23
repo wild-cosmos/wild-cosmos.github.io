@@ -184,7 +184,7 @@
   "wargear": [
     {
       "name": "Balefire Ring",
-      "notes": "This model’s melee weapons gain the Flame (7+) type.\n\nOnce per game in the Manoeuvring Phase, this model may unleash the burning souls trapped inside the ring: they are treated as being armed with hexfire until the end of the phase. This model's melee weapons then lose the Flame type gained from this item for the remainder of the game."
+      "notes": "This model's melee weapons gain the Flame (7+) type.\n\nOnce per game in the Manoeuvring Phase, this model may unleash the burning souls trapped inside the ring: they are treated as being armed with hexfire until the end of the phase. This model's melee weapons then lose the Flame type gained from this item for the remainder of the game."
     }, {
       "name": "Battered Shield",
       "abilities": [ "Shield" ],
@@ -215,13 +215,13 @@
       "notes": "When this model is set up on the battlefield, choose an enemy model. For the duration of the game, this model re-rolls failed hit rolls for attacks that target the chosen model."
     }, {
       "name": "Mortal Hourglass",
-      "notes": "When this model is set up on the battlefield, choose an enemy model. Add 2 to the target model’s second Lf value: this is their time of death (if the target model is a Leader, the time of death is instead equal to 3 plus their second Lf value). During the Take Damage step of the Resolution Phase, if the round number is equal to the time of death, and the bearer of the mortal hourglass has not been destroyed and is on the battlefield, the target model is immediately destroyed.\n\nThe mortal hourglass can only be used if its bearer is set up on the battlefield during deployment, and if at any subsequent point prior to the time of death the bearer is removed from the battlefield and set up in reserve, the effects of the mortal hourglass are ignored for the remainder of the game."
+      "notes": "When this model is set up on the battlefield, choose an enemy model. Add 2 to the target model's second Lf value: this is their time of death (if the target model is a Leader, the time of death is instead equal to 3 plus their second Lf value). During the Take Damage step of the Resolution Phase, if the round number is equal to the time of death, and the bearer of the mortal hourglass has not been destroyed and is on the battlefield, the target model is immediately destroyed.\n\nThe mortal hourglass can only be used if its bearer is set up on the battlefield during deployment, and if at any subsequent point prior to the time of death the bearer is removed from the battlefield and set up in reserve, the effects of the mortal hourglass are ignored for the remainder of the game."
     }, {
       "name": "Murderous Spectre",
       "notes": "This model improves their BS and CS values each by 1."
     }, {
       "name": "Phantom Blade",
-      "notes": "When you create your warband, choose one rusted blade or rusted greatblade this model is armed with. When this model attacks with the chosen weapon, the target’s invulnerable save is worsened by this weapon’s AP value, in addition to their armour save."
+      "notes": "When you create your warband, choose one rusted blade or rusted greatblade this model is armed with. When this model attacks with the chosen weapon, the target's invulnerable save is worsened by this weapon's AP value, in addition to their armour save."
     }, {
       "name": "Sepulchral Chill",
       "notes": "At the beginning of each Close Quarters Phase, enemy models within 1\" of one or more models with this item must make a Ld check. If the check is failed, those models fight last that phase."

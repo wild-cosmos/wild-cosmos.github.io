@@ -16,7 +16,7 @@
     "section": "Treated as being within 1″ while within 2″. Can use cover save to defend against melee attacks."
   }, {
     "title": "Battle Standard",
-    "section": "Visible friendlies within 9″ re-roll failed morale checks, and improve Ld by 1 if this model’s Ld is greater. +1 to control score if this model is within 3″ of objective, even if they are non-scoring."
+    "section": "Visible friendlies within 9″ re-roll failed morale checks, and improve Ld by 1 if this model's Ld is greater. +1 to control score if this model is within 3″ of objective, even if they are non-scoring."
   }, {
     "title": "Beam",
     "section": "Make a hit roll for each model under a 1 mm line, up to the maximum range. Stray shots cannot be allocated to models or units under the line."
@@ -46,7 +46,7 @@
     "section": "After moving, 1 injury on a roll of 1 (roll of 1 or 2 if advancing, charging, retreating, jumping or falling).<br/>Extremely Dangerous Terrain: D3 injuries on a roll of 1 or 2 (automatically if advancing, charging, retreating, jumping or falling).<br/>Burning Terrain: Flame token on a roll of 1 or 2."
   }, {
     "title": "Deep Strike (X+)",
-    "section": "<p>Set up anywhere, including within 1″ of enemies − this is not a charge. Mv reduced to 0″ but treated as having moved.</p><ul><li>Displaced (roll less than X): opponent moves models up to 9″ horizontally and 3″ vertically.</li><li>Mishap (roll of 1, or any failed roll if within 1″ of enemies): D4-1 injuries for each model.</li></ul>"
+    "section": "<p>Set up anywhere, including within 1″ of enemies - this is not a charge. Mv reduced to 0″ but treated as having moved.</p><ul><li>Displaced (roll less than X): opponent moves models up to 9″ horizontally and 3″ vertically.</li><li>Mishap (roll of 1, or any failed roll if within 1″ of enemies): D4-1 injuries for each model.</li></ul>"
   }, {
     "title": "Defensive Fire",
     "section": "Hit roll penalty of 1. Can only target the charging models; treated as within 0″ and visible."
@@ -130,10 +130,10 @@
     "section": "<b>Fatal Blow:</b> Immediately destroy a model that is seriously injured, if successfully hit by your attack.<br/><b>Refuse to Die:</b> Destroyed at end of round instead of that phase. If used in the Resolution Phase, destroyed at start of next Resolution Phase. Can still be immediately destroyed. Last model in the warband can use this Moment even if faltering or panicking; they stop faltering or panicking and no longer make morale checks.<br/><b>Swordbreaker:</b> Discard a critical hit to reduce Dm of a weapon by Dm value of that hit, or to destroy a Shield (discarded hit must be Dm 2 or greater).<br/><b>Last Hope:</b> 1 victory point on 5+ at end of game."
   }, {
     "title": "Morale Checks",
-    "section": "Only make one check − additional triggers add a Ld penalty. Models in reserve are still subject to making morale checks. Panic if roll for the check is less than half Ld."
+    "section": "Only make one check - additional triggers add a Ld penalty. Models in reserve are still subject to making morale checks. Panic if roll for the check is less than half Ld."
   }, {
     "title": "Obscured",
-    "section": "If less than half of a model is visible, cover save of 7+; or cover save of the terrain obscuring the model, if better. Models are not obscured by models in their unit or the attacker’s unit."
+    "section": "If less than half of a model is visible, cover save of 7+; or cover save of the terrain obscuring the model, if better. Models are not obscured by models in their unit or the attacker's unit."
   }, {
     "title": "Overheat",
     "section": "After attacking, X injuries on a roll of 1."
@@ -184,10 +184,10 @@
     "section": "Halve Mv (rounding up), hit roll penalty of 1 for all attacks. Must make a morale check (in addition to the morale check for being injured)"
   }, {
     "title": "Shield",
-    "section": "One block roll per phase − may discard a hit if block roll value is equal or greater."
+    "section": "One block roll per phase - may discard a hit if block roll value is equal or greater."
   }, {
     "title": "Shove",
-    "section": "<p>Instead of attacking, shove a model within 1″.  On a 5+, shoved model moves 1″ directly away. Will fall if at least half their base is over an edge.<br/>Modifiers:</p><ul><li>Penalty of 1 if shoved model’s armour is 4+ or better</li><li>Penalty of 1 if shoved model’s CS is better</li><li>Bonus of 2 if shoving model charged</li></ul>"
+    "section": "<p>Instead of attacking, shove a model within 1″.  On a 5+, shoved model moves 1″ directly away. Will fall if at least half their base is over an edge.<br/>Modifiers:</p><ul><li>Penalty of 1 if shoved model's armour is 4+ or better</li><li>Penalty of 1 if shoved model's CS is better</li><li>Bonus of 2 if shoving model charged</li></ul>"
   }, {
     "title": "Sniper",
     "section": "Hits cannot be re-allocated to other models. Can target specific models n a unit. Ignore stray shots.<br/><b>Aiming:</b> hit roll modifier is also a critical hit modifier."

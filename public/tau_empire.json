@@ -335,10 +335,10 @@
       "notes": "This model has the Manta Strike (4+) ability."
     }, {
       "name": "Destabilised Electrokinetic Core",
-      "notes": "This model’s photon grenades or EMP grenades have AP 1/5 and Dm D2."
+      "notes": "This model's photon grenades or EMP grenades have AP 1/5 and Dm D2."
     }, {
       "name": "Drone Controller",
-      "notes": "Friendly Drones within 2\" of this model may use this model’s BS value instead of their own. Up to two Drones may benefit from this model’s drone controller each round."
+      "notes": "Friendly Drones within 2\" of this model may use this model's BS value instead of their own. Up to two Drones may benefit from this model's drone controller each round."
     }, {
       "name": "Dynamic Mirror Field",
       "notes": "Enemy models that target this model or their unit incur a hit roll penalty of 1. This penalty is cumulative with other hit roll penalties, such as the penalty conferred by a stealth field."
@@ -348,7 +348,7 @@
       "notes": "This model has the Explodes! ability. When they are reduced to 0 life, they may choose to automatically explode instead of rolling for it (they cannot choose not to explode)."
     }, {
       "name": "Fusion Blades",
-      "notes": "Any fusion blaster this model is armed with has Rng 10\"/−, and have A 2 In the Close Quarters Phase."
+      "notes": "Any fusion blaster this model is armed with has Rng 10\"/-, and have A 2 In the Close Quarters Phase."
     }, {
       "name": "Grav-inhibitor Field",
       "notes": "When an enemy model or unit charges this model or their unit, after any defensive fire has been resolved, roll a D4: the charging models reduce their Mv value by this amount. If, because of this, the charging models cannot finish their move within 1\" of any of the models they declared that they were charging, they must instead move as far as possible towards at least one of those targets."
@@ -369,7 +369,7 @@
       "notes": "When this model makes a ranged attack with a pulse carbine, pulse rifle or burst cannon, any hit roll of 1 is a successful hit instead of a stray shot."
     }, {
       "name": "Networked Command Node",
-      "notes": "While this model is on the battlefield, friendly Fire Caste models may use this model’s Ld value instead of their own, and treat this model as being visible to them for the purpose of the Bonding Knife Ritual ability."
+      "notes": "While this model is on the battlefield, friendly Fire Caste models may use this model's Ld value instead of their own, and treat this model as being visible to them for the purpose of the Bonding Knife Ritual ability."
     }, {
       "name": "Novasurge Reactor",
       "notes": "Once per game, when this model makes a ranged attack, they may activate their novasurge reactor. If they do so, any pulse rifle or plasma rifle used as part of that attack has AP 5 and adds 2 to its Dm value."

@@ -258,7 +258,7 @@
       "notes": "This model has the Battle Standard ability."
     }, {
       "name": "Dark Age weapon",
-      "notes": "When you create your warband, choose one weapon this model is armed with that has ‘plasma’ in its name: that weapon does not have the Overheat type."
+      "notes": "When you create your warband, choose one weapon this model is armed with that has ‘plasma' in its name: that weapon does not have the Overheat type."
     }, {
       "name": "Devotional Cherub",
       "notes": "Once per game, this model may discard one successful hit that has been allocated to them. This must be declared after all successful hits for an attack have been allocated, but before any saving throws are made."
@@ -295,7 +295,7 @@
       "notes": "Once per game, this model may use their smoke grenades. If they do, then until the end of the phase this model ignores the penalties for retreating, and enemy models that target this model with a ranged attack incur a hit roll penalty of 1."
     }, {
       "name": "Special-issue Ammunition",
-      "notes": "When you create your warband, choose up to two of the following abilities. When a model in your warband with special-issue ammunition attacks with a Bolter weapon, they may choose for it to have one of the chosen abilities while resolving that attack (declare which ability you will use before making any hit rolls for that attack).\nKraken Bolts: Add 6\" to this weapon’s Rng value (or 3\" if it is a Pistol) and add 1 to this weapon’s AP value, to a maximum of AP 2/5.\nVengeance Rounds: Subtract 6\" from this weapon’s Rng value (or 3\" if it is a Pistol) and add 2 to this weapon’s AP value, to a maximum of AP 3/6.\nDragonfire Bolts: This weapon has the Flame (6+) type. The target’s cover save is worsened by this weapon’s AP value, in addition to their armour save.\nHellfire Rounds: This weapon has the Poison (6+) type.\nMetal Storm Frag Shells: This weapon has the Blast (2) type, but cannot benefit from the Critical or Sniper type, if it has either of these types."
+      "notes": "When you create your warband, choose up to two of the following abilities. When a model in your warband with special-issue ammunition attacks with a Bolter weapon, they may choose for it to have one of the chosen abilities while resolving that attack (declare which ability you will use before making any hit rolls for that attack).\nKraken Bolts: Add 6\" to this weapon's Rng value (or 3\" if it is a Pistol) and add 1 to this weapon's AP value, to a maximum of AP 2/5.\nVengeance Rounds: Subtract 6\" from this weapon's Rng value (or 3\" if it is a Pistol) and add 2 to this weapon's AP value, to a maximum of AP 3/6.\nDragonfire Bolts: This weapon has the Flame (6+) type. The target's cover save is worsened by this weapon's AP value, in addition to their armour save.\nHellfire Rounds: This weapon has the Poison (6+) type.\nMetal Storm Frag Shells: This weapon has the Blast (2) type, but cannot benefit from the Critical or Sniper type, if it has either of these types."
     }, {
       "name": "Storm Shield",
       "abilities": [ "Shield" ],
@@ -637,14 +637,14 @@
       "a": 3,
       "ap": 4,
       "dm": 1,
-      "notes": "Heavy (1). Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target’s armour save, or Dm 3 if the hit roll was double the target’s armour save or more."
+      "notes": "Heavy (1). Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target's armour save, or Dm 3 if the hit roll was double the target's armour save or more."
     }, {
       "name": "Grav-gun",
       "range": [ 18 ],
       "a": [ 1, 2 ],
       "ap": [ 4 ],
       "dm": [ 1 ],
-      "notes": "Rapid Fire. Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target’s armour save, or Dm 3 if the hit roll was double the target’s armour save or more.",
+      "notes": "Rapid Fire. Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target's armour save, or Dm 3 if the hit roll was double the target's armour save or more.",
       "usedBy": [ ]
     }, {
       "name": "Grav-pistol",
@@ -652,7 +652,7 @@
       "a": 1,
       "ap": 4,
       "dm": 1,
-      "notes": "Pistol. Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target’s armour save, or Dm 3 if the hit roll was double the target’s armour save or more."
+      "notes": "Pistol. Successful hits with this weapon are resolved with Dm 2 if the value for the hit roll was greater than the target's armour save, or Dm 3 if the hit roll was double the target's armour save or more."
     }, {
       "name": "Guardian Skull",
       "range": [ 6, null ],

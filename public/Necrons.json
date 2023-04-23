@@ -179,7 +179,7 @@
       "a": 4,
       "ap": [ 1, 4 ],
       "dm": 1,
-      "notes": "Critical (7+). For every full 2 life the bearer has lost, reduce this weapon’s A value by 1.",
+      "notes": "Critical (7+). For every full 2 life the bearer has lost, reduce this weapon's A value by 1.",
       "usedBy": [ "Canoptek Scarabs" ]
     }, {
       "name": "Flensing Claws",
@@ -234,7 +234,7 @@
       "a": 2,
       "ap": [ 3, 5 ],
       "dm": 2,
-      "notes": "Critical (7+). Attacks with this weapon incur a hit roll penalty of 1. If the bearer attacks more than one target or a unit with this weapon, add 1 to its A value. The target’s invulnerable save is worsened by this weapon’s AP value, in addition to their armour save.",
+      "notes": "Critical (7+). Attacks with this weapon incur a hit roll penalty of 1. If the bearer attacks more than one target or a unit with this weapon, add 1 to its A value. The target's invulnerable save is worsened by this weapon's AP value, in addition to their armour save.",
       "usedBy": [ "Oligarkh" ]
     }, {
       "name": "Hyperphase Sword",
@@ -243,7 +243,7 @@
       "a": 2,
       "ap": [ 3, 5 ],
       "dm": 1,
-      "notes": "Paired. The target’s invulnerable save is worsened by this weapon’s AP value, in addition to their armour save.",
+      "notes": "Paired. The target's invulnerable save is worsened by this weapon's AP value, in addition to their armour save.",
       "usedBy": [ "Oligarkh", "Lychguard" ]
     }, {
       "name": "Particle Beamer",
@@ -367,7 +367,7 @@
       "notes": "If this model is not armed with any melee weapons, their unarmed profile has A 2, AP 0/4 and the Critical (7+) type. If this model is armed with flensing claws, they have the Critical (7+) type."
     }, {
       "name": "Engrammatic Entangler",
-      "notes": "If this model is destroyed and does not reanimate, nominate a friendly Necron Infantry model (excluding Flayed Ones) on the battlefield. That model replaces their BS, CS and Ld values with this model’s values, replaces all of their abilities with this model’s abilities, and becomes your warband’s Leader. Your Leader is not considered to be destroyed until the nominated model is also destroyed."
+      "notes": "If this model is destroyed and does not reanimate, nominate a friendly Necron Infantry model (excluding Flayed Ones) on the battlefield. That model replaces their BS, CS and Ld values with this model's values, replaces all of their abilities with this model's abilities, and becomes your warband's Leader. Your Leader is not considered to be destroyed until the nominated model is also destroyed."
     }, {
       "name": "Gravity Displacer",
       "mv": [ 5, 12 ],
@@ -405,10 +405,10 @@
     }, {
       "name": "Quantum Shielding",
       "invulnerableSave": 7,
-      "notes": "This model has a 7+ invulnerable save. When this model makes a saving throw, they improve any invulnerable save they have by an amount equal to the Dm value of the attack (for example, a 7+ invulnerable save would become a 4+ invulnerable save while defending against a Dm 3 attack − note that an invulnerable save can never be improved to be better than 3+)."
+      "notes": "This model has a 7+ invulnerable save. When this model makes a saving throw, they improve any invulnerable save they have by an amount equal to the Dm value of the attack (for example, a 7+ invulnerable save would become a 4+ invulnerable save while defending against a Dm 3 attack - note that an invulnerable save can never be improved to be better than 3+)."
     }, {
       "name": "Resurrection Orb",
-      "notes": "Once per game, either at the beginning of any phase or immediately after rolling a 0 on the Reanimation table, you may activate your resurrection orb. Nominate either this model’s Reanimation marker or a friendly Reanimation marker within 9″ of this model: the corresponding model immediately reanimates, and regains 2 life instead of 1. A model that is reanimated by a resurrection orb does not automatically falter in the Morale step of that round’s Resolution Phase."
+      "notes": "Once per game, either at the beginning of any phase or immediately after rolling a 0 on the Reanimation table, you may activate your resurrection orb. Nominate either this model's Reanimation marker or a friendly Reanimation marker within 9″ of this model: the corresponding model immediately reanimates, and regains 2 life instead of 1. A model that is reanimated by a resurrection orb does not automatically falter in the Morale step of that round's Resolution Phase."
     }, {
       "name": "Sempiternal Weave",
       "notes": "Enemy models incur a critical hit penalty of 1 for attacks that target this model."
@@ -417,7 +417,7 @@
       "notes": "Once per game in the Manoeuvring Phase, instead of attacking, this model may ignite their solar pulse. Roll a D8 for each enemy model on the battlefield that is visible to this model: on a 5+ that model gets a Stun token. If the model being rolled for is within 12″ of this model, they get a Stun token on a 2+ instead."
     }, {
       "name": "Tesseract Labyrinth",
-      "notes": "In the Close Quarters Phase, instead of attacking, this model may attempt to capture an enemy model within 3″ in the labyrinth. Roll a D6: if the value rolled is greater than the target model’s remaining life, they are caught within the labyrinth and removed from the battlefield.\nThe model caught in the labyrinth is not treated as destroyed until the end of the game, and as such may not be targeted by or benefit from any abilities that target destroyed models, such as abilities that bring them back into play or that allow them to attack before they are removed from the battlefield.\nOnce a model has been captured, the tesseract labyrinth may not be used again for the rest of the game."
+      "notes": "In the Close Quarters Phase, instead of attacking, this model may attempt to capture an enemy model within 3″ in the labyrinth. Roll a D6: if the value rolled is greater than the target model's remaining life, they are caught within the labyrinth and removed from the battlefield.\nThe model caught in the labyrinth is not treated as destroyed until the end of the game, and as such may not be targeted by or benefit from any abilities that target destroyed models, such as abilities that bring them back into play or that allow them to attack before they are removed from the battlefield.\nOnce a model has been captured, the tesseract labyrinth may not be used again for the rest of the game."
     }, {
       "name": "Translocation Casket",
       "abilities": [ "Deep Strike (4+)" ],
@@ -434,7 +434,7 @@
       "Tesla": [ "Arcshock Projector",
         "Electromagnetic Overcapacitor",
         "Fulmination Node" ],
-      "notes": "When you create your warband, choose one of the following abilities. For the duration of the game, every model in your warband with a weapon optimisation has this ability.\nElectron Amplifier: Any gauss or tesla weapon this model is armed with adds 1 to its AP value.\nIonisation Node: Any gauss or tesla weapon this model is armed with has the Radiation (6+) type.\nDisassembler Coils: When this model attacks with a gauss weapon, if the target is within 9″, this model incurs a critical hit bonus of 1 for that attack.\nArcsplinter Array: When this model attacks with a tesla weapon, successful hit rolls of 6+ inflict additional hits, instead of successful hit rolls of 7+.\nFor the purpose of these abilities, a gauss weapon is any weapon that has ‘gauss’ in its name, and a tesla weapon is any weapon that has ‘tesla’ in its name."
+      "notes": "When you create your warband, choose one of the following abilities. For the duration of the game, every model in your warband with a weapon optimisation has this ability.\nElectron Amplifier: Any gauss or tesla weapon this model is armed with adds 1 to its AP value.\nIonisation Node: Any gauss or tesla weapon this model is armed with has the Radiation (6+) type.\nDisassembler Coils: When this model attacks with a gauss weapon, if the target is within 9″, this model incurs a critical hit bonus of 1 for that attack.\nArcsplinter Array: When this model attacks with a tesla weapon, successful hit rolls of 6+ inflict additional hits, instead of successful hit rolls of 7+.\nFor the purpose of these abilities, a gauss weapon is any weapon that has ‘gauss' in its name, and a tesla weapon is any weapon that has ‘tesla' in its name."
     }
   ],
 
