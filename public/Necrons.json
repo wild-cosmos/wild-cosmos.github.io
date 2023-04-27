@@ -98,7 +98,7 @@
     },
     "Canoptek Scarabs": {
       "cost": 14,
-      "mv": [ 5, 12 ],
+      "mv": [ 8, 12 ],
       "bs": null,
       "cs": 5,
       "df": 8,
@@ -227,9 +227,9 @@
       "usedBy": [ "Necron Warrior" ]
     }, {
       "name": "Gauss Reaper",
-      "range": 18,
+      "range": 12,
       "melee": false,
-      "a": [ 1, 2 ],
+      "a": 2,
       "ap": [ 1, 4 ],
       "dm": [ 1, 2 ],
       "notes": "Assault",
@@ -671,12 +671,12 @@
       "weapon": [ "Voidblade", "Voidblade" ],
       "replaces": [ "Rod of Covenant" ],
       "cost": 2,
-      "usedBy": [ "Triarch Judicator" ]
+      "usedBy": [ "Triarch Judicator", "Triarch Praetorian" ]
     }, {
       "weapon": [ "Voidblade", "Particle Caster" ],
       "replaces": [ "Rod of Covenant" ],
       "cost": 0,
-      "usedBy": [ "Triarch Judicator" ]
+      "usedBy": [ "Triarch Judicator", "Triarch Praetorian" ]
     }, {
       "weapon": [ "Hyperphase Sword", "Particle Caster" ],
       "replaces": [ "Rod of Covenant" ],
@@ -697,20 +697,6 @@
       "replaces": [ "Rod of Covenant" ],
       "cost": 0,
       "usedBy": [ "Triarch Judicator" ]
-    },
-
-    {
-      "weapon": [ "Voidblade", "Voidblade" ],
-      "replaces": [ "Rod of Covenant" ],
-      "cost": 2,
-      "usedBy": [ "Triarch Praetorian" ]
-    },
-    {
-      "weapon": [ "Voidblade", "Particle Caster" ],
-      "replaces": [ "Rod of Covenant" ],
-      "cost": 0,
-      "usedBy": [ "Triarch Praetorian" ]
     }
-
   ]
 }
