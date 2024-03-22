@@ -65,9 +65,11 @@
   </main>
 
   <OrbitzBanner class="d-print-none" />
+  <SpeedInsights />
 </template>
 
 <script setup lang="ts">
+import { SpeedInsights } from '@vercel/speed-insights/vue';
 import { onMounted, watch, ref } from 'vue';
 import { RouterLink, RouterView, useRoute } from 'vue-router';
 import { Collapse } from 'bootstrap';

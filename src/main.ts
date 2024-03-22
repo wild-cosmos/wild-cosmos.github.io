@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { VueFire, VueFireAuth } from 'vuefire';
+import { inject } from '@vercel/analytics';
 import App from './App.vue';
 import router from './router';
 import { firebaseApp } from './firebase';
@@ -12,6 +13,8 @@ import packageInfo from '../package.json';
 
 // eslint-disable-next-line no-console
 console.info(`Warband Builder v${packageInfo.version}`);
+
+inject();
 
 const app = createApp(App);
 
