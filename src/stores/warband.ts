@@ -8,9 +8,7 @@ interface State {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export const useWarbandStore = defineStore({
-  id: 'warband',
-
+export const useWarbandStore = defineStore('warband', {
   state: () => ({
     warbands: useLocalStorage('wild-cosmos-warband', []),
   }),

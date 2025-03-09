@@ -45,9 +45,7 @@ interface State {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export const useSquadStore = defineStore({
-  id: 'squad',
-
+export const useSquadStore = defineStore('squad', {
   state: (): State => ({
     faction: 'None',
     name: null,

@@ -79,9 +79,7 @@ function parseFaction(faction: string | [string, string]) {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export const useDataStore = defineStore({
-  id: 'data',
-
+export const useDataStore = defineStore('data', {
   state: (): State => ({
     factions: [],
     subFactions: {},
