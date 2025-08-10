@@ -44,5 +44,8 @@
     "vite-plugin-vue-devtools": "^7.7.7",
     "vue-tsc": "^1.8.27"
   },
+  "engines": {
+    "node": ">=20.19.0 <21 || >=22.12.0"
+  },
   "packageManager": "pnpm@8.15.3+sha256.fc4a49bd609550a41e14d20efbce802a4b892aa4cac877322de2f0924f122991"
 }
