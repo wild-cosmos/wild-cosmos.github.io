@@ -15,11 +15,11 @@ dependencies:
     specifier: ^10.9.0
     version: 10.9.0(vue@3.5.18)
   bootstrap:
-    specifier: ^5.3.3
-    version: 5.3.3(@popperjs/core@2.11.8)
+    specifier: ^5.3.7
+    version: 5.3.7(@popperjs/core@2.11.8)
   bootstrap-icons:
-    specifier: ^1.11.3
-    version: 1.11.3
+    specifier: ^1.13.1
+    version: 1.13.1
   firebase:
     specifier: ^9.23.0
     version: 9.23.0
@@ -2239,12 +2239,12 @@ packages:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
-  /bootstrap-icons@1.11.3:
-    resolution: {integrity: sha512-+3lpHrCw/it2/7lBL15VR0HEumaBss0+f/Lb6ZvHISn1mlK83jjFpooTLsMWbIjJMDjDjOExMsTxnXSIT4k4ww==}
+  /bootstrap-icons@1.13.1:
+    resolution: {integrity: sha512-ijombt4v6bv5CLeXvRWKy7CuM3TRTuPEuGaGKvTV5cz65rQSY8RQ2JcHt6b90cBBAC7s8fsf2EkQDldzCoXUjw==}
     dev: false
 
-  /bootstrap@5.3.3(@popperjs/core@2.11.8):
-    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
+  /bootstrap@5.3.7(@popperjs/core@2.11.8):
+    resolution: {integrity: sha512-7KgiD8UHjfcPBHEpDNg+zGz8L3LqR3GVwqZiBRFX04a1BCArZOz1r2kjly2HQ0WokqTO0v1nF+QAt8dsW4lKlw==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
     dependencies:
